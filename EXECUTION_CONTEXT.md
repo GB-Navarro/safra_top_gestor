@@ -31,16 +31,17 @@ Se houver conflito: instrução atual do usuário prevalece; o andamento vem do 
 - Em 01/11 o usuário pediu para **seguir o plano como está**, sem cortes por prazo, e implementar a **Parte 1** (plano11), revisando a implementação. A Parte 1 foi executada (AN01–AN12). Em seguida pediu para conferir a documentação e implementar a **Parte 2**, que também foi executada (EN01–EN12). O prazo público de envio é 02/11/2026; horário e canal dependem de H07.
 - Depois, o usuário pediu para **investigar tudo o que falta, mapear o que o agente pode fazer, planejar, revisar criticamente o plano e implementar**. Isso virou o [plano 13](plans/13_plano_fechamento_residual_agente.md), executado em 01/11.
 
-- Pedido mais recente: aplicar todo o design de `resources/design_system/marcadev.html` ao HTML/PDF de dez páginas, mantendo asset.dev, validar posicionamento e gerar PPTX do HTML. Implementado em01/11; PPTX10 renderizado para fidelidade visual, com texto nas notas. Não altera a análise nem registra decisões humanas.
+- Pedido anterior: aplicar todo o design de `resources/design_system/marcadev.html` ao HTML/PDF de dez páginas, mantendo asset.dev, validar posicionamento e gerar PPTX do HTML. Implementado em01/11; PPTX10 renderizado para fidelidade visual, com texto nas notas. Não altera a análise nem registra decisões humanas.
+- **Pedido mais recente (plano 14, 01/11):** tornar a apresentação final igual ao PPT reorganizado do grupo (12 slides), com a história começando na 2ª carta (o modelo pôs 2% em Sabesp, escolha do modelo pelo prêmio de risco) e seguindo pelos fundamentos sem citar o modelo; texto no estilo das cartas; layout sério e limpo; slides planos, sem botões; validação final de dados, fontes e narrativa; script ajustado; entregar HTML, PPTX e PDF e depois excluir o PPT do grupo. Executado; detalhes no [plano 14](plans/14_plano_apresentacao_final.md).
 
 ## Ponto de retomada
 
-**Partes 1 e 2 e o plano 13 concluídos como proposta; o próximo passo é humano (H07, H08/H09, H10).**
+**Partes 1 e 2, o plano 13 e o plano 14 concluídos como proposta; o próximo passo é humano (H07, H08/H09, H10).**
 
-- **Pacote vigente:** `an_20261101T132455_ac536175` (ponteiro `outputs/draft/analysis_bundle/latest.json`, estado `analysis_proposed`), gerado da fotografia derivada `snap_20261031_7c31b5560e`.
-- **Peças:** build `pr_20261101T151834_ac536175`, publicado em `pub_20261101T153001` (`outputs/draft/production/published.json`), com design asset.dev aplicado a HTML/PDF/PPTX10.
-- **Onde estão:** peças em `outputs/draft`, HTML em `outputs/draft/html` e tabelas de `data/processed` (marcador `CANONICAL_SOURCE.json`) refletem esse pacote.
-- **Versões anteriores** (`an_..083333`, `pr_..124209`) seguem preservadas.
+- **Pacote vigente:** `an_20261101T202028_e29905ab` (ponteiro `outputs/draft/analysis_bundle/latest.json`, estado `analysis_proposed`), gerado da fotografia derivada `snap_20261031_b126c2edf0` (mãe `snap_20261031_2cf3206ead` → plano 13 `7c31b5560e` → plano 14 `a54d10bd24` → `b126c2edf0`).
+- **Peças:** build `pr_20261101T203705_e29905ab`, publicado em `pub_20261101T203832` (`outputs/draft/production/published.json`). Perfil único **deck12**: 12 slides planos em HTML (`outputs/draft/html/apresentacao_esg.html`), PDF e PPTX (`outputs/draft/apresentacao_esg.{pdf,pptx}`, cópias idênticas em `outputs/draft/html/`), script `outputs/draft/script_apresentacao.md` e quatro teleprompters.
+- **Onde estão:** peças em `outputs/draft`; tabelas de `data/processed` (marcador `CANONICAL_SOURCE.json`) refletem o pacote vigente.
+- **Versões anteriores** (`an_..083333`, `an_..132455`, `an_..193707`; `pr_..124209`, `pr_..151834`, `pr_..202800`) seguem preservadas. O PPT do grupo foi excluído a pedido do usuário; a extração (texto, notas, geometria) e as folhas de contato estão em `data/interim/production/reference/`.
 
 Tudo continua como proposta (selo "H09 pendente").
 
@@ -48,8 +49,8 @@ Tudo continua como proposta (selo "H09 pendente").
 
 O agente retoma quando houver fato novo:
 
-- **Decisão H08/H09 que mude premissa:** nova versão do pacote com `python -m analysis.run --baseline derive:data/interim/analysis/baseline/snap_20261031_7c31b5560e`. A opção `new` é recusada, porque `data/processed` agora tem saídas publicadas. Para registrar uma fonte nova da Parte 1, coloque-a em `data/raw/analysis/<emissor>/` e em `EXTRA_PDFS`, e derive de novo. Depois, novo build (`production.run`), revisão das capturas, `--record-visual-review` e `--publish`.
-- **Clipes reais:** `--release-report` e montagem no perfil indicado por H07.
+- **Decisão H08/H09 que mude premissa:** nova versão do pacote com `python -m analysis.run --baseline derive:data/interim/analysis/baseline/snap_20261031_b126c2edf0`. A opção `new` é recusada, porque `data/processed` agora tem saídas publicadas. Para registrar uma fonte nova da Parte 1, coloque-a em `data/raw/analysis/<emissor>/` (e em `EXTRA_PDFS` se for PDF a extrair, ou em `DERIVE_EXTRA` se estiver fora de `data/raw/analysis`), e derive de novo. Depois, novo build (`production.run`), revisão das capturas, `--record-visual-review` e `--publish`.
+- **Clipes reais:** `--release-report` e montagem do perfil deck12 (`config/video_segments.json`, 12 segmentos S01–S12).
 - **Portões liberados:** `run_esg.py --mode final`.
 
 Como a Parte 2 foi implementada (para manter ou reexecutar):
@@ -60,25 +61,23 @@ Como a Parte 2 foi implementada (para manter ou reexecutar):
    - `format_value` formata em pt-BR;
    - `Bundle.render` resolve os tokens `{{value:ID|estilo}}`;
    - o adaptador gera `kind=baseline` / `baseline_unreconciled` com todos os casos `unresolved`.
-3. **EN03** `deck_model.py` + `content.py` + `labels.py`:
-   - páginas P01–P10 com números `{ref,num,fmt}` e fontes por página;
-   - `IncompatibleState` quando não há decisão proposta/adotada ou o caso-base decidido não tem alvo;
-   - `claim_placements.csv` por perfil.
-4. **EN04** `presentation_web/deck.css` + `deck.js` + `html_deck.py` (HTML único, offline):
-   - interações por página e autoteste `?selftest=1` com 31 verificações (inclui palco na janela e nada sob a câmera nas 10 páginas);
-   - modo gravação (tecla G ou `?rec=1`) reduz o slide a 0,84 e libera a área da câmera (1644, 540, 252×448);
-   - tema escuro com o token `--brand-fill`;
-   - impressão de 10 páginas.
-5. **EN05** `figures.py` (eixos pt-BR em `_save`) e `pptx_deck.py`:
-   - PPTX9 com falas nas notas e S7 = P07 + P08; títulos longos a 26 pt;
-   - apoio7 com rótulos em português.
-6. **EN06** `narrative.py`: scripts pptx9/html10, quatro teleprompters, perguntas, guia e lint de números literais.
+3. **EN03** `deck_model.py` + `content.py` + `labels.py` (plano 14):
+   - 12 páginas S01–S12 com números `{ref,num,fmt}`, fontes por página e rodapé de fontes agrupado por emissor;
+   - `guards()` confere as relações afirmadas nos títulos e falas (quem rende acima do custo de capital, quem fica acima do preço etc.) e recusa o deck (`IncompatibleState`) se o pacote deixar de sustentá-las;
+   - `IncompatibleState` também quando não há decisão proposta/adotada ou o caso-base decidido não tem alvo;
+   - `claim_placements.csv` do perfil deck12.
+4. **EN04** `slides.py` + `html_deck.py` + `presentation_web/deck.css` + `deck.js` (HTML único, offline, plano):
+   - marcação e gráficos SVG gerados em Python; nenhum botão, painel, dica ou barra de progresso;
+   - `deck.js` só navega (setas, espaço, clique, Home/End, `#pN`), ajusta à janela, liga o modo gravação (G ou `?rec=1`: slide a 0,84 e área da câmera 1644, 540, 252×448 livre) e roda o autoteste `?selftest=1` (73 verificações: sobreposição de título/subtítulo/corpo/rodapé, transbordo, colisão de rótulos, ausência de controles, navegação, fontes);
+   - impressão de 12 páginas.
+5. **EN05** `html_pptx.py`, `figures.py` e `pptx_deck.py`: PPTX das 12 páginas renderizadas a 3840 px, com o texto do slide no texto alternativo e a fala nas notas; figuras PNG/SVG/CSV do modelo novo; apoio técnico de 7 páginas (o PPTX9 editável foi aposentado).
+6. **EN06** `narrative.py`: script único (12 falas), quatro teleprompters, perguntas, guia; lints de números literais, de estilo das cartas (sem travessão, seta, exclamação e chavões) e do modelo citado depois do slide 2.
 7. **EN07** `video.py`:
-   - perfis de 13 e 14 segmentos;
-   - `assemble` só com clipes reais;
-   - autoteste sintético com x264 limitado a 2 threads (memória comprometida baixa nesta máquina).
+   - perfil único deck12 (12 segmentos) em `config/video_segments.json`;
+   - `overlay` reduz o slide inteiro a 0,84 à esquerda e põe a câmera ao lado, sem cobrir conteúdo;
+   - `assemble` só com clipes reais; autoteste sintético com x264 limitado a 2 threads.
 8. **EN08** `run.py`: CLI e perfis. `scripts/run_esg.py` delega às duas partes e recusa etapas legadas que reescreveriam a fonte canônica sem `--legacy`.
-9. **EN09** `qa.py`: 15 verificações por build, capturas e folhas de contato.
+9. **EN09** `qa.py`: 19 verificações por build (autoteste em 1920 e 1366, offline, slides sem controles, PDF e PPTX de 12 páginas, falas nas notas, apoio 7, números entre formatos, relações dos títulos, claims, lints, orçamento de fala, vídeo), capturas e folhas de contato.
 10. **EN10** `release.py`:
     - portões `data_factual` → `sent`, com revisão visual vinculada aos hashes;
     - `checklist_envio.md` gerado por `docs.py`.
@@ -91,6 +90,7 @@ Como a Parte 2 foi implementada (para manter ou reexecutar):
 Como a Parte 1 foi implementada (para manter ou reexecutar):
 
 0. **Plano 13:** fotografia derivada `snap_20261031_7c31b5560e` (`derive_snapshot`), com quatro fontes primárias novas, e pacote `an_20261101T132455_ac536175`. Detalhe no [plano 13](plans/13_plano_fechamento_residual_agente.md).
+0. **Plano 14:** `origin.py` lê a 2ª carta (pesos, motivos, método e teses) e cria `CL.lead.origin`; `market_week.py` registra os fechamentos de 23/10 (mesmas tabelas de cotação), a variação até 30/10, a NTN-B de 23/10 (mesma série do Tesouro) e a reportagem do Poder360 de 26/10, com `CL.result.election_week`; `DERIVE_EXTRA` copia a carta, as tabelas de cotação e a série do Tesouro na fotografia. Tese sem a frase sobre o risco estadual. Pacote `an_20261101T202028_e29905ab`; 3 testes em `tests/analysis/test_plan14.py`.
 1. **AN01** `analysis/snapshot.py`: copia insumos para `data/interim/analysis/baseline/<snapshot_id>/files`, com hashes, extrações novas (release 4T25 e plano de capex da Sanepar, apresentação Sabesp, composição de capital CVM, Tesouro 30/10) e verificação dos 16 originais. Fotografia em uso: `snap_20261031_2cf3206ead`.
 2. **AN02** `reconciliation.py`, 64 células + C08 com disposição:
    - C02: DVA 7.01.03 e notas de custos por natureza.
@@ -168,12 +168,12 @@ Se faltarem arquivos: primeiro restaurar cópia/arquivo da fotografia original. 
 | [render_slides.py](scripts/render_slides.py) / [recalculate_workbook_qa.py](scripts/recalculate_workbook_qa.py) | LibreOffice isolado, PDF/capturas e segunda verificação da planilha. Nova versão/hash invalida revisão anterior pertinente. |
 | [validate.py](scripts/validate.py) | Testes, fontes, recortes, referências, artefatos e pacote; escopo limitado ao que está declarado no relatório. |
 | [package_outputs.py](scripts/package_outputs.py) | XLSX, guias e manifestos. Regera documentos; não presumir incorporação de H08/H09 ou entrega final. |
-| [assemble_video.py](scripts/assemble_video.py) | Montador **legado** do perfil pptx9. A montagem vigente, com perfis pptx9 (13) e html10 (14), medição e autoteste sintético, está em `production/video.py`. |
+| [assemble_video.py](scripts/assemble_video.py) | Montador **legado**; lê `config/video_segments.json` e o PDF publicado. A montagem vigente (deck12, 12 segmentos, slide a 0,84 ao lado da câmera), medição e autoteste sintético estão em `production/video.py`. |
 | [execution_status.py](scripts/execution_status.py) | Inicializa estados sem reiniciar registros posteriores; deve preservar este documento manual. |
 | [sync_project_docs.py](scripts/sync_project_docs.py) / [validate_completion_docs.py](scripts/validate_completion_docs.py) | Referências/indicadores/tabelas, cobertura, células e dependências; não validam economia por conta própria. |
 | [run_esg.py](scripts/run_esg.py) | Coordena estágios por subprocesso. Os estágios `analysis`, `production`, `publish` e `release` delegam às duas partes, e `--mode final` avalia portões via `production.run --promote-final`. Os estágios legados `model`/`slides`/`render`/`validate`/`package` exigem `--legacy` quando a fonte canônica é o contrato 1.0. |
-| [production/](production/) + [presentation_web/](presentation_web/) — Parte 2 | Consome só o pacote publicado (`consumer.resolve('latest')`); não importa `analysis/`. Fluxo: `snapshot` → `consumer` → `deck_model` → `html_deck`/`figures`/`narrative`/`pptx_deck`/`docs` → `qa` → `release`, com `publish` como integrador. Escrita limitada a `production.common.writable` (o integrador usa `publishing=True` sob trava). Testes em `tests/production/` com fixtures `kind=fixture` em diretório temporário. |
-| [analysis/](analysis/) — Parte 1 | Namespace próprio (não importa `scripts/`; ramo legado portado em `analysis/legacy.py`). Fluxo: `snapshot` → `reconciliation` → `capital` → `obligations` → `assumptions` → `valuation`/`dcf` → `sector` → `recommendation` → `bundle` (com `workbooks` e `contract`) → `progress`. Escreve só nas raízes exclusivas (`analysis.common.assert_writable`). Atualizações globais pela trava `analysis/lock.py`. Testes em `tests/analysis/`. |
+| [production/](production/) + [presentation_web/](presentation_web/) — Parte 2 | Consome só o pacote publicado (`consumer.resolve('latest')`); não importa `analysis/`. Fluxo: `snapshot` → `consumer` → `deck_model` → `slides`/`html_deck`/`figures`/`narrative`/`pptx_deck`(apoio)/`docs` → `qa` (com `html_pptx`) → `release`, com `publish` como integrador. Escrita limitada a `production.common.writable` (o integrador usa `publishing=True` sob trava). Testes em `tests/production/` com fixtures `kind=fixture` em diretório temporário. |
+| [analysis/](analysis/) — Parte 1 | Namespace próprio (não importa `scripts/`; ramo legado portado em `analysis/legacy.py`). Fluxo: `snapshot` → `origin` → `reconciliation` → `capital` → `obligations` → `assumptions` → `market_week` → `valuation`/`dcf` → `sector` → `recommendation` → `bundle` (com `workbooks` e `contract`) → `progress`. Escreve só nas raízes exclusivas (`analysis.common.assert_writable`). Atualizações globais pela trava `analysis/lock.py`. Testes em `tests/analysis/`. |
 
 ## Comandos de retomada
 
@@ -196,8 +196,8 @@ Parte 2 (peças a partir do pacote publicado; build e QA nas raízes próprias, 
 ```powershell
 $env:OPENBLAS_NUM_THREADS = '1'; $env:PYTHONIOENCODING = 'utf-8'
 & '.\.venv\Scripts\python.exe' -m production.run --input-bundle latest --check
-& '.\.venv\Scripts\python.exe' -m production.run --input-bundle latest            # build + QA (perfis pptx9 + html10)
-# revisar outputs/qa/production/<build>/*_contact_sheet.png, html/rec_p01.png, p08_1366x768.png, p*_dark.png
+& '.\.venv\Scripts\python.exe' -m production.run --input-bundle latest            # build + QA (perfil deck12)
+# revisar outputs/qa/production/<build>/{html,pdf,pptx,support7}_contact_sheet.png, html/rec_p*.png e html/p*_1366x768.png
 & '.\.venv\Scripts\python.exe' -m production.run --record-visual-review outputs/draft/production/<build> --notes "..."
 & '.\.venv\Scripts\python.exe' -m production.run --publish outputs/draft/production/<build>
 & '.\.venv\Scripts\python.exe' -m production.run --release-report
@@ -206,14 +206,14 @@ $env:OPENBLAS_NUM_THREADS = '1'; $env:PYTHONIOENCODING = 'utf-8'
 & '.\.venv\Scripts\python.exe' -m unittest discover -s tests/production -p "test_*.py"
 ```
 
-Abrir o HTML: `outputs/draft/html/apresentacao_esg.html` no navegador. As teclas são ←/→, 1–0, G (gravação), T (tema) e ? (ajuda). `?selftest=1` roda o autoteste.
+Abrir o HTML: `outputs/draft/html/apresentacao_esg.html` no navegador, em tela cheia (F11). Avança com →, espaço ou clique; volta com ←; Home/End; G liga o modo gravação e Esc desliga. `?selftest=1` roda o autoteste. Não há botões na tela.
 
 Parte 1 (pacote analítico 1.0; não toca nos caminhos globais do pipeline legado):
 
 ```powershell
 $env:OPENBLAS_NUM_THREADS = '1'
-& '.\.venv\Scripts\python.exe' -m analysis.run --baseline derive:data/interim/analysis/baseline/snap_20261031_7c31b5560e
-& '.\.venv\Scripts\python.exe' -m analysis.run --check outputs/draft/analysis_bundle/an_20261101T132455_ac536175
+& '.\.venv\Scripts\python.exe' -m analysis.run --baseline derive:data/interim/analysis/baseline/snap_20261031_b126c2edf0
+& '.\.venv\Scripts\python.exe' -m analysis.run --check outputs/draft/analysis_bundle/an_20261101T202028_e29905ab
 & '.\.venv\Scripts\python.exe' -m unittest discover -s tests/analysis -p "test_*.py"
 ```
 
@@ -229,22 +229,25 @@ Não rodar o pipeline legado (`--legacy`) em paralelo com as Partes 1 ou 2.
 
 Para coletar, o coletor permite seleção por chave de `jobs()`/extra_sources; verificar a chave antes de usar. O download direto do regulamento Safra retornou403; não repetir esse erro em loop. Não automatizar a aquisição B3 restringida. Coleta offline usa os arquivos já disponíveis, não recupera magicamente um snapshot ausente.
 
-O HTML10 usa `production/brand.py` (fontes/símbolo do manual), `presentation_web/deck.css` e `deck.js`; é gerado por `production/html_deck.py` e validado por `production/qa.py` (autoteste no navegador, offline, PDF de 10 páginas). Os nomes `build_html_deck.py`/`validate_html_deck.py` do plano10 eram exemplos e não existem. Os perfis seguem separados: PPTX9 editável com9 páginas; HTML10/PDF10/PPTX10 com10. `production/html_pptx.py` gera o PPTX10 do PDF do HTML, com imagens3840px e texto/evidências nas notas. A QA compara também sua renderização via LibreOffice; hashes usam caminhos relativos para distinguir arquivos homônimos dos dois perfis. Fontes estão incorporadas no HTML; reexecução dispensa download.
+A apresentação final (deck12, plano 14) usa `production/brand.py` (fontes/símbolo do manual), `production/content.py` (textos e falas com tokens), `deck_model.py`, `slides.py`, `html_deck.py`, `presentation_web/deck.css` e `deck.js`; `html_pptx.py` gera o PPTX das páginas do PDF do HTML. A QA compara números entre HTML, PPTX (texto alternativo e notas) e script, e renderiza o PPTX pelo LibreOffice. Os perfis pptx9/html10 foram aposentados; não recriá-los. Para mudar texto, editar `content.py` (números só por `{{value:ID}}`) e rodar o build; os lints e `guards()` recusam números digitados, chavões e títulos que o pacote não sustenta. A conferência de fatos do plano 14 está em `data/interim/production/fact_check/` (scripts reexecutáveis e `fact_check_final.json`).
 
 ## Registro de continuidade
 
 | Campo | Registro desta revisão |
 |---|---|
-| Última tarefa | Enviar as sete apresentações mais recentes ao GitHub, branch main, commit das peças `76ef1f3`. HTML/PDF/PPTX10, PPTX/PDF9 e apoio PPTX/PDF7; artefatos sem alteração. |
-| Alterações da revisão visual | Fontes incorporadas em presentation_web/fonts; brand.py; CSS/JS; html_deck.py; html_pptx.py; QA de geometria, exportação e hashes; publish.py inclui PPTX10. Pacote analítico e seus recortes preservados. |
+| Última tarefa | Plano 14: apresentação final igual ao PPT reorganizado do grupo (12 slides planos), origem na 2ª carta, narrativa no estilo das cartas, conferência final de dados/fontes e script; HTML, PDF e PPTX publicados (`pub_20261101T203832`); PPT do grupo excluído após a montagem. |
+| Alterações do plano 14 | **Parte 1:** `analysis/origin.py` e `analysis/market_week.py` (novos), `snapshot.py` (`DERIVE_EXTRA`), `bundle.py`, `recommendation.py` (origem no slot lead, semana do segundo turno no slot de resultado, tese revista); `tests/analysis/test_plan14.py`; fonte nova `data/raw/analysis/mercado/poder360_queda_acoes_pos_eleicao.html`; fotografias `a54d10bd24` e `b126c2edf0`; pacotes `an_20261101T193707_e8a63bb3` e `an_20261101T202028_e29905ab` (vigente).<br>**Parte 2:** `content.py`, `deck_model.py`, `slides.py` (novo), `html_deck.py`, `html_pptx.py`, `narrative.py`, `qa.py`, `publish.py` (perfil único, PDF/PPTX finais também em `outputs/draft/apresentacao_esg.*`, remoção de obsoletos com reversão), `run.py`, `release.py`, `video.py`, `figures.py`, `pptx_deck.py` (só apoio), `docs.py`, `labels.py`, `consumer.py` (estilo `pct2`), `brand.py`, `common.py`; `presentation_web/deck.css` e `deck.js` reescritos; testes `test_plan14.py`, `test_versions.py` e `test_narrative_video.py`. Builds `pr_..202413` (QA reprovada, verificação corrigida), `pr_..202541`, `pr_..202800` (publicado em `pub_..202934`) e `pr_..203705` (publicado em `pub_..203832`, vigente).<br>**Sob trava:** `completion_requirements.json` (C20, C23, C24, C28, G06, regra R11), `two_part_execution.json` (`config/video_segments.json` passa a ser escrita da Parte 2), `html_slide_plan.json` (mapa S01–S12), `manual_export_requests.csv` (H08–H11), `scripts/validate_completion_docs.py`, `scripts/sync_project_docs.py`, AGENTS.md (regra de perfil), plano 10 (marcado como substituído), plano 14, estado central, este guia e README.<br>**Removidos:** `outputs/ppt_reorganizado.pptx` (a pedido), `outputs/draft/script_apresentacao_html10.md`, `config/video_segments_html10.json` e capturas antigas (cópias na reversão `pub_..202934`). |
+| Verificações | **Nesta tarefa:** `analysis.run` (QA e contrato aprovados, 42 testes); 58 testes da Parte 2; QA do build 19/19 (autoteste 73/73 em 1920×1080 e 1366×768); revisão visual das 48 capturas (HTML, PDF, PPTX reconvertido, modo gravação, 1366, apoio) com o build final idêntico pixel a pixel ao revisado; publicação com 42 + 58 + 13 testes, código 0, 15 originais preservados; conferência de fatos: 118 valores, 39 observados (36 no texto da fonte, 3 à mão), 21 afirmações qualitativas com trecho na fonte, cotações de 30/10 conferidas em segunda fonte pública; quadro do vídeo sintético conferido; validadores documentais e sincronização ao fim. Testes não certificam premissas econômicas. |
+| Verificações históricas — Git | Envio das sete apresentações anteriores ao GitHub (commit `76ef1f3`): SHA256 dos blobs conferidos com o manifesto de publicação. O GitHub continua com essa versão anterior (HTML10/PPTX9); a apresentação do plano 14 não foi enviada (sem pedido). |
+| Alterações da revisão visual (HTML10, histórico) | Fontes incorporadas em presentation_web/fonts; brand.py; CSS/JS; html_deck.py; html_pptx.py; QA de geometria, exportação e hashes; publish.py inclui PPTX10. Substituído pelo deck12 no plano 14. |
 | Tarefa anterior — plano13 | Fechamento residual da análise e correções factuais; detalhes históricos nas linhas seguintes. |
 | Alterações do plano 13 | **Fontes:** 4 PDFs primários em `data/raw/analysis/{urae1,agepar,copasa,sanepar}/`.<br>**Fotografia:** modo `derive:` em `analysis/snapshot.py`/`run.py`, com `new` recusado após a publicação 1.0; fotografia `snap_20261031_7c31b5560e`.<br>**Análise:** `assumptions.py`, `capital.py`, `sector.py`, `valuation.py` (`brr_check`), `recommendation.py`, `bundle.py` e `progress.py`; 7 testes em `tests/analysis/test_plan13.py`.<br>**Pacote:** `an_20261101T132455_ac536175`.<br>**Produção:**<br>• `content.py` (P04, B4 e três perguntas);<br>• `pptx_deck.py` (A01 com a verificação da BRR);<br>• `docs.py` (auditoria, próximos passos e conciliação);<br>• `publish.py` (reversão das escritas diretas, formato legado de `script_word_counts.json`, tolerância ao banner em `promote_final`);<br>• `release.py`/`qa.py`/`run.py` (portão visual, `--profile`, `--baseline`, `--record-visual-review`, `--promote-final`).<br>**Builds e publicação:** `pr_20261101T132746_ac536175`, publicação `pub_20261101T132847`.<br>**Scripts:**<br>• `sync_project_docs.py` (builds imutáveis, evidências);<br>• `validate_completion_docs.py` (esquema 1.0, verificação HTML real).<br>**Sob trava:**<br>• `outputs/qa/claims_semantic_review.json`;<br>• completion_requirements.json (C20 e C22 fechados; notas de C06, C09, C13–C16, C18);<br>• `collection_backlog.csv` (D09, D16, D19, D21, D31);<br>• `n_status.csv` (N10);<br>• `html_slide_plan.json` (só o status);<br>• estado central, este guia e README. O AGENTS.md não mudou nesta tarefa; as regras de builds e de liberação final são da Parte 2. |
 | Alterações da Parte 2 (tarefa anterior) | **Código novo da Parte 2:**<br>• `production/`: 18 módulos, incluindo o CLI `run.py`;<br>• `presentation_web/` (`deck.css`, `deck.js`);<br>• `tests/production/` com 50 testes e fixtures em temporário;<br>• `config/video_segments_html10.json`;<br>• progresso em `data/catalog/parallel_progress/production.json`.<br>**Fotografia e builds:**<br>• fotografia `data/interim/production/baseline/legacy_7dbbf9cfea`;<br>• builds em `outputs/draft/production/` (publicado: `pr_20261101T124209_e758f3af`) e QA em `outputs/qa/production/`;<br>• os builds sem manifesto `pr_..121244` e `pr_..124103` foram interrompidos e não são publicáveis.<br>**Publicação `pub_20261101T124305`:** 82 arquivos em outputs/draft (peças, figuras, teleprompters, html, coleta), outputs/qa/html, `data/processed` (contrato 1.0) e `data/interim` (conciliação/cronograma), mais relatórios de integração. Reversão em `data/interim/production/rollback/pub_20261101T124305`; ela não cobre as escritas diretas dessa primeira publicação, lacuna já corrigida no código.<br>**Arquivos da Parte 2 alterados:** `scripts/run_esg.py` (delegação, guarda `--legacy`, final por portões); `scripts/sync_project_docs.py` (trava, builds imutáveis, evidências das duas partes); `scripts/validate_completion_docs.py` (esquema 1.0, verificação HTML real).<br>**Sob trava:**<br>• `tests/test_core.py`: ajuste mínimo, pois o teste de `esg_bridge` lê a cópia legada quando a fonte canônica é 1.0;<br>• completion_requirements.json (C19–C29; C21 e C28 fechados);<br>• manual_export_requests.csv (H07/H10/H11/H13);<br>• este guia, o estado central e o README.<br>**Incidente:** `run_esg.py --stage model` foi executado sem querer antes da primeira publicação. A regeneração legada saiu idêntica às fotografias; o `sources.csv` foi restaurado e os três builds de desenvolvimento com banner foram restaurados byte a byte (detalhes no histórico do estado central). Nenhum original foi alterado. |
 | Verificações | Nesta tarefa: referência remota conferida, SHA256 dos sete arquivos idênticos aos blobs do commit e ao manifesto de publicação, diff staged sem problemas e sincronização documental/check executados ao fim. Atributo -text impede conversão de finais de linha do HTML. Testes102 e revisão visual são das tarefas anteriores; não houve novo build ou análise. |
 | Verificações históricas — plano13 | **Executadas na tarefa anterior (plano13):**<br>• `require_text` confere, na página citada, cada trecho usado das fontes novas;<br>• ensaio do build da análise em diretório temporário, comparando com o pacote anterior (só o prazo da Copasa mudou entre valores existentes; casos-base iguais);<br>• `analysis.run` com QA e contrato aprovados e 39 testes;<br>• `production.run` com QA 15/15;<br>• revisão visual das folhas completas e das páginas alteradas;<br>• publicação com 39 + 50 + 13 testes, código 0, 16 originais preservados e portões recalculados;<br>• revisão semântica das 32 afirmações sem defeito;<br>• validadores documentais, sincronização e `--check` ao fim.<br>Testes não certificam premissas econômicas. |
 | Verificações da Parte 2 (tarefa anterior) | **Executadas na Parte 2:**<br>• build `pr_20261101T124209_e758f3af` com QA 15/15 (autoteste HTML com 31 verificações em 1920 e 1366, offline, PDF de 10 páginas, PPTX 9 e apoio 7, números entre formatos, value_refs, ponte, claims por perfil, lint, orçamento de fala, encoder sintético, prontidão de vídeo);<br>• revisão visual de 31 capturas registrada com os hashes;<br>• no estado publicado: 32 testes da Parte 1, 49 da Parte 2 e 13 legados, todos com código 0; 16 originais preservados;<br>• consumidor `--check` válido; `--baseline default` válido como baseline e recusado no modo padrão; `--mode final` recusado com motivo H08/H09; guarda legada recusando `--stage model`;<br>• `validate_completion_docs.py` e `validate_two_part_plans.py` aprovados; sincronização e `--check` ao fim.<br>**De execuções anteriores (Parte 1):** QA analítica do pacote e recálculo LibreOffice.<br>Testes não certificam premissas econômicas. |
-| Próxima ação | **Grupo:**<br>• H07, seguindo `outputs/draft/checklist_envio.md`;<br>• H08/H09, registrando em `data/interim/decisoes_equipe.md`;<br>• H10, ensaiando com o HTML/PDF e os teleprompters.<br>**Agente:** reexecutar Parte 1 → Parte 2 → publicar se H08/H09 mudarem premissas; montar o vídeo com clipes reais; `--mode final` quando os portões liberarem. |
-| Dependências humanas | H07 (instruções privadas, canal, horário, uso do HTML); H08/H09 sobre a proposta pronta; H10/H11 com ensaios e clipes reais; revisão integral do vídeo; H13 envio. H01 é complemento opcional. |
+| Próxima ação | **Grupo:**<br>• H07, seguindo `outputs/draft/checklist_envio.md`;<br>• H08/H09, registrando em `data/interim/decisoes_equipe.md` (a narrativa e a semana do segundo turno estão no slide 11 e nas perguntas);<br>• H10, ensaiando com o HTML (ou PDF/PPTX) e os teleprompters; revisar as falas e os slides (`data/interim/production/fact_check/fact_check_final.json` lista o que foi conferido).<br>**Agente:** reexecutar Parte 1 → Parte 2 → publicar se H08/H09 mudarem premissas; montar o vídeo com clipes reais; `--mode final` quando os portões liberarem. |
+| Dependências humanas | H07 (instruções privadas, canal, horário, uso do HTML); H08/H09 sobre a proposta pronta; H10/H11 com ensaios e clipes reais (12 segmentos, um por slide); revisão integral do vídeo; H13 envio. H01 é complemento opcional. |
 | Trabalho não iniciado aqui | Decisões humanas, ensaios, clipes, vídeo, promoção a outputs/final e envio. A revisão visual e a semântica registradas são do agente; as do grupo não foram feitas. Residual público sem fonte primária extraível (uma tentativa cada): BRR líquida de Sabesp/Copasa, plano de capex vigente da Copasa, preço da EMAE e datas de eventos de Sabesp/Copasa. |
 | Em caso de interrupção | Conferir:<br>• `outputs/draft/analysis_bundle/latest.json` e `outputs/draft/production/published.json`;<br>• `outputs/qa/execution_validation.json`;<br>• a trava `data/interim/coordination/documentation.lock` (não apagar trava ativa de outro dono).<br>Builds e pacotes são imutáveis: uma reexecução gera versão nova. Nada foi deixado rodando em background. |
 
@@ -254,7 +257,7 @@ O HTML10 usa `production/brand.py` (fontes/símbolo do manual), `presentation_we
 
 As seções restantes preservam o registro da primeira execução, em31/10/2026. Para andamento e próximo trabalho, usar as seções operacionais acima e o estado central; não interpretar um status histórico como confirmação da situação futura.
 
-O fechamento executável está no [contrato09](plans/09_contrato_de_fechamento.md), em completion_requirements.json e no mapa de células derivado. O [plano10](plans/10_plano_html_interativo.md) especifica HTML10 sem substituir o perfil PPTX9/vídeo atual. A auditoria documental de01/11 cobre requisitos conhecidos e não executa suas correções; H07 ainda pode adicionar exigências. Rodar validate_completion_docs.py e sync_project_docs.py após mudanças.
+O fechamento executável está no [contrato09](plans/09_contrato_de_fechamento.md), em completion_requirements.json e no mapa de células derivado. O [plano10](plans/10_plano_html_interativo.md) especificava o HTML10 (substituído pelo deck12 do [plano 14](plans/14_plano_apresentacao_final.md) em 01/11). A auditoria documental de01/11 cobre requisitos conhecidos e não executa suas correções; H07 ainda pode adicionar exigências. Rodar validate_completion_docs.py e sync_project_docs.py após mudanças.
 
 Execução em 31/10/2026. Corte informacional: 31/10 às 18:25:27 de São Paulo; preços de 30/10. Não existe Git neste diretório. Originais imutáveis: 16, preservados por SHA256. Não sobrescrever modelos/cartas/documentos originais.
 

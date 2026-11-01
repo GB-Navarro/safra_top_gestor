@@ -17,11 +17,10 @@ def build(b: Bundle, model: dict, out: Path, html_rel: str = "html/apresentacao_
         f"Gerado do pacote analítico `{b.bundle_id}` ({b.manifest['state']}). Preços/avaliação 30/10/2026; corte 31/10/2026 18:25:27 −03:00.", "",
         "**Proposta do agente; decisão do grupo (H08/H09) pendente.** Nada aqui foi enviado ao Safra.", "",
         "## O que abrir",
-        f"- `{html_rel}` — apresentação interativa de 10 páginas (offline, duplo clique; teclas ← →, G = modo gravação).",
-        "- `html/apresentacao_esg.pdf` — as mesmas 10 páginas em PDF (estado padrão).",
-        "- `apresentacao_esg.pptx` / `.pdf` — versão de 9 slides editável com notas do orador.",
+        f"- `{html_rel}` — apresentação final de 12 slides planos (offline; avança com a seta ou um clique; G = modo gravação).",
+        "- `apresentacao_esg.pdf` e `apresentacao_esg.pptx` — os mesmos 12 slides em PDF e em PowerPoint (cada slide como imagem de alta resolução, com a fala nas notas); cópias idênticas em `html/`.",
         "- `apoio_tecnico.pptx` / `.pdf` — 7 páginas de método, conciliação, premissas, precatório, sensibilidade e limitações.",
-        "- `script_apresentacao.md` (pptx9) e `script_apresentacao_html10.md` — falas exatas; `teleprompter/` por integrante.",
+        "- `script_apresentacao.md` — falas exatas por slide; `teleprompter/` por integrante.",
         "- `perguntas_banca.md`, `guia_gravacao.md`, `decisao_proposta.md`, `PROXIMOS_PASSOS.md`.",
         "- `base_modelo_auditavel.xlsx` (fórmulas do caso-base) e `coleta/base_dados_coletados.xlsx`.", "",
         "Cada número vem de um `value_id` do pacote, com fonte, período e unidade. Testes verificam contas e rastreabilidade, não as premissas.", ""]
@@ -39,12 +38,12 @@ def build(b: Bundle, model: dict, out: Path, html_rel: str = "html/apresentacao_
         f"{f('V.sanepar.max_entry_price')}; valor-base {f('V.case.sanepar.base.paper_value')} contra {f('V.SAPR11.close.2026-10-30')}. "
         "Se mudarem premissas, o agente reexecuta `python -m analysis.run` e `python -m production.run` (nova versão; a anterior fica preservada).",
         "4. **Os quatro — H10 (dois ensaios cronometrados).** Usar o HTML (ou PDF) e o teleprompter; registrar tempos por bloco em `data/interim/feedback_ensaio.md`.",
-        "5. **Os quatro — H11 (gravação).** Seguir `guia_gravacao.md`; clipes em `data/raw/gravacao/` (perfil pptx9) ou `data/raw/gravacao/html10/` (perfil html10).",
+        "5. **Os quatro — H11 (gravação).** Seguir `guia_gravacao.md`; um clipe por slide em `data/raw/gravacao/` (S01.mp4 a S12.mp4, ver `config/video_segments.json`).",
         "6. **Responsável pelo envio — H13.** Assistir ao vídeo inteiro, conferir requisitos de H07 e enviar pelo canal confirmado; guardar comprovante.", "",
         "O agente não envia mensagens nem arquivos ao Safra.", ""]
     made.append(write_text(out / "PROXIMOS_PASSOS.md", "\n".join(nxt)))
     from .narrative import segments
-    n9, n10 = len(segments("pptx9")), len(segments("html10"))
+    n12 = len(segments())
     chk = ["# Checklist de envio (H07 → H13)", "",
            "Preencher só com evidência real. O agente não envia nada e não marca item por inferência ou por existência de arquivo.", "",
            "## H07 — instruções privadas (Navarro)", "",
@@ -52,14 +51,14 @@ def build(b: Bundle, model: dict, out: Path, html_rel: str = "html/apresentacao_
            "- [ ] Canal (e-mail, plataforma ou link) e destinatário",
            "- [ ] Formato e tamanho máximo do arquivo; duração máxima do vídeo",
            "- [ ] Nome do arquivo e identificação da equipe exigidos",
-           "- [ ] Se o HTML interativo pode ser usado na gravação ou como anexo (sem instrução, o vídeo segue o perfil pptx9)",
+           "- [ ] Se o HTML pode ser usado na gravação ou como anexo (o PDF e o PPTX têm os mesmos 12 slides)",
            "- Registro: salvar o original em `data/raw/orientacoes/` (além do regulamento público já verificado).", "",
            "## H08/H09 — premissas e recomendação (grupo)", "",
            "- [ ] Cinco julgamentos H08 decididos em `data/interim/decisoes_equipe.md`",
            "- [ ] Recomendação H09 adotada ou substituída; se mudar premissa, reexecutar `analysis.run` e `production.run`", "",
            "## H10/H11 — ensaios e gravação (os quatro)", "",
            "- [ ] Dois ensaios cronometrados por bloco em `data/interim/feedback_ensaio.md`",
-           f"- [ ] Clipes reais em `data/raw/gravacao/` (pptx9, {n9} segmentos) ou `data/raw/gravacao/html10/` (html10, {n10} segmentos)",
+           f"- [ ] Clipes reais em `data/raw/gravacao/` ({n12} segmentos, um por slide; nomes em `config/video_segments.json`)",
            "- [ ] `python -m production.run --release-report` sem motivo de bloqueio em H10/H11", "",
            "## H13 — revisão integral e envio (responsável)", "",
            "- [ ] Vídeo assistido inteiro pelo grupo; registrar `data/raw/orientacoes/video_review.json` (quem, quando, hash do vídeo)",

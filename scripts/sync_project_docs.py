@@ -157,20 +157,18 @@ def evidence():
                      f"revisão visual {visual.get('status','sem registro')} ({'agente' if not visual.get('human_review') else 'grupo'})"))
     html=optional_json('outputs/qa/html/html_validation.json')
     if html:
-        rows.append(('HTML10 — interação/offline/impressão',f"1920: {html.get('interaction_1920',{}).get('checks','?')} verificações {html.get('interaction_1920',{}).get('status','?')}; "
-                     f"1366: {html.get('interaction_1366',{}).get('status','?')}; offline {html.get('offline',{}).get('status','?')}; PDF {html.get('pdf_pages',{}).get('pages','?')} páginas"))
+        rows.append(('Apresentação de 12 slides — autoteste/offline/impressão',f"1920: {html.get('selftest_1920',{}).get('checks','?')} verificações {html.get('selftest_1920',{}).get('status','?')}; "
+                     f"1366: {html.get('selftest_1366',{}).get('status','?')}; sem controles {html.get('flat_no_controls',{}).get('status','?')}; offline {html.get('offline',{}).get('status','?')}; "
+                     f"PDF {html.get('pdf_pages',{}).get('pages','?')} e PPTX {html.get('pptx_pages',{}).get('pages','?')} páginas"))
     gates=optional_json('outputs/qa/release_validation.json')
     if gates:
         rows.append(('Portões de liberação (evidência real)','; '.join(f"{g['stage']}: {'liberado' if g['passed'] else 'bloqueado'}" for g in gates.get('gates',[]))))
-    html10=optional_json('config/video_segments_html10.json').get('segments',[])
-    if html10:
-        rows.append(('Clipes do perfil HTML10',f"{sum((ROOT/s['path']).is_file() for s in html10)} de {len(html10)}"))
     completion=optional_json('outputs/qa/completion_documentation_validation.json')
     if completion:
         current=all((ROOT/p).is_file() and sha256(ROOT/p)==digest for p,digest in completion.get('source_snapshot',{}).items())
         freshness='fontes correspondem à revisão' if current else 'revalidação documental pendente para as fontes alteradas'
         rows += [('Contrato de fechamento — documentação',f"{completion.get('requirements','?')} requisitos; {completion.get('mapped_historical_cells','?')} células vinculadas; {freshness}; não é conclusão financeira"),
-                 ('HTML interativo — plano',f"{completion.get('html_plan_pages','?')} páginas / {completion.get('html_plan_seconds','?')} segundos; "+('artefato presente, consultar validação HTML própria' if completion.get('html_artifact_present') else 'artefato ainda não gerado'))]
+                 ('Apresentação final — mapa de páginas',f"{completion.get('html_plan_pages','?')} páginas / {completion.get('html_plan_seconds','?')} segundos; "+('artefato presente, consultar validação HTML própria' if completion.get('html_artifact_present') else 'artefato ainda não gerado'))]
     inputs=['config/collection.json','data/catalog/collection_backlog.csv','data/catalog/manual_export_requests.csv',
         'outputs/draft/analysis_bundle/latest.json','outputs/draft/production/published.json','outputs/qa/visual_review.json',
         'outputs/qa/html/html_validation.json','outputs/qa/release_validation.json',

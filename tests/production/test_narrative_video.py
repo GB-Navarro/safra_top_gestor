@@ -1,9 +1,8 @@
-"""EN06/EN07 — falas sem números literais fora de tokens, perfis 13/14 segmentos, orçamento de tempo e vídeo.
+"""EN06/EN07 — falas sem números literais fora de tokens, estilo das cartas, 12 segmentos, orçamento de tempo e vídeo.
 
 O caminho de sucesso do vídeo usa clipes sintéticos numa pasta temporária; nunca gera vídeo do grupo.
 """
 import json
-import shutil
 import tempfile
 import unittest
 from pathlib import Path
@@ -27,20 +26,29 @@ class Narrative(unittest.TestCase):
     def test_no_literal_numbers(self):
         self.assertEqual(narrative.lint_literals(), [])
 
-    def test_segment_profiles(self):
-        self.assertEqual(len(narrative.segments("pptx9")), 13)
-        self.assertEqual(len(narrative.segments("html10")), 14)
-        self.assertTrue(all(s["path"].startswith("data/raw/gravacao/html10/") for s in narrative.segments("html10")))
+    def test_letter_style_and_model_only_in_intro(self):
+        self.assertEqual(narrative.lint_style(), [])
+
+    def test_segments_one_per_slide(self):
+        seg = narrative.segments()
+        self.assertEqual(len(seg), 12)
+        self.assertEqual([s["slide"] for s in seg], list(range(1, 13)))
+        self.assertTrue(all(s["path"] == f"data/raw/gravacao/{s['block']}.mp4" for s in seg))
 
     def test_speech_budget(self):
-        for prof, c in self.res["counts"].items():
-            self.assertLessEqual(c["planned_seconds"], 600, prof)
-            self.assertLessEqual(c["estimated_seconds_at_140wpm"], c["planned_seconds"], prof)
+        c = self.res["counts"][narrative.PROFILE]
+        self.assertLessEqual(c["planned_seconds"], 600)
+        self.assertLessEqual(c["estimated_seconds_at_140wpm"], c["planned_seconds"])
+        for blk, v in self.res["blocks"].items():
+            self.assertLessEqual(v["words"] / narrative.WPM * 60, v["seconds"] + 2, blk)
 
-    def test_outputs_per_profile(self):
-        for name in ("script_apresentacao.md", "script_apresentacao_html10.md", "perguntas_banca.md", "guia_gravacao.md", "roteiro_narrativo.md"):
+    def test_outputs(self):
+        for name in ("script_apresentacao.md", "perguntas_banca.md", "guia_gravacao.md", "roteiro_narrativo.md"):
             self.assertTrue((self.out / name).is_file(), name)
+        self.assertFalse((self.out / "script_apresentacao_html10.md").exists())
         self.assertEqual(len(list((self.out / "teleprompter").glob("*.md"))), 4)
+        script = (self.out / "script_apresentacao.md").read_text(encoding="utf-8")
+        self.assertEqual(script.count("## Slide "), 12)
 
 
 class Video(unittest.TestCase):
@@ -55,12 +63,11 @@ class Video(unittest.TestCase):
         self._tmp.cleanup()
 
     def test_no_clips_no_video(self):
-        for cfg in ("config/video_segments.json", "config/video_segments_html10.json"):
-            rep = video.readiness(REPO / cfg)
-            if rep["missing"]:
-                self.assertEqual(rep["status"], "awaiting_real_clips")
-                out = video.assemble(REPO / cfg, {}, self.tmp / "out")
-                self.assertFalse(out["video_created"])
+        rep = video.readiness(video.SEGMENTS)
+        if rep["missing"]:
+            self.assertEqual(rep["status"], "awaiting_real_clips")
+            out = video.assemble(video.SEGMENTS, {}, self.tmp / "out")
+            self.assertFalse(out["video_created"])
 
     def test_synthetic_success_path(self):
         clips = []

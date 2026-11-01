@@ -1,4 +1,8 @@
-"""EN06 — roteiro, script por perfil, teleprompters, perguntas e guia; contagem de palavras e lint de números."""
+"""EN06 — script da apresentação final (12 slides), teleprompters, perguntas e guia; contagem de palavras e lints.
+
+Lints: números digitados fora de tokens; marcas de texto que as cartas não usam (travessão, seta, exclamação,
+chavões); e o modelo de alocação citado depois do slide 2 (a análise segue independente dele).
+"""
 from __future__ import annotations
 
 import re
@@ -9,44 +13,68 @@ from .common import write_json, write_text
 from .consumer import TOKEN, Bundle
 
 WPM = 140
+PROFILE = "deck12"
 PEOPLE = ["Rodrigo", "Lorenzo", "Navarro", "Michel"]
-PROFILE_BLOCKS = {"html10": ["B1", "B2", "B3", "B4", "B5", "B6", "B7.a", "B7.b", "B8", "B9"],
-                  "pptx9": ["B1", "B2", "B3", "B4", "B5", "B6", "B7", "B8", "B9"]}
+BLOCKS = [p["block"] for p in K.PAGES]
+INTRO = {"S01", "S02"}  # únicos slides em que o modelo de alocação pode ser citado
 # Literais permitidos fora de tokens: datas, anos, rótulos estruturais e regras explícitas da proposta.
-ALLOWED = re.compile(r"(\b(19|20)\d{2}\b|\b\d{1,2}/\d{1,2}(/\d{2,4})?\b|\b\d{1,2} de [a-zç]+\b|\b99 municípios\b|\b1 ON\b|\b4 PN\b|"
-                     r"\bR\$ 1\b|\bR\$ 1,00\b|\b[A-Z]{4}\d{1,2}\b|\b1 ação\b|\b12 meses\b|− 1\b|> 10%|\b10%|\b2T26\b|\b4T25\b|\b3ª\b|\b64 células\b|\bB7\.[ab]\b|\b75%|\b100%|\bP0?\d+\b|\bH0\d\b|\bC\d\d\b)")
+ALLOWED = re.compile(r"(\b(19|20)\d{2}\b|\b\d{1,2}/\d{1,2}(/\d{2,4})?\b|\b(jan|fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez)/\d{2}\b|"
+                     r"\b\d{1,2} de [a-zç]+\b|\b99 municípios\b|\b1 ON\b|\b4 PN\b|\bR\$ 1\b|\bR\$ 1,00\b|\b[A-Z]{4}\d{1,2}\b|\b12 meses\b|"
+                     r"> 10%|\b10%|\b2T26\b|\b4T25\b|\b[1-9]ª|\b64 células\b|\bS\d\d\b|\bH\d\d\b|\bC\d\d\b|^\d\d · )")
+STYLE = re.compile(r"—|→|←|≠|!|\b(crucial|robust[oa]s?|alavancar|jornada|mergulh\w+|vale ressaltar|é importante (destacar|notar)|"
+                   r"nesse sentido|em suma|em resumo|além disso|desafiador\w*|potencializ\w+|sinergia\w*|disruptiv\w+)\b", re.I)
+MODEL = re.compile(r"\b(modelo de alocação|Black-Litterman|o modelo|do modelo|pelo modelo)\b", re.I)
 
 
 def speech(b: Bundle) -> dict:
-    out = {k: b.render(v) for k, v in K.SPEECH.items()}
-    out["B7"] = out["B7.a"] + " " + out["B7.b"]
+    return {k: b.render(v) for k, v in K.SPEECH.items()}
+
+
+def _texts():
+    """(onde, slide, texto) de todas as fontes editoriais visíveis ou faladas."""
+    out = []
+    for k, v in K.SPEECH.items():
+        out.append((f"SPEECH.{k}", k, v))
+    def walk(where, sid, obj):
+        if isinstance(obj, dict):
+            for v in obj.values():
+                walk(where, sid, v)
+        elif isinstance(obj, (list, tuple)):
+            for v in obj:
+                walk(where, sid, v)
+        elif isinstance(obj, str) and " " in obj:  # IDs (value_id/claim) não têm espaço; só texto visível é varrido
+            out.append((where, sid, obj))
+    for pid, scr in K.SCREEN.items():
+        walk(f"SCREEN.{pid}", pid, scr)
+    for p in K.PAGES:
+        out.append((f"PAGES.{p['id']}", p["id"], " ".join((p["kicker"], p["title"], p["subtitle"]))))
+    for q, a in K.QUESTIONS:
+        out.append(("QUESTIONS", "QA", q + " " + a))
+    out.append(("GUIDE", "GUIDE", K.GUIDE))
     return out
 
 
 def lint_literals() -> list[dict]:
     """Números digitados fora de tokens nas fontes editoriais (exceto datas/regras permitidas)."""
     issues = []
-    def scan(where, text):
+    for where, _, text in _texts():
+        if where == "GUIDE":
+            continue
         clean = ALLOWED.sub("", TOKEN.sub("", text))
         for m in re.finditer(r"\d+(?:[.,]\d+)?\s?%?", clean):
             issues.append({"where": where, "literal": m.group(0).strip(), "context": clean[max(0, m.start() - 30):m.end() + 20]})
-    for k, v in K.SPEECH.items():
-        scan(f"SPEECH.{k}", v)
-    def walk(where, obj):
-        if isinstance(obj, dict):
-            for k, v in obj.items():
-                walk(where, v)
-        elif isinstance(obj, (list, tuple)):
-            for v in obj:
-                walk(where, v)
-        elif isinstance(obj, str) and " " in obj:  # IDs (value_id/claim) não têm espaço; só texto visível é varrido
-            scan(where, obj)
-    for pid, scr in K.SCREEN.items():
-        walk(f"SCREEN.{pid}", scr)
-    for p in K.PAGES:
-        scan(f"PAGES.{p['id']}", p["title"] + " " + p["subtitle"])
-    for q, a in K.QUESTIONS:
-        scan("QUESTIONS", q + " " + a)
+    return issues
+
+
+def lint_style() -> list[dict]:
+    """Marcas que as cartas não usam e citação do modelo depois da introdução."""
+    issues = []
+    for where, sid, text in _texts():
+        for m in STYLE.finditer(text):
+            issues.append({"where": where, "rule": "estilo das cartas", "match": m.group(0)})
+        if sid not in INTRO and sid != "GUIDE":
+            for m in MODEL.finditer(text):
+                issues.append({"where": where, "rule": "modelo citado depois do slide 2", "match": m.group(0)})
     return issues
 
 
@@ -54,47 +82,36 @@ def _words(t: str) -> int:
     return len(re.findall(r"\b[\wÀ-ÿ$.,%]+\b", t))
 
 
-def _voice_lines(block: str, text: str):
-    if block == "B9":
-        return [(m.group(1), m.group(2).strip()) for m in re.finditer(r"(Rodrigo|Lorenzo|Michel|Navarro|Todos):\s*([^:]+?)(?=\s+(?:Rodrigo|Lorenzo|Michel|Navarro|Todos):|$)", text)]
-    return [(K.BLOCK_VOICE.get(block, "Rodrigo"), text)]
+def _clock(s: int) -> str:
+    return f"{s // 60}:{s % 60:02d}"
 
 
 def build(b: Bundle, model: dict, out: Path) -> dict:
     sp = speech(b)
-    seconds = dict(K.BLOCK_SECONDS)
-    seconds["B7"] = seconds["B7.a"] + seconds["B7.b"]
-    voice = dict(K.BLOCK_VOICE, B7="Rodrigo")
     pages = {p["block"]: p for p in model["pages"]}
-    counts = {}
-    for profile, blocks in PROFILE_BLOCKS.items():
-        lines = [f"# Script de apresentação — perfil {profile}", "",
-                 f"Falas exatas para ensaio, geradas do pacote {model['bundle_id']} (proposta; decisão do grupo H09 pendente). "
-                 "Tempos são orçamento a 140 palavras/min; só o ensaio mede a duração real. Notas de fonte não são fala.", ""]
-        total_w = total_s = 0
-        cursor = 0
-        for blk in blocks:
-            w = _words(sp[blk])
-            total_w += w
-            total_s += seconds[blk]
-            page = pages.get(blk) or pages.get(blk + ".a")
-            where = (f"P{page['id'][1:]}" if profile == "html10" else f"S{page['slide9']}") if page else ""
-            lines += [f"## {blk} — {voice[blk]} — {cursor // 60}:{cursor % 60:02d}–{(cursor + seconds[blk]) // 60}:{(cursor + seconds[blk]) % 60:02d} · {where}",
-                      "", sp[blk], "", f"*{w} palavras; orçamento {seconds[blk]} s (~{round(w / WPM * 60)} s a 140 ppm).*", ""]
-            cursor += seconds[blk]
-        lines += [f"Total: {total_w} palavras; orçamento {total_s} s ({total_s // 60}:{total_s % 60:02d}); teto público 10:00.", ""]
-        name = "script_apresentacao.md" if profile == "pptx9" else "script_apresentacao_html10.md"
-        write_text(out / name, "\n".join(lines))
-        counts[profile] = {"total_words": total_w, "planned_seconds": total_s, "estimated_seconds_at_140wpm": round(total_w / WPM * 60),
-                           "blocks": {blk: _words(sp[blk]) for blk in blocks}}
+    lines = ["# Script da apresentação", "",
+             f"Falas exatas dos 12 slides, geradas do pacote {model['bundle_id']} (proposta do agente; decisão do grupo H09 pendente). "
+             "Tempos são orçamento a 140 palavras por minuto; só o ensaio mede a duração real. As fontes no rodapé dos slides não são fala.", ""]
+    total_w = total_s = cursor = 0
+    blocks = {}
+    for n, blk in enumerate(BLOCKS, 1):
+        p, sec, w = pages[blk], K.BLOCK_SECONDS[blk], _words(sp[blk])
+        total_w, total_s = total_w + w, total_s + sec
+        lines += [f"## Slide {n} · {p['title']}", "", f"**{K.BLOCK_VOICE[blk]}** · {_clock(cursor)} a {_clock(cursor + sec)}", "", sp[blk], "",
+                  f"*{w} palavras; orçamento de {sec} s (cerca de {round(w / WPM * 60)} s a 140 palavras por minuto).*", ""]
+        blocks[blk] = {"slide": n, "speaker": K.BLOCK_VOICE[blk], "seconds": sec, "words": w}
+        cursor += sec
+    lines += [f"**Total:** {total_w} palavras; orçamento de {total_s} s ({_clock(total_s)}); limite do desafio, 10:00.", ""]
+    write_text(out / "script_apresentacao.md", "\n".join(lines))
+    counts = {PROFILE: {"total_words": total_w, "planned_seconds": total_s, "estimated_seconds_at_140wpm": round(total_w / WPM * 60),
+                        "blocks": {k: v["words"] for k, v in blocks.items()}}}
     for person in PEOPLE:
-        lines = [f"# Teleprompter — {person}", "", "Leia só o texto abaixo de cada bloco. Perfil html10 (B7 dividido); no pptx9, B7.a e B7.b são lidos em sequência no slide 7.", ""]
-        for blk in PROFILE_BLOCKS["html10"]:
-            for who, text in _voice_lines(blk, sp[blk]):
-                if who in (person, "Todos"):
-                    lines += [f"## {blk}{' (todos)' if who == 'Todos' else ''}", "", text, ""]
-        write_text(out / "teleprompter" / f"{person.lower()}.md", "\n".join(lines))
-    qa = ["# Perguntas prováveis da banca — respostas curtas", "", f"Geradas do pacote {model['bundle_id']}. Respostas são proposta do agente até o grupo assumir (H09).", ""]
+        mine = [(n, blk) for n, blk in enumerate(BLOCKS, 1) if K.BLOCK_VOICE[blk] == person]
+        tp = [f"# Teleprompter · {person}", "", "Só as suas falas, na ordem da apresentação.", ""]
+        for n, blk in mine:
+            tp += [f"## Slide {n} · {pages[blk]['title']}", "", sp[blk], ""]
+        write_text(out / "teleprompter" / f"{person.lower()}.md", "\n".join(tp))
+    qa = ["# Perguntas prováveis da banca", "", f"Respostas curtas geradas do pacote {model['bundle_id']}; são proposta do agente até o grupo assumir (H09).", ""]
     for k, (q, a) in enumerate(K.QUESTIONS, 1):
         qa += [f"## {k}. {q}", "", b.render(a), ""]
     write_text(out / "perguntas_banca.md", "\n".join(qa))
@@ -103,23 +120,14 @@ def build(b: Bundle, model: dict, out: Path) -> dict:
     for slot, ids in b.slots.items():
         nar += [f"## {slot}", ""] + [f"- {b.claim_text(cid)} *({cid})*" for cid in ids] + [""]
     write_text(out / "roteiro_narrativo.md", "\n".join(nar))
-    lint = lint_literals()
-    write_json(out / "script_word_counts.json", {"bundle_id": model["bundle_id"], "wpm": WPM, "profiles": counts, "literal_numbers_outside_tokens": lint,
+    lint, style = lint_literals(), lint_style()
+    write_json(out / "script_word_counts.json", {"bundle_id": model["bundle_id"], "wpm": WPM, "profiles": counts, "blocks": blocks,
+                                                  "literal_numbers_outside_tokens": lint, "style_issues": style,
                                                   "note": "Contagem estima plausibilidade; não substitui ensaio real (H10)."})
-    return {"counts": counts, "lint": lint, "speech": sp}
+    return {"counts": counts, "lint": lint, "style": style, "speech": sp, "blocks": blocks}
 
 
-def segments(profile: str) -> list[dict]:
-    """Manifesto de segmentos de gravação por perfil (pptx9: 13; html10: 14)."""
-    out = []
-    page_of = {"pptx9": {"B1": 1, "B2": 2, "B3": 3, "B4": 4, "B5": 5, "B6": 6, "B7": 7, "B8": 8, "B9": 9},
-               "html10": {"B1": 1, "B2": 2, "B3": 3, "B4": 4, "B5": 5, "B6": 6, "B7.a": 7, "B7.b": 8, "B8": 9, "B9": 10}}[profile]
-    for blk in PROFILE_BLOCKS[profile]:
-        if blk == "B9":
-            for who in ["Rodrigo", "Lorenzo", "Michel", "Navarro", "Todos"]:
-                out.append({"block": f"B9_{who}", "speaker": who, "slide": page_of["B9"], "path": f"data/raw/gravacao/{'' if profile == 'pptx9' else 'html10/'}B9_{who}.mp4"})
-        else:
-            tag = blk.replace(".", "")
-            out.append({"block": blk, "speaker": K.BLOCK_VOICE.get(blk, "Rodrigo"), "slide": page_of[blk],
-                        "path": f"data/raw/gravacao/{'' if profile == 'pptx9' else 'html10/'}{tag}.mp4"})
-    return out
+def segments() -> list[dict]:
+    """Manifesto de gravação do deck12: um clipe por slide, na voz de quem apresenta o slide."""
+    return [{"block": blk, "speaker": K.BLOCK_VOICE[blk], "slide": n, "path": f"data/raw/gravacao/{blk}.mp4"}
+            for n, blk in enumerate(BLOCKS, 1)]

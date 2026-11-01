@@ -417,8 +417,7 @@
         "config/collection.json",
         "data/processed",
         "outputs/draft/apresentacao_esg.pptx",
-        "outputs/draft/apresentacao_esg.pdf",
-        "config/video_segments.json"
+        "outputs/draft/apresentacao_esg.pdf"
       ],
       "exclusive_writes": [
         "production/",
@@ -438,7 +437,7 @@
         "scripts/execution_status.py",
         "scripts/sync_project_docs.py",
         "scripts/validate_completion_docs.py",
-        "config/video_segments_html10.json",
+        "config/video_segments.json",
         "config/production_profile.json"
       ],
       "integration_only_writes": [

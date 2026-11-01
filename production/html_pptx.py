@@ -1,7 +1,7 @@
-"""Exportação HTML10 → PDF → PPTX fiel: página renderizada a 3840px e texto/falas nas notas.
+"""Exportação HTML → PDF → PPTX fiel: cada slide é a página renderizada a 3840 px, com a fala nas notas.
 
-O perfil PPTX9 editável continua separado. Esta exportação preserva a composição do HTML,
-sem prometer interatividade ou elementos de layout editáveis no PowerPoint.
+O PPTX preserva a composição do HTML para quem prefere apresentar ou gravar pelo PowerPoint; o texto do slide vai
+no texto alternativo da imagem e o script do falante vai nas notas. Para editar o layout, usar o HTML-fonte.
 """
 from __future__ import annotations
 
@@ -10,8 +10,16 @@ from pathlib import Path
 
 from .common import writable
 
+PAGES = 12
 
-def build(pdf: Path, out: Path, model: dict) -> Path:
+
+def notes(page: dict, n: int, speech: str, bundle_id: str) -> str:
+    sources = "; ".join(s["title"] for s in page["sources"]) or "não se aplica"
+    return (f"Slide {n} · {page['voice']} · cerca de {page['seconds']} s\n\n{speech}\n\n"
+            f"Fontes do slide: {sources}.\nPacote analítico {bundle_id}.")
+
+
+def build(pdf: Path, out: Path, model: dict, speech: dict) -> Path:
     import pymupdf
     from pptx import Presentation
     from pptx.util import Inches
@@ -20,23 +28,19 @@ def build(pdf: Path, out: Path, model: dict) -> Path:
     out.parent.mkdir(parents=True, exist_ok=True)
     prs = Presentation()
     prs.slide_width, prs.slide_height = Inches(13.333333), Inches(7.5)
-    prs.core_properties.title = 'Saneamento e valor — asset.dev (HTML10)'
-    prs.core_properties.subject = 'Design de marcadev.html; exportação fiel do HTML de dez páginas'
-    prs.core_properties.author = 'asset.dev'
+    prs.core_properties.title = "Saneamento: onde está o valor do setor listado"
+    prs.core_properties.subject = "asset.dev · Desafio Safra Top Gestor 2026 · análise setorial ESG"
+    prs.core_properties.author = "asset.dev"
     with pymupdf.open(pdf) as doc:
-        if len(doc) != 10:
-            raise ValueError('A exportação exige exatamente dez páginas')
+        if len(doc) != PAGES or len(model["pages"]) != PAGES:
+            raise ValueError(f"A exportação exige exatamente {PAGES} páginas")
         for i, page in enumerate(doc):
-            pix = page.get_pixmap(matrix=pymupdf.Matrix(3840/page.rect.width, 3840/page.rect.width), alpha=False)
+            p = model["pages"][i]
+            pix = page.get_pixmap(matrix=pymupdf.Matrix(3840 / page.rect.width, 3840 / page.rect.width), alpha=False)
             slide = prs.slides.add_slide(prs.slide_layouts[6])
-            image = slide.shapes.add_picture(BytesIO(pix.tobytes('png')), 0, 0, width=prs.slide_width, height=prs.slide_height)
-            image.name = f"{model['pages'][i]['id']} — {model['pages'][i]['title']}"
-            image._element.nvPicPr.cNvPr.set('descr', page.get_text().strip())
-            slide.notes_slide.notes_text_frame.text = (
-                f"asset.dev · {model['pages'][i]['id']} · pacote {model['bundle_id']}\n"
-                'Composição renderizada a partir do HTML/PDF: imagem de alta resolução; '
-                'para editar o layout ou os controles, usar o HTML-fonte.\n\n' + page.get_text().strip()
-                + '\n\nAfirmações e evidências:\n' + '\n'.join(model['pages'][i]['claim_texts'].values())
-            )
+            image = slide.shapes.add_picture(BytesIO(pix.tobytes("png")), 0, 0, width=prs.slide_width, height=prs.slide_height)
+            image.name = f"{p['id']} · {p['title']}"
+            image._element.nvPicPr.cNvPr.set("descr", page.get_text().strip())
+            slide.notes_slide.notes_text_frame.text = notes(p, i + 1, speech[p["block"]], model["bundle_id"])
     prs.save(str(out))
     return out

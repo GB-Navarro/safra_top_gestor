@@ -49,10 +49,9 @@ def collect(bundle_dir: Path | None = None, production_qa: Path | None = None) -
     fb = REPO / "data/interim/feedback_ensaio.md"
     if fb.is_file():
         ev["rehearsals_logged"] = len(re.findall(r"^\| B\d[^|]*\|[^|]*\|[^|]*\| (?!pendente)[^|]+\|", fb.read_text(encoding="utf-8"), flags=re.M))
-    for cfg in ("config/video_segments.json", "config/video_segments_html10.json"):
-        c = REPO / cfg
-        if c.is_file() and all((REPO / s["path"]).is_file() for s in read_json(c)["segments"]):
-            ev["clips_ready"] = True
+    c = REPO / "config/video_segments.json"
+    if c.is_file() and all((REPO / s["path"]).is_file() for s in read_json(c)["segments"]):
+        ev["clips_ready"] = True
     for name, key in (("video_review.json", "video_reviewed_record"), ("comprovante_envio.json", "submission_receipt")):
         p = REPO / "data/raw/orientacoes" / name
         ev[key] = str(p.relative_to(REPO)) if p.is_file() else None

@@ -52,6 +52,11 @@ EXTRA_PDFS = {
 }
 # Insumos que podem crescer depois da fotografia de 31/10 sem alterar o recorte (coleta própria da Parte 1).
 DERIVE_REFRESH = ["data/raw/analysis/*/*"]
+# Plano 14: originais do grupo usados como fonte (cópia com hash; bytes conferidos pelo manifesto de originais).
+DERIVE_EXTRA = ["cartas/Asset_dev_Carta_ao_Investidor_2a.docx",
+                # Mesmas fontes de preço e juros de 30/10, agora lidas também em 23/10 (semana do segundo turno).
+                "data/raw/market_public/market_public_sapr11__485069a6d6ce.html", "data/raw/market_public/market_public_sbsp3__77a839722394.html",
+                "data/raw/market_public/market_public_csmg3__65336971fcd9.html", "data/raw/tesouro/tesouro_taxas__84f53c4bd781.csv"]
 CVM_CAPITAL_ZIPS = ["data/raw/cvm/cvm_itr_2026__eaac6b78aaf0.zip", "data/raw/cvm/cvm_dfp_2025__cdce6cc0e0bb.zip"]
 TESOURO = "data/raw/tesouro/tesouro_taxas__84f53c4bd781.csv"
 ISSUER_CNPJ = {"43.776.517/0001-80": "sabesp", "17.281.106/0001-03": "copasa", "76.484.013/0001-45": "sanepar"}
@@ -122,7 +127,7 @@ def derive_snapshot(parent: Path, baseline_root: Path = BASELINE_ROOT) -> Path:
     canônicos da mãe (31/10) e atualiza apenas data/raw/analysis e as extrações de EXTRA_PDFS.
     """
     meta = read_json(parent / "snapshot.json")
-    refresh = sorted({p for g in DERIVE_REFRESH for p in REPO.glob(g) if p.is_file()})
+    refresh = sorted({p for g in DERIVE_REFRESH for p in REPO.glob(g) if p.is_file()} | {REPO / x for x in DERIVE_EXTRA})
     refresh_rel = {p.relative_to(REPO).as_posix() for p in refresh}
     kept = [e for e in meta["files"] if e["role"] != "derived_extraction" and e["path"] not in refresh_rel
             and not any(Path(e["path"]).match(g) for g in DERIVE_REFRESH)]

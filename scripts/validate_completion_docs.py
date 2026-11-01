@@ -151,21 +151,24 @@ def validate():
     keys=[(r['workbook'],r['cell']) for r in mapping]
     if len(keys)!=len(set(keys)):errors.append('Repeated historical cell mapping')
     pages=read_json(PAGES)
-    if [r['id'] for r in pages['pages']]!=[f'P{i:02}' for i in range(1,11)]:errors.append('HTML map must have exactly P01–P10')
+    n_pages=len(pages['pages'])
+    if [r['id'] for r in pages['pages']]!=[f'S{i:02}' for i in range(1,13)]:errors.append('Deck map must have exactly S01–S12 (deck12)')
     source_script=read_json('outputs/qa/script_word_counts.json')
     if sum(r['seconds'] for r in pages['pages'])!=pages['planned_seconds'] or pages['planned_seconds']!=source_script['planned_seconds']:errors.append('HTML timing differs from registered script allocation')
     if any(not isinstance(r['seconds'],int) or r['seconds']<=0 for r in pages['pages']):errors.append('HTML page duration must be a positive integer')
     if pages['planned_seconds']>=pages['max_video_seconds_public']:errors.append('Planned video lacks buffer')
     from pptx import Presentation
-    source_pages=len(Presentation(ROOT/pages['source_pptx']).slides)
+    source_pages=len(Presentation(ROOT/pages['deck_pptx']).slides)
+    extract=read_json(pages['source_extract'])
     source_use=Counter(n for r in pages['pages'] for n in r['source_slides'])
-    if source_pages!=9 or source_use!=Counter({n:2 if n==7 else 1 for n in range(1,10)}):errors.append('HTML map does not cover current nine slides with only S7 split')
+    if source_pages!=n_pages:errors.append('Published deck page count differs from the deck map')
+    if len(extract['slides'])!=n_pages or source_use!=Counter({n:1 for n in range(1,n_pages+1)}):errors.append('Deck map does not follow the group deck slide by slide')
     for r in pages['pages']:
         for field in ['title','speaker','interaction','acceptance','inputs','source_blocks']:
             if not r.get(field):errors.append(r['id']+': missing plan '+field)
         for path in r['inputs']:
             if not (ROOT/path).is_file():errors.append(r['id']+': missing current input '+path)
-        speakers={b['speaker'] for b in source_script['blocks'] if b['block'] in {s.split('.')[0] for s in r['source_blocks']}}
+        speakers={b['speaker'] for b in source_script['blocks'] if b['block'] in set(r['source_blocks'])}
         if speakers!={r['speaker']}:errors.append(r['id']+': voice differs from source script blocks')
     table,cells,web,artifacts=required_sections()
     for path,label,lines in [(DOC,'COMPLETION_REQUIREMENTS',table),(DOC,'CELL_COVERAGE',cells),(HTML_DOC,'HTML_SLIDE_MAP',web),(DOC,'COMPLETION_DELIVERABLES',artifacts)]:
@@ -183,18 +186,18 @@ def validate():
         claim_pages=sorted({r['slide_id'] for r in claims})
     html_validation=ROOT/'outputs/qa/html/html_validation.json'
     html_checks=read_json('outputs/qa/html/html_validation.json') if html_validation.is_file() else {}
-    html_checked=bool(html_checks) and all(html_checks.get(k,{}).get('status')=='passed' for k in ['interaction_1920','interaction_1366','offline','pdf_pages'])
+    html_checked=bool(html_checks) and all(html_checks.get(k,{}).get('status')=='passed' for k in ['selftest_1920','selftest_1366','offline','flat_no_controls','pdf_pages','pptx_pages'])
     report=dict(checked_at=now(),status='passed_known_requirement_coverage' if not errors else 'failed',
         review_date=contract['review_date'],requirements=len(rows),coverage=coverage,rules_covered=len(rule_ids),
         deliverable_families=len(groups),
         execution_status_counts=dict(sorted(Counter(r['status'] for r in rows).items())),
         open_historical_cells=len(expected_open),mapped_historical_cells=len(mapping),cell_groups=dict(sorted(Counter(r['requirement_id'] for r in mapping).items())),
         html_plan_pages=len(pages['pages']),html_plan_seconds=pages['planned_seconds'],current_pptx_pages=source_pages,
-        planned_html_video_segments_if_adopted=len(pages['pages'])-1+5,
+        planned_video_segments=n_pages,
         dependency_graph_acyclic=not any(e.startswith('Cyclic') for e in errors),
         observed_open_evidence=dict(claims=len(claims),claim_slide_ids=claim_pages,
             corporate_actions=len(read_csv('data/processed/corporate_actions.csv')),scenario_or_grid_points_without_residual_flags=missing_flags),
-        source_snapshot={p:sha256(ROOT/p) for p in [CONTRACT,PAGES,'outputs/qa/extended_input_audit.csv','data/processed/claims.csv','data/processed/corporate_actions.csv','data/processed/valuation.json',pages['source_pptx']]},
+        source_snapshot={p:sha256(ROOT/p) for p in [CONTRACT,PAGES,'outputs/qa/extended_input_audit.csv','data/processed/claims.csv','data/processed/corporate_actions.csv','data/processed/valuation.json',pages['deck_pptx']]},
         errors=errors,financial_reconciliation_performed=False,
         html_artifact_present=(ROOT/'outputs/draft/html/apresentacao_esg.html').is_file(),html_implementation_checks_executed=html_checked,
         scope='Covers known plans/rules and observed gaps. No proof of financial correctness, final release, human participation, submission or unknown private H07 requirements.')

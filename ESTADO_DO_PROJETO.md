@@ -8,41 +8,40 @@ Revisão documental: **01/11/2026**. Responsável pela manutenção: agente que 
 
 Preparar a análise setorial ESG de saneamento da equipe asset.dev no Desafio Safra Top Gestor 2026. O grupo tem quatro integrantes e informou estar em 13º, com meta de alcançar pelo menos o 3º; não há notas dos concorrentes para calcular a recuperação necessária. A análise compara Sabesp, Copasa e Sanepar para produzir uma recomendação defensável, ligando fatores ESG a operação, caixa, risco, valuation e preço.
 
-O resultado pretendido é uma base auditável, análise reconciliada, gráficos, nove slides editáveis/PDF, apoio técnico, roteiro/falas dos quatro e vídeo revisado para o grupo enviar. Nove slides e duração planejada de 9:20 são escolhas de produção. As regras públicas verificadas na pesquisa de 31/10 incluem vídeo de até dez minutos, participação ativa, SWOT, médio prazo/tecnologia/competição, recomendação e matriz ESG; o cronograma indica 02/11/2026. Horário/canal e alterações privadas continuam dependentes de H07. Ver [regras e origem da verificação](outputs/draft/regras_2026_verificadas.md).
+O resultado pretendido é uma base auditável, análise reconciliada, gráficos, a apresentação final de doze slides (HTML, PDF e PPTX), apoio técnico, roteiro/falas dos quatro e vídeo revisado para o grupo enviar. Doze slides e duração planejada de 9:30 são escolhas de produção. As regras públicas verificadas na pesquisa de 31/10 incluem vídeo de até dez minutos, participação ativa, SWOT, médio prazo/tecnologia/competição, recomendação e matriz ESG; o cronograma indica 02/11/2026. Horário/canal e alterações privadas continuam dependentes de H07. Ver [regras e origem da verificação](outputs/draft/regras_2026_verificadas.md).
 
-Extensão solicitada em 01/11: **HTML interativo de dez páginas**. Implementado pela Parte 2 e publicado como rascunho em [outputs/draft/html/apresentacao_esg.html](outputs/draft/html/apresentacao_esg.html) (arquivo local, sem rede). O perfil HTML10 divide o S7 em método e resultado e mantém o orçamento de 9:20; o perfil PPTX9 continua separado. Não se presume que o HTML substitua o vídeo da competição: isso depende de H07.
+**Apresentação final (plano 14, 01/11):** a pedido do usuário, a apresentação passou a seguir o PPT reorganizado pelo grupo, com 12 slides planos (sem botões, painéis ou elementos clicáveis), em [HTML](outputs/draft/html/apresentacao_esg.html), [PDF](outputs/draft/apresentacao_esg.pdf) e [PPTX](outputs/draft/apresentacao_esg.pptx), com o [script](outputs/draft/script_apresentacao.md) ajustado. A história começa na 2ª carta: o modelo de alocação pôs 2% do patrimônio em Sabesp, por escolha do modelo (prêmio de risco), sem tese nossa; por isso fomos ao setor com um olhar fundamentalista, e o modelo não volta a ser citado. O texto segue o estilo das cartas. O design é o de [marcadev.html](resources/design_system/marcadev.html) com o nome asset.dev. O PPTX é feito das páginas renderizadas (sem edição de layout), com a fala nas notas. Os perfis anteriores (PPTX9 editável e HTML10 interativo) foram aposentados e o PPT do grupo foi excluído depois da montagem, como autorizado; a extração está em `data/interim/production/reference/`. Não se presume que o HTML possa ser usado na gravação ou como anexo sem H07; o PDF e o PPTX têm os mesmos slides.
 
-**Revisão visual em01/11:** design de [marcadev.html](resources/design_system/marcadev.html) aplicado ao HTML10, com nome asset.dev, preto/ouro, diagonal25°, fontes Space Grotesk/Inter/JetBrains Mono incorporadas e paleta de dados do manual. [PDF10](outputs/draft/html/apresentacao_esg.pdf) e [PPTX10](outputs/draft/html/apresentacao_esg.pptx) gerados do HTML; o PPTX10 usa páginas renderizadas a3840px, com texto/evidências nas notas. O PPTX9 editável continua separado. Layout aprovado em117 estados interativos, em1920/1366 e tema claro; dez páginas PDF e dez páginas PPTX revisadas visualmente. [Comparação dos formatos](outputs/qa/production/pr_20261101T151834_ac536175/html_pptx_fidelity.json).
-
-**Apresentações no Git:** sete arquivos enviados para `main` em [GB-Navarro/safra_top_gestor](https://github.com/GB-Navarro/safra_top_gestor), no [commit `76ef1f3`](https://github.com/GB-Navarro/safra_top_gestor/commit/76ef1f30ae9811448de152c8502feb22e93ae8e3). Inclui HTML/PDF/PPTX10, PPTX/PDF9 e apoio técnico PPTX/PDF7. Os blobs do commit conferem com os hashes da publicação; [índice das versões](data/catalog/presentations_git_manifest.json). São os mesmos rascunhos, com os portões humanos mantidos.
+**Apresentações no Git:** sete arquivos enviados para `main` em [GB-Navarro/safra_top_gestor](https://github.com/GB-Navarro/safra_top_gestor), no [commit `76ef1f3`](https://github.com/GB-Navarro/safra_top_gestor/commit/76ef1f30ae9811448de152c8502feb22e93ae8e3). Inclui HTML/PDF/PPTX10, PPTX/PDF9 e apoio técnico PPTX/PDF7. Os blobs do commit conferem com os hashes da publicação; [índice das versões](data/catalog/presentations_git_manifest.json). São os rascunhos anteriores ao plano 14 (HTML10/PPTX9); a apresentação final de 12 slides **não foi enviada ao Git** (não houve pedido).
 
 ## Estado real
 
 **Parte 1 (dados e análise) e Parte 2 (apresentação e engenharia) executadas em 01/11/2026. As peças são rascunhos canônicos de uma proposta: decisões humanas (H08/H09), instruções privadas (H07), ensaios, clipes, vídeo e envio continuam pendentes. O projeto inteiro não está concluído.**
 
-O pacote analítico 1.0 vigente é [`an_20261101T132455_ac536175`](outputs/draft/analysis_bundle/an_20261101T132455_ac536175/LEIA_PRIMEIRO.md) (ponteiro em [latest.json](outputs/draft/analysis_bundle/latest.json)). Ele saiu do [plano 13](plans/13_plano_fechamento_residual_agente.md) a partir da fotografia derivada `snap_20261031_7c31b5560e`: os mesmos insumos de 31/10, mais quatro fontes primárias publicadas antes do corte. Contém:
+O pacote analítico 1.0 vigente é [`an_20261101T202028_e29905ab`](outputs/draft/analysis_bundle/an_20261101T202028_e29905ab/LEIA_PRIMEIRO.md) (ponteiro em [latest.json](outputs/draft/analysis_bundle/latest.json)), da fotografia derivada `snap_20261031_b126c2edf0`: os mesmos insumos de 31/10, as fontes primárias do plano 13 e, no plano 14, a 2ª carta (original preservado), as tabelas de cotação e a série do Tesouro já usadas (agora lidas também em 23/10) e uma reportagem de 26/10. Contém:
 
 - as 64 células históricas e C08 com disposição e fonte;
 - capital e eventos;
 - obrigações por natureza e cronograma datado do precatório;
 - premissas com alternativas;
-- FCFF revisado com vínculo capex→base remunerada e 68 casos com validade por caso (o caso finito da Copasa agora calculado);
+- FCFF revisado com vínculo capex→base remunerada e 68 casos com validade por caso;
 - matriz e ponte ESG;
 - decisão proposta por regra;
-- 32 afirmações (31 nos 10 slots e uma verificação da base);
+- 34 afirmações (33 nos 10 slots e uma verificação da base), incluindo a origem na 2ª carta e a semana do segundo turno;
 - duas planilhas.
 
-Estado `analysis_proposed`; QA e contrato aprovados. A versão anterior (`an_20261101T083333_e758f3af`) continua preservada.
+Estado `analysis_proposed`; QA e contrato aprovados. As versões anteriores (`an_..083333`, `an_..132455`, `an_..193707`) continuam preservadas. Nenhum valor de caso-base mudou no plano 14.
 
-A Parte 2 consumiu esse mesmo pacote e republicou o design no build `pr_20261101T151834_ac536175` (publicação `pub_20261101T153001`, [manifesto](outputs/draft/production/published.json)):
+A Parte 2 consumiu esse pacote no build `pr_20261101T203705_e29905ab` (publicação `pub_20261101T203832`, [manifesto](outputs/draft/production/published.json)):
 
-- **HTML10 interativo:** gráficos com dica e tabela, abas, grade WACC×g clicável, cenários, régua de compra, painel de fontes, modo gravação com área de câmera, tema escuro e impressão de 10 páginas.
-- **PPTX9 e PDF**, com as falas nas notas, e **apoio técnico de7 páginas**. O perfil HTML10 inclui agora seu próprio **PDF10 e PPTX10 fiel ao HTML**, distinto do PPTX9 editável.
-- **Seis figuras e uma régua de compra** (PNG/SVG/CSV).
-- **Textos:** scripts por perfil, quatro teleprompters, perguntas, guia de gravação, [checklist de envio](outputs/draft/checklist_envio.md) e documentos de decisão.
-- **Dados:** `data/processed` passou a refletir o contrato 1.0 ([CANONICAL_SOURCE.json](data/processed/CANONICAL_SOURCE.json)).
+- **Apresentação final (deck12):** 12 slides planos gerados em Python (marcação e gráficos SVG) a partir do pacote; o script só navega (setas, espaço, clique), ajusta à janela e liga o modo gravação (tecla G, que reduz o slide e libera a área da câmera). Impressão de 12 páginas e PPTX das mesmas páginas com a fala nas notas.
+- **Apoio técnico de 7 páginas** e **figuras** (PNG/SVG/CSV).
+- **Textos:** script único, quatro teleprompters, 13 perguntas da banca, guia de gravação, [checklist de envio](outputs/draft/checklist_envio.md) e documentos de decisão.
+- **Dados:** `data/processed` reflete o contrato 1.0 ([CANONICAL_SOURCE.json](data/processed/CANONICAL_SOURCE.json)).
 
-QA das peças nesta revisão: **16/16 verificações aprovadas**, 33 verificações de navegador por resolução incluindo117 estados geométricos, revisão visual das dez páginas PDF e dez páginas PPTX e comparação dos formatos aprovada. A revalidação integral passou com **39+50+13 testes e16 originais preservados**. A [revisão semântica das32 afirmações](outputs/qa/claims_semantic_review.json) é da execução anterior; o conteúdo analítico das páginas permanece idêntico. Não há ensaios, clipes, vídeo ou submissão; outputs/final continua vazio, porque o portão `group_material` recusa por falta de H08/H09.
+QA das peças: **19/19 verificações**, autoteste com 73 verificações em 1920×1080 e 1366×768 (sem sobreposição, transbordo ou colisão de rótulos; sem controles), números iguais entre HTML, PPTX e script, e 16 relações afirmadas nos títulos e falas conferidas contra o pacote. Revisão visual do agente sobre 48 capturas. No estado publicado: **42 + 58 + 13 testes, código 0; 15 originais preservados**. [Conferência de fatos](data/interim/production/fact_check/fact_check_final.json): 39 valores observados exibidos ou falados ancorados no texto da fonte (3 conferidos à mão), 21 afirmações qualitativas com trecho na fonte e as três cotações de 30/10 confirmadas em segunda fonte pública. Não há ensaios, clipes, vídeo ou submissão; outputs/final continua vazio, porque o portão `group_material` recusa por falta de H08/H09.
+
+**Achado do plano 14:** os preços de 30/10 são posteriores à semana do segundo turno. Em 23/10, a SAPR11 fechou a R$ 41,92, perto do valor-base (R$ 42,82); em 30/10, a R$ 30,85 (−26,4%). SBSP3 e CSMG3 caíram 22,8% e 25,5%, e a NTN-B 2035 subiu de 6,76% para 7,88%, taxa já usada no custo de capital. A margem de compra da Sanepar surgiu nessa semana; o slide 11, as falas e as perguntas dizem isso, e a tese deixou de afirmar que o desconto remunera o risco regulatório estadual.
 
 Correções factuais do plano 13 (fontes primárias):
 
@@ -58,11 +57,11 @@ Proposta do caso-base revisado (30/10/2026, WACC 13,25%): Sanepar R$ 42,82/unit 
 
 ## Onde está tudo o que falta
 
-O [contrato de fechamento09](plans/09_contrato_de_fechamento.md) detalha os dados a obter, correções, dependências, critérios de aceite e entregáveis. Sua origem única é [completion_requirements.json](data/catalog/completion_requirements.json), com fontes/rotas, evidência existente, responsável, método, saída e alternativa por requisito. O [mapa de células](data/catalog/cell_issue_mapping.csv) vincula individualmente os problemas históricos aos requisitos; o [plano HTML10](plans/10_plano_html_interativo.md) especifica a extensão visual.
+O [contrato de fechamento09](plans/09_contrato_de_fechamento.md) detalha os dados a obter, correções, dependências, critérios de aceite e entregáveis. Sua origem única é [completion_requirements.json](data/catalog/completion_requirements.json), com fontes/rotas, evidência existente, responsável, método, saída e alternativa por requisito. O [mapa de células](data/catalog/cell_issue_mapping.csv) vincula individualmente os problemas históricos aos requisitos; o [plano 14](plans/14_plano_apresentacao_final.md) especifica a apresentação final de 12 slides (o [plano 10](plans/10_plano_html_interativo.md) do HTML10 ficou como histórico).
 
 A auditoria documental cobre os requisitos conhecidos dos planos, conteúdo público registrado e lacunas observadas nos arquivos. O [relatório de completude](outputs/qa/completion_documentation_validation.json) confere cobertura, dependências e rastreabilidade da lista, sem declarar os trabalhos executados. H07 pode acrescentar exigências ainda desconhecidas; novas descobertas materiais precisam ser incorporadas antes do encerramento.
 
-Para distribuir a execução, usar os dois planos: **[parte1 — dados e análise](plans/11_plano_agente_analise_dados.md)** e **[parte2 — apresentação e engenharia](plans/12_plano_agente_engenharia_entrega.md)**. Cada parte inicia e testa sua entrega autônoma com insumos atuais, contrato1.0 e áreas de escrita próprias. A integração definitiva continua condicionada a dados revisados e registros humanos reais. O [catálogo da divisão](data/catalog/two_part_execution.json) e seu [relatório de validação](outputs/qa/two_part_plan_validation.json) verificam a cobertura dos29 requisitos, autoria, dependências e interface. **Parte 1 executada** (AN01–AN12; progresso em [parallel_progress/analysis.json](data/catalog/parallel_progress/analysis.json)); **Parte 2 executada** (EN01–EN12; progresso em [parallel_progress/production.json](data/catalog/parallel_progress/production.json)). O status por requisito está em completion_requirements.json (`status`, `status_note`). Com o [plano 13](plans/13_plano_fechamento_residual_agente.md), C20, C21, C22 e C28 estão fechados com evidência. Os requisitos restantes ficam em dois grupos:
+Para distribuir a execução, usar os dois planos: **[parte1 — dados e análise](plans/11_plano_agente_analise_dados.md)** e **[parte2 — apresentação e engenharia](plans/12_plano_agente_engenharia_entrega.md)**. Cada parte inicia e testa sua entrega autônoma com insumos atuais, contrato1.0 e áreas de escrita próprias. A integração definitiva continua condicionada a dados revisados e registros humanos reais. O [catálogo da divisão](data/catalog/two_part_execution.json) e seu [relatório de validação](outputs/qa/two_part_plan_validation.json) verificam a cobertura dos29 requisitos, autoria, dependências e interface. **Parte 1 executada** (AN01–AN12; progresso em [parallel_progress/analysis.json](data/catalog/parallel_progress/analysis.json)); **Parte 2 executada** (EN01–EN12; progresso em [parallel_progress/production.json](data/catalog/parallel_progress/production.json)). O status por requisito está em completion_requirements.json (`status`, `status_note`). Com o [plano 13](plans/13_plano_fechamento_residual_agente.md), C20, C21, C22 e C28 estão fechados com evidência; o plano 14 atualizou C20, C23, C24 e C28 para o deck12 e registrou o pedido como regra R11. Os requisitos restantes ficam em dois grupos:
 
 - dependem de ação humana: C01, C13, C14, C19, C23–C26;
 - seguem com limitação declarada: C06, C09–C12, C15, C16, C18, C29, além de C27 (documentação), que é contínuo.
@@ -77,31 +76,30 @@ Trecho automático. Números extraídos dos arquivos atuais e das verificações
 
 | Indicador | Registro |
 |---|---|
-| Última execução da análise/QA central registrada | 01/11/2026 15:30:39 (-03:00) |
+| Última execução da análise/QA central registrada | 01/11/2026 20:39:07 (-03:00) |
 | Estado do relatório | controles técnicos aprovados; revisão econômica pendente |
-| Fontes adquiridas / observações / contas CVM | 56 / 1.284 / 10.675 |
+| Fontes adquiridas / observações / contas CVM | 58 / 1.298 / 10.675 |
 | Registros municipais SINISA (última extração registrada) | 271.856 |
-| Originais preservados na execução registrada | 16 |
-| Testes centrais na última execução | 102; código de saída 0 |
+| Originais preservados na execução registrada | 15 |
+| Testes centrais na última execução | 113; código de saída 0 |
 | Recálculo independente Excel/Python | 82 comparações; passed; hash da planilha atual coincide |
-| Pacote — verificações registradas | 16; passed (não certifica premissas) |
+| Pacote — verificações registradas | 18; passed (não certifica premissas) |
 | Auditoria de entradas históricas | 195 células: 131 coincidências dentro do arredondamento, 9 diferenças a conciliar e 55 sem mapeamento suficiente |
-| PDFs na última renderização | apresentacao_esg: 9 páginas, apoio_tecnico: 7 páginas, html/apresentacao_esg: 10 páginas |
-| Script / duração planejada | 1023 palavras, incluindo marcadores; 560 segundos planejados; ensaio real não inferido |
+| PDFs na última renderização | apresentacao_esg: 12 páginas, html/apresentacao_esg: 12 páginas, apoio_tecnico: 7 páginas |
+| Script / duração planejada | 1108 palavras, incluindo marcadores; 570 segundos planejados; ensaio real não inferido |
 | Fila / ações humanas cadastradas | 33 tarefas de dados / 13 ações |
-| Clipes indicados presentes | 0 de 13; presença de arquivo não comprova qualidade/revisão |
+| Clipes indicados presentes | 0 de 12; presença de arquivo não comprova qualidade/revisão |
 | Arquivos em outputs/final (exceto .gitkeep) | 0; quantidade não equivale a submissão |
-| Pacote analítico 1.0 (Parte 1) | an_20261101T132455_ac536175; estado analysis_proposed; QA analítica passed |
-| Peças publicadas (Parte 2) | build pr_20261101T151834_ac536175 (pub_20261101T153001); validação passed_technical_checks_with_economic_review_pending; revisão visual reviewed_no_material_layout_defect (agente) |
-| HTML10 — interação/offline/impressão | 1920: 33 verificações passed; 1366: passed; offline passed; PDF 10 páginas |
+| Pacote analítico 1.0 (Parte 1) | an_20261101T202028_e29905ab; estado analysis_proposed; QA analítica passed |
+| Peças publicadas (Parte 2) | build pr_20261101T203705_e29905ab (pub_20261101T203832); validação passed_technical_checks_with_economic_review_pending; revisão visual reviewed_no_material_layout_defect (agente) |
+| Apresentação de 12 slides — autoteste/offline/impressão | 1920: 73 verificações passed; 1366: passed; sem controles passed; offline passed; PDF 12 e PPTX 12 páginas |
 | Portões de liberação (evidência real) | data_factual: liberado; analysis_proposal: liberado; group_material: bloqueado; video_submission: bloqueado; sent: bloqueado |
-| Clipes do perfil HTML10 | 0 de 14 |
 | Contrato de fechamento — documentação | 29 requisitos; 64 células vinculadas; fontes correspondem à revisão; não é conclusão financeira |
-| HTML interativo — plano | 10 páginas / 560 segundos; artefato presente, consultar validação HTML própria |
+| Apresentação final — mapa de páginas | 12 páginas / 570 segundos; artefato presente, consultar validação HTML própria |
 
 Evidências: [relatório técnico](outputs/qa/relatorio_validacao.md), [recálculo da planilha](outputs/qa/workbook_recalculation.json), [auditoria de células](outputs/qa/extended_input_audit.csv), [cobertura](data/processed/coverage.csv) e [ações humanas](data/catalog/manual_export_requests.csv).
 
-<!-- PROJECT_SNAPSHOT_SHA256:c048cec4c6938d741407bfb94e00021c13f45b44411cfdb27bd44f1b3768b003 -->
+<!-- PROJECT_SNAPSHOT_SHA256:17f020ea9937b772bdad5b19d0806fa0b38218321f658d5a2709f365b17fa09a -->
 <!-- PROJECT_EVIDENCE:END -->
 
 ## O que já foi feito
@@ -135,6 +133,11 @@ Evidências: [relatório técnico](outputs/qa/relatorio_validacao.md), [recálcu
   - **Fotografia derivada.** O modo `--baseline derive:` evita capturar `data/processed` publicado como insumo.
   - **Nova versão do pacote e das peças** com as correções factuais; 7 testes novos na Parte 1.
   - **Revisão semântica e fechamentos.** Revisão das 32 afirmações registrada; C20 e C22 fechados; fila de coleta, números N e mapa HTML atualizados.
+- **Plano 14 (apresentação final)** executado em [plans/14](plans/14_plano_apresentacao_final.md):
+  - **Narrativa:** 12 slides na sequência do PPT do grupo, com origem na 2ª carta e análise independente do modelo depois do slide 2; títulos afirmam fatos com número; texto no estilo das cartas, verificado por lint.
+  - **Dados:** pesos e motivos da 2ª carta e semana do segundo turno entraram no pacote com fonte; rótulos de fonte corrigidos.
+  - **Peças:** HTML plano, PDF e PPTX de 12 páginas, script e teleprompters; vídeo com o slide reduzido ao lado da câmera.
+  - **Conferência:** valores e afirmações ancorados nas fontes; relações dos títulos conferidas a cada build.
 
 ## Cumprimento das fases do plano
 
@@ -146,11 +149,11 @@ Evidências: [relatório técnico](outputs/qa/relatorio_validacao.md), [recálcu
 | A04 — valuation | Ramo revisado implementado; premissas propostas; caso finito das três empresas calculado; base implícita verificada contra a BRR oficial da Sanepar | H08 sobre cinco julgamentos (WACC, WACC regulatório Sabesp, defasagem/captura, precatório, terminal); nova versão do pacote se mudarem. |
 | A05 — ESG e efeito no valor | Matriz com value_refs e ponte (base remunerada + energia); governança da Copasa corrigida | Indicador de acesso da Copasa ausente; energia permanece sensibilidade. |
 | A06 — recomendação | Decisão proposta por regra (Sanepar, compra condicionada) | Adoção real H09; Parte 2 representar fielmente proposta/condições/gatilhos. |
-| A07 — visualizações | HTML10 adaptado ao design asset.dev do manual; gráficos, fontes e117 estados geométricos revisados | Regenerar automaticamente se H08/H09 mudarem premissas (nova versão do pacote → `production.run`). |
-| A08 — slides e falas | HTML10/PDF10 e PPTX10 renderizado com o design do manual; PPTX9/apoio7 e falas preservados como perfis separados | Ajustar falas com os tempos reais dos ensaios (H10); versão definitiva após H08/H09. |
-| A09 — validação | QA visual/técnica16/16 e validação integral39+50+13 aprovadas;16 originais conferidos; revisão semântica anterior preservada | Revalidar a cada nova versão; premissas econômicas seguem sem certificação por testes. |
-| A10 — ensaio/vídeo | Perfis 13/14 segmentos e montador testados com fixture sintética | Receber dois ensaios e clipes reais; montar (`production.video.assemble`), medir e o grupo revisar o vídeo inteiro. |
-| A11 — pacote final | Rascunhos canônicos publicados; sete apresentações enviadas ao Git; portões mantidos | Portões liberarem com H08/H09, H07, H10, H11 e revisão integral; então `--mode final` promove; grupo envia (H13) e guarda comprovante. |
+| A07 — visualizações | Deck12 no design asset.dev: gráficos SVG com ouro para a medida principal e cinza para comparação; autoteste geométrico em duas resoluções e revisão de 48 capturas | Regenerar automaticamente se H08/H09 mudarem premissas (nova versão do pacote → `production.run`). |
+| A08 — slides e falas | Apresentação final de 12 slides em HTML/PDF/PPTX (plano 14), script único no estilo das cartas, quatro teleprompters e apoio7 | Ajustar falas com os tempos reais dos ensaios (H10); versão definitiva após H08/H09. |
+| A09 — validação | QA 19/19 e validação integral 42+58+13 aprovadas; 15 originais conferidos; conferência de fatos do plano 14 registrada | Revalidar a cada nova versão; premissas econômicas seguem sem certificação por testes. |
+| A10 — ensaio/vídeo | Perfil deck12 (12 segmentos) e montador testados com fixture sintética | Receber dois ensaios e clipes reais; montar (`production.video.assemble`), medir e o grupo revisar o vídeo inteiro. |
+| A11 — pacote final | Rascunhos canônicos publicados (apresentação final de 12 slides); Git ainda com a versão anterior; portões mantidos | Portões liberarem com H08/H09, H07, H10, H11 e revisão integral; então `--mode final` promove; grupo envia (H13) e guarda comprovante. |
 
 O `--mode final` avalia os portões de liberação. Hoje recusa com motivos, porque H08/H09 não estão registrados. Ele só copia para outputs/final com evidência real e nunca envia nada.
 
@@ -160,8 +163,8 @@ As rotas públicas existem. Um importador genérico das exportações Bloomberg 
 
 | Prioridade / referências | Trabalho e motivo | Resultado que comprova conclusão |
 |---|---|---|
-| 1 — A04/A06/A07/A08 após H08/H09 | Se o grupo alterar algum dos cinco julgamentos ou a recomendação: `python -m analysis.run --baseline derive:data/interim/analysis/baseline/snap_20261031_7c31b5560e` (`new` é recusado depois da publicação 1.0); depois `python -m production.run --input-bundle latest`, revisar capturas, `--record-visual-review` e `--publish`. | Nova versão `group_adopted` só com registros reais H08/H09; peças regeneradas e republicadas. |
-| 2 — A10 com clipes reais | Conferir clipes (`--release-report`), montar o rascunho do vídeo no perfil escolhido por H07 e medir duração/áudio. | Vídeo de rascunho para revisão integral do grupo; nada enviado. |
+| 1 — A04/A06/A07/A08 após H08/H09 | Se o grupo alterar algum dos cinco julgamentos ou a recomendação: `python -m analysis.run --baseline derive:data/interim/analysis/baseline/snap_20261031_b126c2edf0` (`new` é recusado depois da publicação 1.0); depois `python -m production.run --input-bundle latest`, revisar capturas, `--record-visual-review` e `--publish`. | Nova versão `group_adopted` só com registros reais H08/H09; peças regeneradas e republicadas. |
+| 2 — A10 com clipes reais | Conferir clipes (`--release-report`), montar o rascunho do vídeo (deck12, 12 segmentos) e medir duração/áudio. | Vídeo de rascunho para revisão integral do grupo; nada enviado. |
 | 3 — A11 | Após os portões liberarem: `scripts/run_esg.py --mode final` (ou `--final-stage video_submission`). | outputs/final com manifesto; submissão continua humana (H13). |
 | 4 — residual público (opcional) | BRR líquida de Sabesp/Copasa em fonte primária extraível; plano de capex vigente da Copasa (se o novo controlador divulgar); preço/participação da EMAE; datas de eventos de Sabesp/Copasa. Uma tentativa por fonte no plano 13 não bastou. | Limitação mantida ou substituída; nova versão do pacote se mudar número. |
 
@@ -172,9 +175,9 @@ Pesquisa pública, conciliação contábil e programação seguem como responsab
 | Ação | Como e por quê | Registro esperado |
 |---|---|---|
 | H07 — instruções privadas | Reunir mensagem/orientações e confirmar hora/fuso, canal, formato/tamanho, alterações e se o HTML pode ser usado na gravação. Seguir o [checklist de envio](outputs/draft/checklist_envio.md). | Originais e resumo em data/raw/orientacoes. |
-| H08/H09 — decisões | **Proposta pronta.** Usar o checklist de cinco julgamentos e a decisão em [LEIA_PRIMEIRO do pacote](outputs/draft/analysis_bundle/an_20261101T132455_ac536175/LEIA_PRIMEIRO.md); assumir ou rejeitar hipóteses, recomendação, condições e objeção. Não refazer a pesquisa nem aceitar projeções só porque existem. | [decisoes_equipe.md](data/interim/decisoes_equipe.md), com responsável, data e justificativa reais. |
-| H10 — ensaios | Fazer dois passes cronometrados com os quatro, usando o [HTML](outputs/draft/html/apresentacao_esg.html) ou o PDF e os [teleprompters](outputs/draft/teleprompter/). Os 9:20 são planejamento, não duração medida. | [feedback_ensaio.md](data/interim/feedback_ensaio.md). |
-| H11 — gravação | Gravar participação real conforme o roteiro e o manifesto de segmentos do perfil: [pptx9](config/video_segments.json) com 13 segmentos ou [html10](config/video_segments_html10.json) com 14, este em modo gravação (tecla G). | Clipes em data/raw/gravacao (ou data/raw/gravacao/html10) e indicação das tomadas preferidas. |
+| H08/H09 — decisões | **Proposta pronta.** Usar o checklist de cinco julgamentos e a decisão em [LEIA_PRIMEIRO do pacote](outputs/draft/analysis_bundle/an_20261101T202028_e29905ab/LEIA_PRIMEIRO.md); assumir ou rejeitar hipóteses, recomendação, condições e objeção. Não refazer a pesquisa nem aceitar projeções só porque existem. | [decisoes_equipe.md](data/interim/decisoes_equipe.md), com responsável, data e justificativa reais. |
+| H10 — ensaios | Fazer dois passes cronometrados com os quatro, usando o [HTML](outputs/draft/html/apresentacao_esg.html) (ou o PDF/PPTX) e os [teleprompters](outputs/draft/teleprompter/). Os 9:30 são planejamento, não duração medida. Revisar slides e falas antes. | [feedback_ensaio.md](data/interim/feedback_ensaio.md). |
+| H11 — gravação | Gravar participação real conforme o script e o [manifesto de segmentos](config/video_segments.json): 12 clipes, um por slide (S01–S12); o HTML tem modo gravação (tecla G). | Clipes em data/raw/gravacao e indicação das tomadas preferidas. |
 | H13 — revisão/envio | Assistir ao arquivo inteiro, conferir requisitos e enviar pelo canal confirmado. | Comprovante e arquivo/link efetivamente enviados. |
 | H01 — confirmação útil | Abrir/autenticar o Terminal para tentativa de API ou exportar preços/capital/eventos. SDK foi encontrado, mas o endpoint estava inativo no teste anterior. | Exportação local ou captura autorizada com metadados; não compartilhar credenciais. |
 
@@ -192,12 +195,12 @@ Consenso e alvos de analistas não adquiridos; índices/financiamento verde sem 
 | Duas partes de execução autônoma | [Plano11: dados/análise](plans/11_plano_agente_analise_dados.md) e [plano12: apresentação/engenharia](plans/12_plano_agente_engenharia_entrega.md), com contrato de integração e escrita separada |
 | Fechamento residual do agente | [Plano 13](plans/13_plano_fechamento_residual_agente.md): inventário, revisão crítica e registro de execução |
 | Pacote analítico 1.0 (Parte 1) | [latest.json](outputs/draft/analysis_bundle/latest.json) → recomendação, casos, conciliação, cronograma e planilhas; QA em outputs/qa/analysis; código em analysis/ |
-| Peças e integração (Parte 2) | [HTML10](outputs/draft/html/apresentacao_esg.html), [publicação](outputs/draft/production/published.json), [relatório de validação](outputs/qa/relatorio_validacao.md), [portões](outputs/qa/release_validation.json), [revisão visual](outputs/qa/visual_review.json); código em production/ e presentation_web/ |
+| Peças e integração (Parte 2) | [Apresentação HTML](outputs/draft/html/apresentacao_esg.html), [conferência de fatos](data/interim/production/fact_check/fact_check_final.json), [publicação](outputs/draft/production/published.json), [relatório de validação](outputs/qa/relatorio_validacao.md), [portões](outputs/qa/release_validation.json), [revisão visual](outputs/qa/visual_review.json); código em production/ e presentation_web/ |
 | Procedimento humano | [Plano06](plans/06_plano_executivo_grupo_esg.md), [anexo08](plans/08_plano_coleta_dados_humano.md) e [próximos passos](outputs/draft/PROXIMOS_PASSOS.md) |
 | Auditoria e limitações | [Conciliação](outputs/draft/conciliacao_financeira.md), [auditoria](outputs/draft/auditoria_modelos.md), [pendências](outputs/draft/pendencias.md) |
 | Modelos e apresentação | [XLSX](outputs/draft/base_modelo_auditavel.xlsx), [base de coleta](outputs/draft/coleta/base_dados_coletados.xlsx), [PPTX](outputs/draft/apresentacao_esg.pptx), [PDF](outputs/draft/apresentacao_esg.pdf) |
-| Falas e produção | [Script PPTX9](outputs/draft/script_apresentacao.md), [script HTML10](outputs/draft/script_apresentacao_html10.md), [roteiro](outputs/draft/roteiro_narrativo.md), [perguntas](outputs/draft/perguntas_banca.md), [guia](outputs/draft/guia_gravacao.md), [checklist de envio](outputs/draft/checklist_envio.md) |
-| Fechamento executável e HTML | [Contrato09](plans/09_contrato_de_fechamento.md), [plano10](plans/10_plano_html_interativo.md), [requisitos](data/catalog/completion_requirements.json), [mapa HTML](data/catalog/html_slide_plan.json) |
+| Falas e produção | [Script](outputs/draft/script_apresentacao.md), [teleprompters](outputs/draft/teleprompter/), [roteiro](outputs/draft/roteiro_narrativo.md), [perguntas](outputs/draft/perguntas_banca.md), [guia](outputs/draft/guia_gravacao.md), [checklist de envio](outputs/draft/checklist_envio.md) |
+| Fechamento executável e apresentação | [Contrato09](plans/09_contrato_de_fechamento.md), [plano 14](plans/14_plano_apresentacao_final.md), [plano10 (histórico)](plans/10_plano_html_interativo.md), [requisitos](data/catalog/completion_requirements.json), [mapa HTML](data/catalog/html_slide_plan.json) |
 | Registro detalhado | [Contexto técnico](EXECUTION_CONTEXT.md), [contexto do desafio](SAFRA_TOP_GESTOR_2026_CONTEXT.md), [fila de dados](data/catalog/collection_backlog.csv), [ações humanas](data/catalog/manual_export_requests.csv) |
 
 Os HTMLs01–03, as cartas, o áudio e os modelos originais são insumos históricos preservados. Não representam o estado atual. Planos e checklists são critérios de trabalho; arquivos em outputs/draft são rascunhos; relatórios QA têm escopo e data próprios.
@@ -225,9 +228,9 @@ Por solicitação do usuário em01/11/2026, a pasta do áudio de Rodrigo foi rem
 
 **Grupo, agora:**
 
-- **H07:** instruções, canal, horário e se o HTML pode ser usado.
+- **H07:** instruções, canal, horário e se o HTML pode ser usado (o PDF e o PPTX têm os mesmos 12 slides).
 - **H08/H09:** pelo checklist do pacote, registrando em [decisoes_equipe.md](data/interim/decisoes_equipe.md).
-- **H10:** ensaiar com o HTML/PDF e os teleprompters.
+- **H10:** revisar os 12 slides e o script e ensaiar com os teleprompters.
 
 **Agente, depois disso:**
 
@@ -294,3 +297,8 @@ Nenhum passo do agente envia nada. Respeitar a trava para alterações globais.
 - **01/11/2026 — remoção solicitada do áudio:** pasta resources/audio excluída; inventário, catálogos, mapa, teste e gerador de status ajustados para os15 originais ativos. Testes desta tarefa: 102, status passed. Slides e pacotes versionados preservados.
 
 - **01/11/2026 — apresentações no Git:** sete arquivos publicados em `origin/main`, commit `76ef1f3`. Exceções específicas no .gitignore e atributo -text preservam o HTML byte a byte; índice com hashes registrado. Nenhuma regeneração, atualização financeira ou envio à competição nesta tarefa. Verificações desta tarefa: hashes dos sete blobs, referência remota e documentação; testes de análise/layout são de execuções anteriores.
+
+- **01/11/2026 — plano 14 (apresentação final):** a pedido do usuário, a apresentação passou a seguir o PPT reorganizado do grupo, com 12 slides planos e a história iniciada na 2ª carta. Fotografias `a54d10bd24` e `b126c2edf0`; pacotes `an_20261101T193707_e8a63bb3` e `an_20261101T202028_e29905ab` (vigente); builds até `pr_20261101T203705_e29905ab`, publicações `pub_20261101T202934` e `pub_20261101T203832` (vigente). Perfis pptx9/html10 aposentados; PPT do grupo excluído após a montagem.
+  - **Erros encontrados e corrigidos na execução:** "Evasão e tarifa social pesam no cenário adverso" não tinha base (o adverso usa choque de custo de 2% da receita); "compromisso de R$ 15,0 bi" da Aegea virou "mais de"; a resposta sobre a BRR deixou de afirmar o estado atual; a NT 006/2025 aparecia como "Agepar — portal"; linha tracejada cortando rótulos nos slides 9 e 10 e colisão na régua do slide 12; o montador de vídeo punha a câmera sobre o conteúdo; a QA comparava números sem tratar o espaço não separável.
+  - **Achado de dados:** a margem de compra da Sanepar surgiu na semana do segundo turno (fechamentos de 23/10 e 30/10 das mesmas fontes); incorporado ao pacote, ao slide 11, às falas e às perguntas.
+  - **Verificações desta tarefa:** 42 testes da Parte 1, 58 da Parte 2 e 13 legados no estado publicado; QA 19/19; revisão visual de 48 capturas; conferência de fatos registrada; validadores documentais e sincronização ao fim. H07–H13 continuam pendentes; nada foi enviado ao Safra nem ao Git.

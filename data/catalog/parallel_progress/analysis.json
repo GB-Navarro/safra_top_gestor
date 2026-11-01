@@ -1,11 +1,11 @@
 {
   "part_id": "analysis",
-  "updated_at": "2026-11-01T13:25:14-03:00",
-  "bundle_id": "an_20261101T132455_ac536175",
-  "bundle_path": "outputs/draft/analysis_bundle/an_20261101T132455_ac536175",
-  "manifest_sha256": "243092fc1c71fa9cf8e1b76feb959e1e97041d3c435c18878388f6a46b551de0",
+  "updated_at": "2026-11-01T20:21:00-03:00",
+  "bundle_id": "an_20261101T202028_e29905ab",
+  "bundle_path": "outputs/draft/analysis_bundle/an_20261101T202028_e29905ab",
+  "manifest_sha256": "f6a0c518fe0379a227b0b7fbbb16bf18845a2b788073713811d2aea4b6ade8f0",
   "state": "analysis_proposed",
-  "snapshot_id": "snap_20261031_7c31b5560e",
+  "snapshot_id": "snap_20261031_b126c2edf0",
   "tasks": [
     {
       "task_id": "AN01",
@@ -95,10 +95,10 @@
     "C29": "resolved"
   },
   "evidence_paths": {
-    "outputs/draft/analysis_bundle/an_20261101T132455_ac536175/manifest.json": "243092fc1c71fa9cf8e1b76feb959e1e97041d3c435c18878388f6a46b551de0",
-    "outputs/draft/analysis_bundle/an_20261101T132455_ac536175/qa/analysis_validation.json": "be522b87bc9752200a1148349d4e9a554527bd704a400a98b459e07b55d84e8f",
-    "outputs/draft/analysis_bundle/an_20261101T132455_ac536175/results/recommendation.json": "ce06fdc5e3c8c7fb0b76a3ef01512d0959617d5157d47fb29ec86f6415eb3d24",
-    "outputs/draft/analysis_bundle/an_20261101T132455_ac536175/tables/financial_reconciliation.csv": "39df11b84ae7fdde19e202b63c16d202f0070346fcc1e616e9377b520836d7dd"
+    "outputs/draft/analysis_bundle/an_20261101T202028_e29905ab/manifest.json": "f6a0c518fe0379a227b0b7fbbb16bf18845a2b788073713811d2aea4b6ade8f0",
+    "outputs/draft/analysis_bundle/an_20261101T202028_e29905ab/qa/analysis_validation.json": "2b6faee7997d1315ba4904f94a58b4cec83ba1998a7998a3a724d6cb87adfdb0",
+    "outputs/draft/analysis_bundle/an_20261101T202028_e29905ab/results/recommendation.json": "95f9c889a4cfe328f9b66efc85cdab6a9043140048e8b117c085af3f030b6f2e",
+    "outputs/draft/analysis_bundle/an_20261101T202028_e29905ab/tables/financial_reconciliation.csv": "55946b5540014eb5c34ac682d1c74f3b6141bc7aeb1fb64fdb9dc6084686db71"
   },
   "unresolved": [
     "BRR líquida oficial de Sabesp e Copasa (Sanepar só como verificação)",
@@ -113,5 +113,5 @@
     "H07 (instruções privadas)",
     "H01 (opcional)"
   ],
-  "next_action": "Grupo: revisar checklist em LEIA_PRIMEIRO.md e registrar H08/H09 em data/interim/decisoes_equipe.md; Parte 2: consumir outputs/draft/analysis_bundle/latest.json. Reexecução: .venv/Scripts/python.exe -m analysis.run --baseline data/interim/analysis/baseline/snap_20261031_7c31b5560e"
+  "next_action": "Grupo: revisar checklist em LEIA_PRIMEIRO.md e registrar H08/H09 em data/interim/decisoes_equipe.md; Parte 2: consumir outputs/draft/analysis_bundle/latest.json. Reexecução: .venv/Scripts/python.exe -m analysis.run --baseline data/interim/analysis/baseline/snap_20261031_b126c2edf0"
 }

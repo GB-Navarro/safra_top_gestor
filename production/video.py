@@ -13,6 +13,7 @@ from .common import REPO, read_json, write_json
 
 LIMIT_SECONDS = 600
 CAMERA = (1644, 540, 252, 448)  # mesma área reservada pelo modo gravação do HTML
+SLIDE = (1612, 907, 0, 86)  # slide inteiro reduzido a 0,84 à esquerda, como no modo gravação: a câmera não cobre conteúdo
 
 
 def _ffmpeg(args, check=True):
@@ -37,7 +38,9 @@ def probe(path: Path) -> dict:
 
 def overlay(slide_png: Path, clip: Path, target: Path, seconds: float):
     x, y, w, h = CAMERA
-    filt = (f"[0:v]scale=1920:1080,setsar=1[bg];[1:v]scale={w}:{h}:force_original_aspect_ratio=decrease,pad={w}:{h}:(ow-iw)/2:(oh-ih)/2:black,"
+    sw, sh, sx, sy = SLIDE
+    filt = (f"[0:v]scale={sw}:{sh},pad=1920:1080:{sx}:{sy}:black,setsar=1[bg];"
+            f"[1:v]scale={w}:{h}:force_original_aspect_ratio=decrease,pad={w}:{h}:(ow-iw)/2:(oh-ih)/2:black,"
             f"setsar=1[cam];[bg][cam]overlay={x}:{y}:shortest=1[v]")
     _ffmpeg(["-y", "-loop", "1", "-framerate", "30", "-i", slide_png, "-i", clip, "-filter_complex", filt, "-map", "[v]", "-map", "1:a:0", "-t", seconds,
              # 2 threads: menos buffers do x264 (máquina com pouca memória comprometida livre); qualidade fixada pelo CRF
@@ -60,7 +63,7 @@ def readiness(profile_path: Path) -> dict:
         rows.append({**seg, "present": True, **info})
     missing = [r["path"] for r in rows if not r["present"]]
     status = "awaiting_real_clips" if missing else ("over_limit" if total > LIMIT_SECONDS else ("clip_problems" if problems else "clips_present_unreviewed"))
-    return {"profile": cfg.get("profile", "pptx9"), "status": status, "segments": len(rows), "present": len(rows) - len(missing), "missing": missing,
+    return {"profile": cfg.get("profile", "deck12"), "status": status, "segments": len(rows), "present": len(rows) - len(missing), "missing": missing,
             "measured_seconds": round(total, 2), "limit_seconds": LIMIT_SECONDS, "problems": problems, "video_created": False}
 
 
@@ -77,7 +80,7 @@ def assemble(profile_path: Path, slide_images: dict[int, Path], out_dir: Path) -
         parts.append(part)
     listing = out_dir / "concat.txt"
     listing.write_text("".join(f"file '{p.name}'\n" for p in parts), encoding="utf-8")
-    target = out_dir / f"video_esg_{cfg.get('profile', 'pptx9')}_rascunho.mp4"
+    target = out_dir / f"video_esg_{cfg.get('profile', 'deck12')}_rascunho.mp4"
     _ffmpeg(["-y", "-f", "concat", "-safe", "0", "-i", listing, "-c", "copy", "-movflags", "+faststart", target])
     measured = probe(target)["seconds"]
     rep.update(video_created=True, path=str(target.relative_to(REPO)) if target.is_relative_to(REPO) else str(target), measured_seconds=round(measured, 2),
@@ -98,10 +101,13 @@ def self_test(slide_png: Path) -> dict:
     return {"status": "passed" if ok else "failed", "fixture": "sintética, apagada ao fim", "measured": info, "group_video_created": False}
 
 
+SEGMENTS = REPO / "config/video_segments.json"
+
+
 def write_profiles():
-    from .narrative import segments
-    from .common import REPO as R
-    html10 = {"profile": "html10", "status": "template_awaiting_genuine_clips", "source": "HTML de 10 páginas em modo gravação (área de câmera reservada)",
-              "segments": segments("html10")}
-    write_json(R / "config/video_segments_html10.json", html10)
-    return html10
+    """Manifesto único de gravação (deck12): um clipe por slide; o montador legado lê o mesmo arquivo."""
+    from .narrative import PROFILE, segments
+    cfg = {"profile": PROFILE, "status": "template_awaiting_genuine_clips",
+           "source": "HTML de 12 slides (modo gravação G reserva a área da câmera) ou o PDF/PPTX equivalentes", "segments": segments()}
+    write_json(SEGMENTS, cfg)
+    return cfg

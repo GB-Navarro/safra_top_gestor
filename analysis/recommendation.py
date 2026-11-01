@@ -83,7 +83,7 @@ def build(reg: Registry, rec: dict, cap: dict, bal: dict, a: dict, val: dict, se
             c("CL.lead.thesis", claim_type="inference",
               text_template=("Tese: no saneamento, ESG entra no valor pela base remunerada. Mesmo deduzindo o precatório integral "
                              "(PV {{value:V.sanepar.obligation_pv.base}}) e tratando o retorno regulatório abaixo do custo de capital, "
-                             "o valor-base da Sanepar supera o preço; o desconto de mercado remunera o risco regulatório estadual."),
+                             "o valor-base da Sanepar supera o preço de 30/10, com a NTN-B daquela data já no custo de capital."),
               calculation_refs=[sb["case_id"]], limitations="Inferência condicional ao modelo revisado."),
             c("CL.lead.price", claim_type="fact", text_template="SAPR11 fechou a {{value:V.SAPR11.close.2026-10-30}} em 30/10/2026.",
               source_refs=["SRC_market_public_sapr11_485069a6"], limitations="Provedor público; confirmação Bloomberg/B3 (H01) não obtida.")]
@@ -206,6 +206,10 @@ def build(reg: Registry, rec: dict, cap: dict, bal: dict, a: dict, val: dict, se
                               "não comprar Sabesp e Copasa ao preço de 30/10 nesta configuração."),
                calculation_refs=["sanepar.base"], assumption_refs=["margin_of_safety"],
                limitations="Exige adoção real pelo grupo (H09) e revisão das cinco premissas (H08).")]
+    if "CL.lead.origin" in reg.claims:  # plano 14: ponto de partida (2ª carta) abre a narrativa
+        lead = ["CL.lead.origin"] + lead
+    if "CL.result.election_week" in reg.claims:  # plano 14: preço de 30/10 é posterior à semana do segundo turno
+        result = result + ["CL.result.election_week"]
     slots = {"lead": [x for x in lead], "sector": sector, "swot": swot, "medium_term": medium, "esg": esg, "bridge": br,
              "valuation_method": method, "valuation_result": result, "risks": risks, "conclusion": concl}
     decision = dict(status="proposed" if entity else "unresolved", entity_id=entity, instrument_id=ticker,

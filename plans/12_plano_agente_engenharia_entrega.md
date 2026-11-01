@@ -46,7 +46,7 @@ Escrita exclusiva de trabalho:
 - `scripts/execution_status.py`
 - `scripts/sync_project_docs.py`
 - `scripts/validate_completion_docs.py`
-- `config/video_segments_html10.json`
+- `config/video_segments.json`
 - `config/production_profile.json`
 
 Publicação somente pelo integrador, com trava/manifesto:
@@ -87,7 +87,6 @@ Insumos existentes para iniciar, somente leitura:
 - `data/processed`
 - `outputs/draft/apresentacao_esg.pptx`
 - `outputs/draft/apresentacao_esg.pdf`
-- `config/video_segments.json`
 
 <!-- TWO_PART_PATHS:END -->
 
@@ -239,16 +238,18 @@ Seguir integralmente o plano10 e `html_slide_plan.json`: HTML/CSS/JS/SVG nativos
 
 | Página / origem | Conteúdo | Voz / segundos planejados |
 |---|---|---|
-| P01 ← S1 | Tese e condição de investimento | Rodrigo / 50 |
-| P02 ← S2 | O déficit de saneamento e a expansão | Lorenzo / 50 |
-| P03 ← S3 | SWOT: crescimento precisa remunerar capital | Lorenzo / 75 |
-| P04 ← S4 | Regulação, competição e tecnologia | Navarro / 60 |
-| P05 ← S5 | Matriz ESG comparativa | Michel / 90 |
-| P06 ← S6 | Eficiência energética: teto condicionado de investimento | Michel / 65 |
-| P07 ← S7 | Como o modelo transforma caixa em valor | Rodrigo / 40 |
-| P08 ← S7 | Valor versus preço e sensibilidade | Rodrigo / 45 |
-| P09 ← S8 | Cenários, riscos e gatilhos | Navarro / 60 |
-| P10 ← S9 | Decisão e condições para manter a tese | Todos / 25 |
+| S01 ← S1 | Saneamento: onde está o valor do setor listado | Rodrigo / 14 |
+| S02 ← S2 | Na 2ª carta, o modelo comprou Sabesp sem uma tese nossa sobre a empresa | Rodrigo / 40 |
+| S03 ← S3 | Fomos ao setor com um olhar fundamentalista | Rodrigo / 28 |
+| S04 ← S4 | 62,3% da população tem coleta de esgoto; a meta é 90% até 2033 | Lorenzo / 50 |
+| S05 ← S5 | Demanda estável e contratos longos; o risco está na regulação e nos juros | Lorenzo / 65 |
+| S06 ← S6 | Até 2030, regulação, competição e tecnologia decidem quem ganha | Navarro / 55 |
+| S07 ← S7 | Cada indicador ESG chega ao caixa por um caminho diferente | Michel / 70 |
+| S08 ← S8 | Medimos uma alavanca: 1% a menos na conta de energia | Michel / 40 |
+| S09 ← S9 | Do caixa da empresa ao valor do acionista | Rodrigo / 55 |
+| S10 ← S10 | Ao preço de 30/10, só a Sanepar rende acima do nosso custo de capital | Rodrigo / 45 |
+| S11 ← S11 | A Sanepar vale R$ 42,82 por unit; o mercado paga R$ 30,85 | Rodrigo / 50 |
+| S12 ← S12 | Compramos Sanepar até R$ 34,26 por unit; Sabesp e Copasa já estão no preço | Navarro / 58 |
 
 <!-- TWO_PART_PAGES:END -->
 

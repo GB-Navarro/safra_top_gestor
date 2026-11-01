@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "bundle_id": "an_20261101T132455_ac536175",
+  "bundle_id": "an_20261101T202028_e29905ab",
   "method": "FCFF com base remunerada implícita (ramo revisado); ver model_inputs.json",
   "cases": [
     {
@@ -17859,7 +17859,7 @@
     }
   ],
   "capital_search": {
-    "searched_at_snapshot": "snap_20261031_7c31b5560e",
+    "searched_at_snapshot": "snap_20261031_b126c2edf0",
     "scope": "Releases/ITR 2T26, DF 2025 e fatos relevantes na fotografia; pesquisa pública de 01/11/2026 (Plano 13) em RI e imprensa para jul–out/2026: oferta secundária da Copasa (jun), debêntures da Sabesp, fatos da Sanepar de 26 e 28/10.",
     "result": "Nenhuma alteração de quantidade de ações entre 30/06 e 30/10/2026 identificada (a oferta da Copasa foi secundária). Confirmação pelo Terminal (H01) não feita; recompras da Sabesp após junho não observadas."
   }

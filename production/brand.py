@@ -36,4 +36,4 @@ def reference() -> dict:
             'fonts': read_json(REPO/'presentation_web/fonts/manifest.json'),
             'palette': {'gold':'#F5D741','black':'#0A0A0A','graphite':'#2E2F31','cyan':'#57C7C0','violet':'#9A7CF5',
                         'positive':'#4FC58B','negative':'#E5564E'}, 'signature_angle':25,
-            'pptx_html10': 'Dez páginas renderizadas em alta resolução a partir do PDF do HTML; texto nas notas. PPTX9 editável separado.'}
+            'deck12': 'Doze slides planos em HTML; PDF impresso do HTML e PPTX com cada página renderizada em alta resolução e o script nas notas.'}

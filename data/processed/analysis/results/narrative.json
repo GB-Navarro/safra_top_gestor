@@ -1,8 +1,9 @@
 {
   "schema_version": "1.0",
-  "bundle_id": "an_20261101T132455_ac536175",
+  "bundle_id": "an_20261101T202028_e29905ab",
   "slots": {
     "lead": [
+      "CL.lead.origin",
       "CL.lead.decision",
       "CL.lead.thesis",
       "CL.lead.price"
@@ -41,7 +42,8 @@
     "valuation_result": [
       "CL.result.values",
       "CL.result.implied",
-      "CL.result.market_view"
+      "CL.result.market_view",
+      "CL.result.election_week"
     ],
     "risks": [
       "CL.risk.scenarios",

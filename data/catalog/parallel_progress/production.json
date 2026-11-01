@@ -1,14 +1,13 @@
 {
   "part_id": "production",
-  "updated_at": "2026-11-01T15:31:38-03:00",
-  "input_bundle": "an_20261101T132455_ac536175",
-  "input_manifest_sha256": "243092fc1c71fa9cf8e1b76feb959e1e97041d3c435c18878388f6a46b551de0",
-  "build_id": "pr_20261101T151834_ac536175",
-  "publish_id": "pub_20261101T153001",
+  "updated_at": "2026-11-01T20:43:15-03:00",
+  "input_bundle": "an_20261101T202028_e29905ab",
+  "input_manifest_sha256": "f6a0c518fe0379a227b0b7fbbb16bf18845a2b788073713811d2aea4b6ade8f0",
+  "build_id": "pr_20261101T203705_e29905ab",
+  "publish_id": "pub_20261101T203832",
   "snapshot_id": "legacy_7dbbf9cfea",
   "profiles": [
-    "pptx9",
-    "html10"
+    "deck12"
   ],
   "tasks": [
     {
@@ -86,19 +85,11 @@
     "C29": "production_slice_done"
   },
   "evidence_paths": {
-    "outputs/draft/production/published.json": "3cfab524b83bcfb6bb8ce253b91ce5e1f0c93feb7e3a9bb5577ff0f1d8bd596a",
-    "outputs/draft/production/pr_20261101T132746_ac536175/manifest.json": "777522644e33a0cfe750dcc2edd8e1dec644e9f6f6b42ba2e1c8402421871759",
-    "outputs/qa/production/pr_20261101T132746_ac536175/production_qa.json": "9b480e8b89982b3adf24ad2032c7a9d46b4581e6dae14ef1160ef82c261e5a63",
-    "outputs/qa/production/pr_20261101T132746_ac536175/visual_review.json": "b2a43eeb7f0af6b0ac3e5756aa195bcfc07b9a0d4500a8df52dffb75a071b12a",
-    "outputs/qa/execution_validation.json": "341d6dca26eb86ac19b71aa72c691d4208d2555bff24bb35fa7ad7f8e172422d",
-    "outputs/qa/release_validation.json": "145d4e0faa04082109c106e46ab2ceb85e1d366361ae8cca387c186b229634de",
-    "outputs/qa/html/html_validation.json": "8a5da5b97b2df3cb157fe261e80cebcf9460c0c56a89af5ac79f89d302bb123f",
-    "data/processed/CANONICAL_SOURCE.json": "e517f66ba825cc33dc499a8ff4050d8483e5a7e29b9784a353e1d89c4ef2403f",
-    "outputs/draft/production/pr_20261101T151834_ac536175/manifest.json": "4b4c7bc2b14a16a99d862e714f9c37a7ba70b04ebd1f01dd507d19258de636a1",
-    "outputs/qa/production/pr_20261101T151834_ac536175/production_qa.json": "7de559dd3d5116c181d4d1ce48f2aa5f37502f49520f50a30b6ad004d96e8165",
-    "outputs/qa/production/pr_20261101T151834_ac536175/visual_review.json": "15d4697458da93ec85950b5e440b721b2b30e554ec341743a9b225f0a74329b6",
-    "outputs/qa/production/pr_20261101T151834_ac536175/html_pptx_fidelity.json": "02c2943807ef3f3e86aae42dff55a4ae99e2c1f1e5bcece457b9dfcaab3758dd",
-    "outputs/qa/production/pr_20261101T151834_ac536175/design_system_review.json": "b93c4a7b8aa9463b218e331ce108d9d2db51fbe963d8bc42b3363a196e0826cb"
+    "outputs/draft/production/published.json": "e6ee36e9c43bb66a4f4d74ca460dae7bf8010d6c152e163aca0b1fcfff846d14",
+    "outputs/draft/production/pr_20261101T203705_e29905ab/manifest.json": "2c7248fe88d81bc0c7c456b7f73987be264b39410193ba48d6b54aa755828871",
+    "outputs/qa/production/pr_20261101T203705_e29905ab/production_qa.json": "cdefcf877fd6a5b7c311f9f0d1bd768072ac6e4f9d89372ae756ca054c98dc8d",
+    "outputs/qa/production/pr_20261101T203705_e29905ab/visual_review.json": "c89b0e1a3e2db3828cf4b788442240d14fa613fc8c49d9f9ea21f40c6fcb9617",
+    "data/interim/production/fact_check/fact_check_final.json": "f33c29d7fae5e4eb28f5fc021f2ea212706bd44cf903c7f8b021d13b2ba91ac0"
   },
   "unresolved": [
     "Vídeo: nenhum clipe real (H11); montagem só testada com fixture sintética",
@@ -114,7 +105,7 @@
     "revisão integral do vídeo",
     "H13 (envio e comprovante)"
   ],
-  "note": "Design asset.dev aplicado a HTML/PDF/PPTX10; QA16/16,117 estados por resolução e39+50+13 testes aprovados;16 originais preservados. Nenhuma decisão humana presumida e nada enviado.",
+  "note": "Plano 14: apresentação final de 12 slides planos (HTML/PDF/PPTX) seguindo o PPT do grupo, origem na 2ª carta, texto no estilo das cartas; QA 19/19, autoteste 73/73 em duas resoluções, conferência de fatos registrada; 42+58+13 testes no estado publicado; 15 originais preservados. Nenhuma decisão humana presumida e nada enviado.",
   "build_history": [
     {
       "build_id": "pr_20261101T132746_ac536175",
@@ -125,6 +116,16 @@
       "build_id": "pr_20261101T151834_ac536175",
       "publish_id": "pub_20261101T152159",
       "note": "Primeira publicação da revisão visual; falha inicial por áudio ausente, resolvida na revalidação"
+    },
+    {
+      "build_id": "pr_20261101T151834_ac536175",
+      "publish_id": "pub_20261101T153001",
+      "note": "HTML10/PPTX9 com design asset.dev; substituído pelo deck12 no plano 14"
+    },
+    {
+      "build_id": "pr_20261101T202800_e29905ab",
+      "publish_id": "pub_20261101T202934",
+      "note": "Plano 14: primeira publicação do deck12; republicado após o ajuste do montador de vídeo"
     }
   ]
 }

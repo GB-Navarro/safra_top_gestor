@@ -182,6 +182,8 @@ def format_value(value: float | None, unit: str, scale: float = 1.0, style: str 
     sign = "+" if signed and value > 0 else ""
     if style == "plain":
         return _trim(_num(value, 2))
+    if style == "pct2" and unit == "ratio":
+        return _num(value * 100, 2) + "%"
     if style == "signed1" and unit == "ratio":
         return ("+" if value > 0 else "") + _num(value * 100, 1) + "%"
     if unit == "BRL" and scale == 1e6:

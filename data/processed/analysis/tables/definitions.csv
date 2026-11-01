@@ -1,4 +1,6 @@
 definition_id,entity_id,metric_id,numerator,denominator,unit,scope,methodology,methodology_valid_from,source_ids,comparability_status
+DEF.portfolio_weight_letter2,,portfolio_weight_letter2,,,ratio,Petrobras; % do patrimônio na carteira da 2ª entrega,Motivo na carta: Ormuz e receita em dólar,,"[""SRC_carta_2a_asset_dev""]",source_specific
+DEF.portfolio_equity_share_letter2,,portfolio_equity_share_letter2,,,ratio,,Parcela do patrimônio em ações na 2ª entrega.,,"[""SRC_carta_2a_asset_dev""]",source_specific
 DEF.construction_revenue.sabesp,sabesp,construction_revenue,,,BRL,individual,CVM DVA 7.01.03 (Receitas refs. à Construção de Ativos Próprios); sinal original.,,"[""SRC_cvm_dfp_2021_64b8693b""]",source_specific
 DEF.construction_cost.sabesp,sabesp,construction_cost,,,BRL,individual,Custo de construção (despesa positiva); DRE 3.02.02 e nota de custos por natureza.,,"[""SRC_cvm_dfp_2021_64b8693b"",""local_63d5afcacc50""]",source_specific
 DEF.ebit_reported.sabesp,sabesp,ebit_reported,,,BRL,individual,CVM DRE 3.05 (Resultado Antes do Resultado Financeiro e dos Tributos); sinal original.,,"[""SRC_cvm_dfp_2021_64b8693b""]",source_specific
@@ -106,6 +108,9 @@ DEF.assumption.indemnity_of_residual_base,,assumption.indemnity_of_residual_base
 DEF.concession_end_year.sabesp,sabesp,concession_end_year,,,year,,Fim do contrato principal; exceções municipais não modeladas.,,"[""SRC_sabesp_ambiente_regulatorio_ff446d05""]",source_specific
 DEF.concession_end_year.sanepar,sanepar,concession_end_year,,,year,,Fim do contrato principal; exceções municipais não modeladas.,,"[""SRC_doc_sapr_2t26_e40a8cc1""]",source_specific
 DEF.concession_end_year.copasa,copasa,concession_end_year,,,year,,"Horizonte único aproximado: 43 contratos até 07/02/2073 (~37,5% da receita), 10 maiores com vencimentos de 2034 a 2073, 58 municípios com prazo vencido (~5,2% da receita) seguem operados. Não é prazo contratual de um contrato.",,"[""SRC_doc_csmg_2t26_1996f20b""]",source_specific
+DEF.price_change.sanepar,sanepar,price_change,,,ratio,,Variação na semana do segundo turno; não identifica causa.,,"[""SRC_market_public_sapr11_485069a6""]",source_specific
+DEF.price_change.sabesp,sabesp,price_change,,,ratio,,Variação na semana do segundo turno; não identifica causa.,,"[""SRC_market_public_sbsp3_77a83972""]",source_specific
+DEF.price_change.copasa,copasa,price_change,,,ratio,,Variação na semana do segundo turno; não identifica causa.,,"[""SRC_market_public_csmg3_65336971""]",source_specific
 DEF.case.wacc.sabesp,sabesp,case.wacc,,,ratio,,Resultado do caso sabesp.base,,[],source_specific
 DEF.case.g.sabesp,sabesp,case.g,,,ratio,,Crescimento nominal terminal = (1+IPCA LP)(1+g real)−1,,[],source_specific
 DEF.case.enterprise_value.sabesp,sabesp,case.enterprise_value,,,BRL,,Resultado do caso sabesp.base,,[],source_specific

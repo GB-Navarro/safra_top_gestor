@@ -1,8 +1,8 @@
-"""CLI da Parte 2: consome um pacote 1.0 publicado e gera HTML10, PPTX9, apoio7, figuras, falas, QA e portões.
+"""CLI da Parte 2: consome um pacote 1.0 publicado e gera a apresentação final de 12 slides (HTML, PDF e PPTX),
+o script, o apoio técnico de 7 páginas, figuras, QA e portões.
 
 Exemplos (raiz do repositório):
-  .venv/Scripts/python.exe -m production.run --input-bundle latest                  (perfis pptx9 + html10)
-  .venv/Scripts/python.exe -m production.run --input-bundle latest --profile html10
+  .venv/Scripts/python.exe -m production.run --input-bundle latest                  (perfil deck12)
   .venv/Scripts/python.exe -m production.run --input-bundle latest --check          (só validar o pacote)
   .venv/Scripts/python.exe -m production.run --record-visual-review outputs/draft/production/<build_id> --notes "..."
   .venv/Scripts/python.exe -m production.run --publish outputs/draft/production/<build_id>
@@ -21,33 +21,26 @@ from pathlib import Path
 
 from .common import REPO, SAO_PAULO, now_iso, read_json, sha256_file, write_csv, write_json
 
-PROFILES = ("all", "pptx9", "html10")
+PROFILES = ("deck12",)
 
 
-def build(bundle_arg: str, out_root: Path, qa_root: Path, run_qa: bool = True, profile: str = "all") -> dict:
+def build(bundle_arg: str, out_root: Path, qa_root: Path, run_qa: bool = True, profile: str = "deck12") -> dict:
     from . import brand, consumer, deck_model, docs, figures, html_deck, narrative, pptx_deck, qa, snapshot, video
     snapshot.ensure()  # EN01: fotografia própria dos insumos legados antes de qualquer publicação
     path = consumer.resolve(bundle_arg)
     b = consumer.load(path)
     build_id = f"pr_{datetime.now(SAO_PAULO).strftime('%Y%m%dT%H%M%S')}_{b.bundle_id.split('_')[-1]}"
     out, qa_dir = out_root / build_id, qa_root / build_id
-    want = ("pptx9", "html10") if profile == "all" else (profile,)
+    want = (profile,)
     model = deck_model.build(b)
     write_json(out / "deck_model.json", model)
-    if "html10" in want:
-        html_deck.build(model, out / "html/apresentacao_esg.html")
+    html_deck.build(model, out / "html/apresentacao_esg.html")
     figures.build(model, out / "figuras")
     text = narrative.build(b, model, out)
     video.write_profiles()
-    if "pptx9" in want:
-        pptx_deck.build_main(model, b, text["speech"], out / "figuras", out / "apresentacao_esg.pptx")
-        pptx_deck.build_support(model, b, out / "figuras", out / "apoio_tecnico.pptx")
+    pptx_deck.build_support(model, b, out / "figuras", out / "apoio_tecnico.pptx")
     docs.build(b, model, out)
-    place = []
-    if "html10" in want:
-        place += deck_model.placements(model, "html/apresentacao_esg.html", "html10", b)
-    if "pptx9" in want:
-        place += deck_model.placements(model, "apresentacao_esg.pptx", "pptx9", b)
+    place = deck_model.placements(model, "html/apresentacao_esg.html", profile, b)
     write_csv(out / "claim_placements.csv", place, ["artifact", "profile", "page", "block", "claim_id", "value_ids", "source_ids", "input_bundle", "input_manifest_sha256"])
     summary = qa.run(b, model, out, qa_dir, place, text, profile) if run_qa else {"status": "skipped"}
     files = [{"path": p.relative_to(out).as_posix(), "bytes": p.stat().st_size, "sha256": sha256_file(p)}
@@ -94,9 +87,9 @@ def baseline_draft(snapshot_arg: str) -> dict:
         b = consumer.load(p, allow_kinds=("baseline",))
         try:
             deck_model.build(b)
-            pieces["deck_pptx9_html10"] = "habilitado"
+            pieces["deck12"] = "habilitado"
         except consumer.IncompatibleState as exc:
-            pieces["deck_pptx9_html10"] = f"indisponível: {exc}"
+            pieces["deck12"] = f"indisponível: {exc}"
         valid = sum(c["target_validity"] == "conditional_value" for c in b.cases.values())
         pieces["valores_por_caso"] = f"{valid} de {len(b.cases)} casos com alvo exibível (validade desconhecida vira unresolved)"
         pieces["conferencia_de_fontes"] = f"{len(b.sources)} fontes e {len(b.obs)} observações legíveis pelo consumidor"
@@ -108,7 +101,7 @@ def baseline_draft(snapshot_arg: str) -> dict:
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(prog="python -m production.run", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--input-bundle", default=None, help="'latest' ou caminho de outputs/draft/analysis_bundle/<id>")
-    ap.add_argument("--profile", choices=PROFILES, default="all", help="Formatos a gerar/verificar (all = pptx9 + html10)")
+    ap.add_argument("--profile", choices=PROFILES, default="deck12", help="Perfil da apresentação (12 slides em HTML, PDF e PPTX)")
     ap.add_argument("--output", default="outputs/draft/production", help="Raiz dos builds (só raízes próprias da Parte 2)")
     ap.add_argument("--check", action="store_true", help="Só validar o pacote de entrada (consumidor 1.0)")
     ap.add_argument("--no-qa", action="store_true")

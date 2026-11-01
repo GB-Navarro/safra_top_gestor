@@ -1,52 +1,227 @@
 {
-  "schema_version": 1,
-  "status": "implemented_draft_html10",
-  "profile": "html10",
-  "source_profile": "pptx9",
-  "source_pptx": "outputs/draft/apresentacao_esg.pptx",
-  "source_pdf": "outputs/draft/apresentacao_esg.pdf",
-  "planned_seconds": 560,
+  "schema_version": 2,
+  "status": "implemented_draft_deck12",
+  "profile": "deck12",
+  "source": "PPT reorganizado do grupo (12 slides), excluído após a montagem por autorização do usuário; extração preservada",
+  "source_extract": "data/interim/production/reference/ppt_reorganizado_extract.json",
+  "deck_html": "outputs/draft/html/apresentacao_esg.html",
+  "deck_pptx": "outputs/draft/apresentacao_esg.pptx",
+  "deck_pdf": "outputs/draft/apresentacao_esg.pdf",
+  "planned_seconds": 570,
   "max_video_seconds_public": 600,
   "pages": [
-    {"id": "P01", "source_slides": [1], "source_blocks": ["B1"], "title": "Tese e condição de investimento", "speaker": "Rodrigo", "seconds": 50,
-     "inputs": ["data/processed/presentation_facts.json", "outputs/draft/decisao_proposta.md", "data/processed/claims.csv"],
-     "interaction": "Abrir fonte/data do preço e condições da recomendação em painel; manter a conclusão principal visível.",
-     "acceptance": "Empresa/papel, condição e preço coincidem com a versão da decisão; proposta continua marcada como provisória enquanto houver bloqueios econômicos."},
-    {"id": "P02", "source_slides": [2], "source_blocks": ["B2"], "title": "O déficit de saneamento e a expansão", "speaker": "Lorenzo", "seconds": 50,
-     "inputs": ["data/processed/observations.csv", "data/processed/definitions.csv", "data/processed/claims.csv"],
-     "interaction": "Selecionar água/coleta para destacar a série; tooltip e painel explicam denominador, ano-base e meta, sem somar coleta/tratamento.",
-     "acceptance": "Cobertura populacional e metas têm escopos distintos identificados; não há preenchimento de série faltante nem ranking por definição incompatível."},
-    {"id": "P03", "source_slides": [3], "source_blocks": ["B3"], "title": "SWOT: crescimento precisa remunerar capital", "speaker": "Lorenzo", "seconds": 75,
-     "inputs": ["data/processed/claims.csv", "outputs/draft/roteiro_narrativo.md"],
-     "interaction": "Selecionar quadrante para revelar evidência e implicação econômica; estado inicial mostra a matriz inteira.",
-     "acceptance": "Oito argumentos centrais permanecem legíveis; expansão de detalhe não é necessária para compreender a conclusão."},
-    {"id": "P04", "source_slides": [4], "source_blocks": ["B4"], "title": "Regulação, competição e tecnologia", "speaker": "Navarro", "seconds": 60,
-     "inputs": ["data/processed/regulatory_terms.csv", "data/processed/claims.csv"],
-     "interaction": "Três cartões com abas de fato, prazo e canal econômico; detalhes da Aegea e da Copasa abrem fontes.",
-     "acceptance": "Anúncio não vira execução; competição por concessão/capital não é descrita como concorrência irrestrita por rede; vigência está explícita."},
-    {"id": "P05", "source_slides": [5], "source_blocks": ["B5"], "title": "Matriz ESG comparativa", "speaker": "Michel", "seconds": 90,
-     "inputs": ["data/processed/esg_matrix.json", "data/processed/observations.csv", "data/processed/definitions.csv", "data/processed/claims.csv"],
-     "interaction": "Clicar em célula/fator abre definição, período, fonte e linha de caixa; destacar empresa sem eliminar as outras da comparação inicial.",
-     "acceptance": "Cinco fatores e três empresas visíveis; seleção não cria nota ESG, reordenação por desempenho ou equivalência de métricas sem suporte."},
-    {"id": "P06", "source_slides": [6], "source_blocks": ["B6"], "title": "Eficiência energética: teto condicionado de investimento", "speaker": "Michel", "seconds": 65,
-     "inputs": ["data/processed/esg_bridge.json", "data/processed/sinisa_energy.json", "data/processed/assumptions.csv"],
-     "interaction": "Alternar retenção de50%/100% sobre redução hipotética fixa de1%; mostrar fluxos/horizonte e premissas em painel, usando valores já calculados.",
-     "acceptance": "Gráfico mostra teto condicionado em R$ milhões, não economia realizada ou preço de ação; não agrega ganho à margem-base automaticamente."},
-    {"id": "P07", "source_slides": [7], "source_blocks": ["B7.a"], "title": "Como o modelo transforma caixa em valor", "speaker": "Rodrigo", "seconds": 40,
-     "inputs": ["data/processed/valuation.json", "data/processed/assumptions.csv", "data/processed/adjustments.csv"],
-     "interaction": "Selecionar empresa para inspecionar PV explícito, terminal e ponte EV→patrimônio→papel; diferenciar método original de experimento proposto.",
-     "acceptance": "Mesma metodologia e unidades; premissas/ajustes não conciliados não são ocultados; TIR da firma não é rotulada como retorno acionário."},
-    {"id": "P08", "source_slides": [7], "source_blocks": ["B7.b"], "title": "Valor versus preço e sensibilidade", "speaker": "Rodrigo", "seconds": 45,
-     "inputs": ["data/processed/valuation.json", "data/processed/market_reference.json", "data/processed/capital_reference.json", "data/processed/presentation_facts.json"],
-     "interaction": "Selecionar empresa e ponto da grade WACC×g pré-calculada; marcar a referência de mercado e permitir restaurar a configuração inicial.",
-     "acceptance": "Cada ponto tem resíduo bruto/flag de validade e classe correta. Casos sem alvo viram N/D; controle fica indisponível enquanto faltar esse metadado, sem converter zero do piso em alvo."},
-    {"id": "P09", "source_slides": [8], "source_blocks": ["B8"], "title": "Cenários, riscos e gatilhos", "speaker": "Navarro", "seconds": 60,
-     "inputs": ["data/processed/scenarios.json", "outputs/draft/decisao_proposta.md", "data/processed/claims.csv"],
-     "interaction": "Selecionar um dos quatro cenários e revelar choques/duração; cartões mostram métrica, limiar, data/frequência e ação de cada gatilho.",
-     "acceptance": "Seleção não inventa probabilidades nem retorno observado; flags N/D e condições da recomendação são preservadas."},
-    {"id": "P10", "source_slides": [9], "source_blocks": ["B9"], "title": "Decisão e condições para manter a tese", "speaker": "Todos", "seconds": 25,
-     "inputs": ["outputs/draft/decisao_proposta.md", "data/processed/presentation_facts.json", "data/processed/claims.csv"],
-     "interaction": "Resumo fixo da decisão aprovada/proposta e botão de fontes; encerrar ou reiniciar a apresentação sem adicionar página de créditos.",
-     "acceptance": "Mesma empresa, condição, referência e risco de P01/P08; os quatro têm fala real quando o perfil for usado para gravação."}
-  ]
+    {
+      "id": "S01",
+      "source_slides": [
+        1
+      ],
+      "source_blocks": [
+        "S01"
+      ],
+      "title": "Saneamento: onde está o valor do setor listado",
+      "speaker": "Rodrigo",
+      "seconds": 14,
+      "inputs": [
+        "data/processed/claims.csv"
+      ],
+      "interaction": "Nenhuma: slide plano (avança por teclado ou clique)",
+      "acceptance": "Título, subtítulo e equipe; o modelo só aparece como origem da escolha do setor."
+    },
+    {
+      "id": "S02",
+      "source_slides": [
+        2
+      ],
+      "source_blocks": [
+        "S02"
+      ],
+      "title": "Na 2ª carta, o modelo comprou Sabesp sem uma tese nossa sobre a empresa",
+      "speaker": "Rodrigo",
+      "seconds": 40,
+      "inputs": [
+        "cartas/Asset_dev_Carta_ao_Investidor_2a.docx",
+        "data/processed/claims.csv"
+      ],
+      "interaction": "Nenhuma: slide plano (avança por teclado ou clique)",
+      "acceptance": "Pesos e motivos iguais à tabela da seção 9 da 2ª carta; teses conforme os parágrafos das exportadoras e da Petrobras."
+    },
+    {
+      "id": "S03",
+      "source_slides": [
+        3
+      ],
+      "source_blocks": [
+        "S03"
+      ],
+      "title": "Fomos ao setor com um olhar fundamentalista",
+      "speaker": "Rodrigo",
+      "seconds": 28,
+      "inputs": [
+        "data/processed/claims.csv"
+      ],
+      "interaction": "Nenhuma: slide plano (avança por teclado ou clique)",
+      "acceptance": "Quatro etapas e as duas perguntas que o slide 12 responde; sem números."
+    },
+    {
+      "id": "S04",
+      "source_slides": [
+        4
+      ],
+      "source_blocks": [
+        "S04"
+      ],
+      "title": "62,3% da população tem coleta de esgoto; a meta é 90% até 2033",
+      "speaker": "Lorenzo",
+      "seconds": 50,
+      "inputs": [
+        "data/processed/observations.csv",
+        "data/processed/sources.csv"
+      ],
+      "interaction": "Nenhuma: slide plano (avança por teclado ou clique)",
+      "acceptance": "Indicadores SINISA 2024 contra metas do Marco Legal; três empresas com controle, contrato, EBITDA recorrente e preço de 30/10."
+    },
+    {
+      "id": "S05",
+      "source_slides": [
+        5
+      ],
+      "source_blocks": [
+        "S05"
+      ],
+      "title": "Demanda estável e contratos longos; o risco está na regulação e nos juros",
+      "speaker": "Lorenzo",
+      "seconds": 65,
+      "inputs": [
+        "data/processed/claims.csv",
+        "data/processed/observations.csv"
+      ],
+      "interaction": "Nenhuma: slide plano (avança por teclado ou clique)",
+      "acceptance": "Cada quadrante com evidência do pacote e uma frase de efeito na tese, sem setas."
+    },
+    {
+      "id": "S06",
+      "source_slides": [
+        6
+      ],
+      "source_blocks": [
+        "S06"
+      ],
+      "title": "Até 2030, regulação, competição e tecnologia decidem quem ganha",
+      "speaker": "Navarro",
+      "seconds": 55,
+      "inputs": [
+        "data/processed/claims.csv",
+        "data/processed/observations.csv"
+      ],
+      "interaction": "Nenhuma: slide plano (avança por teclado ou clique)",
+      "acceptance": "Regulação, competição e tecnologia com número, fonte e efeito no valor."
+    },
+    {
+      "id": "S07",
+      "source_slides": [
+        7
+      ],
+      "source_blocks": [
+        "S07"
+      ],
+      "title": "Cada indicador ESG chega ao caixa por um caminho diferente",
+      "speaker": "Michel",
+      "seconds": 70,
+      "inputs": [
+        "data/processed/esg_matrix.json",
+        "data/processed/observations.csv"
+      ],
+      "interaction": "Nenhuma: slide plano (avança por teclado ou clique)",
+      "acceptance": "Cinco fatores, canal de caixa e valores com período; sem ranking; células iguais às do pacote."
+    },
+    {
+      "id": "S08",
+      "source_slides": [
+        8
+      ],
+      "source_blocks": [
+        "S08"
+      ],
+      "title": "Medimos uma alavanca: 1% a menos na conta de energia",
+      "speaker": "Michel",
+      "seconds": 40,
+      "inputs": [
+        "data/processed/esg_bridge.json"
+      ],
+      "interaction": "Nenhuma: slide plano (avança por teclado ou clique)",
+      "acceptance": "Cadeia indicador → caixa → tarifa → valor e sensibilidade de energia fora do caso-base."
+    },
+    {
+      "id": "S09",
+      "source_slides": [
+        9
+      ],
+      "source_blocks": [
+        "S09"
+      ],
+      "title": "Do caixa da empresa ao valor do acionista",
+      "speaker": "Rodrigo",
+      "seconds": 55,
+      "inputs": [
+        "data/processed/valuation.json",
+        "data/processed/observations.csv"
+      ],
+      "interaction": "Nenhuma: slide plano (avança por teclado ou clique)",
+      "acceptance": "Valor de R$ 1 investido contra R$ 1,00 e ponte da firma ao acionista que fecha com o patrimônio."
+    },
+    {
+      "id": "S10",
+      "source_slides": [
+        10
+      ],
+      "source_blocks": [
+        "S10"
+      ],
+      "title": "Ao preço de 30/10, só a Sanepar rende acima do nosso custo de capital",
+      "speaker": "Rodrigo",
+      "seconds": 45,
+      "inputs": [
+        "data/processed/valuation.json"
+      ],
+      "interaction": "Nenhuma: slide plano (avança por teclado ou clique)",
+      "acceptance": "TIR da firma das três contra o custo de capital; só a Sanepar acima (relação conferida no build)."
+    },
+    {
+      "id": "S11",
+      "source_slides": [
+        11
+      ],
+      "source_blocks": [
+        "S11"
+      ],
+      "title": "A Sanepar vale R$ 42,82 por unit; o mercado paga R$ 30,85",
+      "speaker": "Rodrigo",
+      "seconds": 50,
+      "inputs": [
+        "data/processed/valuation.json",
+        "data/processed/observations.csv"
+      ],
+      "interaction": "Nenhuma: slide plano (avança por teclado ou clique)",
+      "acceptance": "Valor contra preço de 30/10, diferença, pior ponto da grade e semana do segundo turno (23/10 a 30/10)."
+    },
+    {
+      "id": "S12",
+      "source_slides": [
+        12
+      ],
+      "source_blocks": [
+        "S12"
+      ],
+      "title": "Compramos Sanepar até R$ 34,26 por unit; Sabesp e Copasa já estão no preço",
+      "speaker": "Navarro",
+      "seconds": 58,
+      "inputs": [
+        "data/processed/scenarios.json",
+        "outputs/draft/decisao_proposta.md"
+      ],
+      "interaction": "Nenhuma: slide plano (avança por teclado ou clique)",
+      "acceptance": "Régua com preço, limite, valor e cenários; três gatilhos; fechamento das três empresas e resposta às perguntas."
+    }
+  ],
+  "input_bundle": "an_20261101T202028_e29905ab"
 }

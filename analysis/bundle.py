@@ -14,7 +14,7 @@ from pathlib import Path
 
 import openpyxl
 
-from . import (SCHEMA_VERSION, assumptions, capital, contract, legacy, obligations, reconciliation, recommendation, sector, valuation,
+from . import (SCHEMA_VERSION, assumptions, capital, contract, legacy, market_week, obligations, origin, reconciliation, recommendation, sector, valuation,
                workbooks)
 from .common import (REPO, SAO_PAULO, atomic_write_json, copy_into, now_iso, publish_directory, read_json, sha256_file, write_csv,
                      write_json)
@@ -167,12 +167,14 @@ def build(snapshot_dir: Path, *, bundle_root: Path = BUNDLE_ROOT, qa_root: Path 
              "https://ri.sanepar.com.br/docs/Fato-Relevante-Sanepar-2026-10-28-pwH9r7qG.pdf", "2026-10-28")):
         file_source(reg, base, sid, rel, issuer=issuer, title=title, url=url, published_at=pub, retrieved_at="2026-11-01",
                     access_method="web_fetch", access_status="downloaded_published_before_cutoff")
+    origin.build(reg, base)  # plano 14: carteira da 2ª carta (ponto de partida da apresentação)
     # ---------------- AN02–AN09 ----------------------------------------------------------
     rec = reconciliation.build(reg, base, reviewed_at)
     cap = capital.build(reg, base)
     bal = obligations.balances(reg, base)
     m = assumptions.macro(reg, base)
     a = assumptions.build(reg, base, rec, cap, m)
+    market_week.build(reg, base)  # plano 14: preços e NTN-B de 23/10 (semana do segundo turno)
     val = valuation.build(reg, base, rec, cap, bal, a, m)
     sec = sector.build(reg, base, val, cap, m, a)
     rcm = recommendation.build(reg, rec, cap, bal, a, val, sec)

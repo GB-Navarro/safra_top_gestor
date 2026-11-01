@@ -1,4 +1,4 @@
-"""EN05 — PPTX9 (apresentação) e apoio técnico de 7 páginas, a partir do mesmo modelo/figuras do HTML."""
+"""EN05 — apoio técnico de 7 páginas (PPTX editável), a partir do mesmo modelo e figuras da apresentação de 12 slides."""
 from __future__ import annotations
 
 from collections import Counter
@@ -10,7 +10,6 @@ from pptx.enum.shapes import MSO_SHAPE
 from pptx.enum.text import PP_ALIGN
 from pptx.util import Emu, Inches, Pt
 
-from . import content as K
 from .common import writable
 from .consumer import Bundle
 
@@ -119,112 +118,6 @@ def _alt(b: Bundle, ref: str, refs: list[str]) -> str:
     return f"{b.entity_name(c['entity_id'])} — {dim['label'].lower()}: {val}"
 
 
-def build_main(model: dict, b: Bundle, speech: dict, figs: Path, out: Path) -> Path:
-    prs = Presentation()
-    prs.slide_width, prs.slide_height = Inches(13.333), Inches(7.5)
-    P = {p["id"]: p for p in model["pages"]}
-    names = model["entity_names"]
-    total = 9
-    src = lambda *ids: sorted({s["title"] for i in ids for s in P[i]["sources"]})
-    # S1
-    p = P["P01"]
-    s = _frame(prs, 1, total, p["kicker"], p["title"], p["subtitle"], src("P01"), True)
-    _rect(s, .55, 2.45, 6.4, 2.35, NAVY)
-    v, pr, up = p["hero"]
-    _tb(s, .85, 2.6, 4, .4, v["label"].upper(), 12, True, RGBColor(0xDD, 0xE6, 0xF3))
-    _tb(s, .85, 2.95, 4.2, 1.2, v["fmt"], 54, True, RGBColor(0xFF, 0xFF, 0xFF))
-    _tb(s, .85, 4.15, 3, .4, v["note"], 13, False, RGBColor(0xDD, 0xE6, 0xF3))
-    _tb(s, 4.3, 2.75, 2.5, 1.8, [pr["label"], pr["fmt"], f"{up['label']}: {up['fmt']}"], 15, True, RGBColor(0xFF, 0xFF, 0xFF), PP_ALIGN.RIGHT)
-    _tb(s, 7.35, 2.45, 5.4, .4, "CONDIÇÕES DA RECOMENDAÇÃO", 12, True, MUTED)
-    _tb(s, 7.35, 2.85, 5.4, 2.2, ["• " + c["text"] for c in p["chips"]], 15, False, INK)
-    for k, c in enumerate(p["compare"]):
-        x = .55 + k * 4.1
-        _rect(s, x, 5.25, 3.9, 1.45, SOFT)
-        acc = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(x), Inches(5.25), Inches(.09), Inches(1.45))
-        acc.fill.solid()
-        acc.fill.fore_color.rgb = ENT_RGB[c["entity"]]
-        acc.line.fill.background()
-        _tb(s, x + .25, 5.35, 2.6, .4, f"{names[c['entity']]} {c['ticker']}", 16, True)
-        _tb(s, x + .25, 5.85, 2.8, .7, [f"Valor {c['value']['fmt']} · Preço {c['price']['fmt']}"], 12, False, INK2)
-        _tb(s, x + 2.7, 5.5, 1.1, .5, c["upside"]["fmt"] if c["upside"] else "N/D", 17, True, INK, PP_ALIGN.RIGHT)
-    _notes(s, speech["B1"])
-    # S2
-    p = P["P02"]
-    s = _frame(prs, 2, total, p["kicker"], p["title"], p["subtitle"], src("P02"))
-    _img(s, figs / "s02_setor.png", .55, 2.45, w=7.6)
-    _rect(s, 8.5, 2.5, 4.3, 3.6, SOFT)
-    _tb(s, 8.75, 2.65, 3.9, 3.3, [p["notes"]["sewer"], "", p["callout"]], 14, False, INK)
-    _notes(s, speech["B2"])
-    # S3
-    p = P["P03"]
-    s = _frame(prs, 3, total, p["kicker"], p["title"], "Forças, fraquezas, oportunidades e ameaças — e o efeito de cada uma na tese.", src("P03"))
-    for k, q in enumerate(p["quadrants"]):
-        x, y = .55 + (k % 2) * 6.2, 2.4 + (k // 2) * 2.3
-        _rect(s, x, y, 6.0, 2.15, SOFT)
-        _tb(s, x + .25, y + .12, 5.5, .4, q["label"], 18, True, NAVY)
-        _tb(s, x + .25, y + .55, 5.5, 1.0, ["• " + t for t in q["bullets"]], 12.5, False, INK)
-        _tb(s, x + .25, y + 1.55, 5.5, .55, "→ " + q["implication"], 11.5, True, INK2)
-    _notes(s, speech["B3"])
-    # S4
-    p = P["P04"]
-    s = _frame(prs, 4, total, p["kicker"], p["title"], p["subtitle"], src("P04"))
-    for k, c in enumerate(p["cards"]):
-        x = .55 + k * 4.15
-        _rect(s, x, 2.45, 3.95, 4.4, SOFT)
-        _tb(s, x + .25, 2.6, 3.5, .45, c["label"], 20, True, NAVY)
-        _tb(s, x + .25, 3.1, 3.5, 3.7, [c["tabs"]["fato"], "", "Canal: " + c["tabs"]["canal"]], 12.5, False, INK)
-    _notes(s, speech["B4"])
-    # S5
-    p = P["P05"]
-    s = _frame(prs, 5, total, p["kicker"], p["title"], "Sem nota sintética: definições e períodos diferem; cada linha mostra o canal para o caixa.", src("P05"))
-    rows = [["Fator"] + [names[e] for e in model["order"]] + ["Canal para o caixa"]]
-    for r in p["rows"]:
-        rows.append([r["factor"]] + [(f"{r['cells'][e]['values'][0]['fmt']} — " if r["cells"][e]["values"] else "lacuna — ") + r["cells"][e]["text"]
-                                    for e in model["order"]] + [r["channel"]])
-    _table(s, .55, 2.35, 12.2, rows, [1.9, 2.75, 2.75, 2.75, 2.05], 10.5)
-    _notes(s, speech["B5"])
-    # S6
-    p = P["P06"]
-    s = _frame(prs, 6, total, p["kicker"], p["title"], p["subtitle"], src("P06"))
-    _img(s, figs / "s06_ponte_esg.png", .55, 2.5, w=12.2)
-    _tb(s, .55, 6.2, 12.2, .7, p["claim_texts"]["CL.bridge.energy"], 11.5, False, INK2)
-    _notes(s, speech["B6"])
-    # S7 (P07 + P08)
-    p7, p8 = P["P07"], P["P08"]
-    s = _frame(prs, 7, total, "Valuation", p8["title"], "Do valor da firma ao acionista (esquerda) e valor contra preço nas três empresas (direita).", src("P07", "P08"))
-    _img(s, figs / "s07_ponte_valor.png", .45, 2.4, w=6.3)
-    _img(s, figs / "s08_valor_preco.png", 6.9, 2.5, w=5.9)
-    _tb(s, 6.9, 5.0, 5.9, 1.9, [p8["claim_texts"]["CL.result.implied"], p7["claim_texts"]["CL.method.fcff"]], 11, False, INK2)
-    _notes(s, speech["B7.a"] + "\n\n" + speech["B7.b"])
-    # S8
-    p = P["P09"]
-    s = _frame(prs, 8, total, p["kicker"], p["title"], p["subtitle"], src("P09"))
-    _img(s, figs / "s09_cenarios.png", .45, 2.35, w=6.6)
-    for k, t in enumerate(p["triggers"]):
-        y = 2.4 + k * 1.45
-        _rect(s, 7.35, y, 5.45, 1.32, SOFT)
-        _tb(s, 7.55, y + .07, 5.1, .35, f"⚠ {t['label']} — monitorar", 13.5, True, RGBColor(0x7A, 0x52, 0x00))
-        _tb(s, 7.55, y + .42, 5.1, .9, [f"Limite: {t['limit']}", f"Quando: {t['when']} · Ação: {t['action']}"], 10.5, False, INK)
-    _notes(s, speech["B8"])
-    # S9
-    p = P["P10"]
-    s = _frame(prs, 9, total, p["kicker"], p["title"], p["subtitle"], src("P10"), True)
-    _rect(s, .55, 2.4, 5.6, 2.35, NAVY)
-    _tb(s, .85, 2.55, 5.0, .9, p["title"].split(": ", 1)[-1], 24, True, RGBColor(0xFF, 0xFF, 0xFF))
-    _tb(s, .85, 3.45, 5.0, 1.2, p["points"][1]["text"], 14, False, RGBColor(0xDD, 0xE6, 0xF3))
-    _tb(s, 6.6, 2.4, 6.2, 2.4, [f"{x['label']}: {x['text']}" for x in p["points"]], 13.5, False, INK)
-    _tb(s, .55, 4.95, 5.6, .3, p["ladder"]["labels"]["title"].upper(), 11, True, MUTED)
-    _img(s, figs / "s10_faixa_compra.png", .55, 5.25, h=1.65)
-    _tb(s, 6.6, 4.95, 6.2, .3, p["triggers_title"].upper(), 11, True, MUTED)
-    for k, t in enumerate(p["triggers"]):
-        _rect(s, 6.6, 5.3 + k * .54, 6.2, .48, SOFT)
-        _tb(s, 6.75, 5.31 + k * .54, 6.0, .46, f"⚠ {t['label']}: {t['limit']}", 10.5, False, INK)
-    _notes(s, speech["B9"])
-    out.parent.mkdir(parents=True, exist_ok=True)
-    prs.save(str(writable(out)))
-    return out
-
-
 def build_support(model: dict, b: Bundle, figs: Path, out: Path) -> Path:
     prs = Presentation()
     prs.slide_width, prs.slide_height = Inches(13.333), Inches(7.5)
@@ -270,11 +163,11 @@ def build_support(model: dict, b: Bundle, figs: Path, out: Path) -> Path:
     _tb(s, 8.1, 2.35, 4.7, 4.2, [b.claim_text("CL.method.precatorio"), "", "Favorável: 75% e benefício fiscal; adverso: descontos concentrados até fev/2029."], 13)
     # 5 grade
     s = _frame(prs, 5, total, "Apoio técnico", "Sensibilidade: custo de capital × crescimento real", b.claim_text("CL.result.implied"), srcs)
-    _img(s, figs / "s08_grade.png", .55, 2.5, w=8.6)
+    _img(s, figs / "s11_grade.png", .55, 2.5, w=8.6)
     _tb(s, 9.4, 2.5, 3.4, 4.0, [b.claim_text("CL.result.market_view")], 12)
     # 6 ESG
     s = _frame(prs, 6, total, "Apoio técnico", "Matriz ESG: definições, períodos e fontes", "Valores de perímetros e períodos diferentes não formam ranking.", srcs)
-    p5 = next(p for p in model["pages"] if p["id"] == "P05")
+    p5 = next(p for p in model["pages"] if p["kind"] == "matrix")
     rows = [["Fator", "Empresa", "Valor", "Período", "Fonte"]]
     for r in p5["rows"]:
         for e in model["order"]:

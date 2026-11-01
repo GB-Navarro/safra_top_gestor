@@ -110,13 +110,13 @@
     },
     {
       "id": "G06",
-      "name": "HTML10 — extensão planejada",
+      "name": "Apresentação final deck12 (antes: extensão HTML10)",
       "root": "outputs/draft/html/ e outputs/qa/html/",
       "artifacts": [
-        "apresentacao_esg.html independente",
-        "apresentacao_esg.pdf de dez páginas",
+        "apresentacao_esg.html independente (12 slides planos)",
+        "apresentacao_esg.pdf e apresentacao_esg.pptx de 12 páginas",
         "manifest.json",
-        "dez capturas e html_validation.json"
+        "capturas e html_validation.json"
       ],
       "covered_by": [
         "C28",
@@ -259,6 +259,16 @@
       "id": "R10",
       "requirement": "Extensão solicitada: plano para HTML interativo com dez páginas",
       "covered_by": [
+        "C28"
+      ]
+    },
+    {
+      "id": "R11",
+      "requirement": "Solicitação do usuário de 01/11/2026 (plano 14): apresentação final igual ao PPT reorganizado do grupo, com origem na 2ª carta, narrativa no estilo das cartas, slides planos e validação final dos dados",
+      "covered_by": [
+        "C20",
+        "C23",
+        "C24",
         "C28"
       ]
     }
@@ -1204,7 +1214,7 @@
     {
       "id": "C20",
       "status": "closed",
-      "status_note": "Revisão semântica claim a claim (32 afirmações) sem defeito, posicionamento nos perfis html10 e pptx9 e números das falas só por tokens.",
+      "status_note": "Plano 14 (01/11/2026): 34 afirmações no pacote, incluindo a origem na 2ª carta (CL.lead.origin) e a semana do segundo turno (CL.result.election_week); todas posicionadas no perfil deck12; números das falas só por tokens; 16 relações afirmadas nos títulos conferidas contra o pacote a cada build. Antes: perfis html10/pptx9.",
       "status_evidence_bundle": "an_20261101T132455_ac536175",
       "status_evidence_build": "pr_20261101T132746_ac536175",
       "closure_evidence": [
@@ -1225,7 +1235,7 @@
       "depends_on": [
         "C19"
       ],
-      "need": "claims.csv só contém cinco afirmações do S5. Mapear todos os fatos, inferências, hipóteses e números dos nove slides atuais e dez previstos em HTML, incluindo falas, figuras e notas.",
+      "need": "Mapear todos os fatos, inferências, hipóteses e números da apresentação final (12 slides), incluindo falas, figuras, notas e respostas; o mapeamento original cobria os nove slides e as dez páginas HTML.",
       "existing_evidence": [
         "data/processed/claims.csv",
         "data/processed/presentation_facts.json",
@@ -1340,7 +1350,7 @@
     {
       "id": "C23",
       "status": "drafts_regenerated_pending_h08_h09",
-      "status_note": "Peças regeneradas do mesmo pacote; HTML/PDF10 adaptados ao manual e PPTX10 fiel adicional, com117 estados geométricos revisados. Rascunho mantém H08/H09 pendentes. Revalidação integral39+50+13 aprovada com16 originais preservados.",
+      "status_note": "Plano 14: deck12 publicado (build pr_20261101T203705_e29905ab, publicação pub_20261101T203832) do pacote an_20261101T202028_e29905ab; 12 slides planos em HTML/PDF/PPTX, script e teleprompters no estilo das cartas; QA de 19 verificações e revisão visual de 48 capturas pelo agente; suítes 42+58+13 no estado publicado. H08/H09 pendentes.",
       "status_evidence_bundle": "an_20261101T132455_ac536175",
       "status_evidence_build": "pr_20261101T151834_ac536175",
       "title": "Figuras, PPTX/PDF, roteiro e falas finais",
@@ -1362,7 +1372,7 @@
         "C21",
         "C22"
       ],
-      "need": "Regenerar quatro figuras e suas tabelas, deck/PDF atuais de nove páginas, apoio de sete, narrativa, script dos quatro, teleprompters e doze respostas; alinhar ao fechamento e ao perfil escolhido.",
+      "need": "Regenerar figuras e tabelas, a apresentação final de 12 slides (HTML, PDF e PPTX), apoio de sete, narrativa, script dos quatro, teleprompters e respostas; alinhar ao fechamento.",
       "existing_evidence": [
         "outputs/draft/apresentacao_esg.pptx",
         "outputs/draft/apresentacao_esg.pdf",
@@ -1371,7 +1381,7 @@
         "outputs/draft/perguntas_banca.md"
       ],
       "source_routes": [],
-      "method": "Consumir a versão canônica, conferir números/títulos/unidades, limites e interpretações; renderizar todas as páginas e inspecionar texto, gráficos, fontes e área de câmera. Se houver HTML, seguir perfil separado de dez páginas sem quebrar o teste atual de nove.",
+      "method": "Consumir a versão canônica, conferir números/títulos/unidades, limites e interpretações; renderizar todas as páginas e inspecionar texto, gráficos, fontes e área de câmera. Perfil único deck12 (plano 14), baseado no PPT reorganizado do grupo; os perfis pptx9 e html10 foram aposentados a pedido do usuário.",
       "outputs": [
         "outputs/draft/figuras",
         "outputs/draft/apresentacao_esg.pptx",
@@ -1395,7 +1405,7 @@
     {
       "id": "C24",
       "status": "tools_ready_awaiting_human",
-      "status_note": "Perfis pptx9 (13 segmentos) e html10 (14); montagem e medição testadas só com fixture sintética temporária. Nenhum ensaio, clipe ou vídeo real.",
+      "status_note": "Plano 14: perfil único deck12 (12 segmentos); pptx9 (13) e html10 (14) aposentados. Montagem e medição testadas só com fixture sintética temporária. Nenhum ensaio, clipe ou vídeo real.",
       "status_evidence_bundle": "an_20261101T132455_ac536175",
       "status_evidence_build": "pr_20261101T132746_ac536175",
       "title": "Ensaios, clipes e vídeo real",
@@ -1414,7 +1424,7 @@
         "C01",
         "C23"
       ],
-      "need": "Dois ensaios observados e clipes reais dos quatro, ainda inexistentes; adaptar o mapeamento se o perfil de gravação passar de nove a dez páginas.",
+      "need": "Dois ensaios observados e clipes reais dos quatro, ainda inexistentes, no perfil deck12 (12 segmentos, um por slide).",
       "existing_evidence": [
         "data/interim/feedback_ensaio.md",
         "config/video_segments.json",
@@ -1422,7 +1432,7 @@
         "outputs/qa/video_pipeline_test.json"
       ],
       "source_routes": [],
-      "method": "Medir tempos por bloco; grupo grava e identifica tomadas; agente ajusta fala e monta. O perfil atual usa treze segmentos/nove páginas. HTML10 separa B7 em duas falas/páginas e pode exigir quatorze segmentos; implementar perfil novo apenas se for usado para o vídeo, sem sobrescrever o antigo. Verificar duração renderizada, áudio, legibilidade, participantes e arquivo inteiro.",
+      "method": "Medir tempos por slide; grupo grava e identifica tomadas; agente ajusta fala e monta. Perfil único deck12: config/video_segments.json com 12 segmentos (S01–S12). Verificar duração renderizada, áudio, legibilidade, participantes e arquivo inteiro.",
       "outputs": [
         "data/interim/feedback_ensaio.md",
         "data/raw/gravacao",
@@ -1559,7 +1569,7 @@
     {
       "id": "C28",
       "status": "closed",
-      "status_note": "Publicado com design do manual;33 verificações de navegador,117 estados em1920/1366 e tema claro, revisão visual PDF10/PPTX10. PPTX10 usa páginas renderizadas3840px e texto nas notas. Não substitui vídeo sem H07.",
+      "status_note": "Plano 14 (01/11/2026): o HTML10 interativo foi substituído pelo deck12 plano a pedido do usuário. Autoteste com 73 verificações em 1920×1080 e 1366×768, PDF e PPTX de 12 páginas, revisão visual de 48 capturas pelo agente. Histórico: HTML10 publicado e revisado antes desta troca.",
       "status_evidence_bundle": "an_20261101T132455_ac536175",
       "status_evidence_build": "pr_20261101T151834_ac536175",
       "closure_evidence": [
@@ -1569,7 +1579,7 @@
         "outputs/draft/html/apresentacao_esg.pptx",
         "outputs/qa/production/pr_20261101T151834_ac536175/html_pptx_fidelity.json"
       ],
-      "title": "HTML10 implementado, design asset.dev e exportações PDF/PPTX",
+      "title": "Apresentação final em HTML de 12 slides planos, design asset.dev e exportações PDF/PPTX",
       "scope": "html_extension",
       "phases": [
         "A07",
@@ -1585,7 +1595,7 @@
         "C21",
         "C23"
       ],
-      "need": "Manter dez páginas HTML interativas offline; aplicar o design de marcadev.html com nome asset.dev; exportar PDF10 e PPTX10 fiel ao HTML e verificar cortes/sobreposição.",
+      "need": "Manter a apresentação final de 12 slides planos (sem botões ou painéis), offline, no design de marcadev.html com nome asset.dev; exportar PDF e PPTX fiéis ao HTML e verificar cortes, sobreposição e colisão de rótulos.",
       "existing_evidence": [
         "outputs/draft/apresentacao_esg.pptx",
         "outputs/draft/apresentacao_esg.pdf",
@@ -1593,7 +1603,7 @@
         "data/processed/valuation.json"
       ],
       "source_routes": [],
-      "method": "Seguir plano10 e o mapa P01–P10: dividir S7 em método/premissas e valor/preço, preservar tempo total, gerar HTML independente com dados embutidos, gráficos SVG e controles sobre resultados canônicos. Layout de rascunho pode avançar antes do fechamento; versão definitiva depende da análise.",
+      "method": "Seguir o plano 14 e o mapa S01–S12 (html_slide_plan.json): marcação e gráficos SVG gerados no servidor a partir do modelo de páginas; script mínimo só para navegar, ajustar à janela, modo gravação e autoteste geométrico.",
       "outputs": [
         "plans/10_plano_html_interativo.md",
         "outputs/draft/html/apresentacao_esg.html",
@@ -1602,9 +1612,9 @@
         "outputs/draft/html/apresentacao_esg.pptx"
       ],
       "acceptance": [
-        "O plano define as dez páginas, interações, dados, dependências, validações e integração de exportação/roteiro/vídeo.",
-        "Quando implementado: dez seções/páginas de impressão, navegação/foco corretos, execução local sem rede, números equivalentes ao Python e estados N/D preservados.",
-        "Design do manual com asset.dev, fontes incorporadas, composição sem colisões nos estados testados e PDF/PPTX com dez páginas; limitação de edição do PPTX10 declarada."
+        "O mapa define as 12 páginas, voz, tempo, dados e critérios; o deck segue a sequência do PPT reorganizado do grupo com os ajustes do plano 14.",
+        "Doze seções/páginas de impressão, sem controles clicáveis, execução local sem rede, números iguais aos do pacote e estados N/D preservados.",
+        "Design do manual com asset.dev, fontes incorporadas, autoteste sem sobreposição/transbordo/colisão em 1920 e 1366 e PDF/PPTX com 12 páginas; PPTX feito de imagens (sem edição de layout) com a fala nas notas."
       ],
       "if_unavailable": "Entregar primeiro rascunho navegável com dados/controles pendentes explicitados; não chamar PNGs embutidos de simulador ou inventar campo ausente."
     },

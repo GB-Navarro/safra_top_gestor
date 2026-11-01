@@ -4,6 +4,8 @@
 > [Estado central do projeto](../ESTADO_DO_PROJETO.md) · Revisão documental: 01/11/2026. Plano de método e critérios; conclusão de cada fase depende de evidência.
 <!-- PROJECT_STATUS:END -->
 
+> **Substituído pelo [plano 14](14_plano_apresentacao_final.md) em 01/11/2026.** A pedido do usuário, a apresentação final passou a ter 12 slides planos (perfil deck12, sem botões nem painéis), seguindo o PPT reorganizado do grupo. Este texto fica como histórico do HTML10 interativo; o mapa de páginas gerado abaixo já descreve o deck12.
+
 Revisado em **01/11/2026**. Escopo desta tarefa: **plano**, ainda sem construir o HTML. O [estado central](../ESTADO_DO_PROJETO.md) descreve o projeto e o [contrato09](09_contrato_de_fechamento.md) cobre dados/correções/entregáveis. Este plano é a especificação de C28.
 
 ## Resultado esperado
@@ -24,16 +26,18 @@ O [mapa canônico](../data/catalog/html_slide_plan.json) define origem, conteúd
 
 | Página / origem | Conteúdo e voz | Janela planejada | Interação |
 |---|---|---|---|
-| P01 ← S1 (B1) | **Tese e condição de investimento** · Rodrigo | 0:00–0:50 | Abrir fonte/data do preço e condições da recomendação em painel; manter a conclusão principal visível. |
-| P02 ← S2 (B2) | **O déficit de saneamento e a expansão** · Lorenzo | 0:50–1:40 | Selecionar água/coleta para destacar a série; tooltip e painel explicam denominador, ano-base e meta, sem somar coleta/tratamento. |
-| P03 ← S3 (B3) | **SWOT: crescimento precisa remunerar capital** · Lorenzo | 1:40–2:55 | Selecionar quadrante para revelar evidência e implicação econômica; estado inicial mostra a matriz inteira. |
-| P04 ← S4 (B4) | **Regulação, competição e tecnologia** · Navarro | 2:55–3:55 | Três cartões com abas de fato, prazo e canal econômico; detalhes da Aegea e da Copasa abrem fontes. |
-| P05 ← S5 (B5) | **Matriz ESG comparativa** · Michel | 3:55–5:25 | Clicar em célula/fator abre definição, período, fonte e linha de caixa; destacar empresa sem eliminar as outras da comparação inicial. |
-| P06 ← S6 (B6) | **Eficiência energética: teto condicionado de investimento** · Michel | 5:25–6:30 | Alternar retenção de50%/100% sobre redução hipotética fixa de1%; mostrar fluxos/horizonte e premissas em painel, usando valores já calculados. |
-| P07 ← S7 (B7.a) | **Como o modelo transforma caixa em valor** · Rodrigo | 6:30–7:10 | Selecionar empresa para inspecionar PV explícito, terminal e ponte EV→patrimônio→papel; diferenciar método original de experimento proposto. |
-| P08 ← S7 (B7.b) | **Valor versus preço e sensibilidade** · Rodrigo | 7:10–7:55 | Selecionar empresa e ponto da grade WACC×g pré-calculada; marcar a referência de mercado e permitir restaurar a configuração inicial. |
-| P09 ← S8 (B8) | **Cenários, riscos e gatilhos** · Navarro | 7:55–8:55 | Selecionar um dos quatro cenários e revelar choques/duração; cartões mostram métrica, limiar, data/frequência e ação de cada gatilho. |
-| P10 ← S9 (B9) | **Decisão e condições para manter a tese** · Todos | 8:55–9:20 | Resumo fixo da decisão aprovada/proposta e botão de fontes; encerrar ou reiniciar a apresentação sem adicionar página de créditos. |
+| S01 ← S1 (S01) | **Saneamento: onde está o valor do setor listado** · Rodrigo | 0:00–0:14 | Nenhuma: slide plano (avança por teclado ou clique) |
+| S02 ← S2 (S02) | **Na 2ª carta, o modelo comprou Sabesp sem uma tese nossa sobre a empresa** · Rodrigo | 0:14–0:54 | Nenhuma: slide plano (avança por teclado ou clique) |
+| S03 ← S3 (S03) | **Fomos ao setor com um olhar fundamentalista** · Rodrigo | 0:54–1:22 | Nenhuma: slide plano (avança por teclado ou clique) |
+| S04 ← S4 (S04) | **62,3% da população tem coleta de esgoto; a meta é 90% até 2033** · Lorenzo | 1:22–2:12 | Nenhuma: slide plano (avança por teclado ou clique) |
+| S05 ← S5 (S05) | **Demanda estável e contratos longos; o risco está na regulação e nos juros** · Lorenzo | 2:12–3:17 | Nenhuma: slide plano (avança por teclado ou clique) |
+| S06 ← S6 (S06) | **Até 2030, regulação, competição e tecnologia decidem quem ganha** · Navarro | 3:17–4:12 | Nenhuma: slide plano (avança por teclado ou clique) |
+| S07 ← S7 (S07) | **Cada indicador ESG chega ao caixa por um caminho diferente** · Michel | 4:12–5:22 | Nenhuma: slide plano (avança por teclado ou clique) |
+| S08 ← S8 (S08) | **Medimos uma alavanca: 1% a menos na conta de energia** · Michel | 5:22–6:02 | Nenhuma: slide plano (avança por teclado ou clique) |
+| S09 ← S9 (S09) | **Do caixa da empresa ao valor do acionista** · Rodrigo | 6:02–6:57 | Nenhuma: slide plano (avança por teclado ou clique) |
+| S10 ← S10 (S10) | **Ao preço de 30/10, só a Sanepar rende acima do nosso custo de capital** · Rodrigo | 6:57–7:42 | Nenhuma: slide plano (avança por teclado ou clique) |
+| S11 ← S11 (S11) | **A Sanepar vale R$ 42,82 por unit; o mercado paga R$ 30,85** · Rodrigo | 7:42–8:32 | Nenhuma: slide plano (avança por teclado ou clique) |
+| S12 ← S12 (S12) | **Compramos Sanepar até R$ 34,26 por unit; Sabesp e Copasa já estão no preço** · Navarro | 8:32–9:30 | Nenhuma: slide plano (avança por teclado ou clique) |
 
 <!-- HTML_SLIDE_MAP:END -->
 

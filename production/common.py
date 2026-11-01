@@ -20,7 +20,7 @@ LOCK_PATH = REPO / "data/interim/coordination/documentation.lock"
 
 # Escrita exclusiva de trabalho (two_part_execution.json, parte production).
 EXCLUSIVE = ("production/", "presentation_web/", "tests/production/", "data/interim/production/", "outputs/draft/production/",
-             "outputs/qa/production/", "data/catalog/parallel_progress/production.json", "config/video_segments_html10.json",
+             "outputs/qa/production/", "data/catalog/parallel_progress/production.json", "config/video_segments.json",
              "config/production_profile.json")
 # Destinos canônicos: só o integrador escreve, sob trava e com manifesto.
 PUBLISH = ("data/processed/", "outputs/final/", "outputs/draft/", "outputs/qa/", "data/interim/financial_reconciliation.csv",
