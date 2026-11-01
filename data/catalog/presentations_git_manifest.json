@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "prepared_at": "2026-11-01T17:03:49-03:00",
+  "build_id": "pr_20261101T151834_ac536175",
+  "publish_id": "pub_20261101T153001",
+  "input_bundle": "an_20261101T132455_ac536175",
+  "files": [
+    {
+      "path": "outputs/draft/apresentacao_esg.pptx",
+      "bytes": 430025,
+      "sha256": "aefd606409624fa6bac58270dde9cf8a1e210cfefb662296357e42912116caae"
+    },
+    {
+      "path": "outputs/draft/apresentacao_esg.pdf",
+      "bytes": 562974,
+      "sha256": "b812fd7d5cbdefc7dab478f4330e29f1b24320b43efcf540d3b529ee9c08391e"
+    },
+    {
+      "path": "outputs/draft/apoio_tecnico.pptx",
+      "bytes": 131902,
+      "sha256": "54327c8bb49a46ec815c8befdae2b184d7ec862cddde6f230d91e4fe1054074a"
+    },
+    {
+      "path": "outputs/draft/apoio_tecnico.pdf",
+      "bytes": 206071,
+      "sha256": "d6df15b743c1faa14a08b3bb6650f87a98c5029e70b99f282ef6191826192aa2"
+    },
+    {
+      "path": "outputs/draft/html/apresentacao_esg.html",
+      "bytes": 1745023,
+      "sha256": "8082ecc33e3fe028347557d9619bd14902f8f52a6f784b5e919d8fc041405480"
+    },
+    {
+      "path": "outputs/draft/html/apresentacao_esg.pdf",
+      "bytes": 1700378,
+      "sha256": "c15a84a83f0e9efed8a80e6c9337f07828581ddf230dea7d8d5ffbdde4711c0d"
+    },
+    {
+      "path": "outputs/draft/html/apresentacao_esg.pptx",
+      "bytes": 3404190,
+      "sha256": "c42e89549bc3ca1761fbb5381925dab5eea8718e68ec5ee081d6deb2fd67692f"
+    }
+  ],
+  "scope": "Sete apresentações canônicas publicadas; rascunhos de proposta, sem nova avaliação financeira ou envio à competição.",
+  "pptx_html10": "Dez páginas renderizadas em alta resolução, com texto nas notas; o PPTX9 editável está separado."
+}

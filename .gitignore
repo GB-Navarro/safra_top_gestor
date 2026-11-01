@@ -29,3 +29,11 @@ __pycache__/
 /data/processed/estimate_snapshots.csv
 /data/processed/*.json
 
+# Apresentações publicadas: exceções explícitas para os artefatos solicitados.
+!/outputs/draft/apresentacao_esg.pptx
+!/outputs/draft/apresentacao_esg.pdf
+!/outputs/draft/apoio_tecnico.pptx
+!/outputs/draft/apoio_tecnico.pdf
+!/outputs/draft/html/apresentacao_esg.html
+!/outputs/draft/html/apresentacao_esg.pdf
+!/outputs/draft/html/apresentacao_esg.pptx

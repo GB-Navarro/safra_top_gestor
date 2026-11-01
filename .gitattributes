@@ -1,0 +1,4 @@
+
+
+# HTML gerado mantém os bytes e os hashes do manifesto mesmo com core.autocrlf.
+/outputs/draft/html/apresentacao_esg.html -text
