@@ -1,0 +1,4 @@
+entity_id,legal_name,cvm_code,cnpj,currency,identity_status
+sabesp,CIA SANEAMENTO BÁSICO ESTADO SÃO PAULO,14443,43.776.517/0001-80,BRL,verified_cvm_registry
+copasa,COMPANHIA DE SANEAMENTO DE MINAS GERAIS,19445,17.281.106/0001-03,BRL,verified_cvm_registry
+sanepar,CIA. DE SANEAMENTO DO PARANÁ - SANEPAR,18627,76.484.013/0001-45,BRL,verified_cvm_registry

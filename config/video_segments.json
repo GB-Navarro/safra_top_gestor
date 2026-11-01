@@ -1,0 +1,87 @@
+{
+  "status": "template_awaiting_genuine_clips",
+  "segments": [
+    {
+      "block": "B1",
+      "speaker": "Rodrigo",
+      "slide": 1,
+      "path": "data/raw/gravacao/B1.mp4"
+    },
+    {
+      "block": "B2",
+      "speaker": "Lorenzo",
+      "slide": 2,
+      "path": "data/raw/gravacao/B2.mp4"
+    },
+    {
+      "block": "B3",
+      "speaker": "Lorenzo",
+      "slide": 3,
+      "path": "data/raw/gravacao/B3.mp4"
+    },
+    {
+      "block": "B4",
+      "speaker": "Navarro",
+      "slide": 4,
+      "path": "data/raw/gravacao/B4.mp4"
+    },
+    {
+      "block": "B5",
+      "speaker": "Michel",
+      "slide": 5,
+      "path": "data/raw/gravacao/B5.mp4"
+    },
+    {
+      "block": "B6",
+      "speaker": "Michel",
+      "slide": 6,
+      "path": "data/raw/gravacao/B6.mp4"
+    },
+    {
+      "block": "B7",
+      "speaker": "Rodrigo",
+      "slide": 7,
+      "path": "data/raw/gravacao/B7.mp4"
+    },
+    {
+      "block": "B8",
+      "speaker": "Navarro",
+      "slide": 8,
+      "path": "data/raw/gravacao/B8.mp4"
+    },
+    {
+      "block": "B9_Rodrigo",
+      "speaker": "Rodrigo",
+      "slide": 9,
+      "path": "data/raw/gravacao/B9_Rodrigo.mp4"
+    },
+    {
+      "block": "B9_Lorenzo",
+      "speaker": "Lorenzo",
+      "slide": 9,
+      "path": "data/raw/gravacao/B9_Lorenzo.mp4"
+    },
+    {
+      "block": "B9_Michel",
+      "speaker": "Michel",
+      "slide": 9,
+      "path": "data/raw/gravacao/B9_Michel.mp4"
+    },
+    {
+      "block": "B9_Navarro",
+      "speaker": "Navarro",
+      "slide": 9,
+      "path": "data/raw/gravacao/B9_Navarro.mp4"
+    },
+    {
+      "block": "B9_Todos",
+      "speaker": "Todos",
+      "slide": 9,
+      "path": "data/raw/gravacao/B9_Todos.mp4"
+    }
+  ],
+  "target_seconds": 560,
+  "max_seconds": 600,
+  "output": "outputs/draft/video_esg_rascunho.mp4",
+  "production_format": "1920x1080 30fps H264 AAC; confirm compatibility in H07"
+}

@@ -1,0 +1,117 @@
+{
+  "part_id": "analysis",
+  "updated_at": "2026-11-01T13:25:14-03:00",
+  "bundle_id": "an_20261101T132455_ac536175",
+  "bundle_path": "outputs/draft/analysis_bundle/an_20261101T132455_ac536175",
+  "manifest_sha256": "243092fc1c71fa9cf8e1b76feb959e1e97041d3c435c18878388f6a46b551de0",
+  "state": "analysis_proposed",
+  "snapshot_id": "snap_20261031_7c31b5560e",
+  "tasks": [
+    {
+      "task_id": "AN01",
+      "status": "done",
+      "note": "Fotografia com hash, originais conferidos"
+    },
+    {
+      "task_id": "AN02",
+      "status": "done",
+      "note": "64 células + C08 com disposição"
+    },
+    {
+      "task_id": "AN03",
+      "status": "done_with_limitations",
+      "note": "Preços públicos sem H01; eventos jul–out pesquisados em fontes públicas (sem mudança de ações)"
+    },
+    {
+      "task_id": "AN04",
+      "status": "done_with_limitations",
+      "note": "EMAE sem valoração separada"
+    },
+    {
+      "task_id": "AN05",
+      "status": "done_with_limitations",
+      "note": "Copasa: indicador de acesso ausente; prazo por média ponderada"
+    },
+    {
+      "task_id": "AN06",
+      "status": "done_proposed",
+      "note": "Premissas para H08; WACC regulatório Sabesp do contrato; capex Copasa premissa do analista"
+    },
+    {
+      "task_id": "AN07",
+      "status": "done_with_limitations",
+      "note": "Calendário mensal do precatório estimado"
+    },
+    {
+      "task_id": "AN08",
+      "status": "done",
+      "note": "Ramo revisado + legado reproduzido"
+    },
+    {
+      "task_id": "AN09",
+      "status": "done_proposed",
+      "note": "Decisão proposta por regra; claims e 10 slots"
+    },
+    {
+      "task_id": "AN10",
+      "status": "done",
+      "note": "Pacote 1.0 publicado"
+    },
+    {
+      "task_id": "AN11",
+      "status": "done",
+      "note": "not_received_public_substitutes_used"
+    },
+    {
+      "task_id": "AN12",
+      "status": "awaiting_human",
+      "note": "Checklist H08/H09 entregue; decisões reais não registradas"
+    }
+  ],
+  "requirement_slices": {
+    "C02": "resolved",
+    "C03": "resolved_with_limitations",
+    "C04": "resolved",
+    "C05": "resolved_with_limitations",
+    "C06": "resolved_with_limitations",
+    "C07": "resolved",
+    "C08": "resolved",
+    "C09": "resolved_with_limitations",
+    "C10": "resolved_with_limitations",
+    "C11": "resolved_with_limitations",
+    "C12": "resolved_with_limitations",
+    "C13": "limited",
+    "C14": "resolved_with_limitations",
+    "C15": "resolved_with_limitations",
+    "C16": "limited",
+    "C17": "resolved",
+    "C18": "resolved_with_limitations",
+    "C19": "proposed_pending_human",
+    "C20": "analysis_slice_done",
+    "C21": "analysis_slice_done",
+    "C22": "analysis_slice_done",
+    "C23": "analysis_slice_done",
+    "C27": "analysis_slice_done",
+    "C29": "resolved"
+  },
+  "evidence_paths": {
+    "outputs/draft/analysis_bundle/an_20261101T132455_ac536175/manifest.json": "243092fc1c71fa9cf8e1b76feb959e1e97041d3c435c18878388f6a46b551de0",
+    "outputs/draft/analysis_bundle/an_20261101T132455_ac536175/qa/analysis_validation.json": "be522b87bc9752200a1148349d4e9a554527bd704a400a98b459e07b55d84e8f",
+    "outputs/draft/analysis_bundle/an_20261101T132455_ac536175/results/recommendation.json": "ce06fdc5e3c8c7fb0b76a3ef01512d0959617d5157d47fb29ec86f6415eb3d24",
+    "outputs/draft/analysis_bundle/an_20261101T132455_ac536175/tables/financial_reconciliation.csv": "39df11b84ae7fdde19e202b63c16d202f0070346fcc1e616e9377b520836d7dd"
+  },
+  "unresolved": [
+    "BRR líquida oficial de Sabesp e Copasa (Sanepar só como verificação)",
+    "plano de capex Copasa vigente (projeções descontinuadas)",
+    "prazos Copasa por contrato (usada a média ponderada)",
+    "EMAE sem valoração separada",
+    "confirmação de preços e recompras (H01)"
+  ],
+  "human_needed": [
+    "H08 (cinco julgamentos)",
+    "H09 (adoção da recomendação)",
+    "H07 (instruções privadas)",
+    "H01 (opcional)"
+  ],
+  "next_action": "Grupo: revisar checklist em LEIA_PRIMEIRO.md e registrar H08/H09 em data/interim/decisoes_equipe.md; Parte 2: consumir outputs/draft/analysis_bundle/latest.json. Reexecução: .venv/Scripts/python.exe -m analysis.run --baseline data/interim/analysis/baseline/snap_20261031_7c31b5560e"
+}

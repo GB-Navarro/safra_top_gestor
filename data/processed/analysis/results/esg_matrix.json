@@ -1,0 +1,174 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "an_20261101T132455_ac536175",
+  "rows": [
+    {
+      "row_id": "ESG.water_efficiency",
+      "factor": "Eficiência hídrica (perdas)",
+      "cells": {
+        "sabesp": {
+          "value_refs": [
+            "OBS_002593"
+          ],
+          "text": "IPGR 2024 (anual)"
+        },
+        "copasa": {
+          "value_refs": [
+            "OBS_002594",
+            "OBS_002595",
+            "V.copasa.distribution_loss_reduction_pp"
+          ],
+          "text": "LTM jun/26; COPASA+Patos"
+        },
+        "sanepar": {
+          "value_refs": [
+            "OBS_002597",
+            "OBS_002598"
+          ],
+          "text": "LTM jun/26"
+        }
+      },
+      "channel": "Custos de energia/químicos e capex de redução de perdas",
+      "value_link": "Ponte de energia (sensibilidade) — esg_bridge",
+      "comparability": "Definições, perímetros e períodos diferentes: sem ranking.",
+      "source_refs": [
+        "SRC_sabesp_sustentabilidade_2024_7e111812",
+        "SRC_doc_csmg_2t26_1996f20b",
+        "SRC_doc_sapr_2t26_e40a8cc1"
+      ]
+    },
+    {
+      "row_id": "ESG.sewer_expansion",
+      "factor": "Esgoto e expansão",
+      "cells": {
+        "sabesp": {
+          "value_refs": [
+            "V.sabesp.capex_cash.2025",
+            "V.sabesp.rab_value_ratio.base"
+          ],
+          "text": "Universalização URAE-1 até 2029 (Fator U)"
+        },
+        "copasa": {
+          "value_refs": [
+            "OBS_002596",
+            "V.copasa.rab_value_ratio.base"
+          ],
+          "text": "Cobertura de esgoto jun/26"
+        },
+        "sanepar": {
+          "value_refs": [
+            "OBS_002599",
+            "OBS_002600",
+            "V.sanepar.rab_value_ratio.base"
+          ],
+          "text": "IARCE urbano; 100% do coletado tratado"
+        }
+      },
+      "channel": "Receita regulada e capex: investimento entra na base remunerada",
+      "value_link": "Valor por R$ investido = (r_reg − g)/(WACC − g): Copasa >1 cria valor; Sabesp/Sanepar <1 ao WACC de mercado",
+      "comparability": "Cobertura ≠ tratamento; população/área distintas.",
+      "source_refs": [
+        "SRC_doc_csmg_2t26_1996f20b",
+        "SRC_doc_sapr_2t26_e40a8cc1",
+        "SRC_cvm_dfp_2025_cdce6cc0"
+      ]
+    },
+    {
+      "row_id": "ESG.resilience",
+      "factor": "Resiliência e energia",
+      "cells": {
+        "sabesp": {
+          "value_refs": [
+            "V.sabesp.water_energy_expense_sinisa.2024",
+            "V.sabesp.self_production_contracted_mwm"
+          ],
+          "text": "Autoprodução contratada"
+        },
+        "copasa": {
+          "value_refs": [
+            "V.copasa.water_energy_expense_sinisa.2024"
+          ],
+          "text": "Despesa de energia água 2024"
+        },
+        "sanepar": {
+          "value_refs": [
+            "V.sanepar.water_energy_expense_sinisa.2024"
+          ],
+          "text": "Despesa de energia água 2024"
+        }
+      },
+      "channel": "Custo e continuidade",
+      "value_link": "Teto de capex de eficiência (esg_bridge)",
+      "comparability": "Porte e geografia impedem ranking pelo gasto absoluto.",
+      "source_refs": [
+        "SRC_sinisa_agua_planilhas_777eb5f8",
+        "local_45586543e35a"
+      ]
+    },
+    {
+      "row_id": "ESG.access",
+      "factor": "Acesso e capacidade de pagar",
+      "cells": {
+        "sabesp": {
+          "value_refs": [
+            "V.sabesp.social_tariff_mix_effect.2025"
+          ],
+          "text": "Tarifa social: efeito mix −1,8% na receita 2025"
+        },
+        "copasa": {
+          "value_refs": [],
+          "text": "Indicador comparável não obtido (lacuna)"
+        },
+        "sanepar": {
+          "value_refs": [
+            "OBS_002601"
+          ],
+          "text": "Evasão de receitas jun/26"
+        }
+      },
+      "channel": "Arrecadação e equilíbrio tarifário",
+      "value_link": "Risco na margem (cenário adverso: opex/arrecadação −2% da receita)",
+      "comparability": "Definições próprias; ausência não é pior desempenho.",
+      "source_refs": [
+        "local_45586543e35a",
+        "SRC_doc_sapr_2t26_e40a8cc1"
+      ]
+    },
+    {
+      "row_id": "ESG.governance",
+      "factor": "Governança e regulação",
+      "cells": {
+        "sabesp": {
+          "value_refs": [
+            "V.sabesp.wacc_reg_real_after_tax"
+          ],
+          "text": "Controle privado; contrato URAE-1, WACC fixo até 2029"
+        },
+        "copasa": {
+          "value_refs": [
+            "V.copasa.wacc_reg_real_after_tax",
+            "V.copasa.reference_investor_share"
+          ],
+          "text": "3ª RTP; desestatizada em jun/2026 (Equatorial investidora de referência)"
+        },
+        "sanepar": {
+          "value_refs": [
+            "V.sanepar.wacc_reg_real_after_tax",
+            "V.sanepar.obligation_pv.base"
+          ],
+          "text": "Controle estadual; precatório destinado 100% aos usuários"
+        }
+      },
+      "channel": "Quem retém o ganho: remuneração regulatória, obrigações e risco de intervenção",
+      "value_link": "r_reg no motor; PV do precatório na ponte EV→acionista",
+      "comparability": "Regimes distintos.",
+      "source_refs": [
+        "SRC_urae1_anexo_viii_2025",
+        "SRC_doc_csmg_2t26_1996f20b",
+        "SRC_copasa_fr_20260611",
+        "SRC_doc_sapr_itr_d93332d6"
+      ]
+    }
+  ],
+  "note": "Sem score sintético; células com value_refs e texto."
+}

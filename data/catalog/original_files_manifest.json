@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "created_on": "2026-10-31",
+  "status": "baseline_before_reorganization",
+  "files": [
+    {
+      "original_path": "SAFRA_TOP_GESTOR_2026_CONTEXT.md",
+      "bytes": 15792,
+      "sha256": "8d9662c0a6b646796065c5c384ed80037824aa4ab15e6b1c4c790dd0552350ed",
+      "current_path": "SAFRA_TOP_GESTOR_2026_CONTEXT.md",
+      "content_policy": "maintained_document"
+    },
+    {
+      "original_path": "cartas/Asset_dev_Carta_ao_Investidor_2a.docx",
+      "bytes": 1100976,
+      "sha256": "2c94743656c420719167da2a9c899a752f85c4baa026b2969c6634f8ddd956bb",
+      "current_path": "cartas/Asset_dev_Carta_ao_Investidor_2a.docx",
+      "content_policy": "preserve_bytes"
+    },
+    {
+      "original_path": "cartas/Carta_ao_Investidor_1a_asset_dev.docx",
+      "bytes": 335508,
+      "sha256": "3ec6fa8da5c55a40bd54f161473afdd854507fb7b0f2674c2646f3f4c05fadf2",
+      "current_path": "cartas/Carta_ao_Investidor_1a_asset_dev.docx",
+      "content_policy": "preserve_bytes"
+    },
+    {
+      "original_path": "cartas/Carta_ao_Investidor_3a_Entrega_B_Lula.docx",
+      "bytes": 495389,
+      "sha256": "82437c12b6834649216feefdccdfe41996ad1de3cf494b7cd147c5707ff6b0e0",
+      "current_path": "cartas/Carta_ao_Investidor_3a_Entrega_B_Lula.docx",
+      "content_policy": "preserve_bytes"
+    },
+    {
+      "original_path": "plans/01_plano_de_pesquisa (1).html",
+      "bytes": 43519,
+      "sha256": "91394cb10599b261bcbe681c385912337b80064e05bf52dae518c061db40f92d",
+      "current_path": "plans/01_plano_de_pesquisa (1).html",
+      "content_policy": "preserve_bytes"
+    },
+    {
+      "original_path": "plans/02_plano_de_slides (1).html",
+      "bytes": 16515,
+      "sha256": "7662bbe3fdc364d24a96655808932133c691f05115aa0f2f6346b59025f1f280",
+      "current_path": "plans/02_plano_de_slides (1).html",
+      "content_policy": "preserve_bytes"
+    },
+    {
+      "original_path": "plans/03_plano_de_roteiro (1).html",
+      "bytes": 18488,
+      "sha256": "dc0d2c28de381ddc220e95ebc30e2b3b49ff3e0cc92ee3c30810b295bff58baa",
+      "current_path": "plans/03_plano_de_roteiro (1).html",
+      "content_policy": "preserve_bytes"
+    },
+    {
+      "original_path": "plans/04_checklist_de_fechamento_esg.md",
+      "bytes": 20173,
+      "sha256": "144c88eb5d1228459261eb66dda458d31c523c014cf51e1179fc78354a837022",
+      "current_path": "plans/04_checklist_de_fechamento_esg.md",
+      "content_policy": "maintained_document"
+    },
+    {
+      "original_path": "plans/05_plano_implementacao_agente_esg.md",
+      "bytes": 59385,
+      "sha256": "aec2b3262412df4f77f37e13fe4b55a5d1b909c11a61d20aed294101921f40ad",
+      "current_path": "plans/05_plano_implementacao_agente_esg.md",
+      "content_policy": "maintained_document"
+    },
+    {
+      "original_path": "plans/06_plano_executivo_grupo_esg.md",
+      "bytes": 21032,
+      "sha256": "58a91a557fec8961067c88f0950a87dffa0f75a57980d9afd6e598185607c974",
+      "current_path": "plans/06_plano_executivo_grupo_esg.md",
+      "content_policy": "maintained_document"
+    },
+    {
+      "original_path": "resources/Demonstrações Financeiras Anuais 2022.pdf",
+      "bytes": 1020705,
+      "sha256": "63d5afcacc50ceab377e7a3516b8ba57cc40514865e377f6e6953c73b8fc5a0a",
+      "current_path": "resources/documentos_financeiros/sabesp/Demonstrações Financeiras Anuais 2022.pdf",
+      "content_policy": "preserve_bytes"
+    },
+    {
+      "original_path": "resources/Demonstrações Financeiras Anuais 2025.pdf",
+      "bytes": 3537250,
+      "sha256": "45586543e35a066755e36779bafed35c9f2068e53c9cb0f2fb954bf21f575f05",
+      "current_path": "resources/documentos_financeiros/sabesp/Demonstrações Financeiras Anuais 2025.pdf",
+      "content_policy": "preserve_bytes"
+    },
+    {
+      "original_path": "resources/DFP 2024.pdf",
+      "bytes": 2284644,
+      "sha256": "85acbb6423e69f83688989d157d0c70e2bdc3467728317ca14681ec48bb82bca",
+      "current_path": "resources/documentos_financeiros/sabesp/DFP 2024.pdf",
+      "content_policy": "preserve_bytes"
+    },
+    {
+      "original_path": "resources/Modelo_para_TIR_Sanepar.xlsx",
+      "bytes": 85037,
+      "sha256": "deba687d6685fada848d6e4940de23e301af612f701a493008d1727bd9749693",
+      "current_path": "resources/modelos_originais/sanepar/Modelo_para_TIR_Sanepar.xlsx",
+      "content_policy": "preserve_bytes"
+    },
+    {
+      "original_path": "resources/Modelo_TIR_Copasa.xlsx",
+      "bytes": 82007,
+      "sha256": "f91e2b9dc863c11e0508cee1b4976905be0542b3e5fa12574ac64c49adeff76d",
+      "current_path": "resources/modelos_originais/copasa/Modelo_TIR_Copasa.xlsx",
+      "content_policy": "preserve_bytes"
+    },
+    {
+      "original_path": "resources/Modelo_TIR_Sabesp.xlsx",
+      "bytes": 78468,
+      "sha256": "87ac99e100be2098c68b7ac63abf8d4a34a38cf01002890985ad2b1961cfef84",
+      "current_path": "resources/modelos_originais/sabesp/Modelo_TIR_Sabesp.xlsx",
+      "content_policy": "preserve_bytes"
+    },
+    {
+      "original_path": "resources/roteiro_de_video_sugestao_rodrigo_link.txt",
+      "bytes": 80,
+      "sha256": "7a88b2e7fc228a40d774ad1dbd97da455b18a611da165d5c53c056fe8a577bdd",
+      "current_path": "resources/roteiros/roteiro_de_video_sugestao_rodrigo_link.txt",
+      "content_policy": "preserve_bytes"
+    },
+    {
+      "original_path": "resources/sugestao_roteiro_rodrigo.txt",
+      "bytes": 19250,
+      "sha256": "9d7e352beb29ea31c0cb1146627a8a9be65c042a70146581849a5870034e8268",
+      "current_path": "resources/roteiros/sugestao_roteiro_rodrigo.txt",
+      "content_policy": "preserve_bytes"
+    },
+    {
+      "original_path": "resources/TIR_Sabesp.xlsx",
+      "bytes": 74309,
+      "sha256": "52cca854fb31326c4f663d0debb78fb8c4dd8efd78a7b7a9a4392003499a0076",
+      "current_path": "resources/modelos_originais/sabesp/TIR_Sabesp.xlsx",
+      "content_policy": "preserve_bytes"
+    }
+  ],
+  "removed_files": [
+    {
+      "original_path": "resources/audio_rodrigo_explicando_oq_fez.ogg",
+      "bytes": 365424,
+      "sha256": "7418e3e219298e459881946d375b45eb12f2a66a6546940b31db90b432fe7a77",
+      "current_path": "resources/audio/audio_rodrigo_explicando_oq_fez.ogg",
+      "content_policy": "removed_by_user_request",
+      "removed_on": "2026-11-01",
+      "reason": "Usuário solicitou excluir a pasta do áudio e sua dependência nos testes de integridade."
+    }
+  ],
+  "updated_on": "2026-11-01"
+}

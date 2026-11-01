@@ -1,0 +1,31 @@
+# Ambiente e arquivos locais
+.venv/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+!.env.example
+~$*
+
+# Insumos baixados/exportados e produtos gerados ficam locais.
+/data/raw/**
+!/data/raw/**/
+!/data/raw/**/.gitkeep
+/data/interim/**
+!/data/interim/**/
+!/data/interim/**/.gitkeep
+/outputs/**
+!/outputs/**/
+!/outputs/**/.gitkeep
+
+# Tabelas que receberao observacoes ou estimativas podem incluir dados licenciados.
+/data/processed/observations.csv
+/data/processed/sources.csv
+/data/processed/assumptions.csv
+/data/processed/claims.csv
+/data/processed/adjustments.csv
+/data/processed/corporate_actions.csv
+/data/processed/coverage.csv
+/data/processed/estimate_snapshots.csv
+/data/processed/*.json
+

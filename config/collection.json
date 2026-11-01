@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "project": "safra_top_gestor_2026",
+  "status": "draft_implemented_technical_checks_pass_economic_review_pending",
+  "scope": {
+    "entities": [
+      "sabesp",
+      "copasa",
+      "sanepar"
+    ],
+    "market_asof": "2026-10-30",
+    "valuation_date": "2026-10-30",
+    "information_cutoff": "2026-10-31T18:25:27-03:00",
+    "timezone": "America/Sao_Paulo",
+    "historical_financial_years": [
+      2021,
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "itr_years": [
+      2025,
+      2026
+    ],
+    "financial_policy": "latest_published_before_information_cutoff",
+    "esg_target_years": [
+      2022,
+      2023,
+      2024,
+      2025
+    ],
+    "esg_interim_year": 2026
+  },
+  "units": {
+    "financial": {
+      "unit": "BRL",
+      "scale": 1000000
+    },
+    "shares": {
+      "unit": "shares",
+      "scale": 1000000
+    },
+    "rates": {
+      "unit": "ratio",
+      "scale": 1
+    },
+    "price": {
+      "unit": "BRL_per_instrument",
+      "scale": 1
+    },
+    "volume": {
+      "unit": "m3",
+      "scale": 1
+    }
+  },
+  "paths": {
+    "catalog": "data/catalog",
+    "raw": "data/raw",
+    "interim": "data/interim",
+    "processed": "data/processed",
+    "qa": "outputs/qa",
+    "collection_handoff": "outputs/draft/coleta",
+    "collection_release": "outputs/final/coleta"
+  },
+  "http": {
+    "timeout_seconds": 30,
+    "max_attempts": 3,
+    "retryable_statuses": [
+      429,
+      500,
+      502,
+      503,
+      504
+    ],
+    "automatic_b3_download": false
+  },
+  "sources": {
+    "cvm": {
+      "cadastro": "https://dados.cvm.gov.br/dados/CIA_ABERTA/CAD/DADOS/cad_cia_aberta.csv",
+      "dfp_catalog": "https://dados.cvm.gov.br/dataset/cia_aberta-doc-dfp",
+      "itr_catalog": "https://dados.cvm.gov.br/dataset/cia_aberta-doc-itr",
+      "dfp_pattern": "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/DFP/DADOS/dfp_cia_aberta_{year}.zip",
+      "itr_pattern": "https://dados.cvm.gov.br/dados/CIA_ABERTA/DOC/ITR/DADOS/itr_cia_aberta_{year}.zip"
+    },
+    "bcb": {
+      "sgs_pattern": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.{series}/dados",
+      "sgs_series": {
+        "selic_target": 432,
+        "ipca_monthly": 433
+      },
+      "focus_endpoint": "https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/odata/ExpectativasMercadoAnuais",
+      "focus_base_calculo": 0,
+      "focus_space_encoding": "%20",
+      "focus_reference_years": [
+        2026,
+        2027,
+        2028,
+        2029,
+        2030
+      ]
+    },
+    "tesouro": {
+      "discovery_url": "https://www.tesourotransparente.gov.br/ckan/api/3/action/package_show?id=taxas-dos-titulos-ofertados-pelo-tesouro-direto",
+      "csv_selection": "resource format CSV; require unique valid resource"
+    },
+    "bloomberg": {
+      "mode": "manual_export",
+      "directory": "data/raw/bloomberg",
+      "optional_desktop_setup_minutes": 15
+    },
+    "b3": {
+      "mode": "manual_import_only",
+      "directory": "data/raw/b3_manual"
+    }
+  },
+  "validation": {
+    "missing_numeric_value": null,
+    "require_source_location": true,
+    "require_no_future_publications": true,
+    "never_auto_promote_local_workbook_inputs": true,
+    "block_final_when_cutoff_is_null": true,
+    "document_fallbacks": true
+  },
+  "execution": {
+    "updated_at": "2026-11-01T09:53:56+00:00",
+    "draft_directory": "outputs/draft",
+    "review_report": "outputs/qa/execution_validation.json",
+    "human_actions": "data/catalog/manual_export_requests.csv",
+    "economic_certification": false,
+    "submission_completed": false
+  }
+}

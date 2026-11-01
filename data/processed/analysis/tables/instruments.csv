@@ -1,0 +1,6 @@
+instrument_id,entity_id,ticker,security_class,currency,bloomberg_security,unit_components,identity_status
+SBSP3,sabesp,SBSP3,ON,BRL,SBSP3 BZ Equity,,seed_pending_refresh
+CSMG3,copasa,CSMG3,ON,BRL,CSMG3 BZ Equity,,seed_pending_refresh
+SAPR3,sanepar,SAPR3,ON,BRL,SAPR3 BZ Equity,,seed_pending_refresh
+SAPR4,sanepar,SAPR4,PN,BRL,SAPR4 BZ Equity,,seed_pending_refresh
+SAPR11,sanepar,SAPR11,UNIT,BRL,SAPR11 BZ Equity,SAPR3:1;SAPR4:4,seed_pending_refresh

@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FEA.dev — Manual de Marca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* ——— Cores da marca ——— */
+    --gold:#F5D741;        /* Ouro FEA — primário        */
+    --gold-deep:#C9A227;   /* Ouro Profundo — gradiente  */
+    --bolt-body:#E0BE36;   /* faceta inferior do símbolo */
+    --ink:#0A0A0A;         /* Preto FEA                  */
+    --graphite:#2E2F31;    /* Grafite — superfícies      */
+    --mist:#8A8A8E;        /* Cinza Névoa — texto 2º     */
+    --white:#FFFFFF;
+
+    /* ——— Tokens do documento ——— */
+    --bg:#0A0A0A;
+    --surface:#141414;
+    --surface-2:#1A1A1A;
+    --line:rgba(255,255,255,.10);
+    --line-2:rgba(255,255,255,.06);
+    --line-gold:rgba(245,215,65,.30);
+    --txt:#ECECEC;
+    --txt-dim:#A6A6AA;
+
+    --slant:25deg;         /* inclinação assinatura do raio */
+    --maxw:1120px;
+
+    --f-display:"Space Grotesk", system-ui, sans-serif;
+    --f-text:"Inter", system-ui, sans-serif;
+    --f-mono:"JetBrains Mono", ui-monospace, monospace;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--txt);
+    font-family:var(--f-text); font-size:16px; line-height:1.6;
+    -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none !important; animation:none !important}
+  }
+
+  /* ————————————————— LAYOUT ————————————————— */
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px}
+  .section{padding:88px 0; border-top:1px solid var(--line-2); position:relative}
+  .section:first-of-type{border-top:none}
+
+  .eyebrow{
+    font-family:var(--f-mono); font-size:12px; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--gold); display:flex; align-items:center; gap:12px;
+    margin:0 0 22px;
+  }
+  .eyebrow .num{color:var(--mist)}
+  .eyebrow::after{content:""; height:1px; flex:1; background:var(--line); max-width:120px}
+
+  h1,h2,h3,h4{font-family:var(--f-display); font-weight:600; line-height:1.05; letter-spacing:-.02em; margin:0}
+  h2{font-size:clamp(30px,5vw,46px)}
+  h3{font-size:22px; letter-spacing:-.01em}
+  h4{font-size:15px; letter-spacing:.01em}
+  p{margin:0 0 16px; color:var(--txt-dim); max-width:62ch}
+  .lead{font-size:clamp(17px,2.2vw,20px); color:var(--txt); max-width:64ch}
+  strong{color:var(--white); font-weight:600}
+  .mono{font-family:var(--f-mono)}
+
+  /* ————————————————— TOP NAV ————————————————— */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(10,10,10,.78); backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line); 
+  }
+  .nav-inner{max-width:var(--maxw); margin:0 auto; padding:14px 28px;
+    display:flex; align-items:center; gap:26px}
+  .nav-links{display:flex; gap:4px; margin-left:auto; flex-wrap:wrap}
+  .nav-links a{
+    font-family:var(--f-mono); font-size:12.5px; letter-spacing:.02em; text-decoration:none;
+    color:var(--txt-dim); padding:7px 11px; border-radius:7px; transition:.18s;
+  }
+  .nav-links a:hover{color:var(--white); background:var(--surface)}
+  .nav-links a.active{color:var(--ink); background:var(--gold)}
+
+  /* logo lockup (wordmark) */
+  .wm{display:inline-flex; align-items:center; gap:.26em; font-family:var(--f-text);
+    font-weight:600; letter-spacing:-.02em; color:var(--white); white-space:nowrap; line-height:1}
+  .wm .dev{font-weight:500; color:var(--white)}
+  .wm .blt{height:1.25em; width:auto; flex:none}
+  .nav .wm{font-size:21px}
+
+  /* ————————————————— HERO ————————————————— */
+  .hero{position:relative; overflow:hidden; border-bottom:1px solid var(--line)}
+  .hero-bg{position:absolute; inset:0;
+    background:
+      radial-gradient(120% 90% at 12% 18%, rgba(245,215,65,.16) 0%, rgba(245,215,65,0) 46%),
+      linear-gradient(var(--slant), var(--gold) -28%, var(--gold-deep) 8%, #5a4d18 22%, #1d1a0e 36%, var(--ink) 56%);
+  }
+  .hero-grid{position:absolute; inset:0; opacity:.5;
+    background-image:linear-gradient(var(--line-2) 1px,transparent 1px),linear-gradient(90deg,var(--line-2) 1px,transparent 1px);
+    background-size:46px 46px; mask-image:linear-gradient(180deg,transparent,#000 30%,#000 70%,transparent)}
+  .hero-inner{position:relative; max-width:var(--maxw); margin:0 auto; padding:118px 28px 96px}
+  .hero .wm{font-size:26px; margin-bottom:54px}
+  .hero h1{font-size:clamp(40px,8.5vw,84px); letter-spacing:-.035em; max-width:14ch}
+  .hero h1 em{font-style:normal; color:var(--gold)}
+  .hero .sub{margin-top:26px; font-size:clamp(16px,2.3vw,20px); color:var(--txt); max-width:52ch}
+  .hero-meta{margin-top:50px; display:flex; gap:30px; flex-wrap:wrap;
+    font-family:var(--f-mono); font-size:12.5px; letter-spacing:.04em; color:var(--mist)}
+  .hero-meta b{color:var(--gold); font-weight:500}
+
+  /* ————————————————— GRID HELPERS ————————————————— */
+  .grid{display:grid; gap:18px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:860px){.g3,.g4{grid-template-columns:repeat(2,1fr)} }
+  @media(max-width:600px){.g2,.g3,.g4{grid-template-columns:1fr} }
+
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:24px}
+  .card h4{margin-bottom:8px}
+  .card p{font-size:14px; margin:0; color:var(--txt-dim)}
+
+  .pillar{position:relative; padding-left:18px}
+  .pillar::before{content:""; position:absolute; left:0; top:6px; bottom:6px; width:3px;
+    background:var(--gold); border-radius:3px}
+  .pillar .k{font-family:var(--f-mono); font-size:11px; letter-spacing:.16em; color:var(--mist); text-transform:uppercase}
+
+  /* ————————————————— VOZ ————————————————— */
+  .voice{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+  @media(max-width:600px){.voice{grid-template-columns:1fr} }
+  .voice .col{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:24px}
+  .voice .col.no{border-color:rgba(255,90,90,.22)}
+  .voice ul{list-style:none; margin:14px 0 0; padding:0}
+  .voice li{display:flex; gap:10px; padding:7px 0; font-size:14.5px; color:var(--txt)}
+  .voice li .s{font-family:var(--f-mono); font-weight:700}
+  .voice .yes li .s{color:var(--gold)}
+  .voice .no li .s{color:#ff7a7a}
+  .voice .tag{font-family:var(--f-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--mist)}
+
+  /* ————————————————— LOGO ————————————————— */
+  .logo-hero{background:var(--ink); border:1px solid var(--line); border-radius:18px;
+    padding:64px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden}
+  .logo-hero .wm{font-size:clamp(34px,7vw,60px)}
+  .logo-hero .diag{position:absolute; right:-10%; top:-40%; width:60%; height:180%;
+    background:linear-gradient(var(--slant),transparent 40%, rgba(245,215,65,.05) 50%, transparent 60%)}
+
+  .variants{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:18px}
+  @media(max-width:860px){.variants{grid-template-columns:repeat(2,1fr)} }
+  .vt{border:1px solid var(--line); border-radius:12px; overflow:hidden}
+  .vt .box{aspect-ratio:1/.7; display:flex; align-items:center; justify-content:center; padding:18px}
+  .vt .cap{font-family:var(--f-mono); font-size:11px; letter-spacing:.04em; color:var(--txt-dim);
+    padding:9px 12px; border-top:1px solid var(--line); background:var(--surface)}
+  .bx-dark{background:var(--ink)} .bx-light{background:#F3F3F0} .bx-graph{background:var(--graphite)}
+  .vt .wm{font-size:21px}
+
+  .sym-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:18px}
+  @media(max-width:860px){.sym-grid{grid-template-columns:repeat(2,1fr)} }
+  .sym{border:1px solid var(--line); border-radius:12px; aspect-ratio:1; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; gap:12px; padding:18px}
+  .sym svg{width:46%}
+  .sym .cap{font-family:var(--f-mono); font-size:10.5px; letter-spacing:.04em; color:var(--txt-dim)}
+
+  /* construção / clearspace */
+  .build{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:30px}
+  .build svg{width:100%; height:auto; max-width:360px; display:block; margin:0 auto}
+
+  .note{display:flex; gap:12px; align-items:flex-start; background:rgba(245,215,65,.06);
+    border:1px solid var(--line-gold); border-radius:12px; padding:16px 18px; margin-top:22px}
+  .note .ic{color:var(--gold); font-family:var(--f-mono); font-weight:700; flex:none}
+  .note p{margin:0; font-size:13.5px; color:var(--txt)}
+
+  /* ————————————————— USOS INCORRETOS ————————————————— */
+  .dont{border:1px solid rgba(255,90,90,.22); border-radius:12px; overflow:hidden; background:var(--surface)}
+  .dont .vis{aspect-ratio:1/.66; background:var(--ink); display:flex; align-items:center; justify-content:center; position:relative}
+  .dont .x{position:absolute; top:10px; right:12px; color:#ff6b6b; font-family:var(--f-mono); font-weight:700; font-size:15px}
+  .dont .cap{font-size:13px; padding:11px 14px; border-top:1px solid var(--line); color:var(--txt)}
+  .dont .wm{font-size:19px}
+
+  /* ————————————————— CORES ————————————————— */
+  .swatch{border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--surface)}
+  .swatch .chip{height:128px; position:relative; cursor:pointer}
+  .swatch .chip .hint{position:absolute; inset:0; display:flex; align-items:flex-end; justify-content:flex-end;
+    padding:10px; opacity:0; transition:.2s; font-family:var(--f-mono); font-size:10px}
+  .swatch .chip:hover .hint{opacity:1}
+  .swatch .meta{padding:16px 18px}
+  .swatch .nm{font-family:var(--f-display); font-weight:600; font-size:16px; color:var(--white)}
+  .swatch .role{font-family:var(--f-mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--mist); margin-top:2px}
+  .swatch .vals{margin-top:14px; display:flex; flex-direction:column; gap:5px}
+  .val{display:flex; justify-content:space-between; align-items:center; font-family:var(--f-mono); font-size:12.5px;
+    padding:4px 0; border-bottom:1px solid var(--line-2); cursor:pointer; transition:.15s}
+  .val:last-child{border-bottom:none}
+  .val:hover{color:var(--gold)}
+  .val .lbl{color:var(--mist)}
+  .val .v{color:var(--txt)}
+  .val.copied .v{color:var(--gold)}
+  .val.copied .v::after{content:" ✓"}
+
+  .ratio{margin-top:26px}
+  .ratio .bar{display:flex; height:46px; border-radius:10px; overflow:hidden; border:1px solid var(--line)}
+  .ratio .seg{display:flex; align-items:center; justify-content:center; font-family:var(--f-mono);
+    font-size:11px; letter-spacing:.05em}
+  .grad-card{margin-top:26px; border:1px solid var(--line); border-radius:14px; overflow:hidden}
+  .grad-card .g{height:96px; background:linear-gradient(90deg,var(--gold) 0%, var(--gold-deep) 22%, #4a4015 48%, var(--ink) 100%)}
+  .grad-card .m{padding:14px 18px; font-family:var(--f-mono); font-size:12px; color:var(--txt-dim); display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px}
+
+  /* ————————————————— TIPOGRAFIA ————————————————— */
+  .type-card{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:26px}
+  .type-card .role{font-family:var(--f-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold)}
+  .type-card .fam{font-size:13px; color:var(--mist); margin:4px 0 16px; font-family:var(--f-mono)}
+  .specimen{font-size:clamp(34px,6vw,58px); line-height:1; letter-spacing:-.02em; color:var(--white)}
+  .glyphs{font-size:18px; color:var(--txt-dim); margin-top:14px; letter-spacing:.04em}
+
+  .scale{margin-top:18px; border:1px solid var(--line); border-radius:14px; overflow:hidden}
+  .scale .row{display:flex; align-items:baseline; gap:22px; padding:16px 22px; border-bottom:1px solid var(--line-2)}
+  .scale .row:last-child{border-bottom:none}
+  .scale .row .k{font-family:var(--f-mono); font-size:11px; color:var(--mist); width:120px; flex:none}
+  .scale .row .t{color:var(--white); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+
+  /* ————————————————— GRAFISMO ————————————————— */
+  .motif{height:200px; border:1px solid var(--line); border-radius:14px; position:relative; overflow:hidden; background:var(--ink)}
+  .motif .rule{position:absolute; left:-10%; right:-10%; height:2px; background:var(--gold); top:50%;
+    transform:rotate(calc(-1 * var(--slant)))}
+  .motif .rule.thin{height:1px; background:var(--line-gold); top:36%}
+  .motif .rule.thin2{top:64%}
+  .motif svg{position:absolute; right:24px; bottom:18px; width:64px; opacity:.9}
+
+  /* ————————————————— APLICAÇÕES ————————————————— */
+  .app{border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--surface)}
+  .app .cap{font-family:var(--f-mono); font-size:11px; color:var(--txt-dim); padding:11px 14px; border-top:1px solid var(--line)}
+  .app-banner{height:120px; background:linear-gradient(90deg,var(--gold) 0%, var(--gold-deep) 20%, #463c14 44%, var(--ink) 70%);
+    display:flex; align-items:center; justify-content:flex-end; padding:0 36px}
+  .app-banner .wm{font-size:24px; color:var(--ink)}
+  .app-banner .wm .dev{color:rgba(10,10,10,.62)}
+  .app-banner .wm .blt-w path{fill:var(--ink) !important}
+  .app-avatar{aspect-ratio:1; background:var(--ink); display:flex; align-items:center; justify-content:center}
+  .app-avatar svg{width:46%}
+  .app-slide{aspect-ratio:16/9; background:var(--ink); padding:26px; position:relative; display:flex; flex-direction:column; justify-content:flex-end}
+  .app-slide .t{font-family:var(--f-display); font-weight:600; font-size:clamp(18px,3.6vw,30px); color:var(--white); letter-spacing:-.02em; max-width:80%}
+  .app-slide .t em{font-style:normal; color:var(--gold)}
+  .app-slide .k{font-family:var(--f-mono); font-size:11px; color:var(--gold); letter-spacing:.14em; text-transform:uppercase; margin-bottom:10px}
+  .app-slide .corner{position:absolute; top:22px; left:26px}
+  .app-slide .corner .wm{font-size:15px}
+  .app-slide .diag{position:absolute; right:0; top:0; bottom:0; width:42%;
+    background:linear-gradient(var(--slant),transparent 44%, rgba(245,215,65,.07) 52%, transparent 60%)}
+  .app-post{aspect-ratio:4/5; background:var(--ink); padding:26px; display:flex; flex-direction:column; justify-content:space-between}
+  .app-post .stat{font-family:var(--f-mono); font-weight:700; font-size:clamp(30px,6vw,46px); color:var(--gold); line-height:1}
+  .app-post .desc{color:var(--txt-dim); font-size:13px; max-width:24ch}
+
+  /* ————————————————— CHECKLIST ————————————————— */
+  .check{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:8px 24px}
+  .check .item{display:flex; gap:14px; align-items:flex-start; padding:16px 0; border-bottom:1px solid var(--line-2)}
+  .check .item:last-child{border-bottom:none}
+  .check .item .b{color:var(--gold); font-family:var(--f-mono); font-weight:700; flex:none}
+  .check .item div{font-size:14.5px; color:var(--txt)}
+  .check .item span{color:var(--txt-dim); display:block; font-size:13px; margin-top:2px}
+
+  /* nav group labels */
+  .nav-links .ng{font-family:var(--f-mono); font-size:9.5px; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--gold); opacity:.55; align-self:center; padding:0 6px 0 12px; border-left:1px solid var(--line); margin-left:6px}
+  .nav-links .ng:first-child{border-left:none; margin-left:0; padding-left:0}
+
+  /* ════════════════ PARTE II — SISTEMA DE DESIGN ════════════════ */
+  :root{
+    --up:#4FC58B; --down:#E5564E;
+    --s1:#F5D741; --s2:#57C7C0; --s3:#9A7CF5; --s4:#E8775B; --s5:#6E6E73;
+  }
+  .part-divider{padding:70px 0; border-top:1px solid var(--line);
+    background:radial-gradient(90% 130% at 100% 0%, rgba(245,215,65,.09), transparent 52%)}
+  .part-divider .wrap{display:flex; align-items:flex-start; gap:26px; flex-wrap:wrap}
+  .part-divider .pk{font-family:var(--f-mono); font-size:13px; letter-spacing:.24em; color:var(--gold); padding-top:8px}
+  .part-divider .pk::before{content:"// "; color:var(--mist)}
+  .part-divider h2{font-size:clamp(28px,5vw,44px)}
+  .lbl-mono{font-family:var(--f-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--mist); display:block; margin-bottom:12px}
+
+  /* data swatches */
+  .dswatch{border:1px solid var(--line); border-radius:10px; overflow:hidden; background:var(--surface)}
+  .dswatch .c{height:62px; cursor:pointer}
+  .dswatch .m{padding:10px 12px}
+  .dswatch .m .n{font-size:13px; color:var(--white); font-weight:500}
+  .dswatch .m .h{font-family:var(--f-mono); font-size:11px; color:var(--mist)}
+  .dgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(132px,1fr)); gap:12px}
+
+  /* chart panel */
+  .panel{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:20px}
+  .panel .head{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:16px}
+  .panel .head .t{font-family:var(--f-display); font-weight:600; font-size:15px; color:var(--white)}
+  .panel .head .leg{display:flex; gap:14px; font-family:var(--f-mono); font-size:10.5px; color:var(--mist)}
+  .panel .head .leg i{display:inline-block; width:9px; height:2px; vertical-align:middle; margin-right:5px}
+  .panel svg{width:100%; height:auto; display:block}
+
+  /* buttons */
+  .btn{display:inline-flex; align-items:center; gap:8px; font-family:var(--f-text); font-weight:600;
+    font-size:14px; padding:11px 18px; border-radius:9px; border:1px solid transparent; cursor:pointer;
+    text-decoration:none; transition:.16s; letter-spacing:-.01em; line-height:1}
+  .btn-primary{background:var(--gold); color:#0A0A0A}
+  .btn-primary:hover{background:#ffe25a}
+  .btn-secondary{background:transparent; color:var(--white); border-color:var(--line)}
+  .btn-secondary:hover{border-color:var(--gold); color:var(--gold)}
+  .btn-ghost{background:transparent; color:var(--txt-dim); padding-left:4px; padding-right:4px}
+  .btn-ghost:hover{color:var(--gold)}
+  .btn .k{font-family:var(--f-mono); font-size:12px}
+  .btn-sm{padding:8px 13px; font-size:12.5px}
+
+  /* inputs */
+  .field{display:flex; flex-direction:column; gap:7px}
+  .field label{font-family:var(--f-mono); font-size:10.5px; letter-spacing:.08em; color:var(--mist); text-transform:uppercase}
+  .input{background:var(--ink); border:1px solid var(--line); border-radius:9px; padding:11px 13px; color:var(--white);
+    font-family:var(--f-text); font-size:14px; outline:none; transition:.16s; width:100%}
+  .input:focus{border-color:var(--gold); box-shadow:0 0 0 3px rgba(245,215,65,.14)}
+  .input::placeholder{color:#5e5e62}
+
+  /* badges / pills */
+  .pill{display:inline-flex; align-items:center; gap:6px; font-family:var(--f-mono); font-size:11.5px; font-weight:500;
+    padding:4px 10px; border-radius:999px; letter-spacing:.01em}
+  .pill-live{background:rgba(79,197,139,.13); color:#5fd6a0; border:1px solid rgba(79,197,139,.3)}
+  .pill-live .dot{width:6px; height:6px; border-radius:50%; background:var(--up)}
+  .pill-test{background:rgba(245,215,65,.12); color:var(--gold); border:1px solid var(--line-gold)}
+  .pill-off{background:var(--surface-2); color:var(--mist); border:1px solid var(--line)}
+  .pill-up{color:#5fd6a0; background:rgba(79,197,139,.1)}
+  .pill-down{color:#ef6f67; background:rgba(229,86,78,.1)}
+
+  /* data table */
+  .tbl-wrap{border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--surface)}
+  .dtable{width:100%; border-collapse:collapse; font-size:13.5px}
+  .dtable th{font-family:var(--f-mono); font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--mist);
+    text-align:left; padding:12px 16px; border-bottom:1px solid var(--line)}
+  .dtable th.r,.dtable td.num{text-align:right}
+  .dtable td{padding:13px 16px; border-bottom:1px solid var(--line-2); color:var(--txt)}
+  .dtable td.num{font-family:var(--f-mono)}
+  .dtable tbody tr:last-child td{border-bottom:none}
+  .dtable tbody tr:hover td{background:rgba(255,255,255,.022)}
+  .dtable .up{color:#5fd6a0} .dtable .down{color:#ef6f67}
+  .dtable .par{color:var(--white); font-weight:500}
+
+  /* metric card */
+  .metric{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:18px 20px; position:relative; overflow:hidden}
+  .metric .k{font-family:var(--f-mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--mist)}
+  .metric .v{font-family:var(--f-mono); font-weight:700; font-size:28px; color:var(--white); margin-top:8px; letter-spacing:-.01em; line-height:1}
+  .metric .d{font-family:var(--f-mono); font-size:11.5px; margin-top:9px}
+  .metric .d.up{color:#5fd6a0} .metric .d.down{color:#ef6f67}
+  .metric .spark{position:absolute; right:14px; bottom:14px; width:58px; opacity:.65}
+
+  /* code block */
+  .codeblock{border:1px solid var(--line); border-radius:11px; overflow:hidden; background:#0c0c0c}
+  .codeblock .bar{display:flex; align-items:center; gap:8px; padding:9px 14px; border-bottom:1px solid var(--line); background:var(--surface)}
+  .codeblock .bar .fn{font-family:var(--f-mono); font-size:12px; color:var(--txt-dim)}
+  .codeblock .bar .tg{margin-left:auto; font-family:var(--f-mono); font-size:9.5px; color:var(--gold); border:1px solid var(--line-gold); border-radius:5px; padding:2px 7px; letter-spacing:.06em}
+  .codeblock pre{margin:0; padding:16px; overflow:auto; font-family:var(--f-mono); font-size:12.5px; line-height:1.75; color:#cfcfcf}
+  .codeblock .cm{color:#6e6e73} .codeblock .kw{color:var(--gold)} .codeblock .st{color:#57C7C0} .codeblock .nm{color:#9A7CF5}
+
+  /* dashboard mock */
+  .dash{border:1px solid var(--line); border-radius:18px; overflow:hidden; background:var(--ink)}
+  .dash .topbar{display:flex; align-items:center; gap:16px; padding:14px 18px; border-bottom:1px solid var(--line); background:var(--surface)}
+  .dash .ticker{margin-left:auto; display:flex; gap:18px; font-family:var(--f-mono); font-size:11.5px; overflow:hidden; white-space:nowrap}
+  .dash .ticker .up{color:#5fd6a0} .dash .ticker .down{color:#ef6f67} .dash .ticker .it{color:var(--txt-dim)}
+  @media(max-width:680px){.dash .ticker{display:none} }
+  .dash .body{padding:18px}
+  .dash .kpis{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
+  @media(max-width:720px){.dash .kpis{grid-template-columns:repeat(2,1fr)} }
+  .dash .main{display:grid; grid-template-columns:1.7fr 1fr; gap:12px; margin-top:12px}
+  @media(max-width:720px){.dash .main{grid-template-columns:1fr} }
+  .mover{display:flex; align-items:center; justify-content:space-between; padding:11px 0; border-bottom:1px solid var(--line-2); font-size:13.5px}
+  .mover:last-child{border-bottom:none}
+  .mover .nm{color:var(--white); font-weight:500}
+
+  /* report mock */
+  .report{border:1px solid var(--line); border-radius:14px; overflow:hidden}
+  .report-cover{background:var(--ink); padding:34px; position:relative; overflow:hidden; min-height:300px; display:flex; flex-direction:column}
+  .report-cover .diag{position:absolute; right:-6%; top:-30%; width:52%; height:170%; background:linear-gradient(var(--slant),transparent 42%, rgba(245,215,65,.1) 52%, transparent 62%)}
+  .report-cover .top{font-family:var(--f-mono); font-size:10.5px; letter-spacing:.16em; color:var(--gold); text-transform:uppercase}
+  .report-cover h3{font-size:clamp(22px,4vw,32px); max-width:15ch; margin-top:auto; position:relative}
+  .report-cover .meta{font-family:var(--f-mono); font-size:11px; color:var(--mist); margin-top:20px; display:flex; gap:20px; flex-wrap:wrap}
+  .report-page{background:#fff; padding:30px}
+  .report-page .eb{font-family:var(--f-mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:#9a7d12; display:block; margin-bottom:6px}
+  .report-page h4{font-family:var(--f-display); font-size:18px; color:#0A0A0A; margin:0 0 9px; letter-spacing:-.01em}
+  .report-page p{color:#454539; font-size:12.5px; margin:0 0 12px; max-width:none; line-height:1.6}
+  .report-page .fig{border:1px solid #e6e3d7; border-radius:8px; padding:14px 14px 10px; margin:14px 0; background:#faf9f4}
+  .report-page .figcap{font-family:var(--f-mono); font-size:10px; color:#8a8672; margin-top:8px; letter-spacing:.02em}
+
+  /* web pattern */
+  .wpat{border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--surface)}
+  .wpat .demo{padding:26px; background:var(--ink); position:relative; overflow:hidden}
+  .wpat .cap{font-family:var(--f-mono); font-size:11px; color:var(--txt-dim); padding:11px 14px; border-top:1px solid var(--line)}
+  .wcard{background:var(--surface); border:1px solid var(--line); border-radius:11px; padding:16px}
+  .wcard .ic{color:var(--gold); font-family:var(--f-mono); font-size:13px; font-weight:700}
+  .wcard h5{font-family:var(--f-display); font-weight:600; font-size:14px; margin:9px 0 5px; color:var(--white)}
+  .wcard p{font-size:12px; margin:0; color:var(--txt-dim)}
+
+  /* do / don't lists */
+  .dolist{background:var(--surface); border:1px solid var(--line); border-radius:13px; padding:8px 20px; height:100%}
+  .dolist.no{border-color:rgba(229,86,78,.22)}
+  .dolist .li{display:flex; gap:11px; padding:13px 0; border-bottom:1px solid var(--line-2); font-size:13.5px; color:var(--txt)}
+  .dolist .li:last-child{border-bottom:none}
+  .dolist .li .s{font-family:var(--f-mono); font-weight:700; flex:none}
+  .dolist.yes .s{color:var(--up)} .dolist.no .s{color:var(--down)}
+
+  footer .wm{font-size:20px; margin-bottom:14px}
+  footer p{font-size:13px; color:var(--mist); font-family:var(--f-mono); max-width:none}
+</style>
+</head>
+<body>
+
+<!-- ░░ símbolos SVG reutilizáveis ░░ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="bolt" viewBox="0 0 100 100">
+    <path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="var(--bolt-body)"/>
+    <path d="M67.5 30 L33.5 43.5 L26.5 69 Z" fill="var(--gold)"/>
+  </symbol>
+  <symbol id="bolt-flat" viewBox="0 0 100 100">
+    <path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="currentColor"/>
+  </symbol>
+  <symbol id="bolt-lk" viewBox="24.5 27.5 49.5 44.5">
+    <path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="var(--bolt-body)"/>
+    <path d="M67.5 30 L33.5 43.5 L26.5 69 Z" fill="var(--gold)"/>
+  </symbol>
+  <symbol id="bolt-lk-flat" viewBox="24.5 27.5 49.5 44.5">
+    <path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="currentColor"/>
+  </symbol>
+</svg>
+
+<!-- ░░ NAV ░░ -->
+<header class="nav">
+  <div class="nav-inner">
+    <span class="wm"><span>FEA</span><span class="dev">.dev</span><svg class="blt" viewBox="24.5 27.5 49.5 44.5"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="var(--bolt-body)"/><path d="M67.5 30 L33.5 43.5 L26.5 69 Z" fill="var(--gold)"/></svg></span>
+    <nav class="nav-links">
+      <span class="ng">I · marca</span>
+      <a href="#marca">Marca</a>
+      <a href="#logo">Logo</a>
+      <a href="#cores">Cores</a>
+      <a href="#tipografia">Tipo</a>
+      <a href="#grafismo">Grafismo</a>
+      <span class="ng">II · sistema</span>
+      <a href="#dados">Dados</a>
+      <a href="#componentes">UI</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#report">Report</a>
+      <a href="#web">Web</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ░░ HERO ░░ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <span class="wm"><span>FEA</span><span class="dev">.dev</span><svg class="blt" viewBox="24.5 27.5 49.5 44.5"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="var(--bolt-body)"/><path d="M67.5 30 L33.5 43.5 L26.5 69 Z" fill="var(--gold)"/></svg></span>
+    <h1>Manual de <em>Marca</em></h1>
+    <p class="sub">O sistema visual da FEA.dev — finanças quantitativas e modelos de IA, feitos por alunos da USP. Use este guia como fonte única para logo, cores, tipografia e aplicações.</p>
+    <div class="hero-meta">
+      <span>VERSÃO <b>1.0</b></span>
+      <span>FEA-USP</span>
+      <span>FINQUANT · IA</span>
+      <span>2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ DIVISOR PARTE I ░░ -->
+<div class="part-divider" style="background:none; padding:54px 0 0; border-top:none">
+  <div class="wrap">
+    <span class="pk">PARTE I</span>
+    <div><h2 style="font-size:clamp(24px,4vw,34px)">A marca</h2></div>
+  </div>
+</div>
+
+<!-- ░░ 01 — A MARCA ░░ -->
+<section class="section" id="marca">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">01</span> A marca</p>
+    <h2>Rigor acadêmico que vira<br>código no mercado real.</h2>
+    <p class="lead" style="margin-top:24px">A FEA.dev é um grupo estudantil da FEA-USP focado em desenvolver estratégias quantitativas de investimento e aplicar inteligência artificial a problemas reais. Não é só teoria nem só hype: é método, código e resultado.</p>
+
+    <div class="grid g4" style="margin-top:46px">
+      <div class="pillar"><div class="k">Pilar 01</div><h4 style="margin-top:8px">Rigor quantitativo</h4><p style="margin-top:6px">Decisão fundamentada em estatística, dados e validação — não em opinião.</p></div>
+      <div class="pillar"><div class="k">Pilar 02</div><h4 style="margin-top:8px">Aplicação real</h4><p style="margin-top:6px">Modelos que rodam: do paper ao backtest, do backtest ao mercado.</p></div>
+      <div class="pillar"><div class="k">Pilar 03</div><h4 style="margin-top:8px">Cultura builder</h4><p style="margin-top:6px">A gente escreve o código. Ferramenta, pipeline e infra são parte do trabalho.</p></div>
+      <div class="pillar"><div class="k">Pilar 04</div><h4 style="margin-top:8px">Comunidade USP</h4><p style="margin-top:6px">Conhecimento que circula entre alunos e forma a próxima geração quant.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ 02 — VOZ ░░ -->
+<section class="section" id="voz">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">02</span> Personalidade & tom de voz</p>
+    <h2>Falamos em números.</h2>
+    <p class="lead" style="margin:24px 0 38px">O tom da FEA.dev é técnico, direto e ambicioso — sem ser hermético. Explicamos a intuição antes da matemática, mostramos o código e deixamos o resultado falar. Zero hype de IA.</p>
+
+    <div class="voice">
+      <div class="col yes">
+        <span class="tag">A marca é</span>
+        <ul class="yes">
+          <li><span class="s">+</span> Técnica e precisa — usa o termo certo</li>
+          <li><span class="s">+</span> Direta — vai ao ponto, sem enrolação</li>
+          <li><span class="s">+</span> Didática — explica antes de impressionar</li>
+          <li><span class="s">+</span> Honesta — mostra o método e os limites</li>
+          <li><span class="s">+</span> Ambiciosa — pensa em padrão de mercado</li>
+        </ul>
+      </div>
+      <div class="col no">
+        <span class="tag">A marca não é</span>
+        <ul class="no">
+          <li><span class="s">—</span> Arrogante ou elitista</li>
+          <li><span class="s">—</span> Hermética por esporte (jargão vazio)</li>
+          <li><span class="s">—</span> Vaga ou genérica</li>
+          <li><span class="s">—</span> "Salesy" ou cheia de buzzword</li>
+          <li><span class="s">—</span> Refém de hype ("IA mágica")</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ 03 — LOGO ░░ -->
+<section class="section" id="logo">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">03</span> Logo & símbolo</p>
+    <h2>A assinatura.</h2>
+    <p class="lead" style="margin:24px 0 34px">A marca combina o wordmark <strong>FEA.dev</strong> com o símbolo do raio. O raio é uma seta diagonal ascendente: significa <strong>sinal, energia e movimento de alta</strong> — extrair sinal do ruído, que é o que a entidade faz.</p>
+
+    <div class="logo-hero">
+      <div class="diag"></div>
+      <span class="wm"><span>FEA</span><span class="dev">.dev</span><svg class="blt" viewBox="24.5 27.5 49.5 44.5"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="var(--bolt-body)"/><path d="M67.5 30 L33.5 43.5 L26.5 69 Z" fill="var(--gold)"/></svg></span>
+    </div>
+
+    <h3 style="margin:48px 0 4px">Versões do wordmark</h3>
+    <p style="font-size:14px">Use sempre a versão de maior contraste com o fundo. A marca nasce no escuro: priorize ouro/branco sobre preto.</p>
+    <div class="variants">
+      <div class="vt"><div class="box bx-dark"><span class="wm"><span>FEA</span><span class="dev">.dev</span><svg class="blt" viewBox="24.5 27.5 49.5 44.5"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="var(--bolt-body)"/><path d="M67.5 30 L33.5 43.5 L26.5 69 Z" fill="var(--gold)"/></svg></span></div><div class="cap">Principal — sobre preto</div></div>
+      <div class="vt"><div class="box bx-graph"><span class="wm"><span>FEA</span><span class="dev">.dev</span><svg class="blt" viewBox="24.5 27.5 49.5 44.5"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="var(--bolt-body)"/><path d="M67.5 30 L33.5 43.5 L26.5 69 Z" fill="var(--gold)"/></svg></span></div><div class="cap">Sobre grafite</div></div>
+      <div class="vt"><div class="box bx-light"><span class="wm" style="color:#0A0A0A"><span>FEA</span><span class="dev" style="color:#5b5b5b">.dev</span><svg class="blt" viewBox="24.5 27.5 49.5 44.5" style="color:#0A0A0A"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="currentColor"/></svg></span></div><div class="cap">Mono — sobre claro</div></div>
+      <div class="vt"><div class="box bx-dark"><span class="wm" style="color:#fff"><span>FEA</span><span class="dev" style="color:#fff">.dev</span><svg class="blt" viewBox="24.5 27.5 49.5 44.5" style="color:#fff"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="currentColor"/></svg></span></div><div class="cap">Mono branco — negativo</div></div>
+    </div>
+
+    <h3 style="margin:48px 0 4px">O símbolo isolado</h3>
+    <p style="font-size:14px">Para avatares, favicon, selo e usos reduzidos. Quatro tratamentos permitidos:</p>
+    <div class="sym-grid">
+      <div class="sym bx-dark"><svg viewBox="0 0 100 100"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="var(--bolt-body)"/><path d="M67.5 30 L33.5 43.5 L26.5 69 Z" fill="var(--gold)"/></svg><span class="cap">Full-color / preto</span></div>
+      <div class="sym bx-dark"><svg viewBox="0 0 100 100" style="color:var(--gold)"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="currentColor"/></svg><span class="cap">Ouro chapado</span></div>
+      <div class="sym bx-dark"><svg viewBox="0 0 100 100" style="color:#fff"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="currentColor"/></svg><span class="cap">Branco / negativo</span></div>
+      <div class="sym bx-light"><svg viewBox="0 0 100 100" style="color:#0A0A0A"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="currentColor"/></svg><span class="cap">Preto / sobre claro</span></div>
+    </div>
+
+    <div class="grid g2" style="margin-top:48px; align-items:stretch">
+      <div class="build">
+        <h4 style="margin-bottom:18px">Área de proteção</h4>
+        <svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
+          <rect x="1" y="1" width="298" height="218" fill="none" stroke="rgba(255,255,255,.12)" stroke-dasharray="5 5"/>
+          <rect x="60" y="60" width="180" height="100" fill="none" stroke="rgba(245,215,65,.5)" stroke-dasharray="4 4"/>
+          <g transform="translate(96,86) scale(1.1)">
+            <g class="wm-svg">
+              <text x="0" y="22" font-family="Inter,sans-serif" font-weight="600" font-size="26" fill="#fff" letter-spacing="-.5">FEA<tspan fill="#8A8A8E">.dev</tspan></text>
+            </g>
+          </g>
+          <g transform="translate(190 78) scale(0.4)"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="var(--bolt-body)"/><path d="M67.5 30 L33.5 43.5 L26.5 69 Z" fill="var(--gold)"/></g>
+          <!-- x markers -->
+          <text x="30" y="64" font-family="JetBrains Mono" font-size="11" fill="#8A8A8E">x</text>
+          <line x1="30" y1="0" x2="30" y2="60" stroke="rgba(245,215,65,.4)" stroke-width="1"/>
+          <line x1="30" y1="160" x2="30" y2="220" stroke="rgba(245,215,65,.4)" stroke-width="1"/>
+        </svg>
+        <p style="font-size:13px; margin-top:14px">A margem mínima livre ao redor da marca equivale a <strong>x</strong>, onde <strong>x = a altura do símbolo</strong>. Nada (texto, imagem, borda) deve invadir essa área.</p>
+      </div>
+      <div class="build" style="display:flex; flex-direction:column">
+        <h4 style="margin-bottom:18px">Tamanho mínimo</h4>
+        <div style="display:flex; align-items:flex-end; gap:30px; flex:1; justify-content:center">
+          <div style="text-align:center">
+            <svg viewBox="0 0 100 100" style="color:var(--gold); width:48px"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="currentColor"/></svg>
+            <div class="mono" style="font-size:11px; color:var(--mist); margin-top:10px">símbolo<br>24&nbsp;px / 8&nbsp;mm</div>
+          </div>
+          <div style="text-align:center">
+            <span class="wm" style="font-size:15px"><span>FEA</span><span class="dev">.dev</span><svg class="blt" viewBox="24.5 27.5 49.5 44.5"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="var(--bolt-body)"/><path d="M67.5 30 L33.5 43.5 L26.5 69 Z" fill="var(--gold)"/></svg></span>
+            <div class="mono" style="font-size:11px; color:var(--mist); margin-top:14px">wordmark<br>90&nbsp;px / 22&nbsp;mm</div>
+          </div>
+        </div>
+        <p style="font-size:13px; margin-top:18px">Abaixo desses limites a legibilidade do raio se perde. Em contextos minúsculos (favicon), use só o símbolo.</p>
+      </div>
+    </div>
+
+    <div class="note">
+      <span class="ic">i</span>
+      <p>O wordmark exibido aqui é uma <strong>reconstrução de referência</strong> para diagramar o sistema. Para artes finais, use sempre os arquivos vetoriais oficiais da FEA.dev (.svg / .ai). O símbolo foi vetorizado a partir do ícone original e os valores de cor foram extraídos dos arquivos enviados — vale confirmar o HEX exato contra o arquivo-fonte.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ 04 — USOS INCORRETOS ░░ -->
+<section class="section">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">03.1</span> Usos incorretos</p>
+    <h2>O que nunca fazer.</h2>
+    <p class="lead" style="margin:24px 0 38px">A consistência é o que faz a marca ser reconhecida. Estes seis erros quebram o sistema:</p>
+    <div class="grid g3">
+      <div class="dont"><div class="vis"><span class="x">✕</span><span class="wm" style="transform:scaleX(1.5)"><span>FEA</span><span class="dev">.dev</span><svg class="blt" viewBox="24.5 27.5 49.5 44.5"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="var(--bolt-body)"/><path d="M67.5 30 L33.5 43.5 L26.5 69 Z" fill="var(--gold)"/></svg></span></div><div class="cap">Não distorcer nem esticar.</div></div>
+      <div class="dont"><div class="vis"><span class="x">✕</span><span class="wm" style="transform:rotate(-12deg)"><span>FEA</span><span class="dev">.dev</span><svg class="blt" viewBox="24.5 27.5 49.5 44.5"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="var(--bolt-body)"/><path d="M67.5 30 L33.5 43.5 L26.5 69 Z" fill="var(--gold)"/></svg></span></div><div class="cap">Não rotacionar a marca.</div></div>
+      <div class="dont"><div class="vis"><span class="x">✕</span><span class="wm" style="color:#3aa0ff"><span>FEA</span><span class="dev" style="color:#3aa0ff">.dev</span><svg class="blt" viewBox="24.5 27.5 49.5 44.5" style="color:#3aa0ff"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="currentColor"/></svg></span></div><div class="cap">Não trocar a cor da marca.</div></div>
+      <div class="dont"><div class="vis"><span class="x">✕</span><span class="wm" style="text-shadow:3px 3px 6px rgba(245,215,65,.8)"><span>FEA</span><span class="dev">.dev</span><svg class="blt" viewBox="24.5 27.5 49.5 44.5"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="var(--bolt-body)"/><path d="M67.5 30 L33.5 43.5 L26.5 69 Z" fill="var(--gold)"/></svg></span></div><div class="cap">Não aplicar sombra, brilho ou contorno.</div></div>
+      <div class="dont"><div class="vis" style="background:#6b6b40"><span class="x">✕</span><span class="wm" style="color:var(--gold)"><span>FEA</span><span class="dev" style="color:var(--gold)">.dev</span><svg class="blt" viewBox="24.5 27.5 49.5 44.5" style="color:var(--gold)"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="currentColor"/></svg></span></div><div class="cap">Não usar sobre fundo de baixo contraste.</div></div>
+      <div class="dont"><div class="vis"><span class="x">✕</span><span class="wm" style="font-family:Georgia,serif; font-style:italic"><span>FEA</span><span class="dev">.dev</span><svg class="blt" viewBox="24.5 27.5 49.5 44.5"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="var(--bolt-body)"/><path d="M67.5 30 L33.5 43.5 L26.5 69 Z" fill="var(--gold)"/></svg></span></div><div class="cap">Não recriar com outra fonte.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ 05 — CORES ░░ -->
+<section class="section" id="cores">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">04</span> Cores</p>
+    <h2>Preto domina. Ouro sinaliza.</h2>
+    <p class="lead" style="margin:24px 0 14px">A paleta é mínima e de alto contraste: o preto é a base, o ouro é o acento — usado com economia, sempre no que importa. Clique em qualquer valor para copiar.</p>
+
+    <div class="grid g3" style="margin-top:34px">
+      <!-- Ouro -->
+      <div class="swatch">
+        <div class="chip" style="background:#F5D741" data-copy="#F5D741"><span class="hint" style="color:#0A0A0A">copiar</span></div>
+        <div class="meta">
+          <div class="nm">Ouro FEA</div><div class="role">Primário · acento</div>
+          <div class="vals">
+            <div class="val" data-copy="#F5D741"><span class="lbl">HEX</span><span class="v">#F5D741</span></div>
+            <div class="val" data-copy="245, 215, 65"><span class="lbl">RGB</span><span class="v">245 · 215 · 65</span></div>
+            <div class="val" data-copy="2, 12, 73, 4"><span class="lbl">CMYK</span><span class="v">2 · 12 · 73 · 4</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Preto -->
+      <div class="swatch">
+        <div class="chip" style="background:#0A0A0A; border-bottom:1px solid var(--line)" data-copy="#0A0A0A"><span class="hint" style="color:#fff">copiar</span></div>
+        <div class="meta">
+          <div class="nm">Preto FEA</div><div class="role">Primário · base</div>
+          <div class="vals">
+            <div class="val" data-copy="#0A0A0A"><span class="lbl">HEX</span><span class="v">#0A0A0A</span></div>
+            <div class="val" data-copy="10, 10, 10"><span class="lbl">RGB</span><span class="v">10 · 10 · 10</span></div>
+            <div class="val" data-copy="0, 0, 0, 100"><span class="lbl">CMYK</span><span class="v">0 · 0 · 0 · 100</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Branco -->
+      <div class="swatch">
+        <div class="chip" style="background:#FFFFFF; border-bottom:1px solid var(--line)" data-copy="#FFFFFF"><span class="hint" style="color:#0A0A0A">copiar</span></div>
+        <div class="meta">
+          <div class="nm">Branco</div><div class="role">Texto sobre escuro</div>
+          <div class="vals">
+            <div class="val" data-copy="#FFFFFF"><span class="lbl">HEX</span><span class="v">#FFFFFF</span></div>
+            <div class="val" data-copy="255, 255, 255"><span class="lbl">RGB</span><span class="v">255 · 255 · 255</span></div>
+            <div class="val" data-copy="0, 0, 0, 0"><span class="lbl">CMYK</span><span class="v">0 · 0 · 0 · 0</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Ouro Profundo -->
+      <div class="swatch">
+        <div class="chip" style="background:#C9A227" data-copy="#C9A227"><span class="hint" style="color:#0A0A0A">copiar</span></div>
+        <div class="meta">
+          <div class="nm">Ouro Profundo</div><div class="role">Apoio · gradiente / hover</div>
+          <div class="vals">
+            <div class="val" data-copy="#C9A227"><span class="lbl">HEX</span><span class="v">#C9A227</span></div>
+            <div class="val" data-copy="201, 162, 39"><span class="lbl">RGB</span><span class="v">201 · 162 · 39</span></div>
+            <div class="val" data-copy="0, 19, 81, 21"><span class="lbl">CMYK</span><span class="v">0 · 19 · 81 · 21</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Grafite -->
+      <div class="swatch">
+        <div class="chip" style="background:#2E2F31" data-copy="#2E2F31"><span class="hint" style="color:#fff">copiar</span></div>
+        <div class="meta">
+          <div class="nm">Grafite</div><div class="role">Apoio · superfícies / UI</div>
+          <div class="vals">
+            <div class="val" data-copy="#2E2F31"><span class="lbl">HEX</span><span class="v">#2E2F31</span></div>
+            <div class="val" data-copy="46, 47, 49"><span class="lbl">RGB</span><span class="v">46 · 47 · 49</span></div>
+            <div class="val" data-copy="6, 4, 0, 81"><span class="lbl">CMYK</span><span class="v">6 · 4 · 0 · 81</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Cinza Névoa -->
+      <div class="swatch">
+        <div class="chip" style="background:#8A8A8E" data-copy="#8A8A8E"><span class="hint" style="color:#0A0A0A">copiar</span></div>
+        <div class="meta">
+          <div class="nm">Cinza Névoa</div><div class="role">Apoio · texto secundário</div>
+          <div class="vals">
+            <div class="val" data-copy="#8A8A8E"><span class="lbl">HEX</span><span class="v">#8A8A8E</span></div>
+            <div class="val" data-copy="138, 138, 142"><span class="lbl">RGB</span><span class="v">138 · 138 · 142</span></div>
+            <div class="val" data-copy="3, 2, 0, 44"><span class="lbl">CMYK</span><span class="v">3 · 2 · 0 · 44</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ratio">
+      <h4 style="margin-bottom:14px">Proporção de uso</h4>
+      <div class="bar">
+        <div class="seg" style="flex:70; background:#0A0A0A; color:#8A8A8E; border-right:1px solid var(--line)">PRETO · 70%</div>
+        <div class="seg" style="flex:22; background:#2E2F31; color:#ECECEC">NEUTROS · 22%</div>
+        <div class="seg" style="flex:8; background:var(--gold); color:#0A0A0A">OURO · 8%</div>
+      </div>
+    </div>
+
+    <div class="grad-card">
+      <div class="g"></div>
+      <div class="m"><span>Gradiente assinatura — Ouro&nbsp;FEA → Preto, eixo a 25°</span><span>uso: capas, banners, fundos de seção</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ 06 — TIPOGRAFIA ░░ -->
+<section class="section" id="tipografia">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">05</span> Tipografia</p>
+    <h2>Três vozes. Um sistema.</h2>
+    <p class="lead" style="margin:24px 0 36px">Uma grotesca de display com caráter técnico, uma fonte de texto neutra e limpa, e uma monoespaçada para dados, código e métricas — porque a FEA.dev fala em números.</p>
+
+    <div class="grid g3">
+      <div class="type-card">
+        <div class="role">Display · títulos</div>
+        <div class="fam">Space Grotesk · 500–700</div>
+        <div class="specimen" style="font-family:var(--f-display)">Aa</div>
+        <div class="glyphs" style="font-family:var(--f-display)">α β γ 0123456789 % ↑</div>
+      </div>
+      <div class="type-card">
+        <div class="role">Texto · UI & corpo</div>
+        <div class="fam">Inter · 400–600</div>
+        <div class="specimen" style="font-family:var(--f-text)">Aa</div>
+        <div class="glyphs" style="font-family:var(--f-text)">ç ã ê ó 0123456789 R$</div>
+      </div>
+      <div class="type-card">
+        <div class="role">Mono · dados & código</div>
+        <div class="fam">JetBrains Mono · 400–700</div>
+        <div class="specimen" style="font-family:var(--f-mono)">Aa</div>
+        <div class="glyphs" style="font-family:var(--f-mono)">σ μ 0123456789 +1.84%</div>
+      </div>
+    </div>
+
+    <h3 style="margin:42px 0 0">Escala & hierarquia</h3>
+    <div class="scale">
+      <div class="row"><span class="k">Display / H1</span><span class="t" style="font-family:var(--f-display); font-weight:600; font-size:42px; letter-spacing:-.03em">Alpha sobre o ruído</span></div>
+      <div class="row"><span class="k">Título / H2</span><span class="t" style="font-family:var(--f-display); font-weight:600; font-size:30px; letter-spacing:-.02em">Momentum cross-sectional</span></div>
+      <div class="row"><span class="k">Subtítulo / H3</span><span class="t" style="font-family:var(--f-display); font-weight:500; font-size:21px">Walk-forward & validação</span></div>
+      <div class="row"><span class="k">Corpo</span><span class="t" style="font-family:var(--f-text); font-size:16px; color:var(--txt-dim)">Texto base em Inter para leitura confortável em qualquer suporte.</span></div>
+      <div class="row"><span class="k">Mono / dados</span><span class="t" style="font-family:var(--f-mono); font-size:14px; color:var(--gold)">sharpe = 1.84 · maxDD = -12.3% · n = 100</span></div>
+      <div class="row"><span class="k">Label / eyebrow</span><span class="t mono" style="font-size:12px; letter-spacing:.16em; color:var(--mist)">FINQUANT · IA · FEA-USP</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ 07 — GRAFISMO ░░ -->
+<section class="section" id="grafismo">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">06</span> Grafismo & elementos de apoio</p>
+    <h2>A diagonal de 25°.</h2>
+    <p class="lead" style="margin:24px 0 36px">O ângulo do raio (≈ 25°) vira a linguagem gráfica da marca: linhas-guia, divisores e gradientes seguem essa inclinação. É um "sinal" direcional — energia que aponta para cima.</p>
+
+    <div class="grid g2">
+      <div>
+        <div class="motif">
+          <div class="rule thin"></div>
+          <div class="rule"></div>
+          <div class="rule thin thin2"></div>
+          <svg viewBox="0 0 100 100" style="color:var(--gold)"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="currentColor"/></svg>
+        </div>
+        <p style="font-size:13.5px; margin-top:14px"><strong>Linha de sinal.</strong> Régua diagonal em ouro a 25°, usada como divisor de seção ou âncora de composição. Fina e contida — nunca decorativa em excesso.</p>
+      </div>
+      <div>
+        <div class="motif" style="background:linear-gradient(110deg,#0A0A0A 60%, #16140c 100%)">
+          <div style="position:absolute; inset:0; opacity:.4;
+            background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
+            background-size:28px 28px"></div>
+          <div class="mono" style="position:absolute; left:22px; top:20px; font-size:11px; color:var(--gold)">14:32:07 ↑ +1.84%</div>
+          <div class="mono" style="position:absolute; left:22px; top:42px; font-size:11px; color:var(--mist)">WEGE3 · momentum · z-score</div>
+        </div>
+        <p style="font-size:13.5px; margin-top:14px"><strong>Textura terminal.</strong> Grid sutil + leitura em mono evocam o ambiente quant (tela de mercado, dados em tempo real). Use como fundo discreto, sempre baixo contraste.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ DIVISOR PARTE II ════════════ -->
+<div class="part-divider">
+  <div class="wrap">
+    <span class="pk">PARTE II</span>
+    <div>
+      <h2>Sistema de Design</h2>
+      <p class="lead" style="margin-top:12px">A marca aplicada ao que a entidade produz de verdade: <strong>reports do fundo, dashboards e o site</strong>. Componentes prontos, com a mesma identidade de quant terminal — preto, ouro e o dado em primeiro plano.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ░░ 07 — CORES DE DADOS ░░ -->
+<section class="section" id="dados">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">07</span> Cores de dados</p>
+    <h2>Gráfico não é Excel.</h2>
+    <p class="lead" style="margin:24px 0 14px">A cor padrão de Excel e matplotlib é exatamente o que faz todo report parecer igual. Esta é a paleta de séries da FEA.dev — desenhada pra fundo escuro, com o ouro sempre como série principal / benchmark.</p>
+
+    <span class="lbl-mono" style="margin-top:36px">Séries — máximo de 5 por gráfico</span>
+    <div class="dgrid">
+      <div class="dswatch"><div class="c" style="background:#F5D741" data-copy="#F5D741"></div><div class="m"><div class="n">Série 01 · Ouro</div><div class="h">#F5D741</div></div></div>
+      <div class="dswatch"><div class="c" style="background:#57C7C0" data-copy="#57C7C0"></div><div class="m"><div class="n">Série 02 · Ciano</div><div class="h">#57C7C0</div></div></div>
+      <div class="dswatch"><div class="c" style="background:#9A7CF5" data-copy="#9A7CF5"></div><div class="m"><div class="n">Série 03 · Violeta</div><div class="h">#9A7CF5</div></div></div>
+      <div class="dswatch"><div class="c" style="background:#E8775B" data-copy="#E8775B"></div><div class="m"><div class="n">Série 04 · Coral</div><div class="h">#E8775B</div></div></div>
+      <div class="dswatch"><div class="c" style="background:#6E6E73" data-copy="#6E6E73"></div><div class="m"><div class="n">Série 05 · Cinza</div><div class="h">#6E6E73</div></div></div>
+    </div>
+
+    <span class="lbl-mono" style="margin-top:30px">Semântico financeiro</span>
+    <div class="dgrid">
+      <div class="dswatch"><div class="c" style="background:#4FC58B" data-copy="#4FC58B"></div><div class="m"><div class="n">Alta / lucro</div><div class="h">#4FC58B</div></div></div>
+      <div class="dswatch"><div class="c" style="background:#E5564E" data-copy="#E5564E"></div><div class="m"><div class="n">Baixa / perda</div><div class="h">#E5564E</div></div></div>
+      <div class="dswatch"><div class="c" style="background:#8A8A8E" data-copy="#8A8A8E"></div><div class="m"><div class="n">Neutro</div><div class="h">#8A8A8E</div></div></div>
+    </div>
+
+    <div class="grid g2" style="margin-top:30px; align-items:stretch">
+      <div class="panel">
+        <div class="head"><span class="t">Curva de capital</span>
+          <span class="leg"><span><i style="background:var(--s1)"></i>Estratégia</span><span><i style="background:var(--s2)"></i>Benchmark</span><span><i style="background:var(--s3)"></i>Setor</span></span>
+        </div>
+        <svg viewBox="0 0 480 180" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="rgba(255,255,255,.06)"><line x1="20" y1="30" x2="470" y2="30"/><line x1="20" y1="70" x2="470" y2="70"/><line x1="20" y1="110" x2="470" y2="110"/><line x1="20" y1="150" x2="470" y2="150"/></g>
+          <polyline fill="none" stroke="var(--s3)" stroke-width="1.6" opacity=".8" points="20,135 70,142 120,118 170,126 220,108 270,114 320,96 370,104 420,86 460,80"/>
+          <polyline fill="none" stroke="var(--s2)" stroke-width="1.6" opacity=".85" points="20,150 70,148 120,140 170,134 220,138 270,120 320,126 370,108 420,100 460,92"/>
+          <polyline fill="none" stroke="var(--s1)" stroke-width="2.4" points="20,140 70,120 120,128 170,96 220,104 270,72 320,80 370,52 420,40 460,30"/>
+        </svg>
+      </div>
+      <div class="panel">
+        <div class="head"><span class="t">Retorno mensal</span>
+          <span class="leg"><span><i style="background:var(--up)"></i>Positivo</span><span><i style="background:var(--down)"></i>Negativo</span></span>
+        </div>
+        <svg viewBox="0 0 480 180" xmlns="http://www.w3.org/2000/svg">
+          <line x1="20" y1="100" x2="470" y2="100" stroke="rgba(255,255,255,.14)"/>
+          <g>
+            <rect x="40"  y="58"  width="34" height="42" rx="3" fill="var(--up)"/>
+            <rect x="100" y="74"  width="34" height="26" rx="3" fill="var(--up)"/>
+            <rect x="160" y="100" width="34" height="30" rx="3" fill="var(--down)"/>
+            <rect x="220" y="46"  width="34" height="54" rx="3" fill="var(--up)"/>
+            <rect x="280" y="100" width="34" height="18" rx="3" fill="var(--down)"/>
+            <rect x="340" y="66"  width="34" height="34" rx="3" fill="var(--up)"/>
+            <rect x="400" y="38"  width="34" height="62" rx="3" fill="var(--up)"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="note">
+      <span class="ic">i</span>
+      <p>Regras: o <strong>ouro é sempre a série principal</strong> (estratégia / benchmark do fundo). Máximo de 5 séries por gráfico — acima disso, divida em dois. Lucro e perda usam o <strong>semântico verde/vermelho</strong>, nunca as cores de série. Todo gráfico vive em fundo escuro.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ 08 — COMPONENTES ░░ -->
+<section class="section" id="componentes">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">08</span> Componentes de UI</p>
+    <h2>Peças prontas.</h2>
+    <p class="lead" style="margin:24px 0 14px">Blocos reutilizáveis pra dashboard e site — cada um já carrega a identidade. A ideia é não reinventar a roda toda vez: pega daqui.</p>
+
+    <div class="grid g2" style="margin-top:34px; align-items:start">
+      <div class="card">
+        <span class="lbl-mono">Botões</span>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:center">
+          <a class="btn btn-primary">Rodar backtest</a>
+          <a class="btn btn-secondary">Ver relatório</a>
+          <a class="btn btn-ghost">Cancelar →</a>
+          <a class="btn btn-primary btn-sm"><span class="k">↑</span> Exportar</a>
+        </div>
+      </div>
+      <div class="card">
+        <span class="lbl-mono">Campos</span>
+        <div style="display:flex; gap:14px; flex-wrap:wrap">
+          <div class="field" style="flex:1; min-width:120px"><label>Ativo</label><input class="input" placeholder="WEGE3"></div>
+          <div class="field" style="flex:1; min-width:120px"><label>Janela (dias)</label><input class="input" value="252"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid g2" style="margin-top:16px; align-items:start">
+      <div class="card">
+        <span class="lbl-mono">Status & deltas</span>
+        <div style="display:flex; gap:10px; flex-wrap:wrap">
+          <span class="pill pill-live"><span class="dot"></span>Ao vivo</span>
+          <span class="pill pill-test">Em backtest</span>
+          <span class="pill pill-off">Encerrado</span>
+          <span class="pill pill-up">▲ +1.84%</span>
+          <span class="pill pill-down">▼ −2.10%</span>
+        </div>
+      </div>
+      <div class="metric">
+        <div class="k">Sharpe · 12m</div>
+        <div class="v">1.84</div>
+        <div class="d up">▲ +0.21 vs. benchmark</div>
+        <svg class="spark" viewBox="0 0 80 30"><polyline fill="none" stroke="var(--gold)" stroke-width="2" points="2,24 14,20 26,22 38,14 50,16 62,8 74,4"/></svg>
+      </div>
+    </div>
+
+    <div class="grid g2" style="margin-top:16px; align-items:start">
+      <div class="card">
+        <span class="lbl-mono">Callouts</span>
+        <div class="note" style="margin-top:0"><span class="ic">i</span><p>Use ouro pra destacar a informação principal — uma por bloco.</p></div>
+        <div class="note" style="margin-top:12px; border-color:rgba(229,86,78,.3); background:rgba(229,86,78,.06)"><span class="ic" style="color:var(--down)">!</span><p>Vermelho só pra risco real (drawdown, alerta), nunca decorativo.</p></div>
+      </div>
+      <div class="card">
+        <span class="lbl-mono">Bloco de código</span>
+        <div class="codeblock">
+          <div class="bar"><span class="fn">momentum.py</span><span class="tg">PYTHON</span></div>
+<pre><span class="cm"># momentum cross-sectional 12-1</span>
+<span class="kw">def</span> <span class="nm">rank_momentum</span>(prices, lookback=<span class="st">252</span>, skip=<span class="st">21</span>):
+    score = total_return(prices, lookback, skip)
+    <span class="kw">return</span> zscore(score)</pre>
+        </div>
+      </div>
+    </div>
+
+    <span class="lbl-mono" style="margin-top:30px">Tabela de dados</span>
+    <div class="tbl-wrap">
+      <table class="dtable">
+        <thead><tr><th>Ativo</th><th class="r">Score</th><th class="r">Peso</th><th class="r">PnL</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td class="par">WEGE3</td><td class="num">+1.92</td><td class="num">12.4%</td><td class="num up">+3.1%</td><td><span class="pill pill-live"><span class="dot"></span>Ao vivo</span></td></tr>
+          <tr><td class="par">PRIO3</td><td class="num">+1.55</td><td class="num">10.8%</td><td class="num up">+2.3%</td><td><span class="pill pill-live"><span class="dot"></span>Ao vivo</span></td></tr>
+          <tr><td class="par">ITUB4</td><td class="num">+0.71</td><td class="num">9.6%</td><td class="num up">+0.9%</td><td><span class="pill pill-test">Backtest</span></td></tr>
+          <tr><td class="par">B3SA3</td><td class="num">−1.34</td><td class="num">−8.1%</td><td class="num down">−1.4%</td><td><span class="pill pill-off">Short</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ 09 — DASHBOARD ░░ -->
+<section class="section" id="dashboard">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">09</span> Dashboard</p>
+    <h2>O fundo em tempo real.</h2>
+    <p class="lead" style="margin:24px 0 14px">Layout de referência pra um painel quant: barra de status com ticker, KPIs, curva de capital e posições. Tudo no mesmo idioma visual.</p>
+
+    <div class="dash" style="margin-top:34px">
+      <div class="topbar">
+        <span class="wm" style="font-size:16px"><span>FEA</span><span class="dev">.dev</span><svg class="blt" viewBox="24.5 27.5 49.5 44.5"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="var(--bolt-body)"/><path d="M67.5 30 L33.5 43.5 L26.5 69 Z" fill="var(--gold)"/></svg></span>
+        <div class="ticker">
+          <span class="it">IBOV <span class="up">+0.84%</span></span>
+          <span class="it">USD/BRL <span class="down">−0.32%</span></span>
+          <span class="it">PETR4 <span class="up">+1.21%</span></span>
+          <span class="it">VALE3 <span class="down">−0.54%</span></span>
+        </div>
+        <span class="pill pill-live"><span class="dot"></span>Ao vivo</span>
+      </div>
+      <div class="body">
+        <div class="kpis">
+          <div class="metric"><div class="k">PnL · mês</div><div class="v" style="color:#5fd6a0">+4.2%</div><div class="d up">▲ vs. +1.1% IBOV</div></div>
+          <div class="metric"><div class="k">Sharpe · 12m</div><div class="v">1.84</div><div class="d up">▲ +0.21</div></div>
+          <div class="metric"><div class="k">Max drawdown</div><div class="v" style="color:#ef6f67">−12.3%</div><div class="d down">▼ jan/2020</div></div>
+          <div class="metric"><div class="k">Win rate</div><div class="v">63%</div><div class="d up">▲ 248 trades</div></div>
+        </div>
+        <div class="main">
+          <div class="panel">
+            <div class="head"><span class="t">Curva de capital · 2015–2025</span>
+              <span class="leg"><span><i style="background:var(--s1)"></i>Estratégia</span><span><i style="background:var(--s5)"></i>IBOV</span></span>
+            </div>
+            <svg viewBox="0 0 560 220" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="eq" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F5D741" stop-opacity=".22"/><stop offset="1" stop-color="#F5D741" stop-opacity="0"/></linearGradient></defs>
+              <g stroke="rgba(255,255,255,.055)"><line x1="40" y1="40" x2="540" y2="40"/><line x1="40" y1="90" x2="540" y2="90"/><line x1="40" y1="140" x2="540" y2="140"/><line x1="40" y1="190" x2="540" y2="190"/></g>
+              <g font-family="JetBrains Mono" font-size="9" fill="#8A8A8E"><text x="6" y="44">+120%</text><text x="6" y="94">+80%</text><text x="6" y="144">+40%</text><text x="14" y="194">0%</text></g>
+              <g font-family="JetBrains Mono" font-size="9" fill="#6E6E73"><text x="34" y="212">2015</text><text x="250" y="212">2020</text><text x="510" y="212">2025</text></g>
+              <polygon fill="url(#eq)" points="40,180 90,168 130,176 170,150 210,158 250,128 290,138 330,104 370,112 410,76 450,86 490,52 540,38 540,200 40,200"/>
+              <polyline fill="none" stroke="var(--s5)" stroke-width="1.6" opacity=".8" points="40,182 90,180 130,184 170,172 210,178 250,166 290,172 330,158 370,164 410,150 450,156 490,142 540,134"/>
+              <polyline fill="none" stroke="var(--s1)" stroke-width="2.6" points="40,180 90,168 130,176 170,150 210,158 250,128 290,138 330,104 370,112 410,76 450,86 490,52 540,38"/>
+            </svg>
+          </div>
+          <div class="panel">
+            <div class="head"><span class="t">Top movers</span></div>
+            <div class="mover"><span class="nm">WEGE3</span><span class="pill pill-up">+3.1%</span></div>
+            <div class="mover"><span class="nm">PRIO3</span><span class="pill pill-up">+2.3%</span></div>
+            <div class="mover"><span class="nm">B3SA3</span><span class="pill pill-down">−1.4%</span></div>
+            <div class="mover"><span class="nm">RENT3</span><span class="pill pill-down">−0.8%</span></div>
+            <div class="mover"><span class="nm">RADL3</span><span class="pill pill-up">+0.6%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ 10 — REPORT ░░ -->
+<section class="section" id="report">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">10</span> Report do fundo</p>
+    <h2>Tear sheet premium.</h2>
+    <p class="lead" style="margin:24px 0 14px">Anatomia de um relatório de pesquisa ou carta mensal: capa escura, hierarquia limpa, dado em mono, figura com legenda e fonte. Variante clara pra impressão.</p>
+
+    <div class="grid g2" style="margin-top:34px; align-items:start">
+      <div class="report">
+        <div class="report-cover">
+          <div class="diag"></div>
+          <span class="wm" style="font-size:15px; position:relative"><span>FEA</span><span class="dev">.dev</span><svg class="blt" viewBox="24.5 27.5 49.5 44.5"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="var(--bolt-body)"/><path d="M67.5 30 L33.5 43.5 L26.5 69 Z" fill="var(--gold)"/></svg></span>
+          <div class="top" style="margin-top:26px">Carta mensal · Jun 2026</div>
+          <h3>Momentum Cross-Sectional — B3</h3>
+          <div class="meta"><span>FEA-USP</span><span>Sharpe 1.84</span><span>Long-short · neutro</span></div>
+        </div>
+      </div>
+      <div class="report">
+        <div class="report-page">
+          <span class="eb">02 · Desempenho</span>
+          <h4>Resultado do mês</h4>
+          <p>A carteira encerrou junho com retorno de +4,2%, ante +1,1% do IBOV no período. O ganho veio majoritariamente dos nomes de maior momentum, com o filtro de regime evitando a virada do meio do mês.</p>
+          <div class="fig">
+            <svg viewBox="0 0 360 110" xmlns="http://www.w3.org/2000/svg">
+              <g stroke="#e6e3d7"><line x1="10" y1="25" x2="350" y2="25"/><line x1="10" y1="55" x2="350" y2="55"/><line x1="10" y1="85" x2="350" y2="85"/></g>
+              <polyline fill="none" stroke="#9a9a9e" stroke-width="1.6" points="10,90 70,86 130,88 190,78 250,80 310,72 350,70"/>
+              <polyline fill="none" stroke="#C9A227" stroke-width="2.4" points="10,88 70,76 130,80 190,58 250,62 310,40 350,32"/>
+            </svg>
+            <div class="figcap">Fig. 2 — Curva de capital vs. IBOV (jun/2026). Fonte: FEA.dev, COTAHIST/B3.</div>
+          </div>
+          <p>O Sharpe móvel de 12 meses subiu para 1,84, sustentado pela dispersão de retornos entre os setores na ponta long.</p>
+        </div>
+      </div>
+    </div>
+
+    <span class="lbl-mono" style="margin-top:30px">Anatomia</span>
+    <div class="grid g3">
+      <div class="card"><h4>Capa</h4><p>Título grotesk grande, diagonal de 25° ao fundo, metadata em mono (período, autor, classificação). Fundo preto.</p></div>
+      <div class="card"><h4>Corpo & hierarquia</h4><p>Eyebrow mono → título → texto. Respiro generoso, linha de ~65 caracteres. Inter pro corpo, sempre.</p></div>
+      <div class="card"><h4>Dado & fonte</h4><p>Números em JetBrains Mono. Toda figura leva “Fig. N —” e a fonte. Tabelas com hairline, sem zebra.</p></div>
+    </div>
+
+    <div class="note">
+      <span class="ic">i</span>
+      <p>A <strong>capa escura é o padrão</strong> (tela e PDF). Pra impressão, use a variante clara: preto sobre branco e o ouro vira <strong>#C9A227</strong> (Ouro Profundo), que mantém contraste no papel.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ 11 — WEB & FRONT ░░ -->
+<section class="section" id="web">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">11</span> Web & front</p>
+    <h2>O site, com identidade.</h2>
+    <p class="lead" style="margin:24px 0 14px">Padrões pro front — hero, ritmo de seção, botões e cards. O básico que falta hoje, sem cair no template genérico de landing page.</p>
+
+    <span class="lbl-mono" style="margin-top:34px">Padrões</span>
+    <div class="grid g2">
+      <div class="wpat">
+        <div class="demo" style="min-height:200px; display:flex; flex-direction:column; justify-content:center">
+          <div style="position:absolute; right:-12%; top:-30%; width:55%; height:160%; background:linear-gradient(var(--slant),transparent 42%, rgba(245,215,65,.1) 52%, transparent 62%)"></div>
+          <span class="lbl-mono" style="color:var(--gold); margin-bottom:12px; position:relative">FinQuant · IA · FEA-USP</span>
+          <h3 style="font-size:clamp(22px,3.6vw,30px); max-width:15ch; position:relative">Alpha sistemático, <span style="color:var(--gold)">feito por alunos da USP</span></h3>
+          <div style="display:flex; gap:10px; margin-top:20px; position:relative">
+            <a class="btn btn-primary btn-sm">Ver pesquisa</a>
+            <a class="btn btn-secondary btn-sm">Sobre nós</a>
+          </div>
+        </div>
+        <div class="cap">Hero — diagonal + título grotesk + CTA duplo</div>
+      </div>
+      <div class="wpat">
+        <div class="demo" style="display:grid; grid-template-columns:repeat(3,1fr); gap:12px; align-content:center; min-height:200px">
+          <div class="wcard"><span class="ic">01</span><h5>Pesquisa</h5><p>Papers e backtests abertos.</p></div>
+          <div class="wcard"><span class="ic">02</span><h5>Fundo</h5><p>Estratégias ao vivo na B3.</p></div>
+          <div class="wcard"><span class="ic">03</span><h5>Comunidade</h5><p>Formação quant na USP.</p></div>
+        </div>
+        <div class="cap">Cards — superfície escura, borda hairline, índice em mono</div>
+      </div>
+    </div>
+
+    <div class="grid g2" style="margin-top:24px; align-items:stretch">
+      <div class="dolist yes">
+        <span class="lbl-mono" style="padding-top:16px">Fazer</span>
+        <div class="li"><span class="s">+</span> Deixar o preto respirar — espaço vazio é parte do design</div>
+        <div class="li"><span class="s">+</span> Usar ouro com economia: 1 acento por tela</div>
+        <div class="li"><span class="s">+</span> Dado e número sempre em mono</div>
+        <div class="li"><span class="s">+</span> Diagonal de 25° como assinatura, sutil</div>
+      </div>
+      <div class="dolist no">
+        <span class="lbl-mono" style="padding-top:16px">Não fazer</span>
+        <div class="li"><span class="s">—</span> Gradiente colorido / arco-íris de SaaS</div>
+        <div class="li"><span class="s">—</span> Ouro em tudo (vira amarelo de alerta)</div>
+        <div class="li"><span class="s">—</span> Sombra pesada, glow neon, cantos muito redondos</div>
+        <div class="li"><span class="s">—</span> Fonte genérica fora do sistema (Roboto, Open Sans…)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ 08 — APLICAÇÕES ░░ -->
+<section class="section" id="aplicacoes">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">11.1</span> Aplicações da marca</p>
+    <h2>A marca no mundo.</h2>
+    <p class="lead" style="margin:24px 0 38px">Exemplos de como o sistema se aplica nos pontos de contato mais comuns da entidade.</p>
+
+    <div class="grid g2">
+      <div class="app">
+        <div class="app-banner"><span class="wm"><span>FEA</span><span class="dev">.dev</span><svg class="blt blt-w" viewBox="24.5 27.5 49.5 44.5"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="currentColor"/></svg></span></div>
+        <div class="cap">Banner LinkedIn — gradiente ouro→preto</div>
+      </div>
+      <div class="app">
+        <div class="app-slide">
+          <div class="diag"></div>
+          <div class="corner"><span class="wm"><span>FEA</span><span class="dev">.dev</span><svg class="blt" viewBox="24.5 27.5 49.5 44.5"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="var(--bolt-body)"/><path d="M67.5 30 L33.5 43.5 L26.5 69 Z" fill="var(--gold)"/></svg></span></div>
+          <div class="k">Pesquisa · momentum</div>
+          <div class="t">Momentum na <em>B3</em>: do sinal ao P&amp;L</div>
+        </div>
+        <div class="cap">Slide de abertura — apresentação</div>
+      </div>
+      <div class="app">
+        <div class="app-avatar"><svg viewBox="0 0 100 100"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="var(--bolt-body)"/><path d="M67.5 30 L33.5 43.5 L26.5 69 Z" fill="var(--gold)"/></svg></div>
+        <div class="cap">Avatar / favicon — só o símbolo</div>
+      </div>
+      <div class="app">
+        <div class="app-post">
+          <span class="wm" style="font-size:16px"><span>FEA</span><span class="dev">.dev</span><svg class="blt" viewBox="24.5 27.5 49.5 44.5"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="var(--bolt-body)"/><path d="M67.5 30 L33.5 43.5 L26.5 69 Z" fill="var(--gold)"/></svg></span>
+          <div>
+            <div class="stat">Sharpe 1.84</div>
+            <div class="desc">Resultado da estratégia de momentum em janela walk-forward 2015–2025.</div>
+          </div>
+          <div class="mono" style="font-size:11px; color:var(--mist); letter-spacing:.1em">FINQUANT · FEA-USP</div>
+        </div>
+        <div class="cap">Post social — métrica em destaque</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ░░ CHECKLIST ░░ -->
+<section class="section" id="checklist">
+  <div class="wrap">
+    <p class="eyebrow"><span class="num">12</span> Checklist rápido</p>
+    <h2>Antes de publicar.</h2>
+    <div class="check" style="margin-top:32px">
+      <div class="item"><span class="b">01</span><div>Logo com contraste alto<span>Ouro ou branco sobre preto. Mono escuro só sobre fundo claro.</span></div></div>
+      <div class="item"><span class="b">02</span><div>Área de proteção respeitada<span>Margem mínima = altura do símbolo (x). Nada invade.</span></div></div>
+      <div class="item"><span class="b">03</span><div>Cores corretas<span>Ouro #F5D741, Preto #0A0A0A. Ouro como acento, não como fundo cheio.</span></div></div>
+      <div class="item"><span class="b">04</span><div>Tipografia do sistema<span>Space Grotesk (títulos), Inter (texto), JetBrains Mono (dados).</span></div></div>
+      <div class="item"><span class="b">05</span><div>Tom de voz<span>Técnico, direto, didático. Sem hype, sem jargão vazio.</span></div></div>
+      <div class="item"><span class="b">06</span><div>Arquivo vetorial oficial<span>Use o .svg / .ai da marca — nunca recrie ou redesenhe o logo.</span></div></div>
+      <div class="item"><span class="b">07</span><div>Gráficos na paleta de dados<span>Séries da marca + semântico verde/vermelho. Nunca a cor default do Excel.</span></div></div>
+      <div class="item"><span class="b">08</span><div>Componentes do sistema<span>Botões, cards, tabelas e pills já existem — reaproveite em vez de reinventar.</span></div></div>
+      <div class="item"><span class="b">09</span><div>Contraste & legibilidade<span>Texto sempre legível sobre o fundo. Ouro é acento, não corpo de texto.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="wm"><span>FEA</span><span class="dev">.dev</span><svg class="blt" viewBox="24.5 27.5 49.5 44.5"><path d="M69 29 L34 43 L26 70.5 L72.5 47.5 L47.5 51 Z" fill="var(--bolt-body)"/><path d="M67.5 30 L33.5 43.5 L26.5 69 Z" fill="var(--gold)"/></svg></span>
+    <p>Manual de Marca v1.0 · Finanças Quantitativas & IA · FEA-USP · 2026</p>
+    <p style="margin-top:6px">Documento de referência interno — para dúvidas ou novos arquivos, fale com a coordenação da entidade.</p>
+  </div>
+</footer>
+
+<script>
+  // copiar valores de cor
+  document.querySelectorAll('[data-copy]').forEach(function(el){
+    el.addEventListener('click', function(){
+      var txt = el.getAttribute('data-copy');
+      if(navigator.clipboard){ navigator.clipboard.writeText(txt).catch(function(){}); }
+      el.classList.add('copied');
+      setTimeout(function(){ el.classList.remove('copied'); }, 1100);
+    });
+  });
+
+  // highlight da seção ativa na nav
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting && map[e.target.id]){
+        links.forEach(function(l){ l.classList.remove('active'); });
+        map[e.target.id].classList.add('active');
+      }
+    });
+  }, { rootMargin:'-45% 0px -50% 0px' });
+  document.querySelectorAll('section[id]').forEach(function(s){ io.observe(s); });
+</script>
+</body>
+</html>

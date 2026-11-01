@@ -1,0 +1,22 @@
+registry_id,source_kind,issuer,entry_url,access_method,raw_directory,priority,owner,fallback,collection_status
+CVM_CAD,public_api,CVM,https://dados.cvm.gov.br/dados/CIA_ABERTA/CAD/DADOS/cad_cia_aberta.csv,http,data/raw/cvm,P0,agente,cadastro RI,public_support_acquired_partial_scope
+CVM_DFP,public_catalog,CVM,https://dados.cvm.gov.br/dataset/cia_aberta-doc-dfp,http,data/raw/cvm,P0,agente,RI oficial,public_support_acquired_partial_scope
+CVM_ITR,public_catalog,CVM,https://dados.cvm.gov.br/dataset/cia_aberta-doc-itr,http,data/raw/cvm,P0,agente,RI oficial,public_support_acquired_partial_scope
+RI_SBSP,issuer,sabesp,https://ri.sabesp.com.br/,http_or_manual,data/raw/ri/sabesp,P0,agente,CVM,public_support_acquired_partial_scope
+RI_CSMG,issuer,copasa,https://ri.copasa.com.br/,http_or_manual,data/raw/ri/copasa,P0,agente,CVM,public_support_acquired_partial_scope
+RI_SAPR,issuer,sanepar,https://ri.sanepar.com.br/servicos-aos-investidores/central-de-downloads,http_or_manual,data/raw/ri/sanepar,P0,agente,CVM,public_support_acquired_partial_scope
+DOC_SBSP_2T26,issuer_document,sabesp,https://www.rad.cvm.gov.br/ENETCONSULTA/frmDownloadDocumento.aspx?CodigoInstituicao=1&Tela=99&descTipo=IPE&numProtocolo=1556532&numSequencia=1081238&numVersao=1,http,data/raw/ri/sabesp,P0,agente,RI Sabesp,public_support_acquired_partial_scope
+DOC_CSMG_2T26,issuer_document,copasa,https://www.rad.cvm.gov.br/ENETCONSULTA/frmDownloadDocumento.aspx?CodigoInstituicao=1&Tela=99&descTipo=IPE&numProtocolo=1556698&numSequencia=1081404&numVersao=1,http,data/raw/ri/copasa,P0,agente,RI Copasa,public_support_acquired_partial_scope
+DOC_SAPR_2T26,issuer_document,sanepar,https://ri.sanepar.com.br/docs/Sanepar-2026-06-30-LhNKMDPD.pdf,http,data/raw/ri/sanepar,P0,agente,CVM,public_support_acquired_partial_scope
+DOC_SAPR_ITR,issuer_document,sanepar,https://ri.sanepar.com.br/docs/ITR-Sanepar-2026-06-30-kcDdgkwC.pdf,http,data/raw/ri/sanepar,P0,agente,CVM,public_support_acquired_partial_scope
+DOC_SAPR_PREC,issuer_document,sanepar,https://ri.sanepar.com.br/docs/Fato-Relevante-Sanepar-2026-06-23-HKd9Bg6R.pdf,http,data/raw/ri/sanepar,P0,agente,CVM e Agepar,public_support_acquired_partial_scope
+AGEPAR,regulator,sanepar,https://www.agepar.pr.gov.br/,http_or_manual,data/raw/reguladores,P0,agente,atos anexos ao RI/CVM,public_support_acquired_partial_scope
+SINISA,public_catalog,setor,https://www.gov.br/cidades/pt-br/acesso-a-informacao/acoes-e-programas/saneamento/sinisa/resultados-sinisa/resultados-sinisa-2025,http_or_manual,data/raw/sinisa,P0,agente,relatorio oficial salvo manualmente,public_support_acquired_partial_scope
+MARCO_LEGAL,public_reference,setor,https://www.gov.br/cidades/pt-br/assuntos/saneamento/marco-legal-do-saneamento,http,data/raw/reguladores,P0,agente,legislacao e contratos oficiais,public_support_acquired_partial_scope
+BCB_SGS,public_api,macro,https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados?formato=json&dataInicial=23/10/2026&dataFinal=30/10/2026,http,data/raw/bcb,P0,agente,SGS oficial / extracao manual,public_support_acquired_partial_scope
+BCB_FOCUS,public_api,macro,https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/odata/ExpectativasMercadoAnuais,http,data/raw/bcb,P0,agente,relatorio Focus publicado,public_support_acquired_partial_scope
+TESOURO,public_api,macro,https://www.tesourotransparente.gov.br/ckan/api/3/action/package_show?id=taxas-dos-titulos-ofertados-pelo-tesouro-direto,http,data/raw/tesouro,P1,agente,exportacao Bloomberg identificada,public_support_acquired_partial_scope
+BLOOMBERG,licensed_terminal,mercado,https://professional.bloomberg.com/support/api-library/,manual_export,data/raw/bloomberg,P0,operador_terminal,RI/CVM e B3 manual,not_imported_public_substitute_used
+B3_MANUAL,market,mercado,https://www.b3.com.br/pt_br/market-data-e-indices/servicos-de-dados/market-data/historico/mercado-a-vista/cotacoes-historicas/,manual_import_only,data/raw/b3_manual,P0,operador_terminal,Bloomberg,not_imported_public_substitute_used
+SAFRA_2026,rules,competicao,https://www.safra.com.br/lp/safra-top-gestor.htm,manual_export,data/raw/orientacoes,P0,Navarro,instrucoes recebidas diretamente,verified_official_pdf_via_web_original_http_403
+COMPETICAO,issuer_reference,setor,https://www.aegea.com.br/2025/04/14/aegea-conquista-concessao-para-operar-servicos-de-agua-e-esgoto-no-para/,http,data/raw/ri,P0,agente,outra concessao oficial documentada,public_support_acquired_partial_scope

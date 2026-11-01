@@ -1,0 +1,289 @@
+Roteiro do vídeo: análise setorial ESG de saneamento
+Safra Top Gestor 2026 | Versão 1 para ensaio | Duração-alvo 9:20 (teto do regulamento: 10 min) | Envio aos patrocinadores: 02/11/2026
+Esta versão fecha o roteiro: nove blocos, quatro integrantes, 140 palavras por minuto. A empresa recomendada passou de Sabesp para Sanepar, porque nos modelos de TIR de vocês só a Sanepar rende acima do custo de capital e da NTN-B; com o precatório tratado como dívida, ela fica em linha com a NTN-B; os motivos e as ressalvas estão em Pontos de atenção. Os números vêm dos três modelos de TIR, de duas fontes públicas e da Bloomberg de 29/10; preço e NTN-B são de 30/10, informados por vocês. Os cenários de B8 são os da carta, lidos como os testes de estresse dos modelos. Estimativa: cerca de 1.170 palavras, ou 8:20 a 140 palavras por minuto.
+Distribuição de falas
+Integrante
+Nome
+Blocos
+Papel
+A
+Rodrigo
+B1, B7
+Tese e valuation
+B
+Lorenzo
+B2, B3
+Contexto e SWOT
+C
+Navarro
+B4, B8
+Médio prazo e riscos
+D
+Michel
+B5, B6
+Matriz ESG e alavancas
+Todos
+Os quatro
+B9
+Fechamento
+Atribuí as letras na ordem dos nomes em B1; podem trocar entre si, mantendo os papéis. Se alguém sair do grupo, usar a regra de redistribuição da seção 2 do plano.
+Roteiro
+B1 | S1 | Integrante A | 0:00-0:50 | 114 de 115 palavras
+Somos a Asset.Dev: Rodrigo, Lorenzo, Navarro e Michel. Recomendamos a Sanepar, ação SAPR4, a 6,20 reais em 30 de outubro.
+A tese: no saneamento, ESG é fluxo de caixa, e a Sanepar é onde estimamos que ele está mais barato.
+Aqui ESG não é selo: perdas de água e ligações de esgoto passam pelo caixa.
+Aplicamos a pergunta que orienta todas as nossas decisões: quanto disso já está no preço?
+Estimamos que a Sanepar entrega entre 6,8% e 11% ao ano acima da inflação, conforme o tratamento do precatório. Sabesp e Copasa entregam cerca de 2%. A NTN-B de dez anos, título público indexado à inflação, paga 6,7% acima dela.
+Lorenzo, começa pelo problema.
+B2 | S2 | Integrante B | 0:50-1:40 | 110 de 115 palavras
+Pelo SINISA, com dados de 2024, só 62% da população tem rede de coleta de esgoto.
+O Marco Legal de 2020 exige, até 2033, 99% de acesso à água. Para esgoto, a meta é 90% de coleta e tratamento.
+Cumprir isso exige investimento que os Estados, em geral, não financiam sozinhos. Sabesp e Copasa trocaram quem financia: foram desestatizadas em 2024 e 2026.
+A Sanepar segue controlada pelo Estado do Paraná. Já atende 100% com água tratada e 83% da área urbana com rede de esgoto. E trata todo o esgoto que coleta.
+Na nossa leitura, a tese não depende de privatização: depende de execução e de custo de capital.
+B3 | S3 | Integrante B | 1:40-2:55 | 172 de 175 palavras
+A SWOT é do setor, e cada item aponta para a análise que o mede.
+As forças são estruturais: monopólio natural, contratos de décadas e tarifa reajustada pela inflação. O consumo de água tende a cair pouco quando a tarifa sobe.
+As fraquezas também. O país perde parte relevante da água tratada antes de chegar ao consumidor. E o setor investe antes de ser remunerado. No nosso modelo, o caixa livre da Sanepar fica perto de zero até 2029.
+As oportunidades vêm de fora. Leilões trouxeram operadores privados, que criam um referencial de eficiência. E a tecnologia reduz perdas a custo menor.
+As ameaças são políticas, climáticas e de juros. O regulador decide quem fica com o caixa. No Paraná, a Agepar destinou aos consumidores um precatório de cerca de 4 bilhões. A crise hídrica de 2014 mostrou quanto uma seca custa. E juros altos encarecem cada real investido.
+Em resumo: economia atraente; o risco tende a estar na execução e na regulação, não na demanda.
+Navarro, o que muda até 2030?
+B4 | S4 | Integrante C | 2:55-3:55 | 118 de 140 palavras
+Três frentes até 2030.
+Regulação: as próximas revisões tarifárias decidem quanto do investimento entra na tarifa e quanto da eficiência fica com a empresa.
+Competição: o setor passou de quem tem o contrato para quem executa melhor. O leilão do Pará, em 2025, trouxe a Aegea com 15 bilhões de reais comprometidos. Isso pressiona as estatais a mostrar eficiência contra o setor privado.
+Tecnologia: medidas estatísticas, como previsão de falhas e priorização de manutenção, já são disseminadas no setor. As volumétricas, como sensores de vazão e pressão, também. Reduzem perdas mais rápido e mais barato que trocar tubulação.
+Quem combinar capital barato e eficiência tende a capturar o ciclo de universalização.
+Michel, como isso aparece na matriz ESG?
+B5 | S5 | Integrante D | 3:55-5:25 | 210 de 210 palavras
+Para montar a matriz, partimos do padrão SASB para empresas de água e esgoto. Ele define quais temas ESG são financeiramente materiais. Isso evita escolher critérios convenientes.
+Ficamos com cinco fatores. Para cada um: por qual canal chega ao caixa?
+Perdas de água: só a Sanepar tem indicadores disponíveis para nós, e eles são bons. O canal é custo: menos água captada, tratada e bombeada.
+Esgoto: a Sanepar coleta 83% na área urbana e trata tudo o que coleta. A Sabesp coleta 90% e trata 82%; a Copasa, 80% de coleta e tratamento. Coletar não é tratar. O canal é receita e investimento.
+Universalização: é o crescimento da base de ativos regulatória, os investimentos que o regulador reconhece e remunera. O canal é o retorno sobre esse investimento.
+Acesso e tarifa social: o efeito é um limite político ao reajuste. Na Sanepar, foi aprovado desconto de 50% nos primeiros 15 metros cúbicos. Tratamos como risco, não como ganho.
+Governança: não usamos nota ESG para reduzir custo de capital. Ela entra pela capacidade de executar os fatores anteriores.
+A Sanepar está no ISE B3, índice de sustentabilidade da bolsa, há quatro anos. Não integra o ICO2 B3, de carbono eficiente, nem o S&P/B3 Brasil ESG. E emitiu títulos sustentáveis e azuis.
+B5 está no teto de 210 palavras. Se precisar cortar, tirem primeiro a frase dos títulos azuis, depois a da tarifa social.
+B6 | S6 | Integrante D | 5:25-6:30 | 129 de 150 palavras
+Duas regras resumem quando ESG vira valor para o acionista.
+Primeira, perdas. Reduzir perdas gera caixa na hora, mas só até a próxima revisão tarifária; depois, parte do ganho volta ao consumidor. Por isso vemos perdas como proteção de margem, não como promessa de retorno.
+Segunda, universalização. O investimento é remunerado pelo custo de capital regulatório, a taxa que o regulador autoriza. Se ela superar o retorno que o investidor exige, cada real investido cria valor; se não, destrói.
+Na Sabesp, essa taxa é de cerca de 8% acima da inflação, contra 6,7% da NTN-B. Na Sanepar, a taxa não estava nas fontes que usamos: é uma incerteza nossa.
+Universalizar não é ESG grátis. O valor está no spread, a diferença entre essas duas taxas.
+Rodrigo, e o preço?
+B7 | S7 | Integrante A | 6:30-7:55 | 145 de 150 palavras
+Para saber se isso está no preço, fizemos a pergunta ao contrário. Dado o preço de hoje, que retorno recebe o investidor?
+Projetamos o caixa de cada empresa até 2035, com um valor final por perpetuidade. A taxa que iguala esse caixa ao preço de hoje é a TIR. Descontamos a inflação para comparar com a NTN-B.
+No nosso modelo, a Sanepar entrega cerca de 11% ao ano acima da inflação; Sabesp e Copasa, cerca de 2%. A NTN-B de dez anos paga 6,7%, e a de trinta, 6,5%.
+Há uma ressalva. O caixa da Sanepar inclui o precatório, que é dos consumidores. Tratando-o como dívida, o retorno cai para cerca de 6,8%, em linha com a NTN-B.
+Por isso a recomendação é relativa. A Sanepar é a única das três que alcança a NTN-B, e o preço de entrada importa.
+Navarro, quanto podemos errar?
+A parte de θ (N21) e as variantes H1, H2 e H0 saíram, como prevê a seção 4 do plano: os modelos comparam cada empresa com a NTN-B, mas não medem quanto do ganho da Sabesp o preço da Copasa assume. Com isso, B7 cabe no teto de 150 palavras.
+B8 | S8 | Integrante C | 7:55-8:55 | 128 de 140 palavras
+Testamos a recomendação em quatro cenários, os mesmos que orientam nossas decisões.
+Com os juros de hoje, a Sanepar entrega cerca de 11%. Se o prêmio fiscal voltar e os juros longos subirem, cai para cerca de 7,7%.
+Com nova ruptura em Ormuz e energia cara, a inflação sobe e a tarifa repassa só parte dela. O retorno vai a cerca de 7,6%.
+No pior caso, a piora fiscal soma-se a inflação alta, menos volume, como numa seca, e obras mais caras. O retorno vai a cerca de 1,4%.
+Descontado o precatório, cada número cai de três a quatro pontos.
+Três indicadores dirão se estamos certos. Perdas de água em queda. Investimento perto dos 2,6 bilhões previstos para 2026. E margem EBITDA acima de 40%.
+Agora, o fechamento.
+B9 | S9 | Todos | 8:55-9:20 | 43 de 60 palavras
+Rodrigo: Resumindo:
+Lorenzo: No saneamento, ESG vira caixa.
+Navarro: O valor está na execução e no spread entre o que o regulador paga e o que o mercado exige.
+Michel: E, ao preço de hoje, estimamos que a Sanepar é onde esse valor está mais barato.
+Todos: Obrigado.
+Frase-âncora (também no slide S9): No saneamento, ESG é fluxo de caixa; a Sanepar é onde ele está mais barato.
+Contagem de controle
+Bloco
+Teto
+Palavras nesta versão
+Tempo a 140 p/min
+B1
+115
+114
+0:49
+B2
+115
+110
+0:47
+B3
+175
+172
+1:14
+B4
+140
+118
+0:51
+B5
+210
+210
+1:30
+B6
+150
+129
+0:55
+B7
+150
+145
+1:02
+B8
+140
+128
+0:55
+B9
+60
+43
+0:18
+Total
+1.255
+1.169
+cerca de 8:20
+A coluna de tempo medido no ensaio, do plano, continua com vocês: o primeiro ensaio mede, o segundo corta até caber em 9:30.
+Valores a preencher
+Todo marcador do plano agora tem número, fonte ou foi cortado. Antes de gravar, faltam estas conferências e decisões.
+Item
+O que fazer
+Bloco
+NTN-B de 6,7% (10 anos) e 6,5% (30 anos)
+Confirmadas por vocês no pregão de 30/10, quando a taxa recuou, como IPCA mais. Se gravarem em outro dia, atualizar (ANBIMA ou ALLX). A carta trazia IPCA mais 6,76% em 23/10
+B1, B6, B7
+Tratamento do precatório
+Decidir qual é o número principal: 6,8% (precatório como dívida) ou 11% (como no modelo). O roteiro fala os dois
+B1, B7, B8
+Preço da Sanepar
+O vídeo e o modelo usam a SAPR4 a R$ 6,20 (30/10, intradiário), depois da forte queda da bolsa no dia. Se o fechamento ou o preço do dia da gravação mudar, refazer a TIR (aba Sens_Preco_TIR) e os números de B1, B7 e B8
+B1
+Taxa regulatória da Sanepar
+Não está nas fontes. Se estiver nas notas técnicas da Agepar, B6 ganha o spread da Sanepar
+B6
+Perdas de água
+Sem número no vídeo, como pediram. Se a banca perguntar, o release do 2T26 traz perdas no faturamento de 30,8% (32,0% um ano antes)
+B3, B5
+Datas das revisões tarifárias
+B4 diz apenas "as próximas revisões". Se confirmarem a data da próxima da Sanepar, vale citar
+B4
+Como calculei os números do vídeo. TIR real é a TIR nominal de cada cenário (XIRR das abas Estresse) descontada pelo IPCA do próprio modelo: 3,6% ao ano na base e 4,3% nos cenários de inflação forte e estagflação. A TIR nominal que reproduzi bate com a de cada modelo. O ajuste do precatório soma R$ 4,26 bi ao EV da Sanepar, o valor que a nota da aba Fontes_Sanepar usa; ele leva a TIR nominal a 10,65% e o preço justo a R$ 4,77, como a nota prevê.
+Conferência com o regulamento (item 3.3)
+Exigência
+Onde está no roteiro
+3.3.1 Vídeo de até 10 minutos, com todos os membros ativos
+Estimativa de 8:20 a 140 p/min. Os quatro falam pelo menos um bloco e aparecem em B1 e B9
+3.3.1 Foco em critérios ESG
+B5 e B6
+3.3.2 a) Análise SWOT do setor
+B3
+3.3.2 b) Médio prazo: tecnologias, novos players, dinâmicas de mercado e inovações
+B4: regulação, competição e tecnologia
+3.3.2 d) Recomendação de uma empresa, com justificativas
+B1, B7, B8 e B9, apoiados em B5 e B6
+3.3.2 e) Matriz que relaciona critérios sustentáveis à avaliação do ativo
+B5 e B6, com a matriz no slide S5. B5 cita os três índices sugeridos no regulamento: a Sanepar está no ISE B3 e, conforme vocês, não integra o ICO2 B3 nem o S&P/B3 Brasil ESG
+Afirmações acrescentadas ao plano, com fonte no relatório
+Trecho do roteiro
+Fonte e observação
+B1: SAPR4 a R$ 6,20 em 30/10
+Informado por vocês e usado no modelo (intradiário). A Bloomberg de 29/10 cotava a unit SAPR11, de uma ação ordinária e quatro preferenciais, a R$ 31,85
+B1, B7, B8: TIR real da Sanepar, Sabesp e Copasa, base e estresses
+Abas TIR e Estresse dos três modelos, convertidas para real. Detalhe na seção seguinte
+B1, B6, B7: NTN-B de 6,7% e 6,5%
+Informadas por vocês, taxas de 30/10
+B2: 62% da população com rede de coleta
+SINISA 2025 (ano de referência 2024), relatório de esgotamento sanitário: 62,3% da população total
+B2, B5: Sanepar com 100% de água tratada, 83% de rede de esgoto urbana e 100% do coletado tratado
+Release do 2T26 da Sanepar (13/08/2026): índice urbano de 82,9% em jun/26
+B2: desestatização da Sabesp (2024) e da Copasa (2026)
+Relatório de pré-pesquisa, seção 2
+B3: caixa livre da Sanepar perto de zero até 2029
+Aba TIR do modelo da Sanepar: FCFF de −R$ 0,3 bi em 2026, +0,1 bi, +0,6 bi e −0,1 bi em 2027 a 2029
+B3, B7, B8: precatório de cerca de R$ 4 bi para os consumidores
+Aba Fontes_Sanepar: R$ 3,94 bi destinados pela Agepar (fatos relevantes de 23/06 e 19/08/2026), com passivo regulatório de R$ 4,26 bi
+B4: leilão do Pará, R$ 15 bi
+Relatório, seção 3.1: R$ 15,2 bi da Aegea
+B4: medidas estatísticas e volumétricas já disseminadas
+Informação de vocês. Os arquivos não trazem fonte sobre isso
+B5: esgoto da Sabesp (90% e 82%) e da Copasa (80%)
+Bloomberg de 29/10. As definições diferem: a Copasa reporta coleta e tratamento juntos
+B5: desconto de 50% nos primeiros 15 m³ na Sanepar
+Relatório, seção 4.4
+B5: ISE B3 pelo quarto ano, títulos sustentáveis e azuis, fora do ICO2 B3 e do S&P/B3 Brasil ESG
+Bloomberg de 29/10: 4º ano seguido em 2025/2026; primeira empresa pública do país nesses títulos (o roteiro não repete o primeira, por causa do teto de palavras). Fora do ICO2 B3 e do S&P/B3 Brasil ESG: informado por vocês
+B6: taxa regulatória da Sabesp de cerca de 8% real
+Bloomberg de 29/10: 8,0% no 1º ciclo e 7,86% no 2º
+B8: investimento de R$ 2,6 bi em 2026 e margem EBITDA acima de 40%
+Modelo da Sanepar: plano de R$ 2.620 mi; margem de 41,1% em 2025 e 42,5% projetada
+Números dos modelos de TIR, por cenário
+TIR real, em % ao ano acima da inflação, ao preço de cada modelo (Sanepar: R$ 6,20 da SAPR4 em 30/10). Referência: NTN-B de 10 anos a 6,7% e de 30 anos a 6,5%.
+Cenário da carta
+Teste do modelo
+Sanepar
+Sanepar, precatório como dívida
+Sabesp
+Copasa
+Juros de hoje
+Base
+10,6
+6,8
+2,1
+2,1
+Prêmio fiscal volta, juros longos sobem
+Juros altos
+7,7
+3,9
+−0,8
+−1,5
+Ormuz, energia cara
+Inflação forte
+7,6
+3,9
+0,0
+−1,2
+Pior caso: piora fiscal, inflação e seca
+Estagflação
+1,4
+−1,7
+−4,6
+−7,3
+Governo surpreende para melhor
+Sem teste no modelo
+—
+—
+—
+—
+O modelo não tem cenário de juros mais baixos que o de hoje, então o lado favorável do governo que surpreende fica de fora do estresse. B8 diz isso só implicitamente: testamos o que pode dar errado.
+Modelo base
+Sanepar
+Sabesp
+Copasa
+TIR nominal
+14,7%
+5,7%
+5,7%
+Custo de capital (WACC) do modelo
+12,5%
+12,5%
+11,0%
+Preço justo pelo DCF, contra o preço do modelo
+R$ 7,59 contra R$ 6,20 (R$ 4,77 com o precatório)
+R$ 10,92 contra R$ 25,14
+R$ 21,98 contra R$ 49,11
+Efeito de +1 ponto de WACC no preço justo
+−18%
+−27%
+−39%
+Pontos de atenção
+* Sanepar no lugar da Sabesp. O modelo de vocês dá TIR nominal de 5,7% para a Sabesp contra WACC de 12,5% e preço justo de R$ 10,92 diante de R$ 25,14. Com esses números, o vídeo não consegue dizer que a Sabesp é a mais barata. Se preferirem manter a Sabesp, as hipóteses do modelo dela (margem EBITDA de 60%, capex de 50% da receita nos primeiros anos e WACC de 12,5%) precisam ser revistas antes, e a tese muda. As hipóteses verdes dos modelos são marcadas como ilustrativas na legenda.
+* Precatório. Com R$ 4 bi do precatório no caixa, a TIR real da Sanepar é 10,6%. Tratado como dívida, como a nota do próprio modelo sugere, é 6,8%, igual à NTN-B de 6,7%. O vídeo diz os dois e chama a recomendação de relativa. Se a banca perguntar por que comprar um ativo que só empata com a NTN-B, a resposta é o preço de entrada e que as outras duas ficam em 2%.
+* Contra o consenso. A Bloomberg mostra a Sanepar com 8 neutros, 3 vendas e nenhuma compra, e a Sabesp e a Copasa quase unânimes em compra. O preço-alvo mediano é R$ 41 para a unit SAPR11, 29% acima dos R$ 31,85 de 29/10; não é comparável direto com os R$ 6,20 da SAPR4. Preparem a resposta sobre por que o modelo de vocês discorda dos analistas.
+* Método de B7 diferente do plano. O plano falava em consenso até 2030 e valor final igual à base de ativos regulatória. Os modelos projetam até 2035 e usam perpetuidade com g de 4%. Boa parte do retorno vem do valor final, por isso o roteiro compara também com a NTN-B de 30 anos.
+* Estresse e carta. Juros altos, inflação forte e estagflação dos modelos representam o prêmio fiscal, Ormuz e o pior caso da carta. Governo que surpreende para melhor não tem teste. A TIR da Sanepar com o precatório como dívida fica abaixo da NTN-B em todos os estresses.
+* Perdas de água. Sem número no vídeo, como pediram. B5 diz que os indicadores da Sanepar são bons, conforme vocês. O release do 2T26 mostra perdas no faturamento de 30,8%, abaixo dos 32,0% de um ano antes; a banca pode perguntar o que é bom.
+* θ cortado. Sem dados para calcular N21, a segunda pergunta de B7 saiu, como o plano prevê. N22 (efeito de um ponto de juro) também saiu de B8 para caber no teto: o modelo dá −18% no preço justo da Sanepar.
+* Índices ESG. A Sanepar está no ISE B3 e, conforme vocês, não integra o ICO2 B3 nem o S&P/B3 Brasil ESG; B5 diz isso em uma frase. A Copasa está no ISE B3. A Sabesp não está confirmada no ISE B3, e nenhuma das duas está confirmada nos outros dois índices.
+* Mercado em 30/10. A bolsa caiu forte no dia e a NTN-B recuou. Preço menor aumenta a TIR da Sanepar e taxa menor baixa a referência: os dois movem a comparação a favor dela. Como o preço é intradiário, conferir o fechamento antes de gravar.
+* SINISA. O relatório traz 62,3% da população com rede de coleta, mas não o número de pessoas sem coleta. Por isso B2 usa o percentual.
+* Carta e carteira. O plano manda não citar a carta nem a carteira no vídeo. Mantido. Pergunta provável da banca: por que recomendar uma ação se a 3ª carteira não tem ações? A carta diz que o modelo não escolheu ações e que a carteira cobre as primeiras semanas pós-eleição; a recomendação olha até 2035.
+Antes de gravar
+Seguir as seções 5 e 6 do plano: dois ensaios cronometrados, MP4 em 1080p com duração final de até 9:45 e a checklist de revisão. Conferir canal e formato de envio nas orientações de 16/10, que não recebi.

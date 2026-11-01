@@ -1,0 +1,234 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "an_20261101T132455_ac536175",
+  "cases": [
+    {
+      "case_id": "sabesp.energy.r50",
+      "entity_id": "sabesp",
+      "instrument_id": "SBSP3",
+      "scenario_id": "energy_sensitivity",
+      "dimensions": {
+        "retention": {
+          "option_id": "r50",
+          "label": "Retenção 50%",
+          "value_ref": "V.esg.retention.50"
+        }
+      },
+      "value_refs": {
+        "base_expense": "V.sabesp.water_energy_expense_sinisa.2024",
+        "capex_break_even": "V.case.sabesp.energy.r50.capex_break_even",
+        "value_per_share": "V.case.sabesp.energy.r50.value_per_share",
+        "saving_fraction": "A.energy_saving.base",
+        "wacc": "A.wacc_nominal.base"
+      },
+      "kpi": "Despesa de energia do serviço de água (SINISA 2024)",
+      "chain": [
+        "Redução hipotética de 1% da despesa",
+        "Economia após IR 34%",
+        "Parcela retida",
+        "VPL 2027–35 ao WACC-base",
+        "Teto de investimento"
+      ],
+      "assumption_refs": [
+        "energy_saving",
+        "wacc_nominal",
+        "tax_rate"
+      ],
+      "limitations": [
+        "Escopo municipal de água 2024; não é custo consolidado nem custo marginal de perdas",
+        "Não somado ao DCF-base: a margem recorrente já pode conter ganhos de eficiência",
+        "Sem projeto, custo de implantação ou calendário observados"
+      ]
+    },
+    {
+      "case_id": "sabesp.energy.r100",
+      "entity_id": "sabesp",
+      "instrument_id": "SBSP3",
+      "scenario_id": "energy_sensitivity",
+      "dimensions": {
+        "retention": {
+          "option_id": "r100",
+          "label": "Retenção 100%",
+          "value_ref": "V.esg.retention.100"
+        }
+      },
+      "value_refs": {
+        "base_expense": "V.sabesp.water_energy_expense_sinisa.2024",
+        "capex_break_even": "V.case.sabesp.energy.r100.capex_break_even",
+        "value_per_share": "V.case.sabesp.energy.r100.value_per_share",
+        "saving_fraction": "A.energy_saving.base",
+        "wacc": "A.wacc_nominal.base"
+      },
+      "kpi": "Despesa de energia do serviço de água (SINISA 2024)",
+      "chain": [
+        "Redução hipotética de 1% da despesa",
+        "Economia após IR 34%",
+        "Parcela retida",
+        "VPL 2027–35 ao WACC-base",
+        "Teto de investimento"
+      ],
+      "assumption_refs": [
+        "energy_saving",
+        "wacc_nominal",
+        "tax_rate"
+      ],
+      "limitations": [
+        "Escopo municipal de água 2024; não é custo consolidado nem custo marginal de perdas",
+        "Não somado ao DCF-base: a margem recorrente já pode conter ganhos de eficiência",
+        "Sem projeto, custo de implantação ou calendário observados"
+      ]
+    },
+    {
+      "case_id": "copasa.energy.r50",
+      "entity_id": "copasa",
+      "instrument_id": "CSMG3",
+      "scenario_id": "energy_sensitivity",
+      "dimensions": {
+        "retention": {
+          "option_id": "r50",
+          "label": "Retenção 50%",
+          "value_ref": "V.esg.retention.50"
+        }
+      },
+      "value_refs": {
+        "base_expense": "V.copasa.water_energy_expense_sinisa.2024",
+        "capex_break_even": "V.case.copasa.energy.r50.capex_break_even",
+        "value_per_share": "V.case.copasa.energy.r50.value_per_share",
+        "saving_fraction": "A.energy_saving.base",
+        "wacc": "A.wacc_nominal.base"
+      },
+      "kpi": "Despesa de energia do serviço de água (SINISA 2024)",
+      "chain": [
+        "Redução hipotética de 1% da despesa",
+        "Economia após IR 34%",
+        "Parcela retida",
+        "VPL 2027–35 ao WACC-base",
+        "Teto de investimento"
+      ],
+      "assumption_refs": [
+        "energy_saving",
+        "wacc_nominal",
+        "tax_rate"
+      ],
+      "limitations": [
+        "Escopo municipal de água 2024; não é custo consolidado nem custo marginal de perdas",
+        "Não somado ao DCF-base: a margem recorrente já pode conter ganhos de eficiência",
+        "Sem projeto, custo de implantação ou calendário observados"
+      ]
+    },
+    {
+      "case_id": "copasa.energy.r100",
+      "entity_id": "copasa",
+      "instrument_id": "CSMG3",
+      "scenario_id": "energy_sensitivity",
+      "dimensions": {
+        "retention": {
+          "option_id": "r100",
+          "label": "Retenção 100%",
+          "value_ref": "V.esg.retention.100"
+        }
+      },
+      "value_refs": {
+        "base_expense": "V.copasa.water_energy_expense_sinisa.2024",
+        "capex_break_even": "V.case.copasa.energy.r100.capex_break_even",
+        "value_per_share": "V.case.copasa.energy.r100.value_per_share",
+        "saving_fraction": "A.energy_saving.base",
+        "wacc": "A.wacc_nominal.base"
+      },
+      "kpi": "Despesa de energia do serviço de água (SINISA 2024)",
+      "chain": [
+        "Redução hipotética de 1% da despesa",
+        "Economia após IR 34%",
+        "Parcela retida",
+        "VPL 2027–35 ao WACC-base",
+        "Teto de investimento"
+      ],
+      "assumption_refs": [
+        "energy_saving",
+        "wacc_nominal",
+        "tax_rate"
+      ],
+      "limitations": [
+        "Escopo municipal de água 2024; não é custo consolidado nem custo marginal de perdas",
+        "Não somado ao DCF-base: a margem recorrente já pode conter ganhos de eficiência",
+        "Sem projeto, custo de implantação ou calendário observados"
+      ]
+    },
+    {
+      "case_id": "sanepar.energy.r50",
+      "entity_id": "sanepar",
+      "instrument_id": "SAPR11",
+      "scenario_id": "energy_sensitivity",
+      "dimensions": {
+        "retention": {
+          "option_id": "r50",
+          "label": "Retenção 50%",
+          "value_ref": "V.esg.retention.50"
+        }
+      },
+      "value_refs": {
+        "base_expense": "V.sanepar.water_energy_expense_sinisa.2024",
+        "capex_break_even": "V.case.sanepar.energy.r50.capex_break_even",
+        "value_per_share": "V.case.sanepar.energy.r50.value_per_share",
+        "saving_fraction": "A.energy_saving.base",
+        "wacc": "A.wacc_nominal.base"
+      },
+      "kpi": "Despesa de energia do serviço de água (SINISA 2024)",
+      "chain": [
+        "Redução hipotética de 1% da despesa",
+        "Economia após IR 34%",
+        "Parcela retida",
+        "VPL 2027–35 ao WACC-base",
+        "Teto de investimento"
+      ],
+      "assumption_refs": [
+        "energy_saving",
+        "wacc_nominal",
+        "tax_rate"
+      ],
+      "limitations": [
+        "Escopo municipal de água 2024; não é custo consolidado nem custo marginal de perdas",
+        "Não somado ao DCF-base: a margem recorrente já pode conter ganhos de eficiência",
+        "Sem projeto, custo de implantação ou calendário observados"
+      ]
+    },
+    {
+      "case_id": "sanepar.energy.r100",
+      "entity_id": "sanepar",
+      "instrument_id": "SAPR11",
+      "scenario_id": "energy_sensitivity",
+      "dimensions": {
+        "retention": {
+          "option_id": "r100",
+          "label": "Retenção 100%",
+          "value_ref": "V.esg.retention.100"
+        }
+      },
+      "value_refs": {
+        "base_expense": "V.sanepar.water_energy_expense_sinisa.2024",
+        "capex_break_even": "V.case.sanepar.energy.r100.capex_break_even",
+        "value_per_share": "V.case.sanepar.energy.r100.value_per_share",
+        "saving_fraction": "A.energy_saving.base",
+        "wacc": "A.wacc_nominal.base"
+      },
+      "kpi": "Despesa de energia do serviço de água (SINISA 2024)",
+      "chain": [
+        "Redução hipotética de 1% da despesa",
+        "Economia após IR 34%",
+        "Parcela retida",
+        "VPL 2027–35 ao WACC-base",
+        "Teto de investimento"
+      ],
+      "assumption_refs": [
+        "energy_saving",
+        "wacc_nominal",
+        "tax_rate"
+      ],
+      "limitations": [
+        "Escopo municipal de água 2024; não é custo consolidado nem custo marginal de perdas",
+        "Não somado ao DCF-base: a margem recorrente já pode conter ganhos de eficiência",
+        "Sem projeto, custo de implantação ou calendário observados"
+      ]
+    }
+  ]
+}

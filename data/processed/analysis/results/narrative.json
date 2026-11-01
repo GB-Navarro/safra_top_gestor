@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "an_20261101T132455_ac536175",
+  "slots": {
+    "lead": [
+      "CL.lead.decision",
+      "CL.lead.thesis",
+      "CL.lead.price"
+    ],
+    "sector": [
+      "CL.sector.coverage",
+      "CL.sector.targets",
+      "CL.sector.treatment_gap"
+    ],
+    "swot": [
+      "CL.swot.strength",
+      "CL.swot.weakness",
+      "CL.swot.opportunity",
+      "CL.swot.threat"
+    ],
+    "medium_term": [
+      "CL.mt.regulation",
+      "CL.mt.competition",
+      "CL.mt.technology"
+    ],
+    "esg": [
+      "CL.esg.matrix",
+      "CL.esg.losses",
+      "CL.esg.sewer",
+      "CL.esg.governance"
+    ],
+    "bridge": [
+      "CL.bridge.rab",
+      "CL.bridge.energy"
+    ],
+    "valuation_method": [
+      "CL.method.fcff",
+      "CL.method.recurring",
+      "CL.method.precatorio"
+    ],
+    "valuation_result": [
+      "CL.result.values",
+      "CL.result.implied",
+      "CL.result.market_view"
+    ],
+    "risks": [
+      "CL.risk.scenarios",
+      "CL.risk.trigger.regulation",
+      "CL.risk.trigger.execution",
+      "CL.risk.trigger.rates",
+      "CL.risk.objection"
+    ],
+    "conclusion": [
+      "CL.conclusion.decision"
+    ]
+  }
+}

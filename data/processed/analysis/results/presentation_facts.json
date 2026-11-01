@@ -1,0 +1,1051 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "an_20261101T132455_ac536175",
+  "views": [
+    {
+      "view_id": "VW.sector.coverage",
+      "slot": "sector",
+      "view_type": "bar",
+      "title": "Cobertura nacional e metas 2033",
+      "claim_refs": [
+        "CL.sector.coverage",
+        "CL.sector.targets"
+      ],
+      "series": [
+        {
+          "series_id": "S.coverage",
+          "label": "Brasil 2024",
+          "points": [
+            {
+              "point_id": "P.water",
+              "label": "Água",
+              "y_value_ref": "OBS_002588",
+              "claim_refs": [],
+              "point_role": "ordinary"
+            },
+            {
+              "point_id": "P.sewer",
+              "label": "Esgoto (coleta)",
+              "y_value_ref": "OBS_002589",
+              "claim_refs": [],
+              "point_role": "ordinary"
+            }
+          ]
+        },
+        {
+          "series_id": "S.target",
+          "label": "Meta 2033",
+          "points": [
+            {
+              "point_id": "P.water.t",
+              "label": "Água",
+              "y_value_ref": "V.sector.target_water_2033",
+              "claim_refs": [],
+              "point_role": "ordinary"
+            },
+            {
+              "point_id": "P.sewer.t",
+              "label": "Esgoto",
+              "y_value_ref": "V.sector.target_sewer_2033",
+              "claim_refs": [],
+              "point_role": "ordinary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "view_id": "VW.esg.matrix",
+      "slot": "esg",
+      "view_type": "matrix",
+      "title": "Matriz ESG: indicador → canal de caixa",
+      "claim_refs": [
+        "CL.esg.matrix",
+        "CL.esg.losses",
+        "CL.esg.sewer",
+        "CL.esg.governance"
+      ],
+      "series": [
+        {
+          "series_id": "S.sabesp",
+          "label": "Sabesp",
+          "points": [
+            {
+              "point_id": "P.ESG.water_efficiency.sabesp",
+              "label": "Eficiência hídrica (perdas)",
+              "y_value_ref": "OBS_002593",
+              "claim_refs": [],
+              "point_role": "ordinary"
+            },
+            {
+              "point_id": "P.ESG.sewer_expansion.sabesp",
+              "label": "Esgoto e expansão",
+              "y_value_ref": "V.sabesp.capex_cash.2025",
+              "claim_refs": [],
+              "point_role": "ordinary"
+            },
+            {
+              "point_id": "P.ESG.resilience.sabesp",
+              "label": "Resiliência e energia",
+              "y_value_ref": "V.sabesp.water_energy_expense_sinisa.2024",
+              "claim_refs": [],
+              "point_role": "ordinary"
+            },
+            {
+              "point_id": "P.ESG.access.sabesp",
+              "label": "Acesso e capacidade de pagar",
+              "y_value_ref": "V.sabesp.social_tariff_mix_effect.2025",
+              "claim_refs": [],
+              "point_role": "ordinary"
+            },
+            {
+              "point_id": "P.ESG.governance.sabesp",
+              "label": "Governança e regulação",
+              "y_value_ref": "V.sabesp.wacc_reg_real_after_tax",
+              "claim_refs": [],
+              "point_role": "ordinary"
+            }
+          ]
+        },
+        {
+          "series_id": "S.copasa",
+          "label": "Copasa",
+          "points": [
+            {
+              "point_id": "P.ESG.water_efficiency.copasa",
+              "label": "Eficiência hídrica (perdas)",
+              "y_value_ref": "OBS_002594",
+              "claim_refs": [],
+              "point_role": "ordinary"
+            },
+            {
+              "point_id": "P.ESG.sewer_expansion.copasa",
+              "label": "Esgoto e expansão",
+              "y_value_ref": "OBS_002596",
+              "claim_refs": [],
+              "point_role": "ordinary"
+            },
+            {
+              "point_id": "P.ESG.resilience.copasa",
+              "label": "Resiliência e energia",
+              "y_value_ref": "V.copasa.water_energy_expense_sinisa.2024",
+              "claim_refs": [],
+              "point_role": "ordinary"
+            },
+            {
+              "point_id": "P.ESG.governance.copasa",
+              "label": "Governança e regulação",
+              "y_value_ref": "V.copasa.wacc_reg_real_after_tax",
+              "claim_refs": [],
+              "point_role": "ordinary"
+            }
+          ]
+        },
+        {
+          "series_id": "S.sanepar",
+          "label": "Sanepar",
+          "points": [
+            {
+              "point_id": "P.ESG.water_efficiency.sanepar",
+              "label": "Eficiência hídrica (perdas)",
+              "y_value_ref": "OBS_002597",
+              "claim_refs": [],
+              "point_role": "ordinary"
+            },
+            {
+              "point_id": "P.ESG.sewer_expansion.sanepar",
+              "label": "Esgoto e expansão",
+              "y_value_ref": "OBS_002599",
+              "claim_refs": [],
+              "point_role": "ordinary"
+            },
+            {
+              "point_id": "P.ESG.resilience.sanepar",
+              "label": "Resiliência e energia",
+              "y_value_ref": "V.sanepar.water_energy_expense_sinisa.2024",
+              "claim_refs": [],
+              "point_role": "ordinary"
+            },
+            {
+              "point_id": "P.ESG.access.sanepar",
+              "label": "Acesso e capacidade de pagar",
+              "y_value_ref": "OBS_002601",
+              "claim_refs": [],
+              "point_role": "ordinary"
+            },
+            {
+              "point_id": "P.ESG.governance.sanepar",
+              "label": "Governança e regulação",
+              "y_value_ref": "V.sanepar.wacc_reg_real_after_tax",
+              "claim_refs": [],
+              "point_role": "ordinary"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "view_id": "VW.esg.energy",
+      "slot": "bridge",
+      "view_type": "bar",
+      "title": "Teto de investimento por 1% de economia de energia",
+      "claim_refs": [
+        "CL.bridge.energy"
+      ],
+      "series": [
+        {
+          "series_id": "S.r50",
+          "label": "Retenção 50%",
+          "points": [
+            {
+              "point_id": "P.sabesp.r50",
+              "label": "Sabesp",
+              "y_value_ref": "V.case.sabesp.energy.r50.capex_break_even",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sabesp.energy.r50"
+            },
+            {
+              "point_id": "P.copasa.r50",
+              "label": "Copasa",
+              "y_value_ref": "V.case.copasa.energy.r50.capex_break_even",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "copasa.energy.r50"
+            },
+            {
+              "point_id": "P.sanepar.r50",
+              "label": "Sanepar",
+              "y_value_ref": "V.case.sanepar.energy.r50.capex_break_even",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sanepar.energy.r50"
+            }
+          ]
+        },
+        {
+          "series_id": "S.r100",
+          "label": "Retenção 100%",
+          "points": [
+            {
+              "point_id": "P.sabesp.r100",
+              "label": "Sabesp",
+              "y_value_ref": "V.case.sabesp.energy.r100.capex_break_even",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sabesp.energy.r100"
+            },
+            {
+              "point_id": "P.copasa.r100",
+              "label": "Copasa",
+              "y_value_ref": "V.case.copasa.energy.r100.capex_break_even",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "copasa.energy.r100"
+            },
+            {
+              "point_id": "P.sanepar.r100",
+              "label": "Sanepar",
+              "y_value_ref": "V.case.sanepar.energy.r100.capex_break_even",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sanepar.energy.r100"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "view_id": "VW.valuation.value_vs_price",
+      "slot": "valuation_result",
+      "view_type": "scatter",
+      "title": "Valor condicional vs preço (30/10/2026)",
+      "claim_refs": [
+        "CL.result.values"
+      ],
+      "series": [
+        {
+          "series_id": "S.value",
+          "label": "Valor caso-base",
+          "points": [
+            {
+              "point_id": "P.sabesp.value",
+              "label": "Sabesp",
+              "y_value_ref": "V.case.sabesp.base.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sabesp.base"
+            },
+            {
+              "point_id": "P.copasa.value",
+              "label": "Copasa",
+              "y_value_ref": "V.case.copasa.base.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "copasa.base"
+            },
+            {
+              "point_id": "P.sanepar.value",
+              "label": "Sanepar",
+              "y_value_ref": "V.case.sanepar.base.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sanepar.base"
+            }
+          ]
+        },
+        {
+          "series_id": "S.price",
+          "label": "Preço 30/10",
+          "points": [
+            {
+              "point_id": "P.sabesp.price",
+              "label": "Sabesp",
+              "y_value_ref": "V.SBSP3.close.2026-10-30",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sabesp.base"
+            },
+            {
+              "point_id": "P.copasa.price",
+              "label": "Copasa",
+              "y_value_ref": "V.CSMG3.close.2026-10-30",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "copasa.base"
+            },
+            {
+              "point_id": "P.sanepar.price",
+              "label": "Sanepar",
+              "y_value_ref": "V.SAPR11.close.2026-10-30",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sanepar.base"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "view_id": "VW.valuation.bridge_sanepar",
+      "slot": "valuation_method",
+      "view_type": "bridge",
+      "title": "Sanepar: da firma ao acionista (R$ mi)",
+      "claim_refs": [
+        "CL.method.precatorio"
+      ],
+      "series": [
+        {
+          "series_id": "S.bridge",
+          "label": "Caso-base",
+          "points": [
+            {
+              "point_id": "P.bridge.ev",
+              "label": "Valor da firma",
+              "y_value_ref": "V.case.sanepar.base.enterprise_value",
+              "claim_refs": [],
+              "point_role": "start",
+              "case_ref": "sanepar.base"
+            },
+            {
+              "point_id": "P.bridge.net_debt_october_estimate",
+              "label": "Dívida líquida (out, estimada)",
+              "y_value_ref": "V.case.sanepar.base.delta.net_debt_october_estimate",
+              "claim_refs": [],
+              "point_role": "delta",
+              "case_ref": "sanepar.base"
+            },
+            {
+              "point_id": "P.bridge.debt_like",
+              "label": "Outros direitos de terceiros",
+              "y_value_ref": "V.case.sanepar.base.delta.debt_like",
+              "claim_refs": [],
+              "point_role": "delta",
+              "case_ref": "sanepar.base"
+            },
+            {
+              "point_id": "P.bridge.obligation_pv",
+              "label": "Precatório (PV)",
+              "y_value_ref": "V.case.sanepar.base.delta.obligation_pv",
+              "claim_refs": [],
+              "point_role": "delta",
+              "case_ref": "sanepar.base"
+            },
+            {
+              "point_id": "P.bridge.equity",
+              "label": "Patrimônio",
+              "y_value_ref": "V.case.sanepar.base.equity_residual",
+              "claim_refs": [],
+              "point_role": "end",
+              "case_ref": "sanepar.base"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "view_id": "VW.grid.sabesp",
+      "slot": "valuation_result",
+      "view_type": "heatmap",
+      "title": "Sabesp: valor por WACC × g real",
+      "claim_refs": [
+        "CL.result.values"
+      ],
+      "series": [
+        {
+          "series_id": "S.sabesp.g0",
+          "label": "g real 0.0%",
+          "points": [
+            {
+              "point_id": "P.sabesp.grid.w1225.g0",
+              "label": "WACC 12.25%",
+              "y_value_ref": "V.case.sabesp.grid.w1225.g0.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sabesp.grid.w1225.g0",
+              "x_value_ref": "V.grid.wacc.1225"
+            },
+            {
+              "point_id": "P.sabesp.grid.w1275.g0",
+              "label": "WACC 12.75%",
+              "y_value_ref": "V.case.sabesp.grid.w1275.g0.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sabesp.grid.w1275.g0",
+              "x_value_ref": "V.grid.wacc.1275"
+            },
+            {
+              "point_id": "P.sabesp.grid.w1325.g0",
+              "label": "WACC 13.25%",
+              "y_value_ref": "V.case.sabesp.grid.w1325.g0.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sabesp.grid.w1325.g0",
+              "x_value_ref": "V.grid.wacc.1325"
+            },
+            {
+              "point_id": "P.sabesp.grid.w1375.g0",
+              "label": "WACC 13.75%",
+              "y_value_ref": "V.case.sabesp.grid.w1375.g0.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sabesp.grid.w1375.g0",
+              "x_value_ref": "V.grid.wacc.1375"
+            },
+            {
+              "point_id": "P.sabesp.grid.w1425.g0",
+              "label": "WACC 14.25%",
+              "y_value_ref": "V.case.sabesp.grid.w1425.g0.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sabesp.grid.w1425.g0",
+              "x_value_ref": "V.grid.wacc.1425"
+            }
+          ]
+        },
+        {
+          "series_id": "S.sabesp.g100",
+          "label": "g real 1.0%",
+          "points": [
+            {
+              "point_id": "P.sabesp.grid.w1225.g100",
+              "label": "WACC 12.25%",
+              "y_value_ref": "V.case.sabesp.grid.w1225.g100.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sabesp.grid.w1225.g100",
+              "x_value_ref": "V.grid.wacc.1225"
+            },
+            {
+              "point_id": "P.sabesp.grid.w1275.g100",
+              "label": "WACC 12.75%",
+              "y_value_ref": "V.case.sabesp.grid.w1275.g100.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sabesp.grid.w1275.g100",
+              "x_value_ref": "V.grid.wacc.1275"
+            },
+            {
+              "point_id": "P.sabesp.grid.w1325.g100",
+              "label": "WACC 13.25%",
+              "y_value_ref": "V.case.sabesp.grid.w1325.g100.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sabesp.grid.w1325.g100",
+              "x_value_ref": "V.grid.wacc.1325"
+            },
+            {
+              "point_id": "P.sabesp.grid.w1375.g100",
+              "label": "WACC 13.75%",
+              "y_value_ref": "V.case.sabesp.grid.w1375.g100.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sabesp.grid.w1375.g100",
+              "x_value_ref": "V.grid.wacc.1375"
+            },
+            {
+              "point_id": "P.sabesp.grid.w1425.g100",
+              "label": "WACC 14.25%",
+              "y_value_ref": "V.case.sabesp.grid.w1425.g100.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sabesp.grid.w1425.g100",
+              "x_value_ref": "V.grid.wacc.1425"
+            }
+          ]
+        },
+        {
+          "series_id": "S.sabesp.g200",
+          "label": "g real 2.0%",
+          "points": [
+            {
+              "point_id": "P.sabesp.grid.w1225.g200",
+              "label": "WACC 12.25%",
+              "y_value_ref": "V.case.sabesp.grid.w1225.g200.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sabesp.grid.w1225.g200",
+              "x_value_ref": "V.grid.wacc.1225"
+            },
+            {
+              "point_id": "P.sabesp.grid.w1275.g200",
+              "label": "WACC 12.75%",
+              "y_value_ref": "V.case.sabesp.grid.w1275.g200.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sabesp.grid.w1275.g200",
+              "x_value_ref": "V.grid.wacc.1275"
+            },
+            {
+              "point_id": "P.sabesp.grid.w1325.g200",
+              "label": "WACC 13.25%",
+              "y_value_ref": "V.case.sabesp.grid.w1325.g200.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sabesp.grid.w1325.g200",
+              "x_value_ref": "V.grid.wacc.1325"
+            },
+            {
+              "point_id": "P.sabesp.grid.w1375.g200",
+              "label": "WACC 13.75%",
+              "y_value_ref": "V.case.sabesp.grid.w1375.g200.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sabesp.grid.w1375.g200",
+              "x_value_ref": "V.grid.wacc.1375"
+            },
+            {
+              "point_id": "P.sabesp.grid.w1425.g200",
+              "label": "WACC 14.25%",
+              "y_value_ref": "V.case.sabesp.grid.w1425.g200.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sabesp.grid.w1425.g200",
+              "x_value_ref": "V.grid.wacc.1425"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "view_id": "VW.grid.copasa",
+      "slot": "valuation_result",
+      "view_type": "heatmap",
+      "title": "Copasa: valor por WACC × g real",
+      "claim_refs": [
+        "CL.result.values"
+      ],
+      "series": [
+        {
+          "series_id": "S.copasa.g0",
+          "label": "g real 0.0%",
+          "points": [
+            {
+              "point_id": "P.copasa.grid.w1225.g0",
+              "label": "WACC 12.25%",
+              "y_value_ref": "V.case.copasa.grid.w1225.g0.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "copasa.grid.w1225.g0",
+              "x_value_ref": "V.grid.wacc.1225"
+            },
+            {
+              "point_id": "P.copasa.grid.w1275.g0",
+              "label": "WACC 12.75%",
+              "y_value_ref": "V.case.copasa.grid.w1275.g0.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "copasa.grid.w1275.g0",
+              "x_value_ref": "V.grid.wacc.1275"
+            },
+            {
+              "point_id": "P.copasa.grid.w1325.g0",
+              "label": "WACC 13.25%",
+              "y_value_ref": "V.case.copasa.grid.w1325.g0.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "copasa.grid.w1325.g0",
+              "x_value_ref": "V.grid.wacc.1325"
+            },
+            {
+              "point_id": "P.copasa.grid.w1375.g0",
+              "label": "WACC 13.75%",
+              "y_value_ref": "V.case.copasa.grid.w1375.g0.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "copasa.grid.w1375.g0",
+              "x_value_ref": "V.grid.wacc.1375"
+            },
+            {
+              "point_id": "P.copasa.grid.w1425.g0",
+              "label": "WACC 14.25%",
+              "y_value_ref": "V.case.copasa.grid.w1425.g0.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "copasa.grid.w1425.g0",
+              "x_value_ref": "V.grid.wacc.1425"
+            }
+          ]
+        },
+        {
+          "series_id": "S.copasa.g100",
+          "label": "g real 1.0%",
+          "points": [
+            {
+              "point_id": "P.copasa.grid.w1225.g100",
+              "label": "WACC 12.25%",
+              "y_value_ref": "V.case.copasa.grid.w1225.g100.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "copasa.grid.w1225.g100",
+              "x_value_ref": "V.grid.wacc.1225"
+            },
+            {
+              "point_id": "P.copasa.grid.w1275.g100",
+              "label": "WACC 12.75%",
+              "y_value_ref": "V.case.copasa.grid.w1275.g100.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "copasa.grid.w1275.g100",
+              "x_value_ref": "V.grid.wacc.1275"
+            },
+            {
+              "point_id": "P.copasa.grid.w1325.g100",
+              "label": "WACC 13.25%",
+              "y_value_ref": "V.case.copasa.grid.w1325.g100.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "copasa.grid.w1325.g100",
+              "x_value_ref": "V.grid.wacc.1325"
+            },
+            {
+              "point_id": "P.copasa.grid.w1375.g100",
+              "label": "WACC 13.75%",
+              "y_value_ref": "V.case.copasa.grid.w1375.g100.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "copasa.grid.w1375.g100",
+              "x_value_ref": "V.grid.wacc.1375"
+            },
+            {
+              "point_id": "P.copasa.grid.w1425.g100",
+              "label": "WACC 14.25%",
+              "y_value_ref": "V.case.copasa.grid.w1425.g100.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "copasa.grid.w1425.g100",
+              "x_value_ref": "V.grid.wacc.1425"
+            }
+          ]
+        },
+        {
+          "series_id": "S.copasa.g200",
+          "label": "g real 2.0%",
+          "points": [
+            {
+              "point_id": "P.copasa.grid.w1225.g200",
+              "label": "WACC 12.25%",
+              "y_value_ref": "V.case.copasa.grid.w1225.g200.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "copasa.grid.w1225.g200",
+              "x_value_ref": "V.grid.wacc.1225"
+            },
+            {
+              "point_id": "P.copasa.grid.w1275.g200",
+              "label": "WACC 12.75%",
+              "y_value_ref": "V.case.copasa.grid.w1275.g200.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "copasa.grid.w1275.g200",
+              "x_value_ref": "V.grid.wacc.1275"
+            },
+            {
+              "point_id": "P.copasa.grid.w1325.g200",
+              "label": "WACC 13.25%",
+              "y_value_ref": "V.case.copasa.grid.w1325.g200.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "copasa.grid.w1325.g200",
+              "x_value_ref": "V.grid.wacc.1325"
+            },
+            {
+              "point_id": "P.copasa.grid.w1375.g200",
+              "label": "WACC 13.75%",
+              "y_value_ref": "V.case.copasa.grid.w1375.g200.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "copasa.grid.w1375.g200",
+              "x_value_ref": "V.grid.wacc.1375"
+            },
+            {
+              "point_id": "P.copasa.grid.w1425.g200",
+              "label": "WACC 14.25%",
+              "y_value_ref": "V.case.copasa.grid.w1425.g200.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "copasa.grid.w1425.g200",
+              "x_value_ref": "V.grid.wacc.1425"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "view_id": "VW.grid.sanepar",
+      "slot": "valuation_result",
+      "view_type": "heatmap",
+      "title": "Sanepar: valor por WACC × g real",
+      "claim_refs": [
+        "CL.result.values"
+      ],
+      "series": [
+        {
+          "series_id": "S.sanepar.g0",
+          "label": "g real 0.0%",
+          "points": [
+            {
+              "point_id": "P.sanepar.grid.w1225.g0",
+              "label": "WACC 12.25%",
+              "y_value_ref": "V.case.sanepar.grid.w1225.g0.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sanepar.grid.w1225.g0",
+              "x_value_ref": "V.grid.wacc.1225"
+            },
+            {
+              "point_id": "P.sanepar.grid.w1275.g0",
+              "label": "WACC 12.75%",
+              "y_value_ref": "V.case.sanepar.grid.w1275.g0.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sanepar.grid.w1275.g0",
+              "x_value_ref": "V.grid.wacc.1275"
+            },
+            {
+              "point_id": "P.sanepar.grid.w1325.g0",
+              "label": "WACC 13.25%",
+              "y_value_ref": "V.case.sanepar.grid.w1325.g0.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sanepar.grid.w1325.g0",
+              "x_value_ref": "V.grid.wacc.1325"
+            },
+            {
+              "point_id": "P.sanepar.grid.w1375.g0",
+              "label": "WACC 13.75%",
+              "y_value_ref": "V.case.sanepar.grid.w1375.g0.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sanepar.grid.w1375.g0",
+              "x_value_ref": "V.grid.wacc.1375"
+            },
+            {
+              "point_id": "P.sanepar.grid.w1425.g0",
+              "label": "WACC 14.25%",
+              "y_value_ref": "V.case.sanepar.grid.w1425.g0.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sanepar.grid.w1425.g0",
+              "x_value_ref": "V.grid.wacc.1425"
+            }
+          ]
+        },
+        {
+          "series_id": "S.sanepar.g100",
+          "label": "g real 1.0%",
+          "points": [
+            {
+              "point_id": "P.sanepar.grid.w1225.g100",
+              "label": "WACC 12.25%",
+              "y_value_ref": "V.case.sanepar.grid.w1225.g100.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sanepar.grid.w1225.g100",
+              "x_value_ref": "V.grid.wacc.1225"
+            },
+            {
+              "point_id": "P.sanepar.grid.w1275.g100",
+              "label": "WACC 12.75%",
+              "y_value_ref": "V.case.sanepar.grid.w1275.g100.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sanepar.grid.w1275.g100",
+              "x_value_ref": "V.grid.wacc.1275"
+            },
+            {
+              "point_id": "P.sanepar.grid.w1325.g100",
+              "label": "WACC 13.25%",
+              "y_value_ref": "V.case.sanepar.grid.w1325.g100.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sanepar.grid.w1325.g100",
+              "x_value_ref": "V.grid.wacc.1325"
+            },
+            {
+              "point_id": "P.sanepar.grid.w1375.g100",
+              "label": "WACC 13.75%",
+              "y_value_ref": "V.case.sanepar.grid.w1375.g100.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sanepar.grid.w1375.g100",
+              "x_value_ref": "V.grid.wacc.1375"
+            },
+            {
+              "point_id": "P.sanepar.grid.w1425.g100",
+              "label": "WACC 14.25%",
+              "y_value_ref": "V.case.sanepar.grid.w1425.g100.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sanepar.grid.w1425.g100",
+              "x_value_ref": "V.grid.wacc.1425"
+            }
+          ]
+        },
+        {
+          "series_id": "S.sanepar.g200",
+          "label": "g real 2.0%",
+          "points": [
+            {
+              "point_id": "P.sanepar.grid.w1225.g200",
+              "label": "WACC 12.25%",
+              "y_value_ref": "V.case.sanepar.grid.w1225.g200.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sanepar.grid.w1225.g200",
+              "x_value_ref": "V.grid.wacc.1225"
+            },
+            {
+              "point_id": "P.sanepar.grid.w1275.g200",
+              "label": "WACC 12.75%",
+              "y_value_ref": "V.case.sanepar.grid.w1275.g200.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sanepar.grid.w1275.g200",
+              "x_value_ref": "V.grid.wacc.1275"
+            },
+            {
+              "point_id": "P.sanepar.grid.w1325.g200",
+              "label": "WACC 13.25%",
+              "y_value_ref": "V.case.sanepar.grid.w1325.g200.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sanepar.grid.w1325.g200",
+              "x_value_ref": "V.grid.wacc.1325"
+            },
+            {
+              "point_id": "P.sanepar.grid.w1375.g200",
+              "label": "WACC 13.75%",
+              "y_value_ref": "V.case.sanepar.grid.w1375.g200.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sanepar.grid.w1375.g200",
+              "x_value_ref": "V.grid.wacc.1375"
+            },
+            {
+              "point_id": "P.sanepar.grid.w1425.g200",
+              "label": "WACC 14.25%",
+              "y_value_ref": "V.case.sanepar.grid.w1425.g200.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sanepar.grid.w1425.g200",
+              "x_value_ref": "V.grid.wacc.1425"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "view_id": "VW.scenarios",
+      "slot": "risks",
+      "view_type": "bar",
+      "title": "Valor por cenário (N/D quando resíduo ≤ 0)",
+      "claim_refs": [
+        "CL.risk.scenarios"
+      ],
+      "series": [
+        {
+          "series_id": "S.sabesp",
+          "label": "Sabesp",
+          "points": [
+            {
+              "point_id": "P.sabesp.base",
+              "label": "base",
+              "y_value_ref": "V.case.sabesp.base.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sabesp.base"
+            },
+            {
+              "point_id": "P.sabesp.rates_up",
+              "label": "rates_up",
+              "y_value_ref": "V.case.sabesp.rates_up.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sabesp.rates_up"
+            },
+            {
+              "point_id": "P.sabesp.execution_adverse",
+              "label": "execution_adverse",
+              "y_value_ref": "V.case.sabesp.execution_adverse.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sabesp.execution_adverse"
+            },
+            {
+              "point_id": "P.sabesp.favorable",
+              "label": "favorable",
+              "y_value_ref": "V.case.sabesp.favorable.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sabesp.favorable"
+            }
+          ]
+        },
+        {
+          "series_id": "S.copasa",
+          "label": "Copasa",
+          "points": [
+            {
+              "point_id": "P.copasa.base",
+              "label": "base",
+              "y_value_ref": "V.case.copasa.base.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "copasa.base"
+            },
+            {
+              "point_id": "P.copasa.rates_up",
+              "label": "rates_up",
+              "y_value_ref": "V.case.copasa.rates_up.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "copasa.rates_up"
+            },
+            {
+              "point_id": "P.copasa.execution_adverse",
+              "label": "execution_adverse",
+              "y_value_ref": "V.case.copasa.execution_adverse.equity_residual",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "copasa.execution_adverse"
+            },
+            {
+              "point_id": "P.copasa.favorable",
+              "label": "favorable",
+              "y_value_ref": "V.case.copasa.favorable.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "copasa.favorable"
+            }
+          ]
+        },
+        {
+          "series_id": "S.sanepar",
+          "label": "Sanepar",
+          "points": [
+            {
+              "point_id": "P.sanepar.base",
+              "label": "base",
+              "y_value_ref": "V.case.sanepar.base.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sanepar.base"
+            },
+            {
+              "point_id": "P.sanepar.rates_up",
+              "label": "rates_up",
+              "y_value_ref": "V.case.sanepar.rates_up.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sanepar.rates_up"
+            },
+            {
+              "point_id": "P.sanepar.execution_adverse",
+              "label": "execution_adverse",
+              "y_value_ref": "V.case.sanepar.execution_adverse.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sanepar.execution_adverse"
+            },
+            {
+              "point_id": "P.sanepar.favorable",
+              "label": "favorable",
+              "y_value_ref": "V.case.sanepar.favorable.paper_value",
+              "claim_refs": [],
+              "point_role": "ordinary",
+              "case_ref": "sanepar.favorable"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "view_id": "VW.triggers",
+      "slot": "risks",
+      "view_type": "table",
+      "title": "Gatilhos de revisão",
+      "claim_refs": [
+        "CL.risk.trigger.regulation",
+        "CL.risk.trigger.execution",
+        "CL.risk.trigger.rates"
+      ],
+      "series": [
+        {
+          "series_id": "S.triggers",
+          "label": "Limiares",
+          "points": [
+            {
+              "point_id": "P.t1",
+              "label": "WACC regulatório mínimo",
+              "y_value_ref": "V.sanepar.wacc_reg_real_after_tax",
+              "claim_refs": [
+                "CL.risk.trigger.regulation"
+              ],
+              "point_role": "ordinary"
+            },
+            {
+              "point_id": "P.t2",
+              "label": "PV máximo do precatório",
+              "y_value_ref": "V.sanepar.obligation_pv.base",
+              "claim_refs": [
+                "CL.risk.trigger.execution"
+              ],
+              "point_role": "ordinary"
+            },
+            {
+              "point_id": "P.t3",
+              "label": "NTN-B 2035 limite",
+              "y_value_ref": "V.trigger.ntnb_threshold",
+              "claim_refs": [
+                "CL.risk.trigger.rates"
+              ],
+              "point_role": "ordinary",
+              "x_value_ref": "V.macro.ntnb_2035_real.2026-10-30"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

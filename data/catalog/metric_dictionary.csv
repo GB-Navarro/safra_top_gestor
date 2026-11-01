@@ -1,0 +1,69 @@
+metric_id,category,description,canonical_unit,canonical_scale,expected_scope,period_type,definition_notes,priority,required_condition
+market_close,market,Fechamento por papel,BRL_per_instrument,1,instrument,point,Data e mercado definidos; bruto ou ajustado explicitado,P0,five_instruments
+market_cap,market,Valor de mercado do emissor,BRL,1000000,entity,point,Classes e quantidades reconciliadas; unit nao soma capital,P0,all_entities
+shares_issued,capital,Acoes emitidas por classe,shares,1000000,instrument,point,ON e PN separadas; excluir unit como capital adicional,P0,all_classes
+shares_treasury,capital,Acoes em tesouraria por classe,shares,1000000,instrument,point,Nao presumir zero se ausente,P0,when_material
+shares_outstanding,capital,Acoes fora de tesouraria por classe,shares,1000000,instrument,point,Diferenciar emitidas e quantidade usada no market cap,P0,all_classes
+revenue_services,financial,Receita de servicos,BRL,1000000,entity,flow,Liquida/bruta e eliminacoes precisam de definicao,P0,all_entities
+revenue_construction,financial,Receita de construcao,BRL,1000000,entity,flow,Sinal e tratamento contabil conciliados,P0,when_reported
+construction_cost,financial,Custo de construcao,BRL,1000000,entity,flow,Mesma base de receita; padronizar sinal,P0,when_reported
+financial_asset_remuneration,financial,Remuneracao de ativo financeiro,BRL,1000000,entity,flow,Separar componente caixa e nao caixa quando documentado,P0,when_reported
+ebitda_reported,financial,EBITDA reportado,BRL,1000000,entity,flow,Conceito nao necessariamente padronizado entre emissores,P0,all_entities
+ebitda_adjusted,financial,EBITDA ajustado,BRL,1000000,entity,flow,Requer ponte de ajustes e escopo,P0,when_available
+depreciation_amortization,financial,Depreciacao e amortizacao,BRL,1000000,entity,flow,Sinal positivo na normalizacao; natureza explicita,P0,all_entities
+ebit,financial,Resultado operacional,BRL,1000000,entity,flow,Mapeamento de conta validado pelo escopo,P0,all_entities
+income_tax_paid,financial,Imposto de renda e CSLL pagos,BRL,1000000,entity,flow,Nao equivale automaticamente ao imposto operacional do FCFF,P0,when_disclosed
+receivables_operating,financial,Contas a receber operacionais,BRL,1000000,entity,stock,Escopo usado no capital de giro; excluir financeiros,P0,all_entities
+inventories_operating,financial,Estoques operacionais,BRL,1000000,entity,stock,Mesma data e escopo de giro,P0,when_material
+payables_operating,financial,Fornecedores operacionais,BRL,1000000,entity,stock,Separar capex se houver abertura,P0,all_entities
+other_working_capital,financial,Outros componentes de giro,BRL,1000000,entity,stock,Guardar conta de origem e natureza; sem agregado opaco,P0,when_material
+capex,investment,Investimento realizado,BRL,1000000,entity,flow,Conciliar caixa e competencia; capitalizacoes e outorgas,P0,all_entities
+capex_plan,investment,Investimento previsto por ano,BRL,1000000,entity,forecast,Plano anunciado com data; nao tratar como realizado,P0,all_entities
+capex_expansion,investment,Investimento de expansao,BRL,1000000,entity,flow_or_forecast,Separar de manutencao apenas com fonte ou hipotese rotulada,P1,when_disclosed
+cash_unrestricted,balance,Caixa disponivel,BRL,1000000,entity,stock,Caixa restrito identificado fora do saldo disponivel,P0,all_entities
+cash_restricted,balance,Caixa restrito,BRL,1000000,entity,stock,Restricao e finalidade documentadas,P0,when_material
+gross_debt,balance,Divida financeira bruta,BRL,1000000,entity,stock,Separar leases derivativos e outras obrigacoes,P0,all_entities
+lease_liabilities,balance,Passivos de arrendamento,BRL,1000000,entity,stock,Tratamento posterior consistente com EBITDA e FCFF,P0,when_material
+derivative_liabilities,balance,Passivos de derivativos,BRL,1000000,entity,stock,Ativos e passivos nao compensados sem criterio,P0,when_material
+grantor_obligations,balance,Obrigacoes de outorga/poder concedente,BRL,1000000,entity,stock,Conciliar com capex e fluxos futuros,P0,when_material
+minority_interests,balance,Participacao de nao controladores,BRL,1000000,entity,stock,Considerar escopo consolidado e metodo de ajuste,P0,when_material
+regulatory_liability_current,regulation,Passivo regulatorio circulante,BRL,1000000,entity,stock,Saldo contabil nao e automaticamente VP economico,P0,sanepar_precatorio
+regulatory_liability_noncurrent,regulation,Passivo regulatorio nao circulante,BRL,1000000,entity,stock,Mesma nota e data do saldo circulante,P0,sanepar_precatorio
+physical_loss_rate,water,Perdas fisicas,ratio,1,entity,flow_ratio,Usar apenas se a fonte permitir separar perdas fisicas,P0,if_physical_bridge
+apparent_loss_rate,water,Perdas aparentes,ratio,1,entity,flow_ratio,Nao gera automaticamente economia de producao,P1,when_disclosed
+distribution_loss_rate,water,Perdas na distribuicao,ratio,1,entity,flow_ratio,Exige balanco e definicao; nao presumir perda fisica,P0,comparative_matrix
+billing_loss_rate,water,Perdas no faturamento,ratio,1,entity,flow_ratio,Nao comparar diretamente com perdas fisicas,P0,when_used
+loss_per_connection_day,water,Perda por ligacao por dia,L_per_connection_day,1,entity,flow_ratio,Litragem e universo de ligacoes definidos,P1,when_comparable
+water_delivered,water,Volume entregue ao consumidor,m3,1,entity,flow,Diferenciar produzido distribuido consumido e faturado,P0,if_physical_bridge
+variable_water_cost,water,Custo variavel evitavel por m3,BRL_per_m3,1,entity,flow_ratio,Custo medio total nao substitui custo marginal evitavel,P0,if_physical_bridge
+energy_consumption,resilience,Energia consumida,MWh,1,entity,flow,Escopo agua/esgoto e comprado/gerado identificados,P1,if_energy_bridge
+energy_intensity,resilience,Intensidade energetica,kWh_per_m3,1,entity,flow_ratio,Volume e energia do mesmo processo e periodo,P1,if_energy_bridge
+water_coverage,universalization,Cobertura de agua,ratio,1,entity,coverage_ratio,Populacao urbana total ou area atendida explicitada,P0,comparative_matrix
+sewer_coverage,universalization,Cobertura de esgoto,ratio,1,entity,coverage_ratio,Denominador populacional nao e volume coletado,P0,comparative_matrix
+collected_sewage_treated,universalization,Tratamento do esgoto coletado,ratio,1,entity,flow_ratio,Nao confundir com cobertura de coleta,P0,comparative_matrix
+effluent_compliance,quality,Conformidade do efluente,ratio,1,entity,compliance_ratio,Padrao amostra parametro e escopo definidos,P1,when_disclosed
+new_connections,universalization,Novas ligacoes,connections,1,entity,flow,Agua/esgoto separado e ligacoes nao sao pessoas,P0,if_expansion_bridge
+social_tariff_beneficiaries,access,Beneficiarios da tarifa social,beneficiaries,1,entity,stock_or_flow,Unidade familias ligacoes ou pessoas deve ser preservada,P0,comparative_matrix
+default_rate,access,Inadimplencia,ratio,1,entity,flow_ratio,Prazo e denominador devem ser identificados,P0,when_used
+regulatory_wacc,regulation,WACC regulatorio,ratio,1,entity,contract,Real/nominal e pre/pos impostos obrigatorios,P0,all_entities
+regulatory_asset_base,regulation,Base regulatoria de ativos,BRL,1000000,entity,stock,Data bruto/liquido elegibilidade e remuneracao,P2,if_ev_brr
+tariff_adjustment,regulation,Reajuste/revisao tarifaria,ratio,1,entity,event,Data efetiva e composicao da tarifa,P0,all_entities
+national_water_coverage,sector,Atendimento nacional de agua,ratio,1,sector,coverage_ratio,Codigo do indicador e denominador SINISA,P0,sector_context
+national_sewer_coverage,sector,Atendimento nacional de esgoto,ratio,1,sector,coverage_ratio,Ano da publicacao separado do ano-base,P0,sector_context
+selic_target,macro,Meta Selic anual,ratio,1,macro,point,SGS 432; nao tratar observacao como retorno diario,P0,macro_context
+ipca_monthly,macro,IPCA mensal realizado,ratio,1,macro,flow_ratio,SGS 433; publicacao e mes de referencia distintos,P0,macro_context
+ipca_expectation,macro,Expectativa anual IPCA Focus,ratio,1,macro,forecast,Ano previsto data da pesquisa e base de calculo,P0,inflation_assumptions
+sovereign_real_yield,macro,Taxa real de titulo soberano,ratio,1,instrument,point,Titulo vencimento fonte horario compra/venda,P1,if_benchmark
+cash_equivalents_reported,reported_financial,cash_equivalents_reported,BRL,1000000,entity,source_defined,"Reported concept; source-specific, not automatically cash or adjusted",P0,when_used
+short_term_investments_reported,reported_financial,short_term_investments_reported,BRL,1000000,entity,source_defined,"Reported concept; source-specific, not automatically cash or adjusted",P0,when_used
+receivables_reported,reported_financial,receivables_reported,BRL,1000000,entity,source_defined,"Reported concept; source-specific, not automatically cash or adjusted",P0,when_used
+operating_cash_flow_reported,reported_financial,operating_cash_flow_reported,BRL,1000000,entity,source_defined,"Reported concept; source-specific, not automatically cash or adjusted",P0,when_used
+revenue_total_reported,reported_financial,revenue_total_reported,BRL,1000000,entity,source_defined,"Reported concept; source-specific, not automatically cash or adjusted",P0,when_used
+profit_before_tax_reported,reported_financial,profit_before_tax_reported,BRL,1000000,entity,source_defined,"Reported concept; source-specific, not automatically cash or adjusted",P0,when_used
+income_tax_expense_signed,reported_financial,income_tax_expense_signed,BRL,1000000,entity,source_defined,"Reported concept; source-specific, not automatically cash or adjusted",P0,when_used
+national_sewer_treatment_generated,reported_financial,national_sewer_treatment_generated,ratio,1,entity,source_defined,"Reported concept; source-specific, not automatically cash or adjusted",P0,when_used
+national_collected_sewage_treated,reported_financial,national_collected_sewage_treated,ratio,1,entity,source_defined,"Reported concept; source-specific, not automatically cash or adjusted",P0,when_used
+national_distribution_loss_rate,reported_financial,national_distribution_loss_rate,ratio,1,entity,source_defined,"Reported concept; source-specific, not automatically cash or adjusted",P0,when_used
+regulatory_wacc_posttax_reported,reported_financial,regulatory_wacc_posttax_reported,ratio,1,entity,source_defined,"Reported concept; source-specific, not automatically cash or adjusted",P0,when_used
+regulatory_wacc_pretax_reported,reported_financial,regulatory_wacc_pretax_reported,ratio,1,entity,source_defined,"Reported concept; source-specific, not automatically cash or adjusted",P0,when_used
+capex_plan_total,reported_financial,capex_plan_total,BRL,1000000,entity,source_defined,"Reported concept; source-specific, not automatically cash or adjusted",P0,when_used

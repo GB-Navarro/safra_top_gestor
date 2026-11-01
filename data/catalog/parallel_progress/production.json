@@ -1,0 +1,130 @@
+{
+  "part_id": "production",
+  "updated_at": "2026-11-01T15:31:38-03:00",
+  "input_bundle": "an_20261101T132455_ac536175",
+  "input_manifest_sha256": "243092fc1c71fa9cf8e1b76feb959e1e97041d3c435c18878388f6a46b551de0",
+  "build_id": "pr_20261101T151834_ac536175",
+  "publish_id": "pub_20261101T153001",
+  "snapshot_id": "legacy_7dbbf9cfea",
+  "profiles": [
+    "pptx9",
+    "html10"
+  ],
+  "tasks": [
+    {
+      "task_id": "EN01",
+      "status": "done",
+      "note": "Fotografia legacy_7dbbf9cfea dos insumos/peças legados antes da primeira publicação; H07 desconhecido registrado"
+    },
+    {
+      "task_id": "EN02",
+      "status": "done",
+      "note": "Consumidor 1.0 (versão, kind, hash, escape, colunas, fontes, claims, validade); adaptador baseline_unreconciled; fixtures isoladas"
+    },
+    {
+      "task_id": "EN03",
+      "status": "done",
+      "note": "Modelo de páginas com value_refs; claim_placements por perfil; recusa de estado incompatível"
+    },
+    {
+      "task_id": "EN04",
+      "status": "done",
+      "note": "HTML10 offline com design asset.dev;33 verificações de navegador e117 estados geométricos por resolução; fonte incorporada e tema claro também testado"
+    },
+    {
+      "task_id": "EN05",
+      "status": "done",
+      "note": "PPTX9 editável/apoio7 preservados; adicional HTML10/PDF10/PPTX10 renderizado, dez páginas com texto nas notas e fidelidade visual verificada"
+    },
+    {
+      "task_id": "EN06",
+      "status": "done",
+      "note": "Scripts pptx9/html10, 4 teleprompters, 12 perguntas, guia; lint de números literais = 0"
+    },
+    {
+      "task_id": "EN07",
+      "status": "done_awaiting_real_clips",
+      "note": "Perfis 13/14 segmentos; encoder e montagem testados só com clipes sintéticos temporários; nenhum vídeo do grupo"
+    },
+    {
+      "task_id": "EN08",
+      "status": "done",
+      "note": "python -m production.run com --profile, --check, --baseline, --record-visual-review, --publish, --release-report, --promote-final; run_esg delega"
+    },
+    {
+      "task_id": "EN09",
+      "status": "done",
+      "note": "15 verificações de QA das peças + 50 testes em tests/production; não valida economia"
+    },
+    {
+      "task_id": "EN10",
+      "status": "done",
+      "note": "Portões dados/análise/visual/vídeo/envio com testes positivos (sandbox) e negativos; checklist_envio.md H07→H13; --mode final avalia portões"
+    },
+    {
+      "task_id": "EN11",
+      "status": "done",
+      "note": "Duas versões fixture trocam números sem mudar código; publicação canônica sob trava com reversão, suítes e relatórios"
+    },
+    {
+      "task_id": "EN12",
+      "status": "done",
+      "note": "Progresso, evidências no sincronizador, documentos centrais e catálogos atualizados sob trava"
+    }
+  ],
+  "requirement_slices": {
+    "C19": "represented_proposal_pending_human",
+    "C20": "closed",
+    "C21": "production_slice_done",
+    "C22": "closed",
+    "C23": "production_slice_done",
+    "C24": "tools_ready_awaiting_human",
+    "C25": "gates_implemented_blocked_by_human_records",
+    "C26": "awaiting_human",
+    "C27": "production_slice_done",
+    "C28": "implemented_draft",
+    "C29": "production_slice_done"
+  },
+  "evidence_paths": {
+    "outputs/draft/production/published.json": "3cfab524b83bcfb6bb8ce253b91ce5e1f0c93feb7e3a9bb5577ff0f1d8bd596a",
+    "outputs/draft/production/pr_20261101T132746_ac536175/manifest.json": "777522644e33a0cfe750dcc2edd8e1dec644e9f6f6b42ba2e1c8402421871759",
+    "outputs/qa/production/pr_20261101T132746_ac536175/production_qa.json": "9b480e8b89982b3adf24ad2032c7a9d46b4581e6dae14ef1160ef82c261e5a63",
+    "outputs/qa/production/pr_20261101T132746_ac536175/visual_review.json": "b2a43eeb7f0af6b0ac3e5756aa195bcfc07b9a0d4500a8df52dffb75a071b12a",
+    "outputs/qa/execution_validation.json": "341d6dca26eb86ac19b71aa72c691d4208d2555bff24bb35fa7ad7f8e172422d",
+    "outputs/qa/release_validation.json": "145d4e0faa04082109c106e46ab2ceb85e1d366361ae8cca387c186b229634de",
+    "outputs/qa/html/html_validation.json": "8a5da5b97b2df3cb157fe261e80cebcf9460c0c56a89af5ac79f89d302bb123f",
+    "data/processed/CANONICAL_SOURCE.json": "e517f66ba825cc33dc499a8ff4050d8483e5a7e29b9784a353e1d89c4ef2403f",
+    "outputs/draft/production/pr_20261101T151834_ac536175/manifest.json": "4b4c7bc2b14a16a99d862e714f9c37a7ba70b04ebd1f01dd507d19258de636a1",
+    "outputs/qa/production/pr_20261101T151834_ac536175/production_qa.json": "7de559dd3d5116c181d4d1ce48f2aa5f37502f49520f50a30b6ad004d96e8165",
+    "outputs/qa/production/pr_20261101T151834_ac536175/visual_review.json": "15d4697458da93ec85950b5e440b721b2b30e554ec341743a9b225f0a74329b6",
+    "outputs/qa/production/pr_20261101T151834_ac536175/html_pptx_fidelity.json": "02c2943807ef3f3e86aae42dff55a4ae99e2c1f1e5bcece457b9dfcaab3758dd",
+    "outputs/qa/production/pr_20261101T151834_ac536175/design_system_review.json": "b93c4a7b8aa9463b218e331ce108d9d2db51fbe963d8bc42b3363a196e0826cb"
+  },
+  "unresolved": [
+    "Vídeo: nenhum clipe real (H11); montagem só testada com fixture sintética",
+    "Revisão visual registrada pelo agente; revisão do grupo não registrada",
+    "Promoção a outputs/final bloqueada pelos portões (H08/H09, H07, H10, H11, revisão integral, H13)",
+    "Uso do HTML na gravação/envio depende de H07; sem instrução, o vídeo segue o perfil pptx9"
+  ],
+  "human_needed": [
+    "H07 (instruções privadas)",
+    "H08/H09 (premissas e recomendação)",
+    "H10 (dois ensaios)",
+    "H11 (clipes)",
+    "revisão integral do vídeo",
+    "H13 (envio e comprovante)"
+  ],
+  "note": "Design asset.dev aplicado a HTML/PDF/PPTX10; QA16/16,117 estados por resolução e39+50+13 testes aprovados;16 originais preservados. Nenhuma decisão humana presumida e nada enviado.",
+  "build_history": [
+    {
+      "build_id": "pr_20261101T132746_ac536175",
+      "publish_id": "pub_20261101T132847",
+      "note": "Versão anterior à adaptação de design"
+    },
+    {
+      "build_id": "pr_20261101T151834_ac536175",
+      "publish_id": "pub_20261101T152159",
+      "note": "Primeira publicação da revisão visual; falha inicial por áudio ausente, resolvida na revalidação"
+    }
+  ]
+}

@@ -1,0 +1,762 @@
+{
+  "schema_version": 1,
+  "status": "plans_created_not_executed",
+  "review_date": "2026-11-01",
+  "independence": "Cada parte inicia, implementa, testa e entrega seu pacote autônomo usando a fotografia atual e um contrato fixado. A apresentação final integrada depende de análise revisada e evidências humanas reais; essa dependência de conteúdo não é escondida nem impede desenvolver/testar a parte de engenharia.",
+  "bundle_contract": {
+    "version": "1.0",
+    "candidate_root": "outputs/draft/analysis_bundle/<bundle_id>/",
+    "publisher": "analysis",
+    "consumer": "production",
+    "minimum_files": [
+      "manifest.json",
+      "metadata.json",
+      "model_inputs.json",
+      "relatorio_cobertura.md",
+      "tables/entities.csv",
+      "tables/instruments.csv",
+      "tables/sources.csv",
+      "tables/observations.csv",
+      "tables/definitions.csv",
+      "tables/assumptions.csv",
+      "tables/adjustments.csv",
+      "tables/regulatory_terms.csv",
+      "tables/corporate_actions.csv",
+      "tables/financial_reconciliation.csv",
+      "tables/obligation_schedule.csv",
+      "tables/claims.csv",
+      "results/valuation.json",
+      "results/scenarios.json",
+      "results/esg_matrix.json",
+      "results/esg_bridge.json",
+      "results/presentation_facts.json",
+      "results/narrative.json",
+      "results/recommendation.json",
+      "workbooks/base_dados_coletados.xlsx",
+      "workbooks/base_modelo_auditavel.xlsx",
+      "qa/analysis_validation.json",
+      "LEIA_PRIMEIRO.md",
+      "pendencias.csv"
+    ],
+    "manifest_required": [
+      "schema_version",
+      "bundle_id",
+      "kind",
+      "state",
+      "market_asof",
+      "valuation_date",
+      "information_cutoff",
+      "built_at",
+      "files",
+      "external_evidence",
+      "requirement_dispositions",
+      "human_records",
+      "limitations"
+    ],
+    "states": [
+      "analysis_incomplete",
+      "analysis_proposed",
+      "group_adopted"
+    ],
+    "value_required": [
+      "value_id",
+      "entity_id",
+      "instrument_id",
+      "metric_id",
+      "value",
+      "value_state",
+      "unit",
+      "scale",
+      "period_start",
+      "period_end",
+      "observed_at",
+      "scope",
+      "definition_id",
+      "fact_type",
+      "source_refs",
+      "assumption_refs",
+      "calculation_ref"
+    ],
+    "value_states": [
+      "observed",
+      "derived",
+      "assumed",
+      "missing",
+      "not_applicable"
+    ],
+    "valuation_case_required": [
+      "case_id",
+      "entity_id",
+      "instrument_id",
+      "scenario_id",
+      "dimensions",
+      "value_refs",
+      "wacc",
+      "g",
+      "terminal_method",
+      "equity_residual_before_floor",
+      "equity_floor_applied",
+      "paper_value",
+      "target_validity",
+      "assumption_refs",
+      "limitations"
+    ],
+    "target_validity": [
+      "conditional_value",
+      "no_meaningful_target",
+      "unresolved"
+    ],
+    "narrative_slots": [
+      "lead",
+      "sector",
+      "swot",
+      "medium_term",
+      "esg",
+      "bridge",
+      "valuation_method",
+      "valuation_result",
+      "risks",
+      "conclusion"
+    ],
+    "claim_required": [
+      "claim_id",
+      "claim_type",
+      "text_template",
+      "value_refs",
+      "source_refs",
+      "assumption_refs",
+      "calculation_refs",
+      "status",
+      "limitations"
+    ],
+    "publish_rule": "Publicar diretório novo e completo, com arquivos/hashes e estado reais; só depois atualizar ponteiro de versão de forma atômica. O consumidor nunca lê a área de trabalho mutável da análise.",
+    "baseline_rule": "A engenharia adapta os arquivos atuais para este contrato com estado baseline_unreconciled fora da publicação analítica; faltas permanecem desconhecidas e controles correspondentes indisponíveis. Fixtures sintéticas só em QA, nunca no pacote de pesquisa.",
+    "major_version_rule": "Versão major desconhecida é rejeitada; campo adicional compatível não altera significado existente. Mudança material do contrato exige atualizar as duas especificações antes de integrar.",
+    "serialization": "UTF-8; JSON estrito sem NaN/Infinity; CSV com cabeçalho, vírgula e decimal ponto, escape RFC4180. Listas/objetos nas células são JSON. Datas ISO8601; timestamps com fuso. Valor ausente é null no JSON e célula vazia no CSV, sempre acompanhado de value_state; zero só é observação/resultado fundamentado. value é número finito ou null; scale é multiplicador numérico para a unidade declarada; taxas usam fração, scale1 (12,5% = 0.125). Campos textuais de contexto ficam em definições/claims. fact_type distingue fact/assumption/inference/derived. missing/not_applicable exigem null e motivo, nunca número de substituição.",
+    "result_envelope": "Todo results/*.json contém schema_version, bundle_id e value_ids/referências resolvíveis em observations.csv. valuation/scenarios usam cases; esg_matrix usa rows; esg_bridge usa cases; presentation_facts usa views; narrative usa slots; recommendation usa objeto decision. Cada item tem ID único e referências, sem números duplicados em texto livre.",
+    "presentation_views": "Cada view tem view_id, slot, view_type (table/bar/line/matrix/scatter/heatmap/bridge), title, series e claim_refs. Cada série tem series_id, label, points; cada ponto tem point_id, x_value_ref opcional, y_value_ref, case_ref opcional e claim_refs. Labels são texto, métricas/unidades/datas vêm dos value_refs. Grids referenciam cases completos, nunca preços sem validade. Cada ponto também tem label e point_role (ordinary/start/delta/end); no bridge, start/delta/end são declarados pelo produtor, não inferidos somando barras pela interface. case_ref liga cada opção/grade às dimensions do case.",
+    "narrative_rule": "Os dez slots são listas ordenadas de claim_ids; claims contêm text_template com tokens {{value:value_id}} e referências. decision contém status (proposed/adopted/unresolved), entity_id/instrument_id opcionais, rationale_claim_refs, alternative_claim_refs, trigger_claim_refs, human_record_refs. adopted exige registros reais H08/H09.",
+    "evidence_rule": "Cada fonte externa tem source_id, localização original, hash e localizador (página/conta/trecho/data). O manifesto inclui hash/bytes/path de cada arquivo exceto ele próprio; evidência externa deve ser copiada ou ter caminho resolvível com hash e licença/limitação declarada. QA identifica hashes das entradas/resultados excluindo o próprio QA e manifesto; o manifesto inclui o hash do QA. O consumidor registra separadamente o hash do manifesto validado.",
+    "case_rule": "value_refs mapeia os campos numéricos do case a value_ids com valores coincidentes; dimensions é mapa de eixos selecionáveis com IDs/tipos/unidades declarados (cenário, retenção, WACC, g etc.). Todos os pontos de grade são cases completos. paper_value exige número finito >=0 apenas com conditional_value e resíduo positivo; nos outros estados é null, nunca zero de piso. equity_floor_applied é booleano, resíduo bruto pode ser negativo/null; dado desconhecido não permite inferir validade. g pode ser null quando o método finito não o usa, com justificativa. Cada entrada de dimensions é axis_id -> {option_id, label, value_ref}; value_ref pode ser null em opção categórica, e a unidade/tipo numéricos vêm da observação referenciada. scenario_id identifica a alternativa econômica e não substitui case_id único.",
+    "progress_rule": "Cada parte grava part_id, task_id/status, requirement_slices, evidence_paths/hashes, unresolved, human_needed, next_action, updated_at no seu parallel_progress/<part_id>.json. Fechamento global de C compartilhado exige ambas as fatias e evidência humana aplicável.",
+    "manifest_rule": "schema_version é a string 1.0. kind é analysis para pacote real publicado, baseline para adaptação provisória e fixture para teste; os dois últimos são recusados no carregador de pesquisa/release. files é lista de objetos path/bytes/sha256 relativos ao bundle, únicos e sem escape da raiz. external_evidence e human_records são listas com ID/caminho/hash/localizador/data, sem credenciais. requirement_dispositions é lista requirement_id/slice/status/evidence_refs/limitations. Estado group_adopted exige decision.status=adopted e referências reais H08/H09, além de análise elegível. Baseline e fixture só em execução explícita de rascunho/QA. supporting_obs_ids legados e obs_id, se mantidos, referenciam os mesmos IDs de value_id; não geram uma segunda série de valores. Campos que não se aplicam a uma linha ficam vazios com justificativa no registro associado.",
+    "table_core_headers": {
+      "entities.csv": [
+        "entity_id",
+        "legal_name",
+        "cvm_code",
+        "cnpj",
+        "currency",
+        "identity_status"
+      ],
+      "instruments.csv": [
+        "instrument_id",
+        "entity_id",
+        "ticker",
+        "security_class",
+        "currency",
+        "bloomberg_security",
+        "unit_components",
+        "identity_status"
+      ],
+      "sources.csv": [
+        "source_id",
+        "issuer",
+        "title",
+        "url",
+        "local_path",
+        "published_at",
+        "retrieved_at",
+        "sha256",
+        "access_method",
+        "reference_date",
+        "version",
+        "access_status"
+      ],
+      "definitions.csv": [
+        "definition_id",
+        "entity_id",
+        "metric_id",
+        "numerator",
+        "denominator",
+        "unit",
+        "scope",
+        "methodology",
+        "methodology_valid_from",
+        "source_ids",
+        "comparability_status"
+      ],
+      "assumptions.csv": [
+        "assumption_id",
+        "entity_id",
+        "driver",
+        "year",
+        "base",
+        "adverse",
+        "favorable",
+        "unit",
+        "rationale",
+        "supporting_obs_ids",
+        "owner",
+        "reviewer",
+        "approval_status",
+        "source_id",
+        "source_location",
+        "value_refs"
+      ]
+    }
+  },
+  "parts": [
+    {
+      "id": "analysis",
+      "prefix": "AN",
+      "document": "plans/11_plano_agente_analise_dados.md",
+      "title": "Parte1 — dados, conciliação e análise econômica",
+      "required_other_part_outputs_to_start": [],
+      "required_other_part_outputs_for_autonomous_delivery": [],
+      "inputs": [
+        "data/catalog/completion_requirements.json",
+        "data/catalog/cell_issue_mapping.csv",
+        "config/collection.json",
+        "data/processed",
+        "data/interim/acquisitions",
+        "data/interim/pdf_text",
+        "resources/modelos_originais",
+        "outputs/qa/extended_input_audit.csv"
+      ],
+      "exclusive_writes": [
+        "analysis/",
+        "tests/analysis/",
+        "data/raw/analysis/",
+        "data/interim/analysis/",
+        "data/processed/analysis/",
+        "outputs/draft/analysis_bundle/",
+        "outputs/qa/analysis/",
+        "data/catalog/parallel_progress/analysis.json"
+      ],
+      "autonomous_deliverable": "Código analítico reproduzível, pesquisa/entradas conciliadas ou limites fundamentados, proposta econômica com alternativas, duas planilhas, pacote1.0 versionado e relatório de qualidade. Pode encerrar o trabalho autônomo como proposta, sem fingir H08/H09; pesquisa pública material ainda não feita impede declarar esse trabalho concluído.",
+      "tasks": [
+        {
+          "id": "AN01",
+          "title": "Fixar fotografia e entradas",
+          "depends_on": [],
+          "requirements": [
+            "C27"
+          ],
+          "action": "Ler contexto e contrato1.0, verificar originais/fontes/cache e congelar cópia/hash dos insumos usados no namespace da análise; não depender de arquivos canônicos que a integração poderá substituir.",
+          "acceptance": "Inventário de entradas verificável, recortes preservados, nenhuma escrita em cache/original compartilhado e runner local com raízes explícitas."
+        },
+        {
+          "id": "AN02",
+          "title": "Resolver histórico e definições",
+          "depends_on": [
+            "AN01"
+          ],
+          "requirements": [
+            "C02",
+            "C03",
+            "C04",
+            "C05",
+            "C06",
+            "C07",
+            "C08"
+          ],
+          "action": "Tratar as64 células abertas e base efetivamente usada: construção, EBITDA, capex caixa, giro, zeros Sanepar, precatório/recorrência/imposto e doações. Usar notas/contas e registrar disposição por célula.",
+          "acceptance": "Nenhum fato material usado fica sem definição/fonte; diferenças são conciliadas ou retiradas/limitadas com motivo e efeito demonstrados, sem alterar originais."
+        },
+        {
+          "id": "AN03",
+          "title": "Conferir mercado, capital e direitos",
+          "depends_on": [
+            "AN01"
+          ],
+          "requirements": [
+            "C09"
+          ],
+          "action": "Reconciliar cinco referências30/10, capital emitido/tesouraria, eventos, classes/unit, precisão e perímetro. Buscar fontes públicas antes de depender de H01.",
+          "acceptance": "Preço e denominador compatíveis; eventos/ausência de eventos têm busca datada e classes têm alocação justificada, não free float ou preço médio indevido."
+        },
+        {
+          "id": "AN04",
+          "title": "Fechar saldos e obrigações identificadas",
+          "depends_on": [
+            "AN01"
+          ],
+          "requirements": [
+            "C10"
+          ],
+          "action": "Conciliar dívida/caixa, caixa vinculado, leases, PPP, derivativos, outorgas, minoritários e ativos/obrigações não operacionais; preparar cronogramas por natureza e explicar diferenças para o release.",
+          "acceptance": "Saldos e definições rastreáveis, componentes sem duplicação e calendário/evidência disponíveis para o tratamento econômico posterior."
+        },
+        {
+          "id": "AN05",
+          "title": "Completar contratos, ESG e setor",
+          "depends_on": [
+            "AN01"
+          ],
+          "requirements": [
+            "C15",
+            "C16",
+            "C18"
+          ],
+          "action": "Obter regras contratuais materiais/vigências, KPIs dos cinco fatores, metas, resiliência/acesso, SWOT, tecnologia, participantes e eventos; separar anúncio, execução e futuro.",
+          "acceptance": "Afirmações têm definição/período/perímetro e consequência; lacunas são delimitadas sem inventar comparação ou exigir todos os anexos municipais."
+        },
+        {
+          "id": "AN06",
+          "title": "Fundamentar operações e desconto",
+          "depends_on": [
+            "AN02",
+            "AN03",
+            "AN04",
+            "AN05"
+          ],
+          "requirements": [
+            "C13",
+            "C14"
+          ],
+          "action": "Construir trajetória2026–35 e faixas de volume/tarifa/margem, D&A, capex/giro/imposto, macro e custo de capital; separar WACC regulatório, econômico e taxa soberana.",
+          "acceptance": "Cada driver tem base/evidência, escolha e alternativa; não há calibração para atingir cotação desejada nem alíquota extraordinária perpetuada."
+        },
+        {
+          "id": "AN07",
+          "title": "Datar precatório e ponte até avaliação",
+          "depends_on": [
+            "AN04",
+            "AN06"
+          ],
+          "requirements": [
+            "C11",
+            "C12"
+          ],
+          "action": "Modelar descontos/investimentos/atualização/impostos e consumo do precatório, ponte junho→outubro e fluxo remanescente2026; testar calendário e sazonalidade sem fabricar realizado.",
+          "acceptance": "Ajuste incremental/fluxos não duplicam caixa, tarifa, giro ou capex; último balanço e estimativa de outubro não são confundidos."
+        },
+        {
+          "id": "AN08",
+          "title": "Revisar DCF, terminal e ponte ESG",
+          "depends_on": [
+            "AN05",
+            "AN06",
+            "AN07"
+          ],
+          "requirements": [
+            "C15",
+            "C17"
+          ],
+          "action": "Implementar ramo revisado com entradas selecionadas, preservar reprodução legada, tratar reinvestimento/concessões/indenizações e calcular energia→FCFF→PV com custos/retenção e sobreposição explícitos.",
+          "acceptance": "Taxas/fluxos/terminal coerentes, peso do terminal explicado e alavanca ESG apresentada apenas no grau de evidência disponível."
+        },
+        {
+          "id": "AN09",
+          "title": "Propor decisão e conteúdo econômico",
+          "depends_on": [
+            "AN03",
+            "AN05",
+            "AN08"
+          ],
+          "requirements": [
+            "C19",
+            "C20"
+          ],
+          "action": "Preparar empresa/papel, faixa ou condição de entrada, quatro cenários, três riscos/gatilhos com métrica/limite/data/ação, objeção e cinco julgamentos. Exportar claims semânticos e os dez slots narrativos, sem decidir layout.",
+          "acceptance": "Proposta defensável com fontes e alternativas; inferência, hipótese e fato separados; nenhuma aprovação do grupo ou probabilidade inventada."
+        },
+        {
+          "id": "AN10",
+          "title": "Exportar e validar pacote analítico",
+          "depends_on": [
+            "AN09"
+          ],
+          "requirements": [
+            "C21",
+            "C22",
+            "C23"
+          ],
+          "action": "Gerar todos os arquivos mínimos1.0 e duas planilhas; incluir resíduo/validade por cenário e ponto, testar matemática/dados/linhagem e publicar pacote completo com hashes e qualidade.",
+          "acceptance": "Pacote autoconsistente, referências resolvíveis e casos sem alvo tratados; XLSX/Python reconciliados conforme ferramentas disponíveis; o ramo legado continua reproduzível."
+        },
+        {
+          "id": "AN11",
+          "title": "Tratar complementos somente se aplicáveis",
+          "depends_on": [
+            "AN01"
+          ],
+          "requirements": [
+            "C29"
+          ],
+          "action": "Importar dados Bloomberg autorizados se fornecidos/necessários, com campos/unidades/data confirmados; manter substitutos públicos e omitir estudos não selecionados. Se complemento mudar a tese, repetir as etapas afetadas.",
+          "acceptance": "Nenhum consenso, índice, beta, causalidade ou dado verde não adquirido é prometido; dependência opcional não paralisa o núcleo."
+        },
+        {
+          "id": "AN12",
+          "title": "Entregar proposta e incorporar decisões reais",
+          "depends_on": [
+            "AN10",
+            "AN11"
+          ],
+          "requirements": [
+            "C19",
+            "C27"
+          ],
+          "action": "Entregar checklist curto H08/H09 e evidências; atualizar progresso/contexto. Se decisões reais chegarem, recalcular e publicar nova versão1.0 com a deliberação referenciada, preservando a anterior.",
+          "acceptance": "Entrega autônoma utilizável para revisão e integração; ausência humana fica registrada, sem concluir análise pública que ainda não foi executada nem marcar julgamento ausente como aprovado."
+        }
+      ]
+    },
+    {
+      "id": "production",
+      "prefix": "EN",
+      "document": "plans/12_plano_agente_engenharia_entrega.md",
+      "title": "Parte2 — apresentação, engenharia e entrega",
+      "required_other_part_outputs_to_start": [],
+      "required_other_part_outputs_for_autonomous_delivery": [],
+      "inputs": [
+        "data/catalog/completion_requirements.json",
+        "data/catalog/html_slide_plan.json",
+        "config/collection.json",
+        "data/processed",
+        "outputs/draft/apresentacao_esg.pptx",
+        "outputs/draft/apresentacao_esg.pdf",
+        "config/video_segments.json"
+      ],
+      "exclusive_writes": [
+        "production/",
+        "presentation_web/",
+        "tests/production/",
+        "data/interim/production/",
+        "outputs/draft/production/",
+        "outputs/qa/production/",
+        "data/catalog/parallel_progress/production.json",
+        "scripts/run_esg.py",
+        "scripts/presentation.py",
+        "scripts/render_slides.py",
+        "scripts/package_outputs.py",
+        "scripts/assemble_video.py",
+        "scripts/validate.py",
+        "scripts/recalculate_workbook_qa.py",
+        "scripts/execution_status.py",
+        "scripts/sync_project_docs.py",
+        "scripts/validate_completion_docs.py",
+        "config/video_segments_html10.json",
+        "config/production_profile.json"
+      ],
+      "integration_only_writes": [
+        "data/processed/entities.csv",
+        "data/processed/instruments.csv",
+        "data/processed/sources.csv",
+        "data/processed/observations.csv",
+        "data/processed/definitions.csv",
+        "data/processed/assumptions.csv",
+        "data/processed/adjustments.csv",
+        "data/processed/regulatory_terms.csv",
+        "data/processed/corporate_actions.csv",
+        "data/processed/claims.csv",
+        "data/processed/valuation.json",
+        "data/processed/scenarios.json",
+        "data/processed/esg_matrix.json",
+        "data/processed/esg_bridge.json",
+        "data/processed/presentation_facts.json",
+        "outputs/final/",
+        "outputs/draft/html/",
+        "outputs/qa/html/",
+        "data/interim/financial_reconciliation.csv",
+        "data/interim/obligation_schedule.csv",
+        "outputs/qa/relatorio_validacao.md",
+        "outputs/qa/execution_validation.json",
+        "outputs/qa/workbook_recalculation.json",
+        "outputs/qa/package_validation.json",
+        "outputs/qa/rendering.json",
+        "outputs/qa/visual_review.json",
+        "outputs/qa/release_validation.json"
+      ],
+      "autonomous_deliverable": "Sistema completo de ingestão, visualizações, PPTX9/apoio7, HTML10, roteiro por perfil, ferramentas de vídeo, validação e liberação por estágio; demonstrado com baseline real identificado como provisório e fixtures isoladas. A publicação final com conteúdo revisado é uma execução posterior do integrador, sem reescrever código ou esperar a Parte1 para desenvolver/testar o sistema.",
+      "tasks": [
+        {
+          "id": "EN01",
+          "title": "Fixar contrato, baseline e regras",
+          "depends_on": [],
+          "requirements": [
+            "C01",
+            "C27"
+          ],
+          "action": "Verificar ambiente, fontes públicas da competição e contrato1.0; congelar insumos atuais próprios, registrar H07 desconhecido e preparar testes de inputs/humanos ausentes sem pedir nova autorização para cada operação local.",
+          "acceptance": "A parte inicia sem pacote da análise; baseline tem identidade/hash e estado provisório, e regras privadas não recebidas continuam desconhecidas."
+        },
+        {
+          "id": "EN02",
+          "title": "Implementar consumidor e adaptador",
+          "depends_on": [
+            "EN01"
+          ],
+          "requirements": [
+            "C20",
+            "C21"
+          ],
+          "action": "Implementar leitura/validação1.0, adaptador do baseline e fixtures isoladas; resolver unidades, papéis, referências e validade de cada ponto, sem recalcular DCF ou completar lacunas com zero.",
+          "acceptance": "Pacote válido é consumido; versão/arquivo/hash/referência inválidos são rejeitados; dados incompletos só habilitam controles/peças compatíveis com seu estado."
+        },
+        {
+          "id": "EN03",
+          "title": "Criar visões e posicionamento de claims",
+          "depends_on": [
+            "EN02"
+          ],
+          "requirements": [
+            "C20",
+            "C23"
+          ],
+          "action": "Vincular claims/valores aos slots de9 e10 páginas; gerar figuras PNG/SVG/CSV, tabelas e fontes a partir de dados canônicos, com formatação consistente e estado N/D.",
+          "acceptance": "Não há número/empresa/definição literal independente da entrada; matriz/figuras preservam escopo e não criam ranking ou alvo sem suporte."
+        },
+        {
+          "id": "EN04",
+          "title": "Implementar HTML interativo de dez páginas",
+          "depends_on": [
+            "EN03"
+          ],
+          "requirements": [
+            "C28"
+          ],
+          "action": "Implementar o plano10: arquivo único offline, SVG/HTML acessível, navegação/foco/fontes, retenção/cenários/grade disponíveis e impressão de dez páginas, sem publicação de site.",
+          "acceptance": "P01–P10 funcionam por duplo clique, sem rede; S7 foi dividido,560s planejados preservados e controles sem metadados completos ficam indisponíveis."
+        },
+        {
+          "id": "EN05",
+          "title": "Regenerar PPTX9, apoio7 e PDF",
+          "depends_on": [
+            "EN03"
+          ],
+          "requirements": [
+            "C23"
+          ],
+          "action": "Gerar material editável e estático por perfil, com fontes/notas e espaço de câmera; inspecionar todas as páginas e registrar hash/revisão.",
+          "acceptance": "PPTX9/PDF9 e apoio7 continuam distintos de HTML10/PDF10; nenhuma mudança global do teste9 apenas para fazer o novo perfil passar."
+        },
+        {
+          "id": "EN06",
+          "title": "Gerar roteiro, falas e preparação humana",
+          "depends_on": [
+            "EN03"
+          ],
+          "requirements": [
+            "C19",
+            "C20",
+            "C23"
+          ],
+          "action": "Gerar narrativa, falas exatas, teleprompters dos quatro, doze perguntas e guia por perfil; dividir B7.a/B7.b para HTML, usando claims e valores recebidos, sem escolher outra tese por conta da interface.",
+          "acceptance": "Conteúdo coincide com os dados e a proposta/adopção recebida; notas não são fala, tempo é orçamento até ensaio real e nenhum resultado omitido é prometido."
+        },
+        {
+          "id": "EN07",
+          "title": "Preparar e testar montagem de vídeo",
+          "depends_on": [
+            "EN04",
+            "EN05",
+            "EN06"
+          ],
+          "requirements": [
+            "C24"
+          ],
+          "action": "Implementar perfis PDF9/13 segmentos e HTML10/14 segmentos, checagem de clipes e montagem; testar encoder com fixtures explicitamente sintéticas. Montar vídeo real somente se houver clipes fornecidos.",
+          "acceptance": "Sem clipes informa ausência sem vídeo fictício; com clipes mede duração/áudio/formato e entrega rascunho para revisão humana integral, sem aceleração artificial."
+        },
+        {
+          "id": "EN08",
+          "title": "Implementar CLI e empacotamento",
+          "depends_on": [
+            "EN02"
+          ],
+          "requirements": [
+            "C21",
+            "C25"
+          ],
+          "action": "Criar execução com input/output/profile explícitos, empacotamento, índices, hashes e dependências; consumir as planilhas fornecidas pela análise em vez de gerar outro modelo econômico.",
+          "acceptance": "Runner funciona sem importar código da análise; arquivos só são escritos nas raízes autorizadas, com erros acionáveis e nenhuma declaração automática de envio."
+        },
+        {
+          "id": "EN09",
+          "title": "Verificar sistema e todos os formatos",
+          "depends_on": [
+            "EN04",
+            "EN05",
+            "EN06",
+            "EN07",
+            "EN08"
+          ],
+          "requirements": [
+            "C22",
+            "C23",
+            "C28"
+          ],
+          "action": "Testar offline, teclado/foco, impressão10, renderização9/7, todas as seleções e estados, unidades, lineage, ausência e pacotes corrompidos; separar teste de software de validação econômica.",
+          "acceptance": "Sistema demonstrável com baseline/fixtures sem dados futuros da Parte1; relatórios identificam exatamente as entradas e os estados testados."
+        },
+        {
+          "id": "EN10",
+          "title": "Implementar portões e preparar envio",
+          "depends_on": [
+            "EN09"
+          ],
+          "requirements": [
+            "C25",
+            "C26"
+          ],
+          "action": "Substituir recusa final incondicional por portões de dados/análise/visual/vídeo; testar sucesso e recusa com evidências de teste isoladas. Gerar checklist de H07/H13; não enviar ao Safra.",
+          "acceptance": "Coleta factual não exige clipes; vídeo exige participação/revisão reais; resultado de navegação não aprova economia e arquivo existente não comprova envio."
+        },
+        {
+          "id": "EN11",
+          "title": "Integrar versões sem acoplamento de código",
+          "depends_on": [
+            "EN10"
+          ],
+          "requirements": [
+            "C19",
+            "C23",
+            "C24",
+            "C25"
+          ],
+          "action": "Implementar importação de pacote1.0 publicado, validação de hashes/estado, seleção de versão e regeneração dos formatos; provar com fixtures de duas versões que a troca dispensa mudar código. Quando o pacote real e registros humanos chegarem, executar o mesmo fluxo.",
+          "acceptance": "Não lê trabalho mutável da outra parte; pacote parcial não promove final. Ausência de pacote real não impede entregar o integrador e rascunhos honestos com baseline."
+        },
+        {
+          "id": "EN12",
+          "title": "Consolidar progresso e continuidade",
+          "depends_on": [
+            "EN11"
+          ],
+          "requirements": [
+            "C27",
+            "C29"
+          ],
+          "action": "Registrar o próprio pacote técnico, consolidar estados por escopo sob exclusão de escrita, preservar decisões/limitações, atualizar ambos os documentos de contexto e revalidar o fechamento conhecido.",
+          "acceptance": "O sistema e o próximo passo podem ser retomados sem o chat; complementos omitidos não reaparecem na interface e nenhuma condição humana é presumida cumprida."
+        }
+      ]
+    }
+  ],
+  "shared_requirement_slices": {
+    "C19": {
+      "analysis": "Escolha econômica e alternativas propostas; tratamento das decisões reais do grupo.",
+      "production": "Representação fiel da proposta/adoção e aplicação dos portões; não altera a escolha econômica."
+    },
+    "C20": {
+      "analysis": "Claims, fatos, premissas e referências semanticamente corretos.",
+      "production": "Posicionamento em páginas/falas, formatação e cobertura de cada peça."
+    },
+    "C21": {
+      "analysis": "Produzir arquivos e valores1.0, inclusive flags por caso e planilhas.",
+      "production": "Validar/consumir a interface, adaptar baseline e resolver referências sem recalcular economia."
+    },
+    "C22": {
+      "analysis": "Qualidade dos dados, matemática, tratamento econômico e igualdade Excel/Python.",
+      "production": "Ingestão, rastreabilidade nas peças, interface, formatos e integridade de pacotes."
+    },
+    "C23": {
+      "analysis": "Conteúdo econômico e planilhas auditáveis.",
+      "production": "Figuras, PPTX/PDF, HTML, texto falado, apoio e renderização."
+    },
+    "C27": {
+      "analysis": "Progresso/evidência do próprio trabalho e atualização documental serializada.",
+      "production": "Progresso próprio, consolidação por escopo e manutenção dos verificadores sem apagar a outra parte."
+    },
+    "C29": {
+      "analysis": "Obter/importar complementos somente se escolhidos e manter omissões justificadas.",
+      "production": "Não prometer/renderizar estudos omitidos; incorporar opcionais apenas pela mesma interface."
+    }
+  },
+  "shared_control_writes": [
+    "ESTADO_DO_PROJETO.md",
+    "EXECUTION_CONTEXT.md",
+    "AGENTS.md",
+    "data/catalog/completion_requirements.json",
+    "data/catalog/collection_backlog.csv",
+    "data/catalog/manual_export_requests.csv",
+    "data/processed/n_status.csv",
+    "outputs/qa/documentation_validation.json",
+    "outputs/qa/completion_documentation_validation.json",
+    "README.md",
+    "plans/11_plano_agente_analise_dados.md",
+    "plans/12_plano_agente_engenharia_entrega.md",
+    "data/catalog/two_part_execution.json",
+    "scripts/validate_two_part_plans.py",
+    "outputs/qa/two_part_plan_validation.json"
+  ],
+  "shared_control_protocol": "Cada parte escreve seu progresso próprio. Alterações documentais/catálogos globais e sincronização são serializadas por lock exclusivo em data/interim/coordination/documentation.lock, com dono/horário; não apagar lock ativo nem substituir decisões. Dependência de conteúdo não deve virar espera para implementar/testar. A consolidação não marca um C compartilhado concluído enquanto faltar sua outra fatia ou evidência humana aplicável. Todos os efeitos globais dos sincronizadores/geradores e publicações estão abrangidos pela trava, inclusive módulos documentais durante sua edição e chamada. Cada parte mantém snapshots locais dos insumos; uma publicação não altera a entrada em uso pela outra.",
+  "baseline_readonly_scripts": [
+    "scripts/common.py",
+    "scripts/collect_data.py",
+    "scripts/extract_data.py",
+    "scripts/normalize_data.py",
+    "scripts/prepare_analysis.py",
+    "scripts/financial_audit.py",
+    "scripts/sinisa_data.py",
+    "scripts/model.py",
+    "scripts/analysis_outputs.py"
+  ],
+  "integration_gates": [
+    "Pacote1.0 completo, origem/recorte/versão e hashes conferidos",
+    "Estado de análise/pendências compatível com o estágio solicitado",
+    "Revisão econômica e H08/H09 reais quando a mensagem for assumida pelo grupo",
+    "H07 aplicável conhecido para declarar conformidade",
+    "H10/H11/revisão integral reais para vídeo definitivo",
+    "H13 real para marcar enviado; o agente nunca executa o envio nesta autorização"
+  ],
+  "human_policy": {
+    "H01": "Confirmação/acesso/exportação pessoal se a fonte pública não bastar; opcional para o núcleo quando houver alternativa suficiente.",
+    "H02": "Exportação complementar se escolhida; alternativa pública primeiro.",
+    "H03": "Consenso só se adquirido e selecionado; ausência não é bloqueio global.",
+    "H04": "Analistas só se adquiridos e selecionados.",
+    "H05": "ESG complementar; RI/SINISA/reguladores são alternativas.",
+    "H06": "Título complementar; Tesouro identificado é alternativa.",
+    "H07": "Grupo fornece/valida instruções privadas quando ausentes; agente pesquisa público, extrai e verifica documentos fornecidos.",
+    "H08": "Julgamento real do grupo sobre premissas, após proposta fundamentada do agente.",
+    "H09": "Adoção real da recomendação/condições pelo grupo.",
+    "H10": "Dois ensaios reais; agente prepara, mede e incorpora feedback, sem simular participação.",
+    "H11": "Clipes reais dos integrantes; agente organiza e monta depois.",
+    "H12": "Ajuda pontual só se ferramenta/acesso realmente faltar; não é etapa humana obrigatória.",
+    "H13": "Grupo revisa, envia e guarda comprovante; agente apenas prepara/verifica e registra evidência recebida."
+  },
+  "human_performance_only": [
+    "H08",
+    "H09",
+    "H10",
+    "H11",
+    "H13"
+  ],
+  "deliverable_ownership": {
+    "G01": {
+      "producer": "analysis",
+      "publisher": "production"
+    },
+    "G02": {
+      "producer": "analysis",
+      "publisher": "production"
+    },
+    "G03": {
+      "producer": "both_by_slice",
+      "publisher": "production"
+    },
+    "G04": {
+      "producer": "production",
+      "publisher": "production"
+    },
+    "G05": {
+      "producer": "production_with_real_human_inputs",
+      "publisher": "group_for_submission"
+    },
+    "G06": {
+      "producer": "production",
+      "publisher": "production"
+    },
+    "G07": {
+      "producer": "production",
+      "publisher": "production"
+    },
+    "G08": {
+      "producer": "both_separate_reports",
+      "publisher": "production"
+    }
+  }
+}

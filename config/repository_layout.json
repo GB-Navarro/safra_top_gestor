@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "organized_on": "2026-10-31",
+  "directories": [
+    "data/catalog",
+    "data/raw/cvm",
+    "data/raw/bcb",
+    "data/raw/tesouro",
+    "data/raw/ri/sabesp",
+    "data/raw/ri/copasa",
+    "data/raw/ri/sanepar",
+    "data/raw/reguladores",
+    "data/raw/sinisa",
+    "data/raw/bloomberg",
+    "data/raw/b3_manual",
+    "data/raw/orientacoes",
+    "data/interim",
+    "data/processed",
+    "scripts",
+    "tests/fixtures",
+    "outputs/draft",
+    "outputs/draft/coleta",
+    "outputs/final",
+    "outputs/final/coleta",
+    "outputs/qa"
+  ],
+  "moves": [
+    {
+      "from": "resources/TIR_Sabesp.xlsx",
+      "to": "resources/modelos_originais/sabesp/TIR_Sabesp.xlsx"
+    },
+    {
+      "from": "resources/Modelo_TIR_Sabesp.xlsx",
+      "to": "resources/modelos_originais/sabesp/Modelo_TIR_Sabesp.xlsx"
+    },
+    {
+      "from": "resources/Modelo_TIR_Copasa.xlsx",
+      "to": "resources/modelos_originais/copasa/Modelo_TIR_Copasa.xlsx"
+    },
+    {
+      "from": "resources/Modelo_para_TIR_Sanepar.xlsx",
+      "to": "resources/modelos_originais/sanepar/Modelo_para_TIR_Sanepar.xlsx"
+    },
+    {
+      "from": "resources/DFP 2024.pdf",
+      "to": "resources/documentos_financeiros/sabesp/DFP 2024.pdf"
+    },
+    {
+      "from": "resources/Demonstrações Financeiras Anuais 2022.pdf",
+      "to": "resources/documentos_financeiros/sabesp/Demonstrações Financeiras Anuais 2022.pdf"
+    },
+    {
+      "from": "resources/Demonstrações Financeiras Anuais 2025.pdf",
+      "to": "resources/documentos_financeiros/sabesp/Demonstrações Financeiras Anuais 2025.pdf"
+    },
+    {
+      "from": "resources/sugestao_roteiro_rodrigo.txt",
+      "to": "resources/roteiros/sugestao_roteiro_rodrigo.txt"
+    },
+    {
+      "from": "resources/roteiro_de_video_sugestao_rodrigo_link.txt",
+      "to": "resources/roteiros/roteiro_de_video_sugestao_rodrigo_link.txt"
+    }
+  ],
+  "unchanged_roots": [
+    "cartas",
+    "plans"
+  ],
+  "rule": "Mover somente os arquivos listados; preservar nomes, conteudo e hashes."
+}

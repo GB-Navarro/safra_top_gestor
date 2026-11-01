@@ -1,0 +1,26 @@
+n_id,original_purpose,priority,status,input_ids,calculation_id,final_use,omission_reason
+N01,Preco SBSP3,P0,inputs_ready,,,draft,
+N02,Preco CSMG3,P0,inputs_ready,,,draft,
+N03,Preco SAPR11,P0,inputs_ready,,,draft,
+N04,EV BRR,P2,deferred_by_scope,,,omitted,No unsupported figure or causal claim used
+N05,TIR implicita / DCF,P0,revised_dcf_and_implied_wacc_calculated,bundle:an_20261101T083333_e758f3af,sanepar.base;sabesp.base;copasa.base;V.*.implied_wacc.2026-10-30,analysis_proposed,
+N06,Taxa NTN-B,P1,inputs_ready,,,draft,
+N07,WACC regulatorio,P0,regulatory_wacc_documented_market_wacc_proposed,bundle:an_20261101T083333_e758f3af,V.sanepar.wacc_reg_real_after_tax;V.copasa.wacc_reg_real_after_tax;A.sabesp_wacc_reg;A.wacc_nominal,analysis_proposed,
+N08,Perdas,P0,inputs_ready_not_automatic_ranking,,,draft,
+N09,Esgoto,P0,inputs_ready_source_definitions_differ,,,draft,
+N10,Metas e ligacoes,P0,contract_terms_documented_copasa_weighted_average,,,draft,
+N11,Capex,P0,cash_capex_reconciled_plan_proposed,bundle:an_20261101T083333_e758f3af,V.*.capex_cash.*;A.capex_*,analysis_proposed,
+N12,Ponte perdas caixa,P0,regulated_base_value_ratio_and_energy_sensitivity_calculated,bundle:an_20261101T083333_e758f3af,V.*.rab_value_ratio.base;*.energy.r50;*.energy.r100,analysis_proposed,
+N13,Adverso setorial,P0,adverse_scenario_calculated,bundle:an_20261101T083333_e758f3af,*.execution_adverse,analysis_proposed,
+N14,Deficit nacional,P0,inputs_ready,,,draft,
+N15,Consenso,P1,omitted_not_acquired,,,omitted,No unsupported figure or causal claim used
+N16,Financiamento verde,P1,omitted_not_acquired,,,omitted,No unsupported figure or causal claim used
+N17,Indices ESG,P1,omitted_not_acquired,,,omitted,No unsupported figure or causal claim used
+N18,Tarifa social,P0,partial_definitions_and_tariff_compensation,,,draft,
+N19,Participantes e tecnologia,P0,inputs_ready,,,draft,
+N20,Calendario,P0,partial_calendar_coverage,,,draft,
+N21,Theta privatizacao,P2,deferred_by_scope,,,omitted,No unsupported figure or causal claim used
+N22,Beta juros,P2,deferred_by_scope,,,omitted,No unsupported figure or causal claim used
+N23,VPL ligacao,P2,deferred_by_scope,,,omitted,No unsupported figure or causal claim used
+N24,Trajetoria pos privatizacao,P1,omitted_causality_not_measured,,,omitted,No unsupported figure or causal claim used
+N25,Cenarios,P0,four_scenarios_grid_and_triggers_calculated,bundle:an_20261101T083333_e758f3af,*.base;*.rates_up;*.execution_adverse;*.favorable;*.grid.*,analysis_proposed,

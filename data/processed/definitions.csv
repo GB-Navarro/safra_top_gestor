@@ -1,0 +1,206 @@
+definition_id,entity_id,metric_id,numerator,denominator,unit,scope,methodology,methodology_valid_from,source_ids,comparability_status
+DEF.construction_revenue.sabesp,sabesp,construction_revenue,,,BRL,individual,CVM DVA 7.01.03 (Receitas refs. à Construção de Ativos Próprios); sinal original.,,"[""SRC_cvm_dfp_2021_64b8693b""]",source_specific
+DEF.construction_cost.sabesp,sabesp,construction_cost,,,BRL,individual,Custo de construção (despesa positiva); DRE 3.02.02 e nota de custos por natureza.,,"[""SRC_cvm_dfp_2021_64b8693b"",""local_63d5afcacc50""]",source_specific
+DEF.ebit_reported.sabesp,sabesp,ebit_reported,,,BRL,individual,CVM DRE 3.05 (Resultado Antes do Resultado Financeiro e dos Tributos); sinal original.,,"[""SRC_cvm_dfp_2021_64b8693b""]",source_specific
+DEF.da.sabesp,sabesp,da,,,BRL,individual,"CVM DVA 7.04.01 (Depreciação, Amortização e Exaustão); sinal invertido.",,"[""SRC_cvm_dfp_2021_64b8693b""]",source_specific
+DEF.other_operating_net.sabesp,sabesp,other_operating_net,,,BRL,,Outras receitas e despesas operacionais líquidas (excluídas na definição de EBITDA ajustado da Sabesp).,,[],source_specific
+DEF.ebitda_recurring.sabesp,sabesp,ebitda_recurring,,,BRL,individual,"Definição da Sabesp para EBITDA ajustado (confirmada em 2021–22), sem margem de construção e sem ativo financeiro.",,"[""SRC_cvm_dfp_2021_64b8693b""]",source_specific
+DEF.ebitda_recurring_alternative.sabesp,sabesp,ebitda_recurring_alternative,,,BRL,,Alternativa: EBITDA ajustado registrado na planilha original.,,"[""local_87ac99e100be""]",source_specific
+DEF.capex_cash.sabesp,sabesp,capex_cash,,,BRL,individual,Capex caixa (desembolso) para FCFF.,,"[""SRC_cvm_dfp_2021_64b8693b""]",source_specific
+DEF.other_operating_assets.sabesp,sabesp,other_operating_assets,,,BRL,individual,OOA = tributos a recuperar + outras contas a receber + outros ativos circulantes (sem caixa restrito/vinculado),,"[""SRC_cvm_dfp_2021_64b8693b""]",source_specific
+DEF.other_operating_liabilities.sabesp,sabesp,other_operating_liabilities,,,BRL,individual,"OOL = obrigações sociais/trabalhistas + fiscais + filhas operacionais de 'Outros' (serviços a pagar, outras obrigações/contas a pagar, cauções, receitas a apropriar, convênios, contratos de performance)",,"[""SRC_cvm_dfp_2021_64b8693b""]",source_specific
+DEF.other_operating_assets.copasa,copasa,other_operating_assets,,,BRL,consolidated,OOA = tributos a recuperar + outras contas a receber + outros ativos circulantes (sem caixa restrito/vinculado),,"[""SRC_cvm_dfp_2021_64b8693b""]",source_specific
+DEF.other_operating_liabilities.copasa,copasa,other_operating_liabilities,,,BRL,consolidated,"OOL = obrigações sociais/trabalhistas + fiscais + filhas operacionais de 'Outros' (serviços a pagar, outras obrigações/contas a pagar, cauções, receitas a apropriar, convênios, contratos de performance)",,"[""SRC_cvm_dfp_2021_64b8693b""]",source_specific
+DEF.other_operating_assets.sanepar,sanepar,other_operating_assets,,,BRL,individual,OOA = tributos a recuperar + outras contas a receber + outros ativos circulantes (sem caixa restrito/vinculado),,"[""SRC_cvm_dfp_2021_64b8693b""]",source_specific
+DEF.other_operating_liabilities.sanepar,sanepar,other_operating_liabilities,,,BRL,individual,"OOL = obrigações sociais/trabalhistas + fiscais + filhas operacionais de 'Outros' (serviços a pagar, outras obrigações/contas a pagar, cauções, receitas a apropriar, convênios, contratos de performance)",,"[""SRC_cvm_dfp_2021_64b8693b""]",source_specific
+DEF.capex_cash.copasa,copasa,capex_cash,,,BRL,consolidated,Capex caixa Copasa; pagamentos de PPP tratados como serviço de obrigação.,,"[""SRC_cvm_dfp_2021_64b8693b""]",source_specific
+DEF.construction_revenue.sanepar,sanepar,construction_revenue,,,BRL,individual,CVM DVA 7.01.03 (Receitas refs. à Construção de Ativos Próprios); sinal original.,,"[""SRC_cvm_dfp_2021_64b8693b""]",source_specific
+DEF.revenue_reported.sabesp,sabesp,revenue_reported,,,BRL,consolidated,Receita líquida reportada (inclui construção e ativo financeiro).,,"[""SRC_cvm_dfp_2025_cdce6cc0""]",source_specific
+DEF.revenue_recurring.sabesp,sabesp,revenue_recurring,,,BRL,consolidated,"Receita líquida de saneamento ajustada; DF2025 p12 informa ~R$ 22,2 bilhões.",,"[""SRC_cvm_dfp_2025_cdce6cc0"",""local_45586543e35a""]",source_specific
+DEF.revenue_recurring.copasa,copasa,revenue_recurring,,,BRL,consolidated,"Receita de água, esgoto e resíduos sem construção (margem de construção nula).",,"[""SRC_cvm_dfp_2025_cdce6cc0""]",source_specific
+DEF.da.copasa,copasa,da,,,BRL,consolidated,"Depreciação, amortização e exaustão (positivo).",,"[""SRC_cvm_dfp_2025_cdce6cc0""]",source_specific
+DEF.ebitda_recurring.copasa,copasa,ebitda_recurring,,,BRL,consolidated,"Sem itens não recorrentes itemizados em fonte local para 2025; coincide com a planilha (2.953,5).",,"[""SRC_cvm_dfp_2025_cdce6cc0""]",source_specific
+DEF.revenue_recurring.sanepar,sanepar,revenue_recurring,,,BRL,individual,"Receita líquida reportada; construção apresentada líquida (C07). Inclui doações de clientes (R$ 38,6 mi brutos, sem caixa).",,"[""SRC_cvm_dfp_2025_cdce6cc0""]",source_specific
+DEF.da.sanepar,sanepar,da,,,BRL,individual,Depreciação e amortização (positivo).,,"[""SRC_cvm_dfp_2025_cdce6cc0""]",source_specific
+DEF.ebitda_reported.sanepar,sanepar,ebitda_reported,,,BRL,individual,EBITDA reportado 2025.,,"[""SRC_cvm_dfp_2025_cdce6cc0""]",source_specific
+DEF.ebitda_recurring.sanepar,sanepar,ebitda_recurring,,,BRL,individual,"Exclui receita do precatório (−4.303,2), provisão do passivo regulatório/honorários (3.399,7), PDV, PPR, PCLD complementar e provisões contingenciais itemizadas.",,"[""SRC_sanepar_release_2025_5f7297a2""]",source_specific
+DEF.effective_tax_rate.sanepar,sanepar,effective_tax_rate,,,ratio,individual,Alíquota efetiva 2025 afetada pelo precatório e efeitos tributários não recorrentes.,,"[""SRC_cvm_dfp_2025_cdce6cc0""]",source_specific
+DEF.capex_cash.sanepar,sanepar,capex_cash,,,BRL,individual,DFC 6.02.01 aplicação no imobilizado e intangível (positivo).,,"[""SRC_cvm_dfp_2021_64b8693b""]",source_specific
+DEF.operating_working_capital.sabesp,sabesp,operating_working_capital,,,BRL,consolidated,Giro operacional canônico.,,"[""SRC_cvm_dfp_2025_cdce6cc0""]",source_specific
+DEF.wc_to_revenue.sabesp,sabesp,wc_to_revenue,,,ratio,,Razão giro/receita usada para ΔGiro no ramo revisado.,,[],source_specific
+DEF.operating_working_capital.copasa,copasa,operating_working_capital,,,BRL,consolidated,Giro operacional canônico.,,"[""SRC_cvm_dfp_2025_cdce6cc0""]",source_specific
+DEF.wc_to_revenue.copasa,copasa,wc_to_revenue,,,ratio,,Razão giro/receita usada para ΔGiro no ramo revisado.,,[],source_specific
+DEF.operating_working_capital.sanepar,sanepar,operating_working_capital,,,BRL,individual,Giro operacional canônico.,,"[""SRC_cvm_dfp_2025_cdce6cc0""]",source_specific
+DEF.wc_to_revenue.sanepar,sanepar,wc_to_revenue,,,ratio,,Razão giro/receita usada para ΔGiro no ramo revisado.,,[],source_specific
+DEF.close_price.sabesp,sabesp,close_price,,,BRL/share,B3 fechamento,Referência pública de provedor; confirmação Bloomberg/B3 (H01) não obtida.,,"[""SRC_market_public_sbsp3_77a83972""]",source_specific
+DEF.close_price.copasa,copasa,close_price,,,BRL/share,B3 fechamento,Referência pública de provedor; confirmação Bloomberg/B3 (H01) não obtida.,,"[""SRC_market_public_csmg3_65336971""]",source_specific
+DEF.close_price.sanepar,sanepar,close_price,,,BRL/share,B3 fechamento,Referência pública de provedor; confirmação Bloomberg/B3 (H01) não obtida.,,"[""SRC_market_public_sapr3_a1951efd""]",source_specific
+DEF.shares_outstanding.copasa,copasa,shares_outstanding,,,shares,capital integralizado menos tesouraria,"Ações econômicas em circulação; Sabesp inclui 1 PN especial (golden share, sem direito econômico relevante).",,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.shares_common_outstanding.copasa,copasa,shares_common_outstanding,,,shares,,ON em circulação.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.shares_preferred_outstanding.copasa,copasa,shares_preferred_outstanding,,,shares,,PN em circulação.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.shares_outstanding.sabesp,sabesp,shares_outstanding,,,shares,capital integralizado menos tesouraria,"Ações econômicas em circulação; Sabesp inclui 1 PN especial (golden share, sem direito econômico relevante).",,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.shares_common_outstanding.sabesp,sabesp,shares_common_outstanding,,,shares,,ON em circulação.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.shares_preferred_outstanding.sabesp,sabesp,shares_preferred_outstanding,,,shares,,PN em circulação.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.shares_outstanding.sanepar,sanepar,shares_outstanding,,,shares,capital integralizado menos tesouraria,"Ações econômicas em circulação; Sabesp inclui 1 PN especial (golden share, sem direito econômico relevante).",,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.shares_common_outstanding.sanepar,sanepar,shares_common_outstanding,,,shares,,ON em circulação.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.shares_preferred_outstanding.sanepar,sanepar,shares_preferred_outstanding,,,shares,,PN em circulação.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.market_cap.sanepar,sanepar,market_cap,,,BRL,,Capitalização por classe; unit não adiciona ações.,,[],source_specific
+DEF.unit_price_to_market_cap.sanepar,sanepar,unit_price_to_market_cap,,,BRL/unit per BRL million,,Converte valor do patrimônio em valor por unit mantendo a relação de preços entre classes observada no pregão.,,[],source_specific
+DEF.pn_on_price_ratio.sanepar,sanepar,pn_on_price_ratio,,,ratio,,Razão observada; não é regra estatutária de preço.,,[],source_specific
+DEF.market_cap.sabesp,sabesp,market_cap,,,BRL,,Capitalização de mercado.,,[],source_specific
+DEF.market_cap.copasa,copasa,market_cap,,,BRL,,Capitalização de mercado.,,[],source_specific
+DEF.reference_investor_shares.copasa,copasa,reference_investor_shares,,,shares,,Ações alocadas à Gerais Saneamento S.A. (Equatorial) como investidora de referência.,,"[""SRC_copasa_fr_20260611""]",source_specific
+DEF.reference_investor_share_of_capital.copasa,copasa,reference_investor_share_of_capital,,,ratio,,Participação da investidora de referência após a oferta secundária.,,"[""SRC_copasa_fr_20260611"",""SRC_doc_csmg_2t26_1996f20b""]",source_specific
+DEF.gross_financial_debt.sabesp,sabesp,gross_financial_debt,,,BRL,consolidated,"Empréstimos, financiamentos e debêntures (inclui arrendamentos/PPP quando a companhia os classifica aí).",,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.cash_and_investments.sabesp,sabesp,cash_and_investments,,,BRL,consolidated,Caixa e aplicações circulantes; exclui caixa restrito/vinculado e aplicações de longo prazo.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.net_financial_debt.sabesp,sabesp,net_financial_debt,,,BRL,,Dívida líquida financeira de junho/2026 (último balanço publicado antes do corte).,,[],source_specific
+DEF.obligation_ppp.sabesp,sabesp,obligation_ppp,,,BRL,consolidated,Parcela de capital das PPPs (VP contábil); contraprestação de serviço segue no custo.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.obligation_derivatives_liab.sabesp,sabesp,obligation_derivatives_liab,,,BRL,consolidated,Derivativos de proteção da dívida (líquidos de ativos); compõem o custo econômico da dívida.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.obligation_dividends_payable.sabesp,sabesp,obligation_dividends_payable,,,BRL,consolidated,Proventos declarados até junho pertencem a acionistas de datas anteriores (preço de 30/10 ex).,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.obligation_post_employment.sabesp,sabesp,obligation_post_employment,,,BRL,consolidated,Déficit atuarial de benefícios pós-emprego (VP atuarial) não incluído no FCFF.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.obligation_supplier_finance.sabesp,sabesp,obligation_supplier_finance,,,BRL,consolidated,Risco sacado: financiamento de fornecedor.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.obligation_contingencies.sabesp,sabesp,obligation_contingencies,,,BRL,consolidated,Provisões contingenciais (prováveis): só no cenário adverso; base supõe que desembolsos recorrentes estão no EBITDA.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.gross_financial_debt.copasa,copasa,gross_financial_debt,,,BRL,consolidated,"Empréstimos, financiamentos e debêntures (inclui arrendamentos/PPP quando a companhia os classifica aí).",,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.cash_and_investments.copasa,copasa,cash_and_investments,,,BRL,consolidated,Caixa e aplicações circulantes; exclui caixa restrito/vinculado e aplicações de longo prazo.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.net_financial_debt.copasa,copasa,net_financial_debt,,,BRL,,Dívida líquida financeira de junho/2026 (último balanço publicado antes do corte).,,[],source_specific
+DEF.obligation_lease_separate.copasa,copasa,obligation_lease_separate,,,BRL,consolidated,Passivo de arrendamento fora de 'Empréstimos' (valor presente contábil). Pagamentos não estão no EBITDA pós-IFRS16.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.obligation_ppp.copasa,copasa,obligation_ppp,,,BRL,consolidated,Parcela de capital das PPPs (VP contábil); contraprestação de serviço segue no custo.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.obligation_derivatives_liab.copasa,copasa,obligation_derivatives_liab,,,BRL,consolidated,Derivativos de proteção da dívida (líquidos de ativos); compõem o custo econômico da dívida.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.obligation_grantor.copasa,copasa,obligation_grantor,,,BRL,consolidated,Obrigação com poder concedente (VP contábil); valores repassados entram na BRR (release 2T26 p20) — crédito pelo valor regulatório na ponte.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.obligation_dividends_payable.copasa,copasa,obligation_dividends_payable,,,BRL,consolidated,Proventos declarados até junho pertencem a acionistas de datas anteriores (preço de 30/10 ex).,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.obligation_post_employment.copasa,copasa,obligation_post_employment,,,BRL,consolidated,Déficit atuarial de benefícios pós-emprego (VP atuarial) não incluído no FCFF.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.obligation_contingencies.copasa,copasa,obligation_contingencies,,,BRL,consolidated,Provisões contingenciais (prováveis): só no cenário adverso; base supõe que desembolsos recorrentes estão no EBITDA.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.gross_financial_debt.sanepar,sanepar,gross_financial_debt,,,BRL,individual,"Empréstimos, financiamentos e debêntures (inclui arrendamentos/PPP quando a companhia os classifica aí).",,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.cash_and_investments.sanepar,sanepar,cash_and_investments,,,BRL,individual,Caixa e aplicações circulantes; exclui caixa restrito/vinculado e aplicações de longo prazo.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.net_financial_debt.sanepar,sanepar,net_financial_debt,,,BRL,,Dívida líquida financeira de junho/2026 (último balanço publicado antes do corte).,,[],source_specific
+DEF.obligation_derivatives_liab.sanepar,sanepar,obligation_derivatives_liab,,,BRL,individual,Derivativos de proteção da dívida (líquidos de ativos); compõem o custo econômico da dívida.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.obligation_dividends_payable.sanepar,sanepar,obligation_dividends_payable,,,BRL,individual,Proventos declarados até junho pertencem a acionistas de datas anteriores (preço de 30/10 ex).,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.obligation_post_employment.sanepar,sanepar,obligation_post_employment,,,BRL,individual,Déficit atuarial de benefícios pós-emprego (VP atuarial) não incluído no FCFF.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.obligation_regulatory_liability.sanepar,sanepar,obligation_regulatory_liability,,,BRL,individual,Precatório: não deduzido pelo saldo; PV do cronograma AN07.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.obligation_contingencies.sanepar,sanepar,obligation_contingencies,,,BRL,individual,Provisões contingenciais (prováveis): só no cenário adverso; base supõe que desembolsos recorrentes estão no EBITDA.,,"[""SRC_cvm_itr_2026_eaac6b78""]",source_specific
+DEF.ipca_expectation,,ipca_expectation,,,ratio,Brasil; mediana Focus,"Expectativa de mercado (mediana) — fato sobre a pesquisa, não sobre a inflação futura.",,"[""SRC_bcb_focus_ipca_2026_c2499f71""]",source_specific
+DEF.assumption.ipca_after_2030,,assumption.ipca_after_2030,,,ratio,,Premissa do caso revisado; ver assumptions.csv (rationale/alternativas).,,[],source_specific
+DEF.ipca_actual_annual,,ipca_actual_annual,,,ratio,,IPCA realizado no ano.,,"[""SRC_bcb_sgs_433_a47db5ed""]",source_specific
+DEF.real_risk_free,,real_risk_free,,,ratio,"Tesouro IPCA+ 15/05/2035, taxa de compra manhã",Taxa real soberana; não é WACC.,,"[""SRC_tesouro_taxas_84f53c4b""]",source_specific
+DEF.assumption.equity_beta,,assumption.equity_beta,,,ratio,,Premissa do caso revisado; ver assumptions.csv (rationale/alternativas).,,[],source_specific
+DEF.assumption.equity_risk_premium,,assumption.equity_risk_premium,,,ratio,,Premissa do caso revisado; ver assumptions.csv (rationale/alternativas).,,[],source_specific
+DEF.assumption.debt_real_spread_over_ntnb,,assumption.debt_real_spread_over_ntnb,,,ratio,,Premissa do caso revisado; ver assumptions.csv (rationale/alternativas).,,[],source_specific
+DEF.assumption.debt_to_capital,,assumption.debt_to_capital,,,ratio,,Premissa do caso revisado; ver assumptions.csv (rationale/alternativas).,,[],source_specific
+DEF.assumption.wacc_nominal_after_tax,,assumption.wacc_nominal_after_tax,,,ratio,,Premissa do caso revisado; ver assumptions.csv (rationale/alternativas).,,[],source_specific
+DEF.regulatory_wacc_real_after_tax.sanepar,sanepar,regulatory_wacc_real_after_tax,,,ratio,ciclo tarifário vigente (RTP 2025–28),WACC regulatório real líquido de impostos.,,"[""SRC_doc_sapr_itr_d93332d6"",""SRC_doc_sapr_prec_39f99f35""]",source_specific
+DEF.regulatory_wacc_real_after_tax.copasa,copasa,regulatory_wacc_real_after_tax,,,ratio,3ª RTP Arsae-MG (2026–29),"Equivalente pós-impostos ao WACC pré-impostos de 13,70%.",,"[""SRC_doc_csmg_2t26_1996f20b""]",source_specific
+DEF.regulatory_wacc_real_pre_tax.copasa,copasa,regulatory_wacc_real_pre_tax,,,ratio,3ª RTP Arsae-MG (2026–29),WACC pré-impostos (nova metodologia).,,"[""SRC_doc_csmg_2t26_1996f20b""]",source_specific
+DEF.regulatory_wacc_real_after_tax.sabesp,sabesp,regulatory_wacc_real_after_tax,,,ratio,"Contrato URAE-1, 1º ciclo tarifário (até 2029)",Fixo nos reajustes anuais do 1º ciclo; recalculado pela Arsesp na 1ª revisão periódica (2º ciclo).,,"[""SRC_urae1_anexo_viii_2025""]",source_specific
+DEF.regulatory_wacc_real_pre_tax.sabesp,sabesp,regulatory_wacc_real_pre_tax,,,ratio,"Contrato URAE-1, 1º ciclo tarifário (até 2029)",WACC real antes de impostos usado na remuneração do capital.,,"[""SRC_urae1_anexo_viii_2025""]",source_specific
+DEF.assumption.regulatory_wacc_real_after_tax,,assumption.regulatory_wacc_real_after_tax,,,ratio,,Premissa do caso revisado; ver assumptions.csv (rationale/alternativas).,,[],source_specific
+DEF.assumption.regulatory_recognition_lag_years,,assumption.regulatory_recognition_lag_years,,,years,,Premissa do caso revisado; ver assumptions.csv (rationale/alternativas).,,[],source_specific
+DEF.assumption.share_of_regulated_return_captured,,assumption.share_of_regulated_return_captured,,,ratio,,Premissa do caso revisado; ver assumptions.csv (rationale/alternativas).,,[],source_specific
+DEF.assumption.opex_deviation_share_of_revenue,,assumption.opex_deviation_share_of_revenue,,,ratio,,Premissa do caso revisado; ver assumptions.csv (rationale/alternativas).,,[],source_specific
+DEF.capex_cash_to_accrual.sabesp,sabesp,capex_cash_to_accrual,,,ratio,,Converte guidance por competência em caixa.,,"[""local_45586543e35a""]",source_specific
+DEF.assumption.capex_cash,,assumption.capex_cash,,,BRL million,,Premissa do caso revisado; ver assumptions.csv (rationale/alternativas).,,[],source_specific
+DEF.assumption.real_growth_of_regulated_base_after_plan,,assumption.real_growth_of_regulated_base_after_plan,,,ratio,,Premissa do caso revisado; ver assumptions.csv (rationale/alternativas).,,[],source_specific
+DEF.assumption.capex_share_entering_regulated_base,,assumption.capex_share_entering_regulated_base,,,ratio,,Premissa do caso revisado; ver assumptions.csv (rationale/alternativas).,,[],source_specific
+DEF.assumption.income_tax_rate,,assumption.income_tax_rate,,,ratio,,Premissa do caso revisado; ver assumptions.csv (rationale/alternativas).,,[],source_specific
+DEF.assumption.terminal_method,,assumption.terminal_method,,,flag,,Premissa do caso revisado; ver assumptions.csv (rationale/alternativas).,,[],source_specific
+DEF.assumption.indemnity_of_residual_base,,assumption.indemnity_of_residual_base,,,ratio,,Premissa do caso revisado; ver assumptions.csv (rationale/alternativas).,,[],source_specific
+DEF.concession_end_year.sabesp,sabesp,concession_end_year,,,year,,Fim do contrato principal; exceções municipais não modeladas.,,"[""SRC_sabesp_ambiente_regulatorio_ff446d05""]",source_specific
+DEF.concession_end_year.sanepar,sanepar,concession_end_year,,,year,,Fim do contrato principal; exceções municipais não modeladas.,,"[""SRC_doc_sapr_2t26_e40a8cc1""]",source_specific
+DEF.concession_end_year.copasa,copasa,concession_end_year,,,year,,"Horizonte único aproximado: 43 contratos até 07/02/2073 (~37,5% da receita), 10 maiores com vencimentos de 2034 a 2073, 58 municípios com prazo vencido (~5,2% da receita) seguem operados. Não é prazo contratual de um contrato.",,"[""SRC_doc_csmg_2t26_1996f20b""]",source_specific
+DEF.case.wacc.sabesp,sabesp,case.wacc,,,ratio,,Resultado do caso sabesp.base,,[],source_specific
+DEF.case.g.sabesp,sabesp,case.g,,,ratio,,Crescimento nominal terminal = (1+IPCA LP)(1+g real)−1,,[],source_specific
+DEF.case.enterprise_value.sabesp,sabesp,case.enterprise_value,,,BRL,,Resultado do caso sabesp.base,,[],source_specific
+DEF.case.pv_explicit.sabesp,sabesp,case.pv_explicit,,,BRL,,Resultado do caso sabesp.base,,[],source_specific
+DEF.case.pv_terminal.sabesp,sabesp,case.pv_terminal,,,BRL,,Resultado do caso sabesp.base,,[],source_specific
+DEF.case.net_debt_october_estimate.sabesp,sabesp,case.net_debt_october_estimate,,,BRL,,"Dívida líquida de junho rolada pelo FCFF jul–out (estimativa, não observação)",,[],source_specific
+DEF.case.debt_like.sabesp,sabesp,case.debt_like,,,BRL,,Resultado do caso sabesp.base,,[],source_specific
+DEF.case.obligation_pv.sabesp,sabesp,case.obligation_pv,,,BRL,,Resultado do caso sabesp.base,,[],source_specific
+DEF.case.grantor_net.sabesp,sabesp,case.grantor_net,,,BRL,,Resultado do caso sabesp.base,,[],source_specific
+DEF.case.equity_residual.sabesp,sabesp,case.equity_residual,,,BRL,,Resultado do caso sabesp.base,,[],source_specific
+DEF.case.ebitda_2026.sabesp,sabesp,case.ebitda_2026,,,BRL,,Resultado do caso sabesp.base,,[],source_specific
+DEF.case.terminal_share.sabesp,sabesp,case.terminal_share,,,ratio,,Resultado do caso sabesp.base,,[],source_specific
+DEF.case.paper_value.sabesp,sabesp,case.paper_value,,,BRL/share,,Resultado do caso sabesp.base,,[],source_specific
+DEF.case.upside.sabesp,sabesp,case.upside,,,ratio,,Valor condicional/preço − 1,,[],source_specific
+DEF.grid.wacc_option,,grid.wacc_option,,,ratio,,Opção de WACC nominal da grade,,[],source_specific
+DEF.grid.g_real_option,,grid.g_real_option,,,ratio,,Crescimento real da base no terminal,,[],source_specific
+DEF.case.wacc.copasa,copasa,case.wacc,,,ratio,,Resultado do caso copasa.base,,[],source_specific
+DEF.case.g.copasa,copasa,case.g,,,ratio,,Crescimento nominal terminal = (1+IPCA LP)(1+g real)−1,,[],source_specific
+DEF.case.enterprise_value.copasa,copasa,case.enterprise_value,,,BRL,,Resultado do caso copasa.base,,[],source_specific
+DEF.case.pv_explicit.copasa,copasa,case.pv_explicit,,,BRL,,Resultado do caso copasa.base,,[],source_specific
+DEF.case.pv_terminal.copasa,copasa,case.pv_terminal,,,BRL,,Resultado do caso copasa.base,,[],source_specific
+DEF.case.net_debt_october_estimate.copasa,copasa,case.net_debt_october_estimate,,,BRL,,"Dívida líquida de junho rolada pelo FCFF jul–out (estimativa, não observação)",,[],source_specific
+DEF.case.debt_like.copasa,copasa,case.debt_like,,,BRL,,Resultado do caso copasa.base,,[],source_specific
+DEF.case.obligation_pv.copasa,copasa,case.obligation_pv,,,BRL,,Resultado do caso copasa.base,,[],source_specific
+DEF.case.grantor_net.copasa,copasa,case.grantor_net,,,BRL,,Resultado do caso copasa.base,,[],source_specific
+DEF.case.equity_residual.copasa,copasa,case.equity_residual,,,BRL,,Resultado do caso copasa.base,,[],source_specific
+DEF.case.ebitda_2026.copasa,copasa,case.ebitda_2026,,,BRL,,Resultado do caso copasa.base,,[],source_specific
+DEF.case.terminal_share.copasa,copasa,case.terminal_share,,,ratio,,Resultado do caso copasa.base,,[],source_specific
+DEF.case.paper_value.copasa,copasa,case.paper_value,,,BRL/share,,Resultado do caso copasa.base,,[],source_specific
+DEF.case.upside.copasa,copasa,case.upside,,,ratio,,Valor condicional/preço − 1,,[],source_specific
+DEF.case.wacc.sanepar,sanepar,case.wacc,,,ratio,,Resultado do caso sanepar.base,,[],source_specific
+DEF.case.g.sanepar,sanepar,case.g,,,ratio,,Crescimento nominal terminal = (1+IPCA LP)(1+g real)−1,,[],source_specific
+DEF.case.enterprise_value.sanepar,sanepar,case.enterprise_value,,,BRL,,Resultado do caso sanepar.base,,[],source_specific
+DEF.case.pv_explicit.sanepar,sanepar,case.pv_explicit,,,BRL,,Resultado do caso sanepar.base,,[],source_specific
+DEF.case.pv_terminal.sanepar,sanepar,case.pv_terminal,,,BRL,,Resultado do caso sanepar.base,,[],source_specific
+DEF.case.net_debt_october_estimate.sanepar,sanepar,case.net_debt_october_estimate,,,BRL,,"Dívida líquida de junho rolada pelo FCFF jul–out (estimativa, não observação)",,[],source_specific
+DEF.case.debt_like.sanepar,sanepar,case.debt_like,,,BRL,,Resultado do caso sanepar.base,,[],source_specific
+DEF.case.obligation_pv.sanepar,sanepar,case.obligation_pv,,,BRL,,Resultado do caso sanepar.base,,[],source_specific
+DEF.case.grantor_net.sanepar,sanepar,case.grantor_net,,,BRL,,Resultado do caso sanepar.base,,[],source_specific
+DEF.case.equity_residual.sanepar,sanepar,case.equity_residual,,,BRL,,Resultado do caso sanepar.base,,[],source_specific
+DEF.case.ebitda_2026.sanepar,sanepar,case.ebitda_2026,,,BRL,,Resultado do caso sanepar.base,,[],source_specific
+DEF.case.terminal_share.sanepar,sanepar,case.terminal_share,,,ratio,,Resultado do caso sanepar.base,,[],source_specific
+DEF.case.paper_value.sanepar,sanepar,case.paper_value,,,BRL/unit,,Resultado do caso sanepar.base,,[],source_specific
+DEF.case.upside.sanepar,sanepar,case.upside,,,ratio,,Valor condicional/preço − 1,,[],source_specific
+DEF.class_ratio_option.sanepar,sanepar,class_ratio_option,,,ratio,,Alternativa à relação de preços observada; não é regra estatutária.,,[],source_specific
+DEF.ebitda_adjusted_growth_observed.sabesp,sabesp,ebitda_adjusted_growth_observed,,,ratio,,Crescimento observado para teste de calibração.,,"[""SRC_doc_sbsp_2t26_65d19d49""]",source_specific
+DEF.ebitda_growth_model_2026.sabesp,sabesp,ebitda_growth_model_2026,,,ratio,,Crescimento do EBITDA no caso-base.,,[],source_specific
+DEF.ebitda_adjusted_growth_observed.copasa,copasa,ebitda_adjusted_growth_observed,,,ratio,,Crescimento observado para teste de calibração.,,"[""SRC_doc_csmg_2t26_1996f20b""]",source_specific
+DEF.ebitda_growth_model_2026.copasa,copasa,ebitda_growth_model_2026,,,ratio,,Crescimento do EBITDA no caso-base.,,[],source_specific
+DEF.ebitda_adjusted_growth_observed.sanepar,sanepar,ebitda_adjusted_growth_observed,,,ratio,,Crescimento observado para teste de calibração.,,"[""SRC_doc_sapr_2t26_e40a8cc1""]",source_specific
+DEF.ebitda_growth_model_2026.sanepar,sanepar,ebitda_growth_model_2026,,,ratio,,Crescimento do EBITDA no caso-base.,,[],source_specific
+DEF.implied_wacc_nominal.sabesp,sabesp,implied_wacc_nominal,,,ratio,,Retorno nominal da firma implícito no preço sob as demais premissas do caso-base; não é retorno esperado da ação.,,[],source_specific
+DEF.implied_wacc_nominal.copasa,copasa,implied_wacc_nominal,,,ratio,,Retorno nominal da firma implícito no preço sob as demais premissas do caso-base; não é retorno esperado da ação.,,[],source_specific
+DEF.implied_wacc_nominal.sanepar,sanepar,implied_wacc_nominal,,,ratio,,Retorno nominal da firma implícito no preço sob as demais premissas do caso-base; não é retorno esperado da ação.,,[],source_specific
+DEF.regulated_asset_base_official_net.sanepar,sanepar,regulated_asset_base_official_net,,,BRL,Preços de dez/2020,BRR líquida da 3ª RTP; sujeita ao plano de fiscalização (Resolução Agepar 40/2024) e a ajustes compensatórios.,,"[""SRC_agepar_nt_006_2025""]",source_specific
+DEF.regulated_asset_base_official_net_updated.sanepar,sanepar,regulated_asset_base_official_net_updated,,,BRL,,Mesma base de preços do motor (2025).,,"[""SRC_agepar_nt_006_2025"",""SRC_bcb_sgs_433_a47db5ed""]",source_specific
+DEF.regulated_base_implied.sanepar,sanepar,regulated_base_implied,,,BRL,,Base remunerada implícita do motor (caso-base); preços de 2025.,,[],source_specific
+DEF.implied_base_vs_official_brr.sanepar,sanepar,implied_base_vs_official_brr,,,ratio,,Diferença relativa; positiva = base implícita maior.,,[],source_specific
+DEF.national_water_coverage,,national_water_coverage,,,ratio,national_total_population,Observação existente (mesmo ID legado); definição DEF_MANUAL_sector_national_water_coverage_20241231.,,"[""SRC_sinisa_agua_2025_b3a812a4""]",source_specific
+DEF.national_sewer_coverage,,national_sewer_coverage,,,ratio,national_total_population,Observação existente (mesmo ID legado); definição DEF_MANUAL_sector_national_sewer_coverage_20241231.,,"[""SRC_sinisa_esgoto_2025_b3c3c185""]",source_specific
+DEF.national_sewer_treatment_generated,,national_sewer_treatment_generated,,,ratio,national_sewage_volume,Observação existente (mesmo ID legado); definição DEF_MANUAL_sector_national_sewer_treatment_generated_20241231.,,"[""SRC_sinisa_esgoto_2025_b3c3c185""]",source_specific
+DEF.national_collected_sewage_treated,,national_collected_sewage_treated,,,ratio,national_collected_volume,Observação existente (mesmo ID legado); definição DEF_MANUAL_sector_national_collected_sewage_treated_20241231.,,"[""SRC_sinisa_esgoto_2025_b3c3c185""]",source_specific
+DEF.national_distribution_loss_rate,,national_distribution_loss_rate,,,ratio,national_distribution,Observação existente (mesmo ID legado); definição DEF_MANUAL_sector_national_distribution_loss_rate_20241231.,,"[""SRC_sinisa_agua_2025_b3a812a4""]",source_specific
+DEF.loss_per_connection_day.sabesp,sabesp,loss_per_connection_day,,,L_per_connection_day,sabesp_ipgr_annual,Observação existente (mesmo ID legado); definição DEF_MANUAL_sabesp_loss_per_connection_day_20241231.,,"[""SRC_sabesp_sustentabilidade_2024_7e111812""]",source_specific
+DEF.loss_per_connection_day.copasa,copasa,loss_per_connection_day,,,L_per_connection_day,copasa_patossaneamento_ltm,Observação existente (mesmo ID legado); definição DEF_MANUAL_copasa_loss_per_connection_day_20260630.,,"[""SRC_doc_csmg_2t26_1996f20b""]",source_specific
+DEF.distribution_loss_rate.copasa,copasa,distribution_loss_rate,,,ratio,copasa_patossaneamento_ltm,Observação existente (mesmo ID legado); definição DEF_MANUAL_copasa_distribution_loss_rate_20260630.,,"[""SRC_doc_csmg_2t26_1996f20b""]",source_specific
+DEF.sewer_coverage.copasa,copasa,sewer_coverage,,,ratio,copasa_patossaneamento,Observação existente (mesmo ID legado); definição DEF_MANUAL_copasa_sewer_coverage_20260630.,,"[""SRC_doc_csmg_2t26_1996f20b""]",source_specific
+DEF.loss_per_connection_day.sanepar,sanepar,loss_per_connection_day,,,L_per_connection_day,sanepar_sinisa_ltm,Observação existente (mesmo ID legado); definição DEF_MANUAL_sanepar_loss_per_connection_day_20260630.,,"[""SRC_doc_sapr_2t26_e40a8cc1""]",source_specific
+DEF.billing_loss_rate.sanepar,sanepar,billing_loss_rate,,,ratio,sanepar_billing_indicator,Observação existente (mesmo ID legado); definição DEF_MANUAL_sanepar_billing_loss_rate_20260630.,,"[""SRC_doc_sapr_2t26_e40a8cc1""]",source_specific
+DEF.sewer_coverage.sanepar,sanepar,sewer_coverage,,,ratio,sanepar_urban,Observação existente (mesmo ID legado); definição DEF_MANUAL_sanepar_sewer_coverage_20260630.,,"[""SRC_doc_sapr_2t26_e40a8cc1""]",source_specific
+DEF.collected_sewage_treated.sanepar,sanepar,collected_sewage_treated,,,ratio,sanepar_collected_volume,Observação existente (mesmo ID legado); definição DEF_MANUAL_sanepar_collected_sewage_treated_20260630.,,"[""SRC_doc_sapr_2t26_e40a8cc1""]",source_specific
+DEF.default_rate.sanepar,sanepar,default_rate,,,ratio,sanepar_revenue_collection,Observação existente (mesmo ID legado); definição DEF_MANUAL_sanepar_default_rate_20260630.,,"[""SRC_doc_sapr_2t26_e40a8cc1""]",source_specific
+DEF.legal_target_water_access,,legal_target_water_access,,,ratio,,Meta legal nacional (Lei 14.026/2020).,,"[""SRC_marco_legal_9270810f""]",source_specific
+DEF.legal_target_sewer_collection_treatment,,legal_target_sewer_collection_treatment,,,ratio,,Meta legal nacional.,,"[""SRC_marco_legal_9270810f""]",source_specific
+DEF.announced_concession_capex,,announced_concession_capex,,,BRL,,"Compromisso anunciado ('mais de R$ 15 bilhões', 99 municípios, prazo contratual longo); anúncio não é execução.",,"[""SRC_competicao_b978a92a""]",source_specific
+DEF.distribution_loss_reduction.copasa,copasa,distribution_loss_reduction,,,percentage_points,,"Redução do índice de perdas na distribuição: 37,6% (jun/25) → 35,0% (jun/26).",,"[""SRC_doc_csmg_2t26_1996f20b""]",source_specific
+DEF.energy_self_production_contracted.sabesp,sabesp,energy_self_production_contracted,,,MWm,,Autoprodução contratada; economia não quantificada pela empresa.,,"[""local_45586543e35a""]",source_specific
+DEF.revenue_mix_effect_social_tariff.sabesp,sabesp,revenue_mix_effect_social_tariff,,,ratio,,"Efeito mix na receita líquida de saneamento 2025 (economias vulneráveis com tarifa subsidiada de 2,0 mi para 3,2 mi cadastros).",,"[""local_45586543e35a""]",source_specific
+DEF.assumption.energy_expense_reduction,,assumption.energy_expense_reduction,,,ratio,,Premissa do caso revisado; ver assumptions.csv (rationale/alternativas).,,[],source_specific
+DEF.water_electricity_expense_sinisa.sabesp,sabesp,water_electricity_expense_sinisa,,,BRL,municipal reported water service; not consolidated financial statement,Despesa municipal reportada do serviço de água; não é consolidada.,,"[""SRC_sinisa_agua_planilhas_777eb5f8""]",source_specific
+DEF.esg_retention_option,,esg_retention_option,,,ratio,,Parcela do ganho retida (não repassada à tarifa).,,[],source_specific
+DEF.esg_capex_break_even.sabesp,sabesp,esg_capex_break_even,,,BRL,,"Teto de investimento inicial que zera o VPL incremental; sensibilidade, não economia realizada.",,[],source_specific
+DEF.esg_value_per_share_upper_bound.sabesp,sabesp,esg_value_per_share_upper_bound,,,BRL/share,,Valor máximo por ação se o ganho viesse sem investimento (limite superior).,,[],source_specific
+DEF.water_electricity_expense_sinisa.copasa,copasa,water_electricity_expense_sinisa,,,BRL,municipal reported water service; not consolidated financial statement,Despesa municipal reportada do serviço de água; não é consolidada.,,"[""SRC_sinisa_agua_planilhas_777eb5f8""]",source_specific
+DEF.esg_capex_break_even.copasa,copasa,esg_capex_break_even,,,BRL,,"Teto de investimento inicial que zera o VPL incremental; sensibilidade, não economia realizada.",,[],source_specific
+DEF.esg_value_per_share_upper_bound.copasa,copasa,esg_value_per_share_upper_bound,,,BRL/share,,Valor máximo por ação se o ganho viesse sem investimento (limite superior).,,[],source_specific
+DEF.water_electricity_expense_sinisa.sanepar,sanepar,water_electricity_expense_sinisa,,,BRL,municipal reported water service; not consolidated financial statement,Despesa municipal reportada do serviço de água; não é consolidada.,,"[""SRC_sinisa_agua_planilhas_777eb5f8""]",source_specific
+DEF.esg_capex_break_even.sanepar,sanepar,esg_capex_break_even,,,BRL,,"Teto de investimento inicial que zera o VPL incremental; sensibilidade, não economia realizada.",,[],source_specific
+DEF.esg_value_per_share_upper_bound.sanepar,sanepar,esg_value_per_share_upper_bound,,,BRL/share,,Valor máximo por ação se o ganho viesse sem investimento (limite superior).,,[],source_specific
+DEF.value_per_unit_of_regulated_base.sabesp,sabesp,value_per_unit_of_regulated_base,,,BRL_per_BRL,,"Valor criado por R$ investido e remunerado: >1 cria valor, <1 destrói (WACC de mercado acima do regulatório).",,[],source_specific
+DEF.value_per_unit_of_regulated_base.copasa,copasa,value_per_unit_of_regulated_base,,,BRL_per_BRL,,"Valor criado por R$ investido e remunerado: >1 cria valor, <1 destrói (WACC de mercado acima do regulatório).",,[],source_specific
+DEF.value_per_unit_of_regulated_base.sanepar,sanepar,value_per_unit_of_regulated_base,,,BRL_per_BRL,,"Valor criado por R$ investido e remunerado: >1 cria valor, <1 destrói (WACC de mercado acima do regulatório).",,[],source_specific
+DEF.regulatory_obligation_pv.sanepar,sanepar,regulatory_obligation_pv,,,BRL,,"PV em 30/10/2026 do precatório (fluxos futuros + aplicados jul–out capitalizados), caso-base AN07.",,[],source_specific
+DEF.annual_tariff_adjustment.sanepar,sanepar,annual_tariff_adjustment,,,ratio,,Reajuste tarifário anual aplicado a partir de 17/05/2026.,,"[""SRC_doc_sapr_2t26_e40a8cc1""]",source_specific
+DEF.assumption.required_upside_vs_base_value,,assumption.required_upside_vs_base_value,,,ratio,,Premissa do caso revisado; ver assumptions.csv (rationale/alternativas).,,[],source_specific
+DEF.trigger_real_risk_free_threshold,,trigger_real_risk_free_threshold,,,ratio,,NTN-B 2035 em que o WACC proposto alcança o WACC implícito no preço da SAPR11.,,[],source_specific
+DEF.max_entry_price.sanepar,sanepar,max_entry_price,,,BRL/unit,,Condição de entrada proposta (H08).,,[],source_specific
+DEF.bridge_delta.sanepar,sanepar,bridge_delta,,,BRL,,"Delta da ponte: Dívida líquida (out, estimada)",,[],source_specific

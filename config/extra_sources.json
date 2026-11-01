@@ -1,0 +1,143 @@
+[
+  {
+    "key": "sapr_estatuto_20260429",
+    "url": "https://ri.sanepar.com.br/docs/Sanepar-2026-04-29-cFHT77G7.pdf",
+    "directory": "data/raw/ri/sanepar",
+    "extension": "pdf",
+    "issuer": "sanepar",
+    "published_at": "2026-04-29"
+  },
+  {
+    "key": "agepar_precatorio_20260819",
+    "url": "https://www.agepar.pr.gov.br/Noticia/Precatorio-da-Sanepar-Agepar-aprova-prorrogacao-do-prazo-para-inicio-dos-descontos-nas",
+    "directory": "data/raw/reguladores",
+    "extension": "html",
+    "issuer": "Agepar",
+    "published_at": "2026-08-19"
+  },
+  {
+    "key": "sinisa_agua_2025",
+    "url": "https://www.gov.br/cidades/pt-br/acesso-a-informacao/acoes-e-programas/saneamento/sinisa/resultados-sinisa/008_RELATORIO_SINISA_ABASTECIMENTO_AGUA_2025_defeso.pdf",
+    "directory": "data/raw/sinisa",
+    "extension": "pdf",
+    "issuer": "Ministerio das Cidades",
+    "reference_date": "2024-12-31"
+  },
+  {
+    "key": "sinisa_esgoto_2025",
+    "url": "https://www.gov.br/cidades/pt-br/acesso-a-informacao/acoes-e-programas/saneamento/sinisa/resultados-sinisa/009_RELATORIO_SINISA_ESGOTAMENTO_SANITARIO_2025_defeso.pdf",
+    "directory": "data/raw/sinisa",
+    "extension": "pdf",
+    "issuer": "Ministerio das Cidades",
+    "reference_date": "2024-12-31"
+  },
+  {
+    "key": "tesouro_taxas",
+    "url": "https://www.tesourotransparente.gov.br/ckan/dataset/df56aa42-484a-4a59-8184-7676580c81e3/resource/796d2059-14e9-44e3-80c9-2d9e30b405c1/download/precotaxatesourodireto.csv",
+    "directory": "data/raw/tesouro",
+    "extension": "csv",
+    "issuer": "Tesouro Nacional"
+  },
+  {
+    "key": "sinisa_agua_planilhas",
+    "url": "https://www.gov.br/cidades/pt-br/acesso-a-informacao/acoes-e-programas/saneamento/sinisa/resultados-sinisa/SINISA_Resultados_Ref2024.zip",
+    "directory": "data/raw/sinisa",
+    "extension": "zip",
+    "issuer": "Ministerio das Cidades",
+    "reference_date": "2024-12-31"
+  },
+  {
+    "key": "sinisa_esgoto_planilhas",
+    "url": "https://www.gov.br/cidades/pt-br/acesso-a-informacao/acoes-e-programas/saneamento/sinisa/resultados-sinisa/SINISA_ESGOTO_Planilhas_2024.zip",
+    "directory": "data/raw/sinisa",
+    "extension": "zip",
+    "issuer": "Ministerio das Cidades",
+    "reference_date": "2024-12-31"
+  },
+  {
+    "key": "market_public_sbsp3",
+    "url": "https://www.organizesee.com.br/preco-historico/SBSP3",
+    "directory": "data/raw/market_public",
+    "extension": "html",
+    "issuer": "Organizesee",
+    "reference_date": "2026-10-30"
+  },
+  {
+    "key": "market_public_csmg3",
+    "url": "https://www.organizesee.com.br/preco-historico/CSMG3",
+    "directory": "data/raw/market_public",
+    "extension": "html",
+    "issuer": "Organizesee",
+    "reference_date": "2026-10-30"
+  },
+  {
+    "key": "market_public_sapr3",
+    "url": "https://www.organizesee.com.br/preco-historico/SAPR3",
+    "directory": "data/raw/market_public",
+    "extension": "html",
+    "issuer": "Organizesee",
+    "reference_date": "2026-10-30"
+  },
+  {
+    "key": "market_public_sapr4",
+    "url": "https://www.organizesee.com.br/preco-historico/SAPR4",
+    "directory": "data/raw/market_public",
+    "extension": "html",
+    "issuer": "Organizesee",
+    "reference_date": "2026-10-30"
+  },
+  {
+    "key": "market_public_sapr11",
+    "url": "https://www.organizesee.com.br/preco-historico/SAPR11",
+    "directory": "data/raw/market_public",
+    "extension": "html",
+    "issuer": "Organizesee",
+    "reference_date": "2026-10-30"
+  },
+  {
+    "key": "sabesp_sustentabilidade_2024",
+    "url": "https://www.sabesp.com.br/site/toq/x/y/relatorio-sustentabilidade-2024.pdf",
+    "directory": "data/raw/ri/sabesp",
+    "extension": "pdf",
+    "issuer": "sabesp",
+    "reference_date": "2024-12-31"
+  },
+  {
+    "key": "sanepar_release_2025",
+    "url": "https://ri.sanepar.com.br/docs/Sanepar-2025-12-31-jpGbrnb7.pdf",
+    "directory": "data/raw/ri/sanepar",
+    "extension": "pdf",
+    "issuer": "sanepar",
+    "published_at": "2026-02-26"
+  },
+  {
+    "key": "sanepar_plano_capex_2026_2030",
+    "url": "https://ri.sanepar.com.br/docs/Fato-Relevante-Sanepar-2025-12-11-Gg8LBmcH.pdf",
+    "directory": "data/raw/ri/sanepar",
+    "extension": "pdf",
+    "issuer": "sanepar",
+    "published_at": "2025-12-11"
+  },
+  {
+    "key": "sanepar_calendario_2026",
+    "url": "https://ri.sanepar.com.br/docs/Calendario-de-Eventos-Corporativos-Sanepar-2026-12-31-fHrh7CNj.pdf",
+    "directory": "data/raw/ri/sanepar",
+    "extension": "pdf",
+    "issuer": "Sanepar",
+    "note": "2026-12-31 in URL is reference year end, not publication date"
+  },
+  {
+    "key": "sabesp_ambiente_regulatorio",
+    "url": "https://ri.sabesp.com.br/a-companhia/ambiente-regulatorio/",
+    "directory": "data/raw/ri/sabesp",
+    "extension": "html",
+    "issuer": "Sabesp"
+  },
+  {
+    "key": "sabesp_universalizacao",
+    "url": "https://ri.sabesp.com.br/universalizacao/",
+    "directory": "data/raw/ri/sabesp",
+    "extension": "html",
+    "issuer": "Sabesp"
+  }
+]

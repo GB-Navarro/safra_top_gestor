@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "bundle_id": "an_20261101T132455_ac536175",
+  "decision": {
+    "status": "proposed",
+    "entity_id": "sanepar",
+    "instrument_id": "SAPR11",
+    "rationale_claim_refs": [
+      "CL.lead.decision",
+      "CL.lead.thesis",
+      "CL.result.values",
+      "CL.result.implied",
+      "CL.method.precatorio"
+    ],
+    "alternative_claim_refs": [
+      "CL.result.market_view",
+      "CL.risk.scenarios"
+    ],
+    "trigger_claim_refs": [
+      "CL.risk.trigger.regulation",
+      "CL.risk.trigger.execution",
+      "CL.risk.trigger.rates"
+    ],
+    "human_record_refs": [],
+    "rule": {
+      "margin_of_safety_ref": "A.margin_of_safety.base",
+      "description": "Passa quem tem valor-base ≥ preço×(1+margem) e todos os pontos da grade acima do preço."
+    },
+    "screen": {
+      "sabesp": {
+        "base_upside": -0.3544829004698884,
+        "grid_all_above_price": false,
+        "passes": false
+      },
+      "copasa": {
+        "base_upside": -0.5732490690847823,
+        "grid_all_above_price": false,
+        "passes": false
+      },
+      "sanepar": {
+        "base_upside": 0.38804505856819627,
+        "grid_all_above_price": true,
+        "passes": true
+      }
+    },
+    "objection_claim_ref": "CL.risk.objection",
+    "h08_judgments": [
+      {
+        "id": "H08.1",
+        "topic": "Custo de capital",
+        "proposal_ref": "A.wacc_nominal.base",
+        "alternatives": [
+          "A.wacc_nominal.adverse",
+          "A.wacc_nominal.favorable"
+        ]
+      },
+      {
+        "id": "H08.2",
+        "topic": "WACC regulatório Sabesp (contrato fixa 7,86% até 2029; alternativas = 2º ciclo)",
+        "proposal_ref": "A.sabesp_wacc_reg.base",
+        "alternatives": [
+          "A.sabesp_wacc_reg.adverse",
+          "A.sabesp_wacc_reg.favorable"
+        ]
+      },
+      {
+        "id": "H08.3",
+        "topic": "Defasagem/captura da remuneração",
+        "proposal_ref": "A.recognition_lag.base",
+        "alternatives": [
+          "A.recognition_lag.adverse",
+          "A.recognition_share.adverse"
+        ]
+      },
+      {
+        "id": "H08.4",
+        "topic": "Precatório (100%, sem benefício fiscal)",
+        "proposal_ref": "V.sanepar.obligation_pv.base",
+        "alternatives": [
+          "sanepar.favorable",
+          "sanepar.execution_adverse"
+        ]
+      },
+      {
+        "id": "H08.5",
+        "topic": "Terminal (perpetuidade vs fim da concessão)",
+        "proposal_ref": "A.rab_real_growth_after_plan.base",
+        "alternatives": [
+          "sanepar.terminal_finite",
+          "sabesp.terminal_finite",
+          "copasa.terminal_finite"
+        ]
+      }
+    ]
+  }
+}
