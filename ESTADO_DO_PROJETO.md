@@ -14,6 +14,8 @@ Extensão solicitada em 01/11: **HTML interativo de dez páginas**. Implementado
 
 **Revisão visual em01/11:** design de [marcadev.html](resources/design_system/marcadev.html) aplicado ao HTML10, com nome asset.dev, preto/ouro, diagonal25°, fontes Space Grotesk/Inter/JetBrains Mono incorporadas e paleta de dados do manual. [PDF10](outputs/draft/html/apresentacao_esg.pdf) e [PPTX10](outputs/draft/html/apresentacao_esg.pptx) gerados do HTML; o PPTX10 usa páginas renderizadas a3840px, com texto/evidências nas notas. O PPTX9 editável continua separado. Layout aprovado em117 estados interativos, em1920/1366 e tema claro; dez páginas PDF e dez páginas PPTX revisadas visualmente. [Comparação dos formatos](outputs/qa/production/pr_20261101T151834_ac536175/html_pptx_fidelity.json).
 
+**Apresentações no Git:** sete arquivos enviados para `main` em [GB-Navarro/safra_top_gestor](https://github.com/GB-Navarro/safra_top_gestor), no [commit `76ef1f3`](https://github.com/GB-Navarro/safra_top_gestor/commit/76ef1f30ae9811448de152c8502feb22e93ae8e3). Inclui HTML/PDF/PPTX10, PPTX/PDF9 e apoio técnico PPTX/PDF7. Os blobs do commit conferem com os hashes da publicação; [índice das versões](data/catalog/presentations_git_manifest.json). São os mesmos rascunhos, com os portões humanos mantidos.
+
 ## Estado real
 
 **Parte 1 (dados e análise) e Parte 2 (apresentação e engenharia) executadas em 01/11/2026. As peças são rascunhos canônicos de uma proposta: decisões humanas (H08/H09), instruções privadas (H07), ensaios, clipes, vídeo e envio continuam pendentes. O projeto inteiro não está concluído.**
@@ -148,7 +150,7 @@ Evidências: [relatório técnico](outputs/qa/relatorio_validacao.md), [recálcu
 | A08 — slides e falas | HTML10/PDF10 e PPTX10 renderizado com o design do manual; PPTX9/apoio7 e falas preservados como perfis separados | Ajustar falas com os tempos reais dos ensaios (H10); versão definitiva após H08/H09. |
 | A09 — validação | QA visual/técnica16/16 e validação integral39+50+13 aprovadas;16 originais conferidos; revisão semântica anterior preservada | Revalidar a cada nova versão; premissas econômicas seguem sem certificação por testes. |
 | A10 — ensaio/vídeo | Perfis 13/14 segmentos e montador testados com fixture sintética | Receber dois ensaios e clipes reais; montar (`production.video.assemble`), medir e o grupo revisar o vídeo inteiro. |
-| A11 — pacote final | Rascunhos canônicos publicados; portões e promoção implementados e testados | Portões liberarem com H08/H09, H07, H10, H11 e revisão integral; então `--mode final` promove; grupo envia (H13) e guarda comprovante. |
+| A11 — pacote final | Rascunhos canônicos publicados; sete apresentações enviadas ao Git; portões mantidos | Portões liberarem com H08/H09, H07, H10, H11 e revisão integral; então `--mode final` promove; grupo envia (H13) e guarda comprovante. |
 
 O `--mode final` avalia os portões de liberação. Hoje recusa com motivos, porque H08/H09 não estão registrados. Ele só copia para outputs/final com evidência real e nunca envia nada.
 
@@ -290,3 +292,5 @@ Nenhum passo do agente envia nada. Respeitar a trava para alterações globais.
 - **01/11/2026 — revalidação da revisão visual:** áudio novamente disponível com o hash original; publicação `pub_20261101T153001` do mesmo build, com39+50+13 testes aprovados e16 originais conferidos. A falha da primeira tentativa foi resolvida sem dispensa de teste ou alteração de inventário.
 
 - **01/11/2026 — remoção solicitada do áudio:** pasta resources/audio excluída; inventário, catálogos, mapa, teste e gerador de status ajustados para os15 originais ativos. Testes desta tarefa: 102, status passed. Slides e pacotes versionados preservados.
+
+- **01/11/2026 — apresentações no Git:** sete arquivos publicados em `origin/main`, commit `76ef1f3`. Exceções específicas no .gitignore e atributo -text preservam o HTML byte a byte; índice com hashes registrado. Nenhuma regeneração, atualização financeira ou envio à competição nesta tarefa. Verificações desta tarefa: hashes dos sete blobs, referência remota e documentação; testes de análise/layout são de execuções anteriores.

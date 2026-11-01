@@ -42,5 +42,13 @@
     }
   ],
   "scope": "Sete apresentações canônicas publicadas; rascunhos de proposta, sem nova avaliação financeira ou envio à competição.",
-  "pptx_html10": "Dez páginas renderizadas em alta resolução, com texto nas notas; o PPTX9 editável está separado."
+  "pptx_html10": "Dez páginas renderizadas em alta resolução, com texto nas notas; o PPTX9 editável está separado.",
+  "git_delivery": {
+    "repository": "https://github.com/GB-Navarro/safra_top_gestor",
+    "remote": "origin",
+    "branch": "main",
+    "presentations_commit": "76ef1f30ae9811448de152c8502feb22e93ae8e3",
+    "verified_at": "2026-11-01T17:06:15-03:00",
+    "blob_hashes_match": true
+  }
 }
